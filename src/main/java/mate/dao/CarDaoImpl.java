@@ -19,7 +19,7 @@ import mate.util.ConnectionUtil;
 @Dao
 public class CarDaoImpl implements CarDao {
     private static final int ZERO_PLACEHOLDER = 0;
-    private static final int SHIFT = 2;
+    private static final int PARAMETER_SHIFT = 2;
 
     @Override
     public Car create(Car car) {
@@ -172,8 +172,8 @@ public class CarDaoImpl implements CarDao {
                         connection.prepareStatement(insertQuery)) {
             for (int i = 0; i < drivers.size(); i++) {
                 Driver driver = drivers.get(i);
-                preparedStatement.setLong((i * SHIFT) + 1, carId);
-                preparedStatement.setLong((i * SHIFT) + 2, driver.getId());
+                preparedStatement.setLong((i * PARAMETER_SHIFT) + 1, carId);
+                preparedStatement.setLong((i * PARAMETER_SHIFT) + 2, driver.getId());
             }
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
@@ -195,7 +195,7 @@ public class CarDaoImpl implements CarDao {
             preparedStatement.setLong(1, carId);
             for (int i = 0; i < size; i++) {
                 Driver driver = exceptions.get(i);
-                preparedStatement.setLong((i) + SHIFT, driver.getId());
+                preparedStatement.setLong((i) + PARAMETER_SHIFT, driver.getId());
             }
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
