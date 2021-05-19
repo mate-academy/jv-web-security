@@ -1,10 +1,12 @@
-package mate.service;
+package mate.service.impl;
 
 import java.util.List;
 import mate.dao.DriverDao;
+import mate.exception.DataProcessingException;
 import mate.lib.Inject;
 import mate.lib.Service;
 import mate.model.Driver;
+import mate.service.DriverService;
 
 @Service
 public class DriverServiceImpl implements DriverService {
@@ -34,5 +36,12 @@ public class DriverServiceImpl implements DriverService {
     @Override
     public boolean delete(Long id) {
         return driverDao.delete(id);
+    }
+
+    @Override
+    public Driver findByLogin(String login) {
+        return driverDao.findByLogin(login)
+                .orElseThrow(() -> new DataProcessingException("Can't find driver with login - "
+                        + login));
     }
 }
