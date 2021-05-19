@@ -126,7 +126,7 @@
 
     <servlet>
         <servlet-name>allDriverCars</servlet-name>
-        <servlet-class>mate.controller.driver.GetMyCurrentCarsController</servlet-class>
+        <servlet-class>mate.controller.car.GetMyCurrentCarsController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>allDriverCars</servlet-name>
