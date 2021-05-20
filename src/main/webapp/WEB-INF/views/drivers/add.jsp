@@ -27,7 +27,7 @@
         </td>
         <td>
             <label>
-                <input type="text" name="licence_number" form="driver" required>
+                <input type="text" name="license_number" form="driver" required>
             </label>
         </td>
         <td>
@@ -37,12 +37,12 @@
         </td>
         <td>
             <label>
-                <input type="password" name="password" form="driver" required>
+                <input type="password" name="password" form="driver" placeholder="${errorMsg}" required>
             </label>
         </td>
         <td>
             <label>
-                <input type="password" name="repeat_password" form="driver" required>
+                <input type="password" name="repeat_password" form="driver" placeholder="${errorMsg}" required>
             </label>
         </td>
         <td>
