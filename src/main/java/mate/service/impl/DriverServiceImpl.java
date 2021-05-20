@@ -1,8 +1,8 @@
 package mate.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 import mate.dao.DriverDao;
-import mate.exception.DataProcessingException;
 import mate.lib.Inject;
 import mate.lib.Service;
 import mate.model.Driver;
@@ -39,9 +39,7 @@ public class DriverServiceImpl implements DriverService {
     }
 
     @Override
-    public Driver findByLogin(String login) {
-        return driverDao.findByLogin(login)
-                .orElseThrow(() -> new DataProcessingException("Can't find driver with login - "
-                        + login));
+    public Optional<Driver> findByLogin(String login) {
+        return driverDao.findByLogin(login);
     }
 }
