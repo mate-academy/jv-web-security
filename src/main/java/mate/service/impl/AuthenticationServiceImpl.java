@@ -1,7 +1,6 @@
 package mate.service.impl;
 
 import java.util.Optional;
-import mate.dao.DriverDao;
 import mate.exception.AuthenticationException;
 import mate.lib.Inject;
 import mate.lib.Service;
