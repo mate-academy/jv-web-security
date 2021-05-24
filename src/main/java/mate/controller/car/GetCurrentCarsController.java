@@ -9,7 +9,8 @@ import javax.servlet.http.HttpSession;
 import mate.lib.Injector;
 import mate.service.CarService;
 
-public class GetMyCurrentCarsController extends HttpServlet {
+public class GetCurrentCarsController extends HttpServlet {
+    private static final String DRIVER_ID = "driver_id";
     private static final Injector injector = Injector.getInstance("mate");
     private final CarService carService = (CarService) injector.getInstance(CarService.class);
 
@@ -18,7 +19,7 @@ public class GetMyCurrentCarsController extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = req.getSession();
         req.setAttribute("cars",
-                carService.getAllByDriver((Long) session.getAttribute("user_id")));
+                carService.getAllByDriver((Long) session.getAttribute(DRIVER_ID)));
         req.getRequestDispatcher("/WEB-INF/views/cars/all.jsp").forward(req, resp);
     }
 }

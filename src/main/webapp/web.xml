@@ -126,11 +126,11 @@
 
     <servlet>
         <servlet-name>allDriverCars</servlet-name>
-        <servlet-class>mate.controller.car.GetMyCurrentCarsController</servlet-class>
+        <servlet-class>mate.controller.car.GetCurrentCarsController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>allDriverCars</servlet-name>
-        <url-pattern>/cars/my_cars</url-pattern>
+        <url-pattern>/cars/my</url-pattern>
     </servlet-mapping>
 
     <filter>
