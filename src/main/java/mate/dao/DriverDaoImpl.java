@@ -113,7 +113,10 @@ public class DriverDaoImpl implements DriverDao {
                 PreparedStatement findByLoginStatement = connection.prepareStatement(query)) {
             findByLoginStatement.setString(1, login);
             ResultSet resultSet = findByLoginStatement.executeQuery();
-            Driver driver = getDriver(resultSet);
+            Driver driver = null;
+            if (resultSet.next()) {
+                driver = getDriver(resultSet);
+            }
             return Optional.ofNullable(driver);
         } catch (SQLException throwable) {
             throw new DataProcessingException("Couldn't find driver by input login: "
