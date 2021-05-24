@@ -20,6 +20,8 @@
     <tr><td><a href="${pageContext.request.contextPath}/cars/add">Create new Car</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/manufacturers/add">Create new Manufacturer</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/cars/drivers/add">Add Driver to Car</a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/cars/all">Display all my cars</a></td></tr>
 </table>
+<%@include file="header.jsp"%>>
 </body>
 </html>
