@@ -5,11 +5,11 @@
 </style>
 <html>
 <head>
-    <title>All cars</title>
+    <title>My current cars</title>
 </head>
 <body>
-<%@include file="../header.jsp" %>
-<h1 class="table_dark">All cars:</h1>
+<%@include file="../../header.jsp" %>
+<h1 class="table_dark">My current cars:</h1>
 <table border="1" class="table_dark">
     <tr>
         <th>ID</th>
@@ -19,7 +19,7 @@
         <th>Drivers</th>
         <th>Delete</th>
     </tr>
-    <c:forEach var="car" items="${cars}">
+    <c:forEach var="car" items="${cars_by_driver}">
         <tr>
             <td>
                 <c:out value="${car.id}"/>
