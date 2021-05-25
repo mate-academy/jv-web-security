@@ -30,7 +30,7 @@ public class AuthenticationFilter implements Filter {
         HttpServletRequest httpRequest = (HttpServletRequest) servletRequest;
         HttpServletResponse httpResponse = (HttpServletResponse) servletResponse;
         Long userId = (Long) httpRequest.getSession().getAttribute(DRIVER_ID);
-        if (userId == null && permittedUrls.contains(httpRequest.getServletPath())) {
+        if (permittedUrls.contains(httpRequest.getServletPath())) {
             filterChain.doFilter(httpRequest, httpResponse);
             return;
         }
