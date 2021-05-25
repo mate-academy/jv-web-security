@@ -34,7 +34,7 @@ public class AuthenticationFilter implements Filter {
         HttpSession session = httpRequest.getSession();
 
         Long driverId = (Long) session.getAttribute(DRIVER_ID);
-        if (driverId == null && allowedUrls.contains(httpRequest.getServletPath())) {
+        if (allowedUrls.contains(httpRequest.getServletPath())) {
             filterChain.doFilter(httpRequest, httpResponse);
             return;
         }
