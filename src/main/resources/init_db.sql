@@ -1,4 +1,4 @@
-SET NAMES utf8mb4;
+CREATE DATABASE `vehicle_fleet_db` /*!40100 DEFAULT CHARACTER SET utf8 */ /*!80016 DEFAULT ENCRYPTION='N' */;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
@@ -9,6 +9,8 @@ CREATE TABLE `drivers`  (
                             `id` bigint(0) UNSIGNED NOT NULL AUTO_INCREMENT,
                             `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
                             `license_number` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                            `login` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
+                            `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
                             `deleted` bit(1) NOT NULL DEFAULT b'0',
                             PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;

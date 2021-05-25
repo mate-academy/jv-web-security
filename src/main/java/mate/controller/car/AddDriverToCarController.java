@@ -12,22 +12,22 @@ import mate.service.CarService;
 import mate.service.DriverService;
 
 public class AddDriverToCarController extends HttpServlet {
+    private static final String DRIVER_ID_PARAMETER = "driver_id";
     private static final Injector injector = Injector.getInstance("mate");
-    private final CarService carService = (CarService) injector
-            .getInstance(CarService.class);
-    private final DriverService driverService = (DriverService) injector
-            .getInstance(DriverService.class);
+    private final CarService carService = (CarService) injector.getInstance(CarService.class);
+    private final DriverService driverService =
+                                    (DriverService) injector.getInstance(DriverService.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
+                                    throws ServletException, IOException {
         req.getRequestDispatcher("/WEB-INF/views/cars/drivers/add.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws IOException, ServletException {
-        long driverId = Long.parseLong(req.getParameter("driver_id"));
+                                    throws IOException, ServletException {
+        long driverId = Long.parseLong(req.getParameter(DRIVER_ID_PARAMETER));
         long carId = Long.parseLong(req.getParameter("car_id"));
         Driver driver = driverService.get(driverId);
         Car car = carService.get(carId);

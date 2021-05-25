@@ -14,21 +14,25 @@
         <th>ID</th>
         <th>Name</th>
         <th>License number</th>
+        <th>Login</th>
         <th>Delete</th>
     </tr>
     <c:forEach var="driver" items="${drivers}">
         <tr>
             <td>
-                <c:out value="${driver.id}"/>
+                <c:out value="${driver.getId()}"/>
             </td>
             <td>
-                <c:out value="${driver.name}"/>
+                <c:out value="${driver.getName()}"/>
             </td>
             <td>
-                <c:out value="${driver.licenceNumber}"/>
+                <c:out value="${driver.getLicenseNumber()}"/>
             </td>
             <td>
-                <a href="${pageContext.request.contextPath}/drivers/delete?id=${driver.id}">DELETE</a>
+                <c:out value="${driver.getLogin()}"/>
+            </td>
+            <td>
+                <a href="${pageContext.request.contextPath}/drivers/delete?id=${driver.getId()}">DELETE</a>
             </td>
         </tr>
     </c:forEach>
