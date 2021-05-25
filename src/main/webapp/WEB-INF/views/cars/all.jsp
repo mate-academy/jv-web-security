@@ -32,11 +32,11 @@
             <td>
                 <c:out value="${car.manufacturer.country}"/>
             </td>
-            <td>
-                <c:forEach var="driver" items="${car.drivers}">
-                    ${driver.id} ${driver.name} ${driver.licenceNumber} <br>
-                </c:forEach>
-            </td>
+            <c:forEach items="${car.getDrivers()}" var="driver">
+                <td><c:out value="${driver.id}"></c:out></td>
+                <td><c:out value="${driver.name}"></c:out></td>
+                <td><c:out value="${driver.licenseNumber}"></c:out></td>
+            </c:forEach>
             <td>
                 <a href="${pageContext.request.contextPath}/cars/delete?id=${car.id}">DELETE</a>
             </td>
