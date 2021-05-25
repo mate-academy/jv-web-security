@@ -29,6 +29,6 @@ public class AddDriverController extends HttpServlet {
         driver.setLogin(req.getParameter("login"));
         driver.setPassword(req.getParameter("password"));
         driverService.create(driver);
-        resp.sendRedirect("/login");
+        resp.sendRedirect("/drivers/");
     }
 }
