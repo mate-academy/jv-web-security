@@ -17,6 +17,7 @@ import javax.servlet.http.HttpSession;
 @WebFilter(urlPatterns = "/*")
 public class AuthenticationFilter implements Filter {
     private static Set<String> allowedUrls = new HashSet<>();
+    private static final String DRIVER_ID = "driver_id";
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -32,7 +33,7 @@ public class AuthenticationFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         HttpSession session = request.getSession();
 
-        Long driverId = (Long) session.getAttribute("driver_id");
+        Long driverId = (Long) session.getAttribute(DRIVER_ID);
         if (driverId == null && allowedUrls.contains(request.getServletPath())) {
             filterChain.doFilter(request, response);
             return;
