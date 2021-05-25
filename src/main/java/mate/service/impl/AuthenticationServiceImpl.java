@@ -9,7 +9,7 @@ import mate.service.AuthenticationService;
 import mate.service.DriverService;
 
 @Service
-public class AuthenticationImpl implements AuthenticationService {
+public class AuthenticationServiceImpl implements AuthenticationService {
     private static final Injector injector = Injector.getInstance("mate");
     private final DriverService driverService = (DriverService) injector
             .getInstance(DriverService.class);
