@@ -5,7 +5,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import mate.lib.Injector;
 import mate.lib.exception.AuthenticationException;
 import mate.model.Driver;
@@ -28,8 +27,7 @@ public class LoginController extends HttpServlet {
         try {
             Driver driver = authService.login(req.getParameter("login"),
                     req.getParameter("password"));
-            HttpSession session = req.getSession();
-            session.setAttribute("driver_id", driver.getId());
+            req.getSession().setAttribute("driver_id", driver.getId());
             resp.sendRedirect("/index");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMsg", e.getMessage());
