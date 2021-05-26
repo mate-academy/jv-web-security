@@ -6,7 +6,7 @@
     <title>Login</title>
 </head>
     <h1 class="table_dark">Login page</h1>
-    <form method="post" id="logins" action="${pageContext.request.contextPath}/drivers/login">
+    <form method="post" id="logins" action="${pageContext.request.contextPath}/login">
         <table border="1" class="table_dark">
             <tr>
                 <th>Login</th>

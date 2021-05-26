@@ -5,11 +5,11 @@
 </style>
 <html>
 <head>
-    <title>All drivers</title>
+    <title>Register driver</title>
 </head>
 <body>
 <form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/register"></form>
-<h1 class="table_dark">Add driver:</h1>
+<h1 class="table_dark">Register driver</h1>
 <table border="1" class="table_dark">
     <tr>
         <th>Name</th>
