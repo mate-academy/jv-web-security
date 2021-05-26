@@ -15,7 +15,7 @@
             </tr>
             <tr>
                 <td><input type="text" name="login" form="logins" required></td>
-                <td><input type="text" name="password" form="logins" required></td>
+                <td><input type="password" name="password" form="logins" required></td>
                 <td><button type="submit">Sing in</button></td>
             </tr>
             <tr>
