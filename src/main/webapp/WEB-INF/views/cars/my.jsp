@@ -5,18 +5,16 @@
 </style>
 <html>
 <head>
-    <title>All cars</title>
+    <title>My cars</title>
 </head>
 <body>
-<h1 class="table_dark">All cars:</h1>
+<h1 class="table_dark">My cars:</h1>
 <table border="1" class="table_dark">
     <tr>
         <th>ID</th>
         <th>Model</th>
         <th>Manufacturer name</th>
         <th>Manufacturer country</th>
-        <th>Drivers</th>
-        <th>Delete</th>
     </tr>
     <c:forEach var="car" items="${cars}">
         <tr>
@@ -31,11 +29,6 @@
             </td>
             <td>
                 <c:out value="${car.manufacturer.country}"/>
-            </td>
-            <td>
-                <c:forEach var="driver" items="${car.drivers}">
-                    ${driver.id} ${driver.name} ${driver.licenseNumber} <br>
-                </c:forEach>
             </td>
             <td>
                 <a href="${pageContext.request.contextPath}/cars/delete?id=${car.id}">DELETE</a>
