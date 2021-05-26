@@ -40,6 +40,10 @@ public class Driver {
         return licenseNumber;
     }
 
+    public void setLicenseNumber(String licenseNumber) {
+        this.licenseNumber = licenseNumber;
+    }
+
     public String getLogin() {
         return login;
     }
@@ -50,6 +54,10 @@ public class Driver {
 
     public String getPassword() {
         return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
