@@ -4,6 +4,6 @@
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
     <session-config>
-        <session-timeout>120</session-timeout>
+        <session-timeout>60</session-timeout>
     </session-config>
 </web-app>
