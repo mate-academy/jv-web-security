@@ -13,10 +13,10 @@ import mate.service.AuthenticationService;
 
 @WebServlet(urlPatterns = "/login")
 public class LoginController extends HttpServlet {
+    private static final String DRIVER_ID = "driver_id";
     private static final Injector injector = Injector.getInstance("mate");
     private static final AuthenticationService authenticationService = (AuthenticationService)
             injector.getInstance(AuthenticationService.class);
-    private static final String DRIVER_ID = "driver_id";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
