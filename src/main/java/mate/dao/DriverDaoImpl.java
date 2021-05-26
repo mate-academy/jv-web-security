@@ -107,8 +107,8 @@ public class DriverDaoImpl implements DriverDao {
 
     @Override
     public Optional<Driver> findByLogin(String login) {
-        String findByLoginQuery = "SELECT * FROM drivers WHERE login ="
-                + " ? AND deleted = FALSE;";
+        String findByLoginQuery = "SELECT * FROM drivers WHERE login = ?"
+                + " AND deleted = FALSE;";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement findByLoginStatement =
                         connection.prepareStatement(findByLoginQuery)) {
