@@ -89,7 +89,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>getMyCurrentCars</servlet-name>
-        <url-pattern>/cars/my-cars</url-pattern>
+        <url-pattern>/cars/my</url-pattern>
     </servlet-mapping>
 
     <servlet>

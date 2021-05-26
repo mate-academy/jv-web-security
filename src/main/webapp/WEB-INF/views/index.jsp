@@ -36,7 +36,7 @@
                 <td><a href="${pageContext.request.contextPath}/cars/drivers/add">Add Driver to Car</a></td>
             </tr>
             <tr>
-                <td><a href="${pageContext.request.contextPath}/cars/my-cars">My current cars</a></td>
+                <td><a href="${pageContext.request.contextPath}/cars/my">My current cars</a></td>
             </tr>
         </table>
     </body>
