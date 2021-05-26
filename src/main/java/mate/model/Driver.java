@@ -61,22 +61,22 @@ public class Driver {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) {
+    public boolean equals(Object object) {
+        if (this == object) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (object == null || getClass() != object.getClass()) {
             return false;
         }
-        Driver driver = (Driver) o;
-        return Objects.equals(id, driver.id)
-                && Objects.equals(name, driver.name)
-                && Objects.equals(licenseNumber, driver.licenseNumber);
+        Driver driver = (Driver) object;
+        return Objects.equals(id, driver.id) && Objects.equals(name, driver.name)
+                && Objects.equals(licenseNumber, driver.licenseNumber)
+                && Objects.equals(login, driver.login);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, licenseNumber);
+        return Objects.hash(id, name, licenseNumber, login);
     }
 
     @Override
