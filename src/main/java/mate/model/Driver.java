@@ -62,10 +62,16 @@ public class Driver {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Driver driver = (Driver) o;
-        return id.equals(driver.id) && name.equals(driver.name) && licenseNumber.equals(driver.licenseNumber) && login.equals(driver.login) && password.equals(driver.password);
+        return id.equals(driver.id) && name.equals(driver.name)
+                && licenseNumber.equals(driver.licenseNumber)
+                && login.equals(driver.login) && password.equals(driver.password);
     }
 
     @Override
