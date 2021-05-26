@@ -15,7 +15,7 @@ public class AddManufacturerController extends HttpServlet {
             .getInstance(ManufacturerService.class);
 
     @Override
-    public void doGet(HttpServletRequest req, HttpServletResponse resp)
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         req.getRequestDispatcher("/WEB-INF/views/manufacturers/add.jsp").forward(req, resp);
     }
