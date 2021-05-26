@@ -11,14 +11,14 @@ import mate.lib.Injector;
 import mate.model.Car;
 import mate.service.CarService;
 
-@WebServlet (urlPatterns = "/drivers/current-car")
+@WebServlet (urlPatterns = "/drivers/cars/current")
 public class GetMyCurrentCarsController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("mate");
     private final CarService carService = (CarService)
             injector.getInstance(CarService.class);
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+    public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         List<Car> driverId = carService.getAllByDriver((Long)
                 (req.getSession().getAttribute("driver_id")));
