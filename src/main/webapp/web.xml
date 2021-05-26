@@ -133,6 +133,6 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>getMyCurrentCarsController</servlet-name>
-        <url-pattern>/driver/get-cars</url-pattern>
+        <url-pattern>/cars/my</url-pattern>
     </servlet-mapping>
 </web-app>
