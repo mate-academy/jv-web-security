@@ -33,7 +33,7 @@ public class LoginController extends HttpServlet {
             HttpSession session = req.getSession();
             session.setAttribute(DRIVER_ID, driver.getId());
             resp.sendRedirect("/index");
-        } catch (ArithmeticException | AuthenticationException e) {
+        } catch (AuthenticationException e) {
             req.setAttribute("errorMsg", e.getMessage());
             req.getRequestDispatcher("/WEB-INF/views/drivers/login.jsp").forward(req, resp);
         }

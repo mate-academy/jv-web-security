@@ -8,7 +8,6 @@ import mate.lib.Injector;
 import mate.service.CarService;
 
 public class DeleteCarController extends HttpServlet {
-    private static final String DRIVER_ID = "id";
     private static final Injector injector = Injector.getInstance("mate");
     private final CarService carService = (CarService) injector
             .getInstance(CarService.class);
@@ -16,7 +15,7 @@ public class DeleteCarController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws IOException {
-        carService.delete(Long.parseLong(req.getParameter(DRIVER_ID)));
+        carService.delete(Long.parseLong(req.getParameter("id")));
         resp.sendRedirect("/cars");
     }
 }
