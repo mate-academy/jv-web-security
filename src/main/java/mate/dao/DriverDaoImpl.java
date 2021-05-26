@@ -10,20 +10,24 @@ import java.util.List;
 import java.util.Optional;
 import mate.lib.Dao;
 import mate.lib.exception.DataProcessingException;
+import mate.model.Car;
 import mate.model.Driver;
+import mate.model.Manufacturer;
 import mate.util.ConnectionUtil;
 
 @Dao
 public class DriverDaoImpl implements DriverDao {
     @Override
     public Driver create(Driver driver) {
-        String query = "INSERT INTO drivers (name, license_number) "
-                + "VALUES (?, ?)";
+        String query = "INSERT INTO drivers (name, license_number, login, password) "
+                + "VALUES (?, ?, ?, ?)";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement = connection.prepareStatement(query,
                         Statement.RETURN_GENERATED_KEYS)) {
             statement.setString(1, driver.getName());
             statement.setString(2, driver.getLicenseNumber());
+            statement.setString(3, driver.getLogin());
+            statement.setString(4, driver.getPassword());
             statement.executeUpdate();
             ResultSet resultSet = statement.getGeneratedKeys();
             if (resultSet.next()) {
@@ -54,6 +58,23 @@ public class DriverDaoImpl implements DriverDao {
     }
 
     @Override
+    public Optional<Driver> getByLogin(String login) {
+        String query = "SELECT * FROM drivers WHERE login = ? AND deleted = FALSE";
+        try (Connection connection = ConnectionUtil.getConnection();
+                PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, login);
+            ResultSet resultSet = statement.executeQuery();
+            Driver driver = null;
+            if (resultSet.next()) {
+                driver = getDriver(resultSet);
+            }
+            return Optional.ofNullable(driver);
+        } catch (SQLException e) {
+            throw new DataProcessingException("Couldn't get driver by login " + login, e);
+        }
+    }
+
+    @Override
     public List<Driver> getAll() {
         String query = "SELECT * FROM drivers WHERE deleted = FALSE";
         List<Driver> drivers = new ArrayList<>();
@@ -68,6 +89,29 @@ public class DriverDaoImpl implements DriverDao {
             throw new DataProcessingException("Couldn't get a list of drivers from driversDB.",
                     e);
         }
+    }
+
+    @Override
+    public List<Car> getAllCarsByDriverId(Long driverId) {
+        String selectQuery = "SELECT c.id, c.model, c.manufacturer_id, m.name, m.country "
+                + "FROM cars_drivers cd "
+                + "JOIN cars c ON cd.car_id = c.id "
+                + "JOIN manufacturers m ON c.manufacturer_id = m.id "
+                + "WHERE driver_id = ? AND c.deleted = false";
+        List<Car> cars = new ArrayList<>();
+        try (Connection connection = ConnectionUtil.getConnection();
+                 PreparedStatement preparedStatement =
+                         connection.prepareStatement(selectQuery)) {
+            preparedStatement.setLong(1, driverId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                cars.add(parseCarFromResultSet(resultSet));
+            }
+        } catch (SQLException e) {
+            throw new DataProcessingException("Can't get all drivers by car id" + driverId, e);
+        }
+        cars.forEach(car -> car.setDrivers(getAllDriversByCarId(car.getId())));
+        return cars;
     }
 
     @Override
@@ -101,12 +145,49 @@ public class DriverDaoImpl implements DriverDao {
         }
     }
 
+    private List<Driver> getAllDriversByCarId(Long carId) {
+        String selectQuery = "SELECT id, name, license_number, login, password"
+                + " FROM cars_drivers cd "
+                + "JOIN drivers d on cd.driver_id = d.id "
+                + "where car_id = ? AND deleted = false";
+        try (Connection connection = ConnectionUtil.getConnection();
+                PreparedStatement preparedStatement =
+                        connection.prepareStatement(selectQuery)) {
+            preparedStatement.setLong(1, carId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            List<Driver> drivers = new ArrayList<>();
+            while (resultSet.next()) {
+                drivers.add(getDriver((resultSet)));
+            }
+            return drivers;
+        } catch (SQLException e) {
+            throw new DataProcessingException("Can't get all drivers by car id" + carId, e);
+        }
+    }
+
     private Driver getDriver(ResultSet resultSet) throws SQLException {
         Long newId = resultSet.getObject("id", Long.class);
         String name = resultSet.getString("name");
         String licenseNumber = resultSet.getString("license_number");
+        String login = resultSet.getString("login");
+        String password = resultSet.getString("password");
         Driver driver = new Driver(name, licenseNumber);
         driver.setId(newId);
+        driver.setLogin(login);
+        driver.setPassword(password);
         return driver;
+    }
+
+    private Car parseCarFromResultSet(ResultSet resultSet) throws SQLException {
+        long manufacturerId = resultSet.getObject("c.manufacturer_id", Long.class);
+        String manufacturerName = resultSet.getNString("m.name");
+        String manufacturerCountry = resultSet.getNString("m.country");
+        Manufacturer manufacturer = new Manufacturer(manufacturerName, manufacturerCountry);
+        manufacturer.setId(manufacturerId);
+        long carId = resultSet.getLong("c.id");
+        String model = resultSet.getNString("c.model");
+        Car car = new Car(model, manufacturer);
+        car.setId(carId);
+        return car;
     }
 }
