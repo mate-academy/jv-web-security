@@ -12,7 +12,6 @@ import mate.lib.exception.AuthenticationException;
 import mate.model.Driver;
 import mate.service.AuthenticationService;
 
-@WebServlet(urlPatterns = "/login")
 public class LoginController extends HttpServlet {
     private static final String DRIVER_ID = "driver_id";
     private static final Injector injector = Injector.getInstance("mate");
