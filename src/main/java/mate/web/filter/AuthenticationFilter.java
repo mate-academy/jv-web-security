@@ -19,7 +19,7 @@ public class AuthenticationFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         allowedUrls = new HashSet<>();
-        allowedUrls.add("/drivers/login");
+        allowedUrls.add("/login");
         allowedUrls.add("/index");
         allowedUrls.add("/drivers/add");
         allowedUrls.add("/");
@@ -33,16 +33,11 @@ public class AuthenticationFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         HttpSession session = request.getSession();
 
-        Long id = (Long) session.getAttribute("id");
-        if (allowedUrls.contains(request.getServletPath())) {
-            filterChain.doFilter(request, response);
-            return;
-        }
-        if (id == null) {
-            response.sendRedirect("/drivers/login");
+        Long id = (Long) session.getAttribute("driver_id");
+        if (id == null && !allowedUrls.contains(request.getServletPath())) {
+            response.sendRedirect("/login");
             return;
         }
         filterChain.doFilter(request, response);
     }
 }
-
