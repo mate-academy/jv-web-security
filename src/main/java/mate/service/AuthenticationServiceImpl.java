@@ -1,7 +1,6 @@
 package mate.service;
 
 import java.util.Optional;
-import mate.dao.DriverDao;
 import mate.lib.Injector;
 import mate.lib.Service;
 import mate.lib.exception.AuthenticationException;
@@ -10,7 +9,8 @@ import mate.model.Driver;
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
     private static final Injector injector = Injector.getInstance("mate");
-    private final DriverService driverService = (DriverService) injector.getInstance(DriverService.class);
+    private final DriverService driverService =
+            (DriverService) injector.getInstance(DriverService.class);
 
     @Override
     public Driver login(String login, String password) throws AuthenticationException {
