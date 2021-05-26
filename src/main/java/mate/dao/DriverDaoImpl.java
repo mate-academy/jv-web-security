@@ -18,13 +18,15 @@ public class DriverDaoImpl implements DriverDao {
 
     @Override
     public Driver create(Driver driver) {
-        String query = "INSERT INTO drivers (name, license_number) "
-                + "VALUES (?, ?)";
+        String query = "INSERT INTO drivers (name, license_number,login,password) "
+                + "VALUES (?, ?, ?, ?)";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement = connection.prepareStatement(query,
                         Statement.RETURN_GENERATED_KEYS)) {
             statement.setString(1, driver.getName());
             statement.setString(2, driver.getLicenseNumber());
+            statement.setString(3,driver.getLogin());
+            statement.setString(4,driver.getPassword());
             statement.executeUpdate();
             ResultSet resultSet = statement.getGeneratedKeys();
             if (resultSet.next()) {
@@ -32,7 +34,7 @@ public class DriverDaoImpl implements DriverDao {
             }
             return driver;
         } catch (SQLException e) {
-            throw new DataProcessingException("Couldn't create "
+            throw new DataProcessingException("Couldn't register "
                     + driver + ". ", e);
         }
     }
@@ -106,7 +108,9 @@ public class DriverDaoImpl implements DriverDao {
         Long newId = resultSet.getObject("id", Long.class);
         String name = resultSet.getString("name");
         String licenseNumber = resultSet.getString("license_number");
-        Driver driver = new Driver(name, licenseNumber);
+        String login = resultSet.getString("login");
+        String password = resultSet.getString("password");
+        Driver driver = new Driver(name, licenseNumber,login,password);
         driver.setId(newId);
         return driver;
     }
@@ -120,45 +124,11 @@ public class DriverDaoImpl implements DriverDao {
             ResultSet resultSet = statement.executeQuery();
             Driver driver = null;
             if (resultSet.next()) {
-                driver = getDriverWithLoginAndPassword(resultSet);
+                driver = getDriver(resultSet);
             }
             return Optional.ofNullable(driver);
         } catch (SQLException e) {
             throw new DataProcessingException("Couldn't find driver by login " + login, e);
         }
-    }
-
-    @Override
-    public Driver register(Driver driver) {
-        String query = "INSERT INTO drivers (name, license_number,login,password) "
-                + "VALUES (?, ?, ?, ?)";
-        try (Connection connection = ConnectionUtil.getConnection();
-                PreparedStatement statement = connection.prepareStatement(query,
-                        Statement.RETURN_GENERATED_KEYS)) {
-            statement.setString(1, driver.getName());
-            statement.setString(2, driver.getLicenseNumber());
-            statement.setString(3,driver.getLogin());
-            statement.setString(4,driver.getPassword());
-            statement.executeUpdate();
-            ResultSet resultSet = statement.getGeneratedKeys();
-            if (resultSet.next()) {
-                driver.setId(resultSet.getObject(1, Long.class));
-            }
-            return driver;
-        } catch (SQLException e) {
-            throw new DataProcessingException("Couldn't register "
-                    + driver + ". ", e);
-        }
-    }
-
-    private Driver getDriverWithLoginAndPassword(ResultSet resultSet) throws SQLException {
-        Long newId = resultSet.getObject("id", Long.class);
-        String name = resultSet.getString("name");
-        String licenseNumber = resultSet.getString("license_number");
-        String login = resultSet.getString("login");
-        String password = resultSet.getString("password");
-        Driver driver = new Driver(name, licenseNumber,login,password);
-        driver.setId(newId);
-        return driver;
     }
 }

@@ -10,25 +10,26 @@ import mate.model.Driver;
 import mate.service.DriverService;
 
 public class RegisterController extends HttpServlet {
+    private static final String LICENSE_NUMBER = "license_number";
     private static final Injector injector = Injector.getInstance("mate");
     private final DriverService driverService =
             (DriverService) injector.getInstance(DriverService.class);
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+    public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         req.getRequestDispatcher("WEB-INF/views/cars/drivers/register.jsp").forward(req,resp);
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+    public void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         String name = req.getParameter("name");
-        String licenseNumber = req.getParameter("license_number");
+        String licenseNumber = req.getParameter(LICENSE_NUMBER);
         Driver driver = new Driver(name,licenseNumber,login,password);
-        driverService.register(driver);
+        driverService.create(driver);
         resp.sendRedirect("/login");
     }
 }
