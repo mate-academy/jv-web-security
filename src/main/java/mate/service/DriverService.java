@@ -1,7 +1,8 @@
 package mate.service;
 
+import java.util.Optional;
 import mate.model.Driver;
 
 public interface DriverService extends GenericService<Driver> {
-    Driver findByLogin(String username);
+    Optional<Driver> findByLogin(String username);
 }
