@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import mate.exception.AuthenticationException;
 import mate.lib.Injector;
 import mate.model.Driver;
@@ -39,4 +38,3 @@ public class LoginController extends HttpServlet {
         }
     }
 }
-
