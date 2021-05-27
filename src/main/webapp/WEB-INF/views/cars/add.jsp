@@ -14,6 +14,8 @@
     <tr>
         <th>Model</th>
         <th>Manufacturer ID</th>
+        <th>Login</th>
+        <th>Password</th>
         <th>Add</th>
     </tr>
     <tr>
