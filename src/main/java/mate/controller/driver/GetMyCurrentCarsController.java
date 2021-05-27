@@ -12,7 +12,7 @@ import mate.lib.Injector;
 import mate.model.Car;
 import mate.service.CarService;
 
-@WebServlet(urlPatterns = "/driver/cars/my")
+@WebServlet(urlPatterns = "/cars/my")
 public class GetMyCurrentCarsController extends HttpServlet {
     private static final String DRIVERID = "driver_id";
     private static final Injector injector = Injector.getInstance("mate");
