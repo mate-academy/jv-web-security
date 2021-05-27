@@ -14,6 +14,7 @@ import mate.service.AuthenticationDriverService;
 
 @Dao
 public class LoginController extends HttpServlet {
+    private static final String driverId = "driverId";
     private static final Injector injector = Injector.getInstance("mate");
     private final AuthenticationDriverService authenticationDriverService
                  = (AuthenticationDriverService) injector
@@ -34,7 +35,7 @@ public class LoginController extends HttpServlet {
         try {
             Driver driver = authenticationDriverService.login(login, password);
             HttpSession session = req.getSession();
-            session.setAttribute("driver_id", driver.getId());
+            session.setAttribute(driverId, driver.getId());
             resp.sendRedirect("/index");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMsg", e.getMessage());

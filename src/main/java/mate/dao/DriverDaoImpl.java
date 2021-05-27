@@ -106,22 +106,11 @@ public class DriverDaoImpl implements DriverDao {
         }
     }
 
-    private Driver getDriver(ResultSet resultSet) throws SQLException {
-        Long newId = resultSet.getObject("id", Long.class);
-        String name = resultSet.getString("name");
-        String licenseNumber = resultSet.getString("license_number");
-        String login = resultSet.getString("login");
-        String password = resultSet.getString("password");
-        Driver driver = new Driver(name, licenseNumber, login, password);
-        driver.setId(newId);
-        return driver;
-    }
-
     @Override
     public Optional<Driver> findByLogin(String login) {
         String query = "SELECT * FROM drivers WHERE login = ? AND is_deleted = FALSE";
         try (Connection connection = ConnectionUtil.getConnection();
-                PreparedStatement statement = connection.prepareStatement(query)) {
+                 PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setString(1, login);
             ResultSet resultSet = statement.executeQuery();
             Driver driver = null;
@@ -133,5 +122,16 @@ public class DriverDaoImpl implements DriverDao {
             throw new DataProcessingException("Couldn't find driver with current login "
                     + login, e);
         }
+    }
+
+    private Driver getDriver(ResultSet resultSet) throws SQLException {
+        Long newId = resultSet.getObject("id", Long.class);
+        String name = resultSet.getString("name");
+        String licenseNumber = resultSet.getString("license_number");
+        String login = resultSet.getString("login");
+        String password = resultSet.getString("password");
+        Driver driver = new Driver(name, licenseNumber, login, password);
+        driver.setId(newId);
+        return driver;
     }
 }
