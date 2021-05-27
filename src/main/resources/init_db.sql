@@ -10,7 +10,9 @@ CREATE TABLE `drivers`  (
                             `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
                             `license_number` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
                             `deleted` bit(1) NOT NULL DEFAULT b'0',
-                            PRIMARY KEY (`id`) USING BTREE
+                            `username` varchar(45) DEFAULT NULL,
+                            `password` varchar(45) DEFAULT NULL,
+PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------

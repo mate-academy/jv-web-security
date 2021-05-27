@@ -12,19 +12,11 @@
 <h1 class="table_dark">Add car:</h1>
 <table border="1" class="table_dark">
     <tr>
-        <th>Login</th>
-        <th>Password</th>
         <th>Model</th>
         <th>Manufacturer ID</th>
         <th>Add</th>
     </tr>
     <tr>
-        <td>
-            <input type="text" name="login" form="car" required>
-        </td>
-        <td>
-            <input type="text" name="password" form="car" required>
-        </td>
         <td>
             <input type="text" name="model" form="car" required>
         </td>
