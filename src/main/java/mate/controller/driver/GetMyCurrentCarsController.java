@@ -10,20 +10,21 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import mate.lib.Injector;
 import mate.model.Car;
+import mate.service.CarService;
 import mate.service.DriverService;
 
 @WebServlet(urlPatterns = "/drivers/cars/current")
 public class GetMyCurrentCarsController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("mate");
-    private final DriverService driverService = (DriverService) injector
-            .getInstance(DriverService.class);
+    private final CarService carService = (CarService) injector
+            .getInstance(CarService.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         HttpSession session = req.getSession();
         Long driverId = (Long) session.getAttribute("driver_id");
-        List<Car> myCurrentCars = driverService.getMyCurrentCars(driverId);
+        List<Car> myCurrentCars = carService.getAllByDriver(driverId);
         req.setAttribute("cars", myCurrentCars);
         req.getRequestDispatcher("/WEB-INF/views/cars/all.jsp").forward(req, resp);
     }

@@ -7,6 +7,4 @@ import mate.model.Driver;
 
 public interface DriverDao extends GenericDao<Driver> {
     Optional<Driver> getByLogin(String login);
-
-    List<Car> getAllCarsByDriverId(Long carId);
 }

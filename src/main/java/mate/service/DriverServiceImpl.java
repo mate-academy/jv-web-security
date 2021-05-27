@@ -29,11 +29,6 @@ public class DriverServiceImpl implements DriverService {
     }
 
     @Override
-    public List<Car> getMyCurrentCars(Long id) {
-        return driverDao.getAllCarsByDriverId(id);
-    }
-
-    @Override
     public Optional<Driver> checkLogin(String login) {
         return driverDao.getByLogin(login);
     }

@@ -10,9 +10,7 @@ import java.util.List;
 import java.util.Optional;
 import mate.lib.Dao;
 import mate.lib.exception.DataProcessingException;
-import mate.model.Car;
 import mate.model.Driver;
-import mate.model.Manufacturer;
 import mate.util.ConnectionUtil;
 
 @Dao
@@ -92,39 +90,18 @@ public class DriverDaoImpl implements DriverDao {
     }
 
     @Override
-    public List<Car> getAllCarsByDriverId(Long driverId) {
-        String selectQuery = "SELECT c.id, c.model, c.manufacturer_id, m.name, m.country "
-                + "FROM cars_drivers cd "
-                + "JOIN cars c ON cd.car_id = c.id "
-                + "JOIN manufacturers m ON c.manufacturer_id = m.id "
-                + "WHERE driver_id = ? AND c.deleted = false";
-        List<Car> cars = new ArrayList<>();
-        try (Connection connection = ConnectionUtil.getConnection();
-                 PreparedStatement preparedStatement =
-                         connection.prepareStatement(selectQuery)) {
-            preparedStatement.setLong(1, driverId);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                cars.add(parseCarFromResultSet(resultSet));
-            }
-        } catch (SQLException e) {
-            throw new DataProcessingException("Can't get all drivers by car id" + driverId, e);
-        }
-        cars.forEach(car -> car.setDrivers(getAllDriversByCarId(car.getId())));
-        return cars;
-    }
-
-    @Override
     public Driver update(Driver driver) {
         String query = "UPDATE drivers "
-                + "SET name = ?, license_number = ? "
+                + "SET name = ?, license_number = ?, login = ?, password = ? "
                 + "WHERE id = ? AND deleted = FALSE";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement
                         = connection.prepareStatement(query)) {
             statement.setString(1, driver.getName());
             statement.setString(2, driver.getLicenseNumber());
-            statement.setLong(3, driver.getId());
+            statement.setString(3, driver.getLogin());
+            statement.setString(4, driver.getPassword());
+            statement.setLong(5, driver.getId());
             statement.executeUpdate();
             return driver;
         } catch (SQLException e) {
@@ -145,26 +122,6 @@ public class DriverDaoImpl implements DriverDao {
         }
     }
 
-    private List<Driver> getAllDriversByCarId(Long carId) {
-        String selectQuery = "SELECT id, name, license_number, login, password"
-                + " FROM cars_drivers cd "
-                + "JOIN drivers d on cd.driver_id = d.id "
-                + "where car_id = ? AND deleted = false";
-        try (Connection connection = ConnectionUtil.getConnection();
-                PreparedStatement preparedStatement =
-                        connection.prepareStatement(selectQuery)) {
-            preparedStatement.setLong(1, carId);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            List<Driver> drivers = new ArrayList<>();
-            while (resultSet.next()) {
-                drivers.add(getDriver((resultSet)));
-            }
-            return drivers;
-        } catch (SQLException e) {
-            throw new DataProcessingException("Can't get all drivers by car id" + carId, e);
-        }
-    }
-
     private Driver getDriver(ResultSet resultSet) throws SQLException {
         Long newId = resultSet.getObject("id", Long.class);
         String name = resultSet.getString("name");
@@ -176,18 +133,5 @@ public class DriverDaoImpl implements DriverDao {
         driver.setLogin(login);
         driver.setPassword(password);
         return driver;
-    }
-
-    private Car parseCarFromResultSet(ResultSet resultSet) throws SQLException {
-        long manufacturerId = resultSet.getObject("c.manufacturer_id", Long.class);
-        String manufacturerName = resultSet.getNString("m.name");
-        String manufacturerCountry = resultSet.getNString("m.country");
-        Manufacturer manufacturer = new Manufacturer(manufacturerName, manufacturerCountry);
-        manufacturer.setId(manufacturerId);
-        long carId = resultSet.getLong("c.id");
-        String model = resultSet.getNString("c.model");
-        Car car = new Car(model, manufacturer);
-        car.setId(carId);
-        return car;
     }
 }
