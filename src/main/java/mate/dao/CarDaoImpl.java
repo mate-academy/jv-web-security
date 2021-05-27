@@ -187,7 +187,8 @@ public class CarDaoImpl implements CarDao {
         int size = exceptions.size();
         String insertQuery = "DELETE FROM cars_drivers WHERE car_id = ? "
                 + "AND NOT driver_id IN ("
-                + ZERO_PLACEHOLDER + ", ?".repeat(size)
+                + ZERO_PLACEHOLDER
+                + ", ?".repeat(size)
                 + ");";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement preparedStatement =
@@ -204,7 +205,8 @@ public class CarDaoImpl implements CarDao {
     }
 
     private List<Driver> getAllDriversByCarId(Long carId) {
-        String selectQuery = "SELECT id, name, license_number FROM cars_drivers cd "
+        String selectQuery = "SELECT id, name, license_number, login, password "
+                + "FROM cars_drivers cd "
                 + "JOIN drivers d on cd.driver_id = d.id "
                 + "where car_id = ? AND deleted = false";
         try (Connection connection = ConnectionUtil.getConnection();
@@ -223,11 +225,13 @@ public class CarDaoImpl implements CarDao {
     }
 
     private Driver parseDriverFromResultSet(ResultSet resultSet) throws SQLException {
-        long driverId = resultSet.getLong("id");
-        String name = resultSet.getNString("name");
-        String licenseNumber = resultSet.getNString("license_number");
-        Driver driver = new Driver(name, licenseNumber);
-        driver.setId(driverId);
+        Long newId = resultSet.getObject("id", Long.class);
+        String name = resultSet.getString("name");
+        String licenseNumber = resultSet.getString("license_number");
+        String password = resultSet.getString("password");
+        String username = resultSet.getString("login");
+        Driver driver = new Driver(name, licenseNumber, username, password);
+        driver.setId(newId);
         return driver;
     }
 
