@@ -34,7 +34,7 @@
             </td>
             <td>
                 <c:forEach var="driver" items="${car.drivers}">
-                    ${driver.id} ${driver.name} ${driver.licenceNumber} <br>
+                        ${driver.getId()} ${driver.getName()} ${driver.getLicenseNumber()} ${driver.username}<br>
                 </c:forEach>
             </td>
             <td>
