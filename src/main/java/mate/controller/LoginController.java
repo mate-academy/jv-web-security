@@ -12,6 +12,7 @@ import mate.model.Driver;
 import mate.service.AuthenticationService;
 
 public class LoginController extends HttpServlet {
+    private static final String DRIVER_ID = "driver_id";
     private static final Injector injector = Injector.getInstance("mate");
     private final AuthenticationService authenticationService =
             (AuthenticationService) injector.getInstance(AuthenticationService.class);
@@ -25,13 +26,11 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        String login = req.getParameter("login");
-        String password = req.getParameter("password");
-
         try {
-            Driver driver = authenticationService.login(login, password);
+            Driver driver = authenticationService.login(req.getParameter("login"),
+                    req.getParameter("password"));
             HttpSession session = req.getSession();
-            session.setAttribute("driver_id", driver.getId());
+            session.setAttribute(DRIVER_ID, driver.getId());
             resp.sendRedirect("/index");
         } catch (MyAuthenticationException e) {
             req.setAttribute("errorMessage", e.getMessage());
