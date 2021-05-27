@@ -28,7 +28,7 @@ public class AddDriverController extends HttpServlet {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         String confirmPassword = req.getParameter("confirm_password");
-        if (driverService.checkLogin(login).isPresent()) {
+        if (driverService.getByLogin(login).isPresent()) {
             req.setAttribute("errorMessage", "Login " + login + " is already taken");
             req.getRequestDispatcher("/WEB-INF/views/drivers/add.jsp").forward(req, resp);
             return;

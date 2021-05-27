@@ -12,8 +12,10 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import mate.service.DriverService;
 
 public class AuthenticationFilter implements Filter {
+    private static final String DRIVER_ID = "driver_id";
     private final Set<String> allowedUrls = new HashSet<>();
 
     @Override
@@ -28,8 +30,8 @@ public class AuthenticationFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
         HttpSession session = req.getSession();
-        Long id = (Long) session.getAttribute("driver_id");
-        if (id == null && allowedUrls.contains(req.getServletPath())) {
+        Long id = (Long) session.getAttribute(DRIVER_ID);
+        if (allowedUrls.contains(req.getServletPath())) {
             chain.doFilter(req, resp);
             return;
         }
