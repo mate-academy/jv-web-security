@@ -26,7 +26,7 @@
                 <c:out value="${driver.name}"/>
             </td>
             <td>
-                <c:out value="${driver.licenceNumber}"/>
+                <c:out value="${driver.licenseNumber}"/>
             </td>
             <td>
                 <c:out value="${driver.login}"/>
