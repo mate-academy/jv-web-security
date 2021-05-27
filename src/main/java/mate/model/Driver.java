@@ -71,8 +71,7 @@ public class Driver {
         Driver driver = (Driver) o;
         return Objects.equals(id, driver.id) && Objects.equals(name, driver.name)
                 && Objects.equals(licenseNumber, driver.licenseNumber)
-                && Objects.equals(login, driver.login)
-                && Objects.equals(password, driver.password);
+                && Objects.equals(login, driver.login);
     }
 
     @Override
