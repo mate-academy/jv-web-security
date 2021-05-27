@@ -105,17 +105,6 @@ public class DriverDaoImpl implements DriverDao {
         }
     }
 
-    private Driver getDriver(ResultSet resultSet) throws SQLException {
-        Long newId = resultSet.getObject("id", Long.class);
-        String name = resultSet.getString("name");
-        String licenseNumber = resultSet.getString("license_number");
-        String login = resultSet.getString("login");
-        String password = resultSet.getString("password");
-        Driver driver = new Driver(name, licenseNumber, login, password);
-        driver.setId(newId);
-        return driver;
-    }
-
     @Override
     public Optional<Driver> findByLogin(String login) {
         String query = "SELECT * FROM drivers "
@@ -132,5 +121,16 @@ public class DriverDaoImpl implements DriverDao {
         } catch (SQLException e) {
             throw new DataProcessingException("Couldn't get driver by login " + login, e);
         }
+    }
+
+    private Driver getDriver(ResultSet resultSet) throws SQLException {
+        Long newId = resultSet.getObject("id", Long.class);
+        String name = resultSet.getString("name");
+        String licenseNumber = resultSet.getString("license_number");
+        String login = resultSet.getString("login");
+        String password = resultSet.getString("password");
+        Driver driver = new Driver(name, licenseNumber, login, password);
+        driver.setId(newId);
+        return driver;
     }
 }
