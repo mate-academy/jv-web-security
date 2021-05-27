@@ -5,7 +5,6 @@ import java.util.Optional;
 import mate.dao.DriverDao;
 import mate.lib.Inject;
 import mate.lib.Service;
-import mate.model.Car;
 import mate.model.Driver;
 
 @Service

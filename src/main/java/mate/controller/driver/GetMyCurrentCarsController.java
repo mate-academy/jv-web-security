@@ -11,7 +11,6 @@ import javax.servlet.http.HttpSession;
 import mate.lib.Injector;
 import mate.model.Car;
 import mate.service.CarService;
-import mate.service.DriverService;
 
 @WebServlet(urlPatterns = "/drivers/cars/current")
 public class GetMyCurrentCarsController extends HttpServlet {
