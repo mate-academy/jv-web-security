@@ -1,4 +1,5 @@
 # Web security
+- To get the actual parameters of the database tables, run script from the resources/init_db.sql file in the Workbench.
 - Add two more fields (`login` and `password`) to your `Driver` class.
   We will simplify the task, and our Driver will behave as User.
 - Modify the required JSP pages and corresponding controllers to support two new fields: `login` and `password`
