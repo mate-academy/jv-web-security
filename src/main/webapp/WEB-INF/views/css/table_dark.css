@@ -5,11 +5,11 @@
     font-size: 40px;
     text-align: center;
     border-collapse: collapse;
-    background: #ffff00;
+    background: #d3e0de;
     margin: auto;
 }
 .table_dark th {
-    color: #ff00ff;
+    color: #8795fd;
     border-bottom: 1px solid #37B5A5;
     padding: 12px 17px;
     font-size: 14px;
