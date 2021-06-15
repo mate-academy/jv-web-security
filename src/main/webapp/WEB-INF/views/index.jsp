@@ -8,7 +8,7 @@
 </head>
 <body>
 <form method="post" id="redirect"></form>
-<h1 class="table_dark">Hello, mates</h1>
+<h1 class="table_dark">Welcome to Taxi-App</h1>
 <c:set var="user" items="${user}" />
 <h1 class="table_dark">User: ${user}</h1>
 <%@include file="header.jsp"%>
