@@ -1,11 +1,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <style>
     <%@include file='/WEB-INF/views/css/table_dark.css' %>
 </style>
 <html>
 <head>
     <title>All manufacturers</title>
+    <%@include file="/WEB-INF/views/header.jsp"%>
 </head>
 <body>
 <h1 class="table_dark">All manufacturers:</h1>
