@@ -1,11 +1,11 @@
 .table_dark {
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
     width: 70%;
-    color: #CAD4D6;
+    color: #ffffff;
     font-size: 40px;
     text-align: center;
     border-collapse: collapse;
-    background: #252F48;
+    background: #000000;
     margin: auto;
 }
 .table_dark th {
@@ -15,7 +15,7 @@
     font-size: 14px;
 }
 .table_dark td {
-    color: #CAD4D6;
+    color: #ffffff;
     border-bottom: 1px solid #37B5A5;
     border-right:1px solid #37B5A5;
     padding: 7px 17px;
