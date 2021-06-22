@@ -24,7 +24,7 @@
             <input type="number" name="driver_id" form="car" required>
         </td>
         <td>
-            <input type="submit" name="add" form="car">
+            <button type="submit">Add</button>
         </td>
     </tr>
 </table>
