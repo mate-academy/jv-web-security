@@ -25,7 +25,7 @@
                 <c:out value="${driver.name}"/>
             </td>
             <td>
-                <c:out value="${driver.licenceNumber}"/>
+                <c:out value="${driver.licenseNumber}"/>
             </td>
             <td>
                 <a href="${pageContext.request.contextPath}/drivers/delete?id=${driver.id}">DELETE</a>
@@ -33,5 +33,6 @@
         </tr>
     </c:forEach>
 </table>
+<%@include file="/WEB-INF/views/header.jsp"%>
 </body>
 </html>
