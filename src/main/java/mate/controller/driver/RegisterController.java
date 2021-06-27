@@ -9,25 +9,27 @@ import mate.lib.Injector;
 import mate.model.Driver;
 import mate.service.DriverService;
 
-public class AddDriverController extends HttpServlet {
+public class RegisterController extends HttpServlet {
     private static final String LICENSE_NUMBER = "license_number";
     private static final Injector injector = Injector.getInstance("mate");
-    private final DriverService driverService = (DriverService) injector
-            .getInstance(DriverService.class);
+    private final DriverService driverService =
+            (DriverService) injector.getInstance(DriverService.class);
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/views/drivers/add.jsp").forward(req, resp);
+        req.getRequestDispatcher("WEB-INF/views/cars/drivers/register.jsp").forward(req,resp);
     }
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws IOException, ServletException {
+            throws ServletException, IOException {
+        String login = req.getParameter("login");
+        String password = req.getParameter("password");
         String name = req.getParameter("name");
-        String licenceNumber = req.getParameter(LICENSE_NUMBER);
-        Driver driver = new Driver(name, licenceNumber);
+        String licenseNumber = req.getParameter(LICENSE_NUMBER);
+        Driver driver = new Driver(name,licenseNumber,login,password);
         driverService.create(driver);
-        resp.sendRedirect("/drivers/add");
+        resp.sendRedirect("/login");
     }
 }
