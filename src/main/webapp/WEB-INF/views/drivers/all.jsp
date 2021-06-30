@@ -9,6 +9,7 @@
 </head>
 <body>
 <h1 class="table_dark">All drivers:</h1>
+<%@include file="../header.jsp" %>
 <table border="1" class="table_dark">
     <tr>
         <th>ID</th>
@@ -25,7 +26,7 @@
                 <c:out value="${driver.name}"/>
             </td>
             <td>
-                <c:out value="${driver.licenceNumber}"/>
+                <c:out value="${driver.licenseNumber}"/>
             </td>
             <td>
                 <a href="${pageContext.request.contextPath}/drivers/delete?id=${driver.id}">DELETE</a>
