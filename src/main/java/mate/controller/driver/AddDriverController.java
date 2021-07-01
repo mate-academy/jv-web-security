@@ -25,8 +25,23 @@ public class AddDriverController extends HttpServlet {
             throws IOException, ServletException {
         String name = req.getParameter("name");
         String licenceNumber = req.getParameter("licence_number");
+        String login = req.getParameter("login");
+        String password = req.getParameter("password");
+        String confirmPassword = req.getParameter("confirm_password");
+        if (driverService.getByLogin(login).isPresent()) {
+            req.setAttribute("errorMessage", "Login " + login + " is already taken");
+            req.getRequestDispatcher("/WEB-INF/views/drivers/add.jsp").forward(req, resp);
+            return;
+        }
+        if (!password.equals(confirmPassword)) {
+            req.setAttribute("errorMessage", "Password dose not match");
+            req.getRequestDispatcher("/WEB-INF/views/drivers/add.jsp").forward(req, resp);
+            return;
+        }
         Driver driver = new Driver(name, licenceNumber);
+        driver.setLogin(login);
+        driver.setPassword(password);
         driverService.create(driver);
-        resp.sendRedirect("/drivers/add");
+        resp.sendRedirect("/drivers");
     }
 }
