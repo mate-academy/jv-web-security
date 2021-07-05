@@ -6,10 +6,19 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class ConnectionUtil {
-    public static final String URL = "YOUR DATABASE URL";
-    public static final String USERNAME = "YOUR USERNAME";
-    public static final String PASSWORD = "YOUR PASSWORD";
-    public static final String JDBC_DRIVER = "YOUR DRIVER";
+    public static final String URL = "jdbc:mysql://localhost:3306/web_practice"
+            + "?useLegacyDatetimeCode=false&serverTimezone=UTC";
+    public static final String USERNAME = "root";
+    public static final String PASSWORD = "1234";
+    public static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
+
+    public static void main(String[] args) {
+        try {
+            ConnectionUtil.getConnection();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
 
     static {
         try {
