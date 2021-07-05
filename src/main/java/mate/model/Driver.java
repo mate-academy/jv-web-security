@@ -6,18 +6,26 @@ public class Driver {
     private Long id;
     private String name;
     private String licenseNumber;
+    private String login;
+    private String password;
+
+    public Driver(String name, String licenseNumber, String login, String password) {
+        this(name, licenseNumber);
+        this.login = login;
+        this.password = password;
+    }
 
     public Driver(String name, String licenseNumber) {
         this.name = name;
         this.licenseNumber = licenseNumber;
     }
 
-    public Long getId() {
-        return id;
-    }
-
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public String getName() {
@@ -36,22 +44,47 @@ public class Driver {
         this.licenseNumber = licenseNumber;
     }
 
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
-    public boolean equals(Object o) {
-        if (this == o) {
+    public boolean equals(Object object) {
+        if (this == object) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (object == null || getClass() != object.getClass()) {
             return false;
         }
-        Driver driver = (Driver) o;
-        return Objects.equals(id, driver.id)
-                && Objects.equals(name, driver.name)
-                && Objects.equals(licenseNumber, driver.licenseNumber);
+        Driver driver = (Driver) object;
+        return Objects.equals(id, driver.id) && Objects.equals(name, driver.name)
+                && Objects.equals(licenseNumber, driver.licenseNumber)
+                && Objects.equals(login, driver.login) && Objects.equals(password, driver.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, licenseNumber);
+        return Objects.hash(id, name, licenseNumber, login, password);
+    }
+
+    @Override
+    public String toString() {
+        return "Driver{"
+                + "id=" + id + ", name='" + name
+                + '\'' + ", licenseNumber='" + licenseNumber + '\''
+                + ", login='" + login + '\''
+                + '}';
     }
 }
