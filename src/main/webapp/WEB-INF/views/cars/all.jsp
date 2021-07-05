@@ -21,24 +21,24 @@
     <c:forEach var="car" items="${cars}">
         <tr>
             <td>
-                <c:out value="${car.id}"/>
+                <c:out value="${car.getId()}"/>
             </td>
             <td>
-                <c:out value="${car.model}"/>
+                <c:out value="${car.getModel()}"/>
             </td>
             <td>
-                <c:out value="${car.manufacturer.name}"/>
+                <c:out value="${car.getManufacturer().getName()}"/>
             </td>
             <td>
-                <c:out value="${car.manufacturer.country}"/>
+                <c:out value="${car.getManufacturer().getCountry()}"/>
             </td>
             <td>
                 <c:forEach var="driver" items="${car.drivers}">
-                    ${driver.id} ${driver.name} ${driver.licenceNumber} <br>
+                    ${driver.getId()} ${driver.getName()} ${driver.getLicenseNumber()} ${driver.getLogin()} <br>
                 </c:forEach>
             </td>
             <td>
-                <a href="${pageContext.request.contextPath}/cars/delete?id=${car.id}">DELETE</a>
+                <a href="${pageContext.request.contextPath}/cars/delete?id=${car.getId()}">DELETE</a>
             </td>
         </tr>
     </c:forEach>
