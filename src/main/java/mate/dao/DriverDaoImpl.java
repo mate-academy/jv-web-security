@@ -54,6 +54,23 @@ public class DriverDaoImpl implements DriverDao {
     }
 
     @Override
+    public Optional<Driver> get(String name) {
+        String query = "SELECT * FROM drivers WHERE name = ? AND deleted = FALSE";
+        try (Connection connection = ConnectionUtil.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, name);
+            ResultSet resultSet = statement.executeQuery();
+            Driver driver = null;
+            if (resultSet.next()) {
+                driver = getDriver(resultSet);
+            }
+            return Optional.ofNullable(driver);
+        } catch (SQLException e) {
+            throw new DataProcessingException("Couldn't get driver by name " + name, e);
+        }
+    }
+
+    @Override
     public List<Driver> getAll() {
         String query = "SELECT * FROM drivers WHERE deleted = FALSE";
         List<Driver> drivers = new ArrayList<>();
@@ -105,8 +122,12 @@ public class DriverDaoImpl implements DriverDao {
         Long newId = resultSet.getObject("id", Long.class);
         String name = resultSet.getString("name");
         String licenseNumber = resultSet.getString("license_number");
+        String login = resultSet.getString("login");
+        String password = resultSet.getString("password");
         Driver driver = new Driver(name, licenseNumber);
         driver.setId(newId);
+        driver.setLogin(login);
+        driver.setPassword(password);
         return driver;
     }
 }
