@@ -6,7 +6,9 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class ConnectionUtil {
-    public static final String URL = "jdbc:mysql://127.0.01:3306/library_db?useUnicode=true&serverTimezone=UTC&useSSL=true&verifyServerCertificate=false";
+    public static final String URL =
+            "jdbc:mysql://127.0.01:3306/library_db?useUnicode=true&server"
+                    + "Timezone=UTC&useSSL=true&verifyServerCertificate=false";
     public static final String USERNAME = "root";
     public static final String PASSWORD = "junior";
     public static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";

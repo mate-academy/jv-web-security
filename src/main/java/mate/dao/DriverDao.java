@@ -1,9 +1,8 @@
 package mate.dao;
 
+import java.util.Optional;
 import mate.model.Driver;
 
-import java.util.Optional;
-
 public interface DriverDao extends GenericDao<Driver> {
-    Optional<Driver> get(String name) ;
+    Optional<Driver> findByLogin(String name);
 }
