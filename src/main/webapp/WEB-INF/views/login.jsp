@@ -8,7 +8,7 @@
     <title>Login</title>
 </head>
 <body>
-<h4 style="color:red">${errorMsg}</h4>
+<h4 style="color:red">${errorMessage}</h4>
 <form method="post" id="driver" action="${pageContext.request.contextPath}/login"></form>
 <h1 class="table_dark">LOGIN:</h1>
 <table border="1" class="table_dark">
