@@ -8,8 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import mate.exception.DataProcessingException;
 import mate.lib.Dao;
-import mate.lib.exception.DataProcessingException;
 import mate.model.Driver;
 import mate.util.ConnectionUtil;
 
@@ -102,11 +102,11 @@ public class DriverDaoImpl implements DriverDao {
     }
 
     private Driver getDriver(ResultSet resultSet) throws SQLException {
-        Long newId = resultSet.getObject("id", Long.class);
+        Long id = resultSet.getObject("id", Long.class);
         String name = resultSet.getString("name");
         String licenseNumber = resultSet.getString("license_number");
         Driver driver = new Driver(name, licenseNumber);
-        driver.setId(newId);
+        driver.setId(id);
         return driver;
     }
 }
