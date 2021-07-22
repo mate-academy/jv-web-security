@@ -42,7 +42,7 @@ public class LoginController extends HttpServlet {
             session.setAttribute(USER_ID, user.getId());
             resp.sendRedirect("/index");
         } catch (AuthenticationException e) {
-            req.setAttribute("errorMsg",e.getMessage());
+            req.setAttribute("errorMsg", e.getMessage());
             req.getRequestDispatcher(PAGE_PATH).forward(req, resp);
         }
     }
