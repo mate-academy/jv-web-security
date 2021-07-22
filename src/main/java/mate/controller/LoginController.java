@@ -15,6 +15,7 @@ import mate.service.impl.AuthenticationServiceImpl;
 @WebServlet(urlPatterns = "/login")
 public class LoginController extends HttpServlet {
     private static final String PAGE_PATH = "/WEB-INF/views/login.jsp";
+    private static final String USER_ID = "user_id";
     private AuthenticationService authenticationService;
 
     @Override
@@ -36,7 +37,7 @@ public class LoginController extends HttpServlet {
         try {
             Driver user = authenticationService.login(username, password);
             HttpSession session = req.getSession();
-            session.setAttribute("user_id", user.getId());
+            session.setAttribute(USER_ID, user.getId());
             resp.sendRedirect("/index");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMsg",e.getMessage());

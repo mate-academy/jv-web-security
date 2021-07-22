@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 
 public class AuthenticationFilter implements Filter {
     private Set<String> allowedUrls;
+    private static final String USER_ID = "user_id";
 
     @Override
     public void init(FilterConfig filterConfig) {
@@ -31,7 +32,7 @@ public class AuthenticationFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         HttpSession session = request.getSession();
-        Long userId = (Long) session.getAttribute("user_id");
+        Long userId = (Long) session.getAttribute(USER_ID);
         if (allowedUrls.contains(request.getServletPath())) {
             filterChain.doFilter(request, response);
             return;
