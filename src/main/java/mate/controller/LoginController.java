@@ -8,19 +8,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import mate.exception.AuthenticationException;
+import mate.lib.Injector;
 import mate.model.Driver;
 import mate.service.AuthenticationService;
-import mate.service.impl.AuthenticationServiceImpl;
 
 @WebServlet(urlPatterns = "/login")
 public class LoginController extends HttpServlet {
     private static final String PAGE_PATH = "/WEB-INF/views/login.jsp";
     private static final String USER_ID = "user_id";
+    private static final Injector injector = Injector.getInstance("mate");
     private AuthenticationService authenticationService;
 
     @Override
     public void init() {
-        authenticationService = new AuthenticationServiceImpl();
+        authenticationService =
+                (AuthenticationService) injector.getInstance(AuthenticationService.class);
     }
 
     @Override

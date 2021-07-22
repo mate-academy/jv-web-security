@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class AuthenticationFilter implements Filter {
-    private Set<String> allowedUrls;
     private static final String USER_ID = "user_id";
+    private Set<String> allowedUrls;
 
     @Override
     public void init(FilterConfig filterConfig) {

@@ -2,17 +2,19 @@ package mate.service.impl;
 
 import java.util.Optional;
 import mate.exception.AuthenticationException;
-import mate.lib.Injector;
+import mate.lib.Inject;
+import mate.lib.Service;
 import mate.model.Driver;
 import mate.service.AuthenticationService;
 import mate.service.DriverService;
 
+@Service
 public class AuthenticationServiceImpl implements AuthenticationService {
-    private static final Injector injector = Injector.getInstance("mate");
+    @Inject
+    private DriverService driverService;
 
     @Override
     public Driver login(String username, String password) throws AuthenticationException {
-        DriverService driverService = (DriverService) injector.getInstance(DriverService.class);
         Optional<Driver> user = driverService.findByLogin(username);
         if (user.isPresent() && user.get().getPassword().equals(password)) {
             return user.get();
