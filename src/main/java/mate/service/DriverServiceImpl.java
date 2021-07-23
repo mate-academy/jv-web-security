@@ -35,4 +35,9 @@ public class DriverServiceImpl implements DriverService {
     public boolean delete(Long id) {
         return driverDao.delete(id);
     }
+
+    public Driver findByLogin(String login) {
+        return driverDao.findByLogin(login).get();
+    }
+
 }
