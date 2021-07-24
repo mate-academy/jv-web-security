@@ -81,13 +81,11 @@ public class Driver {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Driver{");
-        sb.append("login='").append(login).append('\'');
-        sb.append(", password='").append(password).append('\'');
-        sb.append(", id=").append(id);
-        sb.append(", name='").append(name).append('\'');
-        sb.append(", licenseNumber='").append(licenseNumber).append('\'');
-        sb.append('}');
-        return sb.toString();
+        String sb = "Driver{" + "login='" + login + '\''
+                + ", id=" + id
+                + ", name='" + name + '\''
+                + ", licenseNumber='" + licenseNumber + '\''
+                + '}';
+        return sb;
     }
 }
