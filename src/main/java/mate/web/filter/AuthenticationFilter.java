@@ -14,22 +14,22 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class AuthenticationFilter implements Filter {
-    private final Set<String> allowedURL = new HashSet<>();
+    private final Set<String> allowedUrl = new HashSet<>();
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        allowedURL.add("/login");
-        allowedURL.add("/drivers/add");
+        allowedUrl.add("/login");
+        allowedUrl.add("/drivers/add");
     }
 
     @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)
-            throws IOException, ServletException {
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
+                         FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         HttpSession session = req.getSession();
         Long driverId = (Long) session.getAttribute("driver_id");
-        if (driverId == null && !allowedURL.contains(req.getServletPath())) {
+        if (driverId == null && !allowedUrl.contains(req.getServletPath())) {
             resp.sendRedirect("/login");
             return;
         }
