@@ -1,5 +1,7 @@
 package mate.model;
 
+import java.util.Objects;
+
 public class Driver {
     private Long id;
     private String name;
@@ -66,5 +68,24 @@ public class Driver {
                 + ", licenseNumber='" + licenseNumber + '\''
                 + ", userName='" + login + '\''
                 + '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Driver driver = (Driver) o;
+        return Objects.equals(id, driver.id) && Objects.equals(name, driver.name)
+                && Objects.equals(licenseNumber, driver.licenseNumber)
+                && Objects.equals(login, driver.login);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, licenseNumber, login);
     }
 }
