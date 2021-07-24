@@ -11,6 +11,6 @@
     Введите свой пароль: <input type="password" name="password" required>
     <button type="submit">Войти</button>
 </form>
-<h4><a href=${pageContext.request.contextPath}/register">Зарегистрироваться</a></h4>
+<h4><a href=${pageContext.request.contextPath}/drivers/add>Зарегистрироваться</a></h4>
 </body>
 </html>

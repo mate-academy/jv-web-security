@@ -28,8 +28,9 @@ public class LoginController extends HttpServlet {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         try {
-            req.getSession().setAttribute("driver", authenticationService.login(login, password));
-            resp.sendRedirect("/");
+            req.getSession().setAttribute("driver_id",
+                    authenticationService.login(login, password).getId());
+            resp.sendRedirect("/index");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMsg", e.getMessage());
             req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
