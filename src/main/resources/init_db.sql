@@ -55,7 +55,4 @@ CREATE TABLE `cars_drivers`  (
                                  CONSTRAINT `driver_id` FOREIGN KEY (`driver_id`) REFERENCES `drivers` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
-SET FOREIGN_KEY_CHECKS = 1
-SET GLOBAL time_zone = '+3:00';
-ALTER TABLE `taxi`.`drivers`
-    ADD UNIQUE INDEX `login_UNIQUE` (`login` ASC) VISIBLE;
+SET FOREIGN_KEY_CHECKS = 1;
