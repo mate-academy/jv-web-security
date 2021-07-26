@@ -15,6 +15,12 @@ public class Driver {
         this.licenseNumber = licenseNumber;
     }
 
+    public Driver(String name, String licenceNumber, String login, String password) {
+        this(name,licenceNumber);
+        this.login = login;
+        this.password = password;
+    }
+
     public Long getId() {
         return id;
     }
@@ -81,7 +87,6 @@ public class Driver {
                 .add("name='" + name + "'")
                 .add("licenseNumber='" + licenseNumber + "'")
                 .add("login='" + login + "'")
-                .add("password='" + password + "'")
                 .toString();
     }
 }

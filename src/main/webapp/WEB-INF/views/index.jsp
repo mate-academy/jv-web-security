@@ -23,6 +23,7 @@
         <td><a href="${pageContext.request.contextPath}/manufacturers/">Display All
             Manufacturers</a></td>
     </tr>
+    <tr><td><a href="${pageContext.request.contextPath}/cars/current">Display My Cars</a></td></tr>
     <tr>
         <td><a href="${pageContext.request.contextPath}/drivers/add">Create new Driver</a></td>
     </tr>
