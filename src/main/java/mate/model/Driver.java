@@ -4,6 +4,8 @@ import java.util.Objects;
 
 public class Driver {
     private Long id;
+    private String login;
+    private String password;
     private String name;
     private String licenseNumber;
 
@@ -12,12 +14,38 @@ public class Driver {
         this.licenseNumber = licenseNumber;
     }
 
+    public Driver(String name, String licenseNumber, String login) {
+        this(name, licenseNumber);
+        this.login = login;
+    }
+
+    public Driver(String name, String licenseNumber, String login, String password) {
+        this(name, licenseNumber, login);
+        this.password = password;
+    }
+
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getName() {
