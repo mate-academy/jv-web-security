@@ -17,8 +17,6 @@ public class LoginController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("mate");
     private static final String LOGIN = "login";
     private static final String PASSWORD = "password";
-    private static final String ADMIN_LOGIN = "admin";
-    private static final String ADMIN_PASSWORD = "admin";
     private static final String DRIVER_ID = "driver_id";
     private static final String ERROR_MSG = "errorMsg";
     private final AuthenticationService authenticationService =
@@ -36,13 +34,6 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException {
         String username = req.getParameter(LOGIN);
         String password = req.getParameter(PASSWORD);
-
-        if (username.equals(ADMIN_LOGIN) && password.equals(ADMIN_PASSWORD)) {
-            HttpSession session = req.getSession();
-            session.setAttribute(DRIVER_ID, 8080);
-            req.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(req, resp);
-        }
-
         try {
             Driver driver = authenticationService.login(username, password);
             HttpSession session = req.getSession();
