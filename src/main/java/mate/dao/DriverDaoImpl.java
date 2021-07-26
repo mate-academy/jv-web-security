@@ -112,9 +112,8 @@ public class DriverDaoImpl implements DriverDao {
                 PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setString(1, login);
             ResultSet resultSet = statement.executeQuery();
-            Driver driver = null;
             if (resultSet.next()) {
-                driver = getDriver(resultSet);
+                Driver driver = getDriver(resultSet);
                 return Optional.of(driver);
             }
         } catch (SQLException e) {
