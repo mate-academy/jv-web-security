@@ -16,6 +16,11 @@ public class Driver {
         this.password = password;
     }
 
+    public Driver(Long id, String name, String licenseNumber, String login, String password) {
+        this(name, licenseNumber, login, password);
+        this.id = id;
+    }
+
     public Long getId() {
         return id;
     }
