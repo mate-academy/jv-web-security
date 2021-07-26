@@ -8,8 +8,8 @@
     <title>All manufacturers</title>
 </head>
 <body>
-<h1 class="table_dark">All manufacturers:</h1>
-<table border="1" class="table_dark">
+<h1>All manufacturers:</h1>
+<table>
     <tr>
         <th>ID</th>
         <th>Name</th>

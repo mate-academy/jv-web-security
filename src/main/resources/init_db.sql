@@ -22,6 +22,8 @@ CREATE TABLE `manufacturers`  (
                                   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
                                   `country` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
                                   `deleted` bit(1) NOT NULL DEFAULT b'0',
+                                  `login` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                                  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
                                   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
