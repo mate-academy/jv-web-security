@@ -3,6 +3,7 @@ package mate.model;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.StringJoiner;
 
 public class Car {
     private Long id;
@@ -49,16 +50,6 @@ public class Car {
     }
 
     @Override
-    public String toString() {
-        return "Car{"
-                + "id=" + id
-                + ", model='" + model + '\''
-                + ", manufacturer=" + manufacturer
-                + ", drivers=" + drivers
-                + '}';
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -75,5 +66,15 @@ public class Car {
     @Override
     public int hashCode() {
         return Objects.hash(id, model, manufacturer, drivers);
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Car.class.getSimpleName() + "[", "]")
+                .add("id=" + id)
+                .add("model='" + model + "'")
+                .add("manufacturer=" + manufacturer)
+                .add("drivers=" + drivers)
+                .toString();
     }
 }

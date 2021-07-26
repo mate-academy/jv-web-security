@@ -28,7 +28,7 @@ public class CarDaoImpl implements CarDao {
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement preparedStatement =
                         connection.prepareStatement(
-                             insertQuery, Statement.RETURN_GENERATED_KEYS)) {
+                                insertQuery, Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setString(1, car.getModel());
             preparedStatement.setLong(2, car.getManufacturer().getId());
             preparedStatement.executeUpdate();
@@ -120,8 +120,8 @@ public class CarDaoImpl implements CarDao {
         String selectQuery = "UPDATE cars SET deleted = true WHERE id = ?"
                 + " and deleted = false";
         try (Connection connection = ConnectionUtil.getConnection();
-                 PreparedStatement preparedStatement =
-                         connection.prepareStatement(selectQuery)) {
+                PreparedStatement preparedStatement =
+                        connection.prepareStatement(selectQuery)) {
             preparedStatement.setLong(1, id);
             return preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
