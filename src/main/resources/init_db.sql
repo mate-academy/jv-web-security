@@ -35,7 +35,7 @@ CREATE TABLE `cars`  (
                          `id` bigint(0) UNSIGNED NOT NULL AUTO_INCREMENT,
                          `model` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
                          `manufacturer_id` bigint(0) UNSIGNED NOT NULL,
-                         `deleted` bit(1) NOT NULL DEFAULT b'0',
+                         `is_deleted` bit(1) NOT NULL DEFAULT b'0',
                          PRIMARY KEY (`id`) USING BTREE,
                          INDEX `FK_manufacturer_id`(`manufacturer_id`) USING BTREE,
                          CONSTRAINT `FK_manufacturer_id` FOREIGN KEY (`manufacturer_id`) REFERENCES `manufacturers` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
