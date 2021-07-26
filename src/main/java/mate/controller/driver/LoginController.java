@@ -8,14 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import mate.exception.AuthenticationException;
+import mate.lib.Injector;
 import mate.model.Driver;
 import mate.service.AuthenticationService;
-import mate.service.impl.AuthenticationServiceImpl;
 
-@WebServlet (urlPatterns = "/login")
+@WebServlet(urlPatterns = "/login")
 public class LoginController extends HttpServlet {
+    private static final Injector injector = Injector.getInstance("mate");
+    private AuthenticationService authenticationService =
+            (AuthenticationService) injector.getInstance(AuthenticationService.class);
 
-    private AuthenticationService authenticationService = new AuthenticationServiceImpl();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -34,10 +36,8 @@ public class LoginController extends HttpServlet {
 
             resp.sendRedirect("/index");
         } catch (AuthenticationException e) {
-           req.setAttribute("errorMsg", e.getMessage());
-           req.getRequestDispatcher("/WEB-INF/views/drivers/login.jsp").forward(req, resp);
+            req.setAttribute("errorMsg", e.getMessage());
+            req.getRequestDispatcher("/WEB-INF/views/drivers/login.jsp").forward(req, resp);
         }
-
-
     }
 }
