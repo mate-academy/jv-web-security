@@ -22,7 +22,7 @@ public class AddManufacturerController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws IOException {
+            throws IOException, ServletException {
         String name = req.getParameter("name");
         String country = req.getParameter("country");
         Manufacturer manufacturer = new Manufacturer(name, country);
