@@ -1,6 +1,7 @@
 package mate.model;
 
 import java.util.Objects;
+import java.util.StringJoiner;
 
 public class Manufacturer {
     private Long id;
@@ -53,5 +54,14 @@ public class Manufacturer {
     @Override
     public int hashCode() {
         return Objects.hash(id, name, country);
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Manufacturer.class.getSimpleName() + "[", "]")
+                .add("id=" + id)
+                .add("name='" + name + "'")
+                .add("country='" + country + "'")
+                .toString();
     }
 }
