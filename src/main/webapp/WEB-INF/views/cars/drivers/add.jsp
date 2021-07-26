@@ -18,10 +18,18 @@
     </tr>
     <tr>
         <td>
-            <input type="number" name="car_id" form="car" required>
+            Car <select name="car_id">
+            <c:forEach items="${cars}" var="car">
+                <option value="${car.id}"> ${car.model} </option>
+            </c:forEach>
+        </select><br/>
         </td>
         <td>
-            <input type="number" name="driver_id" form="car" required>
+            Driver <select name="driver_id">
+            <c:forEach items="${drivers}" var="driver">
+                <option value="${driver.id}"> ${driver.name} </option>
+            </c:forEach>
+        </select><br/>
         </td>
         <td>
             <input type="submit" name="add" form="car">
