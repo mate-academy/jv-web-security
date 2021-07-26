@@ -12,11 +12,12 @@ import mate.service.CarService;
 import mate.service.DriverService;
 
 public class AddDriverToCarController extends HttpServlet {
-    private static final Injector injector = Injector.getInstance("mate");
-    private final CarService carService = (CarService) injector
-            .getInstance(CarService.class);
-    private final DriverService driverService = (DriverService) injector
-            .getInstance(DriverService.class);
+    private static final Injector injector =
+            Injector.getInstance("mate");
+    private final CarService carService =
+            (CarService) injector.getInstance(CarService.class);
+    private final DriverService driverService =
+            (DriverService) injector.getInstance(DriverService.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -26,7 +27,7 @@ public class AddDriverToCarController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws IOException, ServletException {
+            throws IOException {
         long driverId = Long.parseLong(req.getParameter("driver_id"));
         long carId = Long.parseLong(req.getParameter("car_id"));
         Driver driver = driverService.get(driverId);

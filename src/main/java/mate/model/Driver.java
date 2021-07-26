@@ -6,10 +6,18 @@ public class Driver {
     private Long id;
     private String name;
     private String licenseNumber;
+    private String password;
+    private String login;
 
     public Driver(String name, String licenseNumber) {
         this.name = name;
         this.licenseNumber = licenseNumber;
+    }
+
+    public Driver(String name, String licenseNumber, String login, String password) {
+        this(name, licenseNumber);
+        this.password = password;
+        this.login = login;
     }
 
     public Long getId() {
@@ -36,6 +44,22 @@ public class Driver {
         this.licenseNumber = licenseNumber;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -45,13 +69,21 @@ public class Driver {
             return false;
         }
         Driver driver = (Driver) o;
-        return Objects.equals(id, driver.id)
-                && Objects.equals(name, driver.name)
+        return Objects.equals(id, driver.id) && Objects.equals(name, driver.name)
                 && Objects.equals(licenseNumber, driver.licenseNumber);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(id, name, licenseNumber);
+    }
+
+    @Override
+    public String toString() {
+        return "Driver{"
+                + "id=" + id
+                + ", name='" + name + '\''
+                + ", licenseNumber='" + licenseNumber + '\''
+                + '}';
     }
 }

@@ -13,8 +13,7 @@ import mate.service.ManufacturerService;
 
 public class AddCarController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("mate");
-    private final CarService carService = (CarService) injector
-            .getInstance(CarService.class);
+    private final CarService carService = (CarService) injector.getInstance(CarService.class);
     private final ManufacturerService manufacturerService = (ManufacturerService) injector
             .getInstance(ManufacturerService.class);
 
@@ -26,7 +25,7 @@ public class AddCarController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws IOException, ServletException {
+            throws IOException {
         String model = req.getParameter("model");
         long manufacturerId = Long.parseLong(req.getParameter("manufacturer_id"));
         Manufacturer manufacturer = manufacturerService.get(manufacturerId);
