@@ -19,7 +19,7 @@ public class LoginController extends HttpServlet {
     private AuthenticationService authenticationService;
 
     @Override
-    public void init() throws ServletException {
+    public void init() {
         authenticationService =
                 (AuthenticationService) injector.getInstance(AuthenticationService.class);
     }
