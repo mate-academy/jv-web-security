@@ -5,7 +5,7 @@
 </head>
 <body>
 <h1>Sign in:</h1>
-<form method="post" action =${pageContext.request.contextPath}/login">
+<form method="post" action ="${pageContext.request.contextPath}/login">
     Login: <input type="text" name="login" required>
     Password: <input type="password" name="password" required>
     <button type="submit">Submit</button>
