@@ -38,7 +38,7 @@ public class DriverDaoImpl implements DriverDao {
 
     @Override
     public Optional<Driver> get(Long id) {
-        String query = "SELECT * FROM drivers WHERE id = ? AND deleted = FALSE";
+        String query = "SELECT * FROM drivers WHERE id = ? AND is_deleted = FALSE";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setLong(1, id);
@@ -55,7 +55,7 @@ public class DriverDaoImpl implements DriverDao {
 
     @Override
     public List<Driver> getAll() {
-        String query = "SELECT * FROM drivers WHERE deleted = FALSE";
+        String query = "SELECT * FROM drivers WHERE is_deleted = FALSE";
         List<Driver> drivers = new ArrayList<>();
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement = connection.prepareStatement(query)) {
@@ -74,7 +74,7 @@ public class DriverDaoImpl implements DriverDao {
     public Driver update(Driver driver) {
         String query = "UPDATE drivers "
                 + "SET name = ?, license_number = ? "
-                + "WHERE id = ? AND deleted = FALSE";
+                + "WHERE id = ? AND is_deleted = FALSE";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement
                         = connection.prepareStatement(query)) {
@@ -91,7 +91,7 @@ public class DriverDaoImpl implements DriverDao {
 
     @Override
     public boolean delete(Long id) {
-        String query = "UPDATE drivers SET deleted = TRUE WHERE id = ?";
+        String query = "UPDATE drivers SET is_deleted = TRUE WHERE id = ?";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setLong(1, id);
