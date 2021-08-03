@@ -14,12 +14,9 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public Driver login(String login, String password) throws AuthenticationException {
         Optional<Driver> driver = driverService.findByLogin(login);
-        if (driver.isEmpty()) {
+        if (driver.isEmpty() || !driver.get().getPassword().equals(password)) {
             throw new AuthenticationException("Username or password are incorrect");
         }
-        if (driver.get().getPassword().equals(password)) {
-            return driver.get();
-        }
-        throw new AuthenticationException("Username or password is incorrect");
+        return driver.get();
     }
 }
