@@ -10,7 +10,6 @@ import mate.exception.AuthenticationException;
 import mate.lib.Injector;
 import mate.model.Driver;
 import mate.service.AuthenticationService;
-import mate.service.AuthenticationServiceImpl;
 
 public class LoginController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("mate");
