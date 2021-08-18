@@ -13,7 +13,9 @@
 <table border="1" class="table_dark">
     <tr>
         <th>Name</th>
+        <th>Login</th>
         <th>License number</th>
+        <th>Password</th>
         <th>Add</th>
     </tr>
     <tr>
@@ -21,7 +23,13 @@
             <input type="text" name="name" form="driver" required>
         </td>
         <td>
+            <input type="text" name="login" form="driver" required>
+        </td>
+        <td>
             <input type="text" name="license_number" form="driver" required>
+        </td>
+        <td>
+            <input type="text" name="password" form="driver" required>
         </td>
         <td>
             <input type="submit" name="add" form="driver">
