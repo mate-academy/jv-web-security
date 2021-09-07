@@ -10,6 +10,7 @@ import mate.lib.Injector;
 import mate.service.DriverService;
 
 public class IndexController extends HttpServlet {
+    private static final String USER_NAME = "userName";
     private static final Injector injector = Injector.getInstance("mate");
     private final DriverService driverService = (DriverService) injector
             .getInstance(DriverService.class);
@@ -17,8 +18,8 @@ public class IndexController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        final HttpSession session = req.getSession();
-        String userName = (String) session.getAttribute("userName");
+        HttpSession session = req.getSession();
+        String userName = (String) session.getAttribute(USER_NAME);
         req.setAttribute("userName", (userName.isEmpty()) ? "pal" : userName);
         req.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(req, resp);
     }
