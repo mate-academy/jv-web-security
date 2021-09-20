@@ -8,7 +8,20 @@
     <title>All cars</title>
 </head>
 <body>
-<h1 class="table_dark">All cars:</h1>
+<%@include file='/WEB-INF/views/header.jsp' %>
+<table class="table_dark">
+    <tr>
+        <td width="33%">
+            <a href="${pageContext.request.contextPath}/cars/my_cars">Filter my cars</a>
+        </td>
+        <td width="34%">
+            <h1 class="table_dark">All cars:</h1>
+        </td>
+        <td>
+            <a href="${pageContext.request.contextPath}/cars/">Show all cars</a>
+        </td>
+    </tr>
+</table>
 <table border="1" class="table_dark">
     <tr>
         <th>ID</th>
@@ -34,7 +47,7 @@
             </td>
             <td>
                 <c:forEach var="driver" items="${car.drivers}">
-                    ${driver.id} ${driver.name} ${driver.licenseNumber} <br>
+                    ${driver.id} ${driver.name} ${driver.licenseNumber}  <br>
                 </c:forEach>
             </td>
             <td>
@@ -43,5 +56,6 @@
         </tr>
     </c:forEach>
 </table>
+<h4><a href="${pageContext.request.contextPath}/index">Home</a></h4>
 </body>
 </html>
