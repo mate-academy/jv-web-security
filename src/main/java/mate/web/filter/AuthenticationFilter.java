@@ -31,15 +31,10 @@ public class AuthenticationFilter implements Filter {
         HttpSession session = request.getSession();
 
         Long driverId = (Long) session.getAttribute("driver_id");
-        if (driverId == null && allowedUrls.contains(request.getServletPath())) {
-            filterChain.doFilter(request, response);
-            return;
-        }
-        if (driverId == null) {
+        if (driverId == null && !allowedUrls.contains(request.getServletPath())) {
             response.sendRedirect("/login");
             return;
         }
-
         filterChain.doFilter(request, response);
     }
 }
