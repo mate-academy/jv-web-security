@@ -26,6 +26,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>logoutController</servlet-name>
+        <servlet-class>mate.controller.LogoutController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logoutController</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>allDrivers</servlet-name>
         <servlet-class>mate.controller.driver.GetAllDriversController</servlet-class>
     </servlet>
