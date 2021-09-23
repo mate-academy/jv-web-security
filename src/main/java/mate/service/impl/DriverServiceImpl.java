@@ -1,9 +1,10 @@
-package mate.service;
+package mate.service.impl;
 
 import mate.dao.DriverDao;
 import mate.lib.Inject;
 import mate.lib.Service;
 import mate.model.Driver;
+import mate.service.DriverService;
 
 import java.util.List;
 

@@ -1,5 +1,6 @@
-package mate.dao;
+package mate.dao.impl;
 
+import mate.dao.CarDao;
 import mate.exception.DataProcessingException;
 import mate.lib.Dao;
 import mate.model.Car;

@@ -1,4 +1,4 @@
-package mate.service;
+package mate.service.impl;
 
 import mate.dao.CarDao;
 import mate.dao.DriverDao;
@@ -6,6 +6,7 @@ import mate.lib.Inject;
 import mate.lib.Service;
 import mate.model.Car;
 import mate.model.Driver;
+import mate.service.CarService;
 
 import java.util.ArrayList;
 import java.util.List;
