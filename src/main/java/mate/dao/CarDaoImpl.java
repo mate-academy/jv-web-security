@@ -1,14 +1,5 @@
 package mate.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 import mate.exception.DataProcessingException;
 import mate.lib.Dao;
 import mate.model.Car;
@@ -16,17 +7,23 @@ import mate.model.Driver;
 import mate.model.Manufacturer;
 import mate.util.ConnectionUtil;
 
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 @Dao
 public class CarDaoImpl implements CarDao {
     private static final int ZERO_PLACEHOLDER = 0;
-    private static final int PARAMETER_SHIFT = 2;
+    private static final int SHIFT = 2;
 
     @Override
     public Car create(Car car) {
         String insertQuery = "INSERT INTO cars (model, manufacturer_id)"
                 + "VALUES (?, ?)";
         try (Connection connection = ConnectionUtil.getConnection();
-                PreparedStatement preparedStatement =
+                 PreparedStatement preparedStatement =
                         connection.prepareStatement(
                              insertQuery, Statement.RETURN_GENERATED_KEYS)) {
             preparedStatement.setString(1, car.getModel());
@@ -172,8 +169,8 @@ public class CarDaoImpl implements CarDao {
                         connection.prepareStatement(insertQuery)) {
             for (int i = 0; i < drivers.size(); i++) {
                 Driver driver = drivers.get(i);
-                preparedStatement.setLong((i * PARAMETER_SHIFT) + 1, carId);
-                preparedStatement.setLong((i * PARAMETER_SHIFT) + 2, driver.getId());
+                preparedStatement.setLong((i * SHIFT) + 1, carId);
+                preparedStatement.setLong((i * SHIFT) + 2, driver.getId());
             }
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
@@ -195,7 +192,7 @@ public class CarDaoImpl implements CarDao {
             preparedStatement.setLong(1, carId);
             for (int i = 0; i < size; i++) {
                 Driver driver = exceptions.get(i);
-                preparedStatement.setLong((i) + PARAMETER_SHIFT, driver.getId());
+                preparedStatement.setLong((i) + SHIFT, driver.getId());
             }
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
@@ -223,7 +220,7 @@ public class CarDaoImpl implements CarDao {
     }
 
     private Driver parseDriverFromResultSet(ResultSet resultSet) throws SQLException {
-        Long driverId = resultSet.getObject("id", Long.class);
+        long driverId = resultSet.getLong("id");
         String name = resultSet.getNString("name");
         String licenseNumber = resultSet.getNString("license_number");
         Driver driver = new Driver(name, licenseNumber);
@@ -232,12 +229,12 @@ public class CarDaoImpl implements CarDao {
     }
 
     private Car parseCarFromResultSet(ResultSet resultSet) throws SQLException {
-        Long manufacturerId = resultSet.getObject("manufacturer_id", Long.class);
+        long manufacturerId = resultSet.getObject("manufacturer_id", Long.class);
         String manufacturerName = resultSet.getNString("manufacturer_name");
         String manufacturerCountry = resultSet.getNString("manufacturer_country");
         Manufacturer manufacturer = new Manufacturer(manufacturerName, manufacturerCountry);
         manufacturer.setId(manufacturerId);
-        Long carId = resultSet.getObject("id", Long.class);
+        long carId = resultSet.getLong("id");
         String model = resultSet.getNString("model");
         Car car = new Car(model, manufacturer);
         car.setId(carId);
