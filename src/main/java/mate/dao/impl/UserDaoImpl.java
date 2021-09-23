@@ -1,10 +1,9 @@
 package mate.dao.impl;
 
+import java.util.Optional;
 import mate.dao.UserDao;
 import mate.lib.Dao;
 import mate.model.User;
-
-import java.util.Optional;
 
 @Dao
 public class UserDaoImpl implements UserDao {
