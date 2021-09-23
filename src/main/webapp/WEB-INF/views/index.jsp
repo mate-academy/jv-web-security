@@ -4,6 +4,6 @@
     <title>My team</title>
 </head>
 <body>
-<h1>${drivers}"</h1>
+<h1>Hello world</h1>
 </body>
 </html>
