@@ -9,6 +9,6 @@ import mate.model.User;
 public class UserDaoImpl implements UserDao {
     @Override
     public Optional<User> findByUserName(String username) {
-        return Optional.of(new User(username, "1234567890"));
+        return Optional.of(new User(1L, username, "1234567890"));
     }
 }

@@ -6,8 +6,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import mate.exception.AuthenticationException;
 import mate.lib.Injector;
+import mate.model.User;
 import mate.service.AuthenticationService;
 
 @WebServlet(urlPatterns = "/login")
@@ -27,9 +29,10 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException {
         String username = req.getParameter("login");
         String password = req.getParameter("password");
-
         try {
-            authenticationService.login(username, password);
+            User user = authenticationService.login(username, password);
+            HttpSession session = req.getSession();
+            session.setAttribute("user_id", user.getId());
             resp.sendRedirect("/index");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMsg", e.getMessage());

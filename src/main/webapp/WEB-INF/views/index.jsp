@@ -4,6 +4,8 @@
     <title>My team</title>
 </head>
 <body>
-<h1>Hello world</h1>
+<h1>Login Page</h1>
+<%@include file="header.jsp"%>
+
 </body>
 </html>
