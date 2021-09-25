@@ -33,5 +33,6 @@
         </tr>
     </c:forEach>
 </table>
+<h4><a href="${pageContext.request.contextPath}/index">Home Page</a></h4>
 </body>
 </html>
