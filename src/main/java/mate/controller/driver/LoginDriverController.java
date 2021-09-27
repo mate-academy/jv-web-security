@@ -12,7 +12,7 @@ import mate.model.Driver;
 import mate.service.AuthenticationService;
 
 public class LoginDriverController extends HttpServlet {
-    private static final String SESSION_ATTRIBUTE_ID = "id";
+    private static final String SESSION_ATTRIBUTE_ID = "driver_id";
     private static final Injector injector = Injector.getInstance("mate");
     private final AuthenticationService authenticationService = (AuthenticationService) injector
             .getInstance(AuthenticationService.class);
