@@ -8,11 +8,12 @@
 </head>
 <body>
 <form method="post" id="redirect"></form>
-<h1 class="table_dark">Hello, mates</h1>
+<h1 class="table_dark">Hello, ${userName}</h1>
 <table class="table_dark">
     <tr>
         <th>Redirect to</th>
     </tr>
+    <tr><td><a href="${pageContext.request.contextPath}/drivers/">Display My Cars</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/drivers/">Display All Drivers</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/cars/">Display All Cars</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/manufacturers/">Display All Manufacturers</a></td></tr>
@@ -20,6 +21,7 @@
     <tr><td><a href="${pageContext.request.contextPath}/cars/add">Create new Car</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/manufacturers/add">Create new Manufacturer</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/cars/drivers/add">Add Driver to Car</a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/logout">Logout</a></td></tr>
 </table>
 </body>
 </html>
