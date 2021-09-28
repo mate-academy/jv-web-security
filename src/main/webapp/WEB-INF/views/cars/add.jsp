@@ -28,5 +28,6 @@
         </td>
     </tr>
 </table>
+<h4><a href="${pageContext.request.contextPath}/index">Home Page</a></h4>
 </body>
 </html>

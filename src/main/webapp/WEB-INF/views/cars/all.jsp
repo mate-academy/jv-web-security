@@ -34,7 +34,7 @@
             </td>
             <td>
                 <c:forEach var="driver" items="${car.drivers}">
-                    ${driver.id} ${driver.name} ${driver.licenseNumber} <br>
+                    ${driver.id} ${driver.name} ${driver.licenseNumber} ${driver.login} <br>
                 </c:forEach>
             </td>
             <td>
@@ -43,5 +43,6 @@
         </tr>
     </c:forEach>
 </table>
+<h4><a href="${pageContext.request.contextPath}/index">Home Page</a></h4>
 </body>
 </html>
