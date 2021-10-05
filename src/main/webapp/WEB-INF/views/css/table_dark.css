@@ -30,3 +30,6 @@
 .table_dark tr:hover td {
     text-decoration: underline;
 }
+a {
+    color: #CAD4D6;
+}

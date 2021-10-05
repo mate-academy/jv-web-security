@@ -5,27 +5,20 @@
 </style>
 <html>
 <head>
-    <title>All drivers</title>
+    <title>Login</title>
 </head>
 <body>
 <%@include file="/WEB-INF/views/header.jsp"%>
-<form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/add"></form>
-<h1 class="table_dark">Add driver:</h1>
+<form method="post" id="driver" action="${pageContext.request.contextPath}/login"></form>
+<h1 class="table_dark">Login:</h1>
+<h4 class="table_dark" style="color: red; font-size: 20px;">${error_message}</h4>
 <table border="1" class="table_dark">
     <tr>
-        <th>Name</th>
-        <th>License number</th>
         <th>Login</th>
         <th>Password</th>
-        <th>Add</th>
+        <th>Submit</th>
     </tr>
     <tr>
-        <td>
-            <input type="text" name="name" form="driver" required>
-        </td>
-        <td>
-            <input type="text" name="license_number" form="driver" required>
-        </td>
         <td>
             <input type="text" name="login" form="driver" required>
         </td>
@@ -37,5 +30,6 @@
         </td>
     </tr>
 </table>
+<a href="${pageContext.request.contextPath}/drivers/add"><button>Add Driver</button></a>
 </body>
 </html>
