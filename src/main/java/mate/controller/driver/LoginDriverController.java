@@ -1,4 +1,4 @@
-package mate.controller;
+package mate.controller.driver;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -11,9 +11,8 @@ import mate.lib.Injector;
 import mate.model.Driver;
 import mate.service.AuthenticationService;
 
-public class LoginController extends HttpServlet {
-    private static final String USER_ID = "userId";
-    private static final String USER_NAME = "userName";
+public class LoginDriverController extends HttpServlet {
+    private static final String SESSION_ATTRIBUTE_ID = "driver_id";
     private static final Injector injector = Injector.getInstance("mate");
     private final AuthenticationService authenticationService = (AuthenticationService) injector
             .getInstance(AuthenticationService.class);
@@ -29,16 +28,14 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
-
         try {
             Driver driver = authenticationService.login(login, password);
             HttpSession session = req.getSession();
-            session.setAttribute(USER_ID, driver.getId());
-            session.setAttribute(USER_NAME, driver.getName());
+            session.setAttribute(SESSION_ATTRIBUTE_ID, driver.getId());
             resp.sendRedirect("/index");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMsg", e.getMessage());
-            req.getRequestDispatcher("/WEB-INF/vies/login.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
         }
     }
 }

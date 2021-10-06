@@ -24,6 +24,8 @@ public class DriverDaoImpl implements DriverDao {
                         Statement.RETURN_GENERATED_KEYS)) {
             statement.setString(1, driver.getName());
             statement.setString(2, driver.getLicenseNumber());
+            statement.setString(3, driver.getLogin());
+            statement.setString(4, driver.getPassword());
             statement.executeUpdate();
             ResultSet resultSet = statement.getGeneratedKeys();
             if (resultSet.next()) {
@@ -82,7 +84,7 @@ public class DriverDaoImpl implements DriverDao {
             statement.setString(2, driver.getLicenseNumber());
             statement.setString(3, driver.getLogin());
             statement.setString(4, driver.getPassword());
-            statement.setLong(3, driver.getId());
+            statement.setLong(5, driver.getId());
             statement.executeUpdate();
             return driver;
         } catch (SQLException e) {

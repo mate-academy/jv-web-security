@@ -18,7 +18,7 @@
 
     <servlet>
         <servlet-name>driverCars</servlet-name>
-        <servlet-class>mate.controller.GetMyCurrentCarsController</servlet-class>
+        <servlet-class>mate.controller.driver.GetMyCurrentCarsController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>driverCars</servlet-name>
@@ -107,30 +107,30 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>deleteManufacturer</servlet-name>
-        <servlet-class>mate.controller.manufacturer.DeleteManufacturerController</servlet-class>
+        <servlet-name>logout</servlet-name>
+        <servlet-class>mate.controller.LogoutController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>deleteManufacturer</servlet-name>
-        <url-pattern>/manufacturers/delete</url-pattern>
+        <servlet-name>logout</servlet-name>
+        <url-pattern>/logout</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>loginController</servlet-name>
-        <servlet-class>mate.controller.LoginController</servlet-class>
+        <servlet-name>login</servlet-name>
+        <servlet-class>mate.controller.driver.LoginDriverController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>loginController</servlet-name>
+        <servlet-name>login</servlet-name>
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>logoutController</servlet-name>
-        <servlet-class>mate.controller.LogoutController</servlet-class>
+        <servlet-name>getCarsForCurrentDriver</servlet-name>
+        <servlet-class>mate.controller.driver.GetMyCurrentCarsController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>logoutController</servlet-name>
-        <url-pattern>/logout</url-pattern>
+        <servlet-name>getCarsForCurrentDriver</servlet-name>
+        <url-pattern>/drivers/cars</url-pattern>
     </servlet-mapping>
 
     <filter>

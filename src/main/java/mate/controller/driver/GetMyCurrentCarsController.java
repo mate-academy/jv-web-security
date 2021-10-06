@@ -1,4 +1,4 @@
-package mate.controller;
+package mate.controller.driver;
 
 import java.io.IOException;
 import java.util.List;
@@ -12,7 +12,7 @@ import mate.model.Car;
 import mate.service.CarService;
 
 public class GetMyCurrentCarsController extends HttpServlet {
-    private static final String USER_ID = "userId";
+    private static final String SESSION_ATTRIBUTE = "driver_id";
     private static final Injector injector = Injector.getInstance("mate");
     private final CarService carService = (CarService) injector
             .getInstance(CarService.class);
@@ -21,7 +21,7 @@ public class GetMyCurrentCarsController extends HttpServlet {
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         HttpSession session = req.getSession();
-        Long driverId = (Long) session.getAttribute(USER_ID);
+        Long driverId = (Long) session.getAttribute(SESSION_ATTRIBUTE);
         List<Car> allCarsByDriver = carService.getAllByDriver(driverId);
         req.setAttribute("cars", allCarsByDriver);
         req.getRequestDispatcher("/WEB-INF/views/cars/all.jsp").forward(req, resp);
