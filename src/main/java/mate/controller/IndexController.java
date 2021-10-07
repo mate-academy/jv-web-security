@@ -20,7 +20,7 @@ public class IndexController extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = req.getSession();
         String userName = (String) session.getAttribute(USER_NAME);
-        req.setAttribute("userName", (userName.isEmpty()) ? "#" : userName);
+        req.setAttribute("userName", userName == null ? "#" : userName);
         req.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(req, resp);
     }
 }
