@@ -15,12 +15,9 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     @Override
     public Driver login(String login, String password) throws AuthenticationException {
         Optional<Driver> driver = driverDao.findByLogin(login);
-        if (driver.isEmpty()) {
-            throw new AuthenticationException("Combination of a login and password doesn't exist");
+        if (driver.isEmpty() || !driver.get().getLogin().equals(password)) {
+            throw new AuthenticationException("Combination of login and password doesn't exist");
         }
-        if (driver.get().getLogin().equals(password)) {
-            return driver.get();
-        }
-        throw new AuthenticationException("Combination of a login and password doesn't exist");
+        return driver.get();
     }
 }
