@@ -8,13 +8,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class IndexController extends HttpServlet {
-    private HttpSession session;
+    private static final String DRIVER = "driver";
+    private static final String NAME = "name";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        session = req.getSession();
-        req.setAttribute("driver",session.getAttribute("name"));
+        HttpSession session = req.getSession();
+        req.setAttribute(DRIVER, session.getAttribute(NAME));
         req.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(req, resp);
     }
 }
