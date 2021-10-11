@@ -15,9 +15,6 @@ public class LoginController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("mate");
     private static final String DRIVER_ID = "driver_id";
     private static final String NAME = "name";
-    private static final String ERROR_VARIABLE = "error";
-    private static final String LOGIN = "login";
-    private static final String PASSWORD = "password";
     private final AuthenticationService authenticationService
             = (AuthenticationService) injector.getInstance(AuthenticationService.class);
 
@@ -30,8 +27,8 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        String login = req.getParameter(LOGIN);
-        String password = req.getParameter(PASSWORD);
+        String login = req.getParameter("login");
+        String password = req.getParameter("password");
         try {
             Driver driver = authenticationService.login(login, password);
             HttpSession session = req.getSession();
@@ -39,7 +36,7 @@ public class LoginController extends HttpServlet {
             session.setAttribute(NAME, driver.getName());
             resp.sendRedirect("/");
         } catch (AuthenticationException e) {
-            req.setAttribute(ERROR_VARIABLE, e.getMessage());
+            req.setAttribute("error", e.getMessage());
             req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
         }
     }

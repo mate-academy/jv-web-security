@@ -81,7 +81,6 @@ public class Driver {
                 + "id=" + id
                 + ", name='" + name + '\''
                 + ", login='" + login + '\''
-                + ", password='" + password + '\''
                 + ", licenseNumber='" + licenseNumber + '\''
                 + '}';
     }
