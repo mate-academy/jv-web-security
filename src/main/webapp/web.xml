@@ -15,16 +15,7 @@
         <servlet-name>index</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-
-    <servlet>
-        <servlet-name>driverCars</servlet-name>
-        <servlet-class>mate.controller.driver.GetMyCurrentCarsController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>driverCars</servlet-name>
-        <url-pattern>/drivers/cars/</url-pattern>
-    </servlet-mapping>
-
+    
     <servlet>
         <servlet-name>allDrivers</servlet-name>
         <servlet-class>mate.controller.driver.GetAllDriversController</servlet-class>
@@ -106,6 +97,15 @@
         <url-pattern>/manufacturers/add</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>deleteManufacturer</servlet-name>
+        <servlet-class>mate.controller.manufacturer.DeleteManufacturerController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>deleteManufacturer</servlet-name>
+        <url-pattern>/manufacturers/delete</url-pattern>
+    </servlet-mapping>
+    
     <servlet>
         <servlet-name>logout</servlet-name>
         <servlet-class>mate.controller.LogoutController</servlet-class>
