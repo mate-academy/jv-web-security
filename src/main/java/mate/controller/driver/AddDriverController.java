@@ -25,7 +25,9 @@ public class AddDriverController extends HttpServlet {
             throws IOException {
         String name = req.getParameter("name");
         String licenseNumber = req.getParameter("license_number");
-        Driver driver = new Driver(name, licenseNumber);
+        String username = req.getParameter("username");
+        String password = req.getParameter("password");
+        Driver driver = new Driver(name, licenseNumber, username, password);
         driverService.create(driver);
         resp.sendRedirect("/drivers/add");
     }
