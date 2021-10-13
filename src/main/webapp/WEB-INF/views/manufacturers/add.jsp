@@ -24,9 +24,17 @@
             <input type="text" name="country" form="manufacturer" required>
         </td>
         <td>
-            <input type="submit" name="add" form="manufacturer" required>
+            <button type="submit" name="add" form="manufacturer">Confirm</button>
         </td>
     </tr>
+</table>
+<br><br><br><br>
+<table class="table_dark">
+    <tr>
+        <th>Redirect to</th>
+    </tr>
+    <tr><td><a href="${pageContext.request.contextPath}/cars/add">Create new Car</a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/index">Main page</a></td></tr>
 </table>
 </body>
 </html>

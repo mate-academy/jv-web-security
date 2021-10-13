@@ -13,6 +13,8 @@
     <tr>
         <th>ID</th>
         <th>Name</th>
+        <th>Login</th>
+        <th>Password</th>
         <th>License number</th>
         <th>Delete</th>
     </tr>
@@ -25,6 +27,12 @@
                 <c:out value="${driver.name}"/>
             </td>
             <td>
+                <c:out value="${driver.login}"/>
+            </td>
+            <td>
+                <c:out value="${driver.password}"/>
+            </td>
+            <td>
                 <c:out value="${driver.licenseNumber}"/>
             </td>
             <td>
@@ -32,6 +40,13 @@
             </td>
         </tr>
     </c:forEach>
+</table>
+<br><br><br><br>
+<table class="table_dark">
+    <tr>
+        <th>Redirect to</th>
+    </tr>
+    <tr><td><a href="${pageContext.request.contextPath}/index">Main page</a></td></tr>
 </table>
 </body>
 </html>

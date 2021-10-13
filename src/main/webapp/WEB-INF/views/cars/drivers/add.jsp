@@ -24,9 +24,18 @@
             <input type="number" name="driver_id" form="car" required>
         </td>
         <td>
-            <input type="submit" name="add" form="car">
+            <button type="submit" name="add" form="car">Confirm</button>
         </td>
     </tr>
+</table>
+<br><br><br><br>
+<table class="table_dark">
+    <tr>
+        <th>Redirect to</th>
+    </tr>
+    <tr><td><a href="${pageContext.request.contextPath}/cars">Display All Cars</a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/drivers">Display All Drivers</a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/index">Main page</a></td></tr>
 </table>
 </body>
 </html>
