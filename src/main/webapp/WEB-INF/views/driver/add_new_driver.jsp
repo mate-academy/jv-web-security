@@ -13,6 +13,10 @@
         <input type="text" name="name"><br>
         <label>License Number</label><br>
         <input type="text" name="license_number"><br><br>
+        <label>Driver login</label><br>
+        <input type="text" name="login"><br>
+        <label>Driver password</label><br>
+        <input type="text" name="password"><br><br>
         <button type="submit">Confirm</button>
     </form>
 </body>

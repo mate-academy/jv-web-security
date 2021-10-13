@@ -18,13 +18,17 @@ import mate.util.ConnectionUtil;
 public class DriverDaoImpl implements DriverDao {
     @Override
     public Driver create(Driver driver) {
-        String insertDriverRequest = "INSERT INTO drivers(name, license_number) VALUES(?, ?);";
+        String insertDriverRequest = "INSERT "
+                + "INTO drivers(name, login, password,license_number) "
+                + "VALUES(?, ?, ?, ?);";
         try (Connection connection = ConnectionUtil.getConnect();
                  PreparedStatement insertDriverStatement =
                          connection.prepareStatement(insertDriverRequest,
                                  Statement.RETURN_GENERATED_KEYS)) {
             insertDriverStatement.setString(1, driver.getName());
-            insertDriverStatement.setString(2, driver.getLicenseNumber());
+            insertDriverStatement.setString(2, driver.getLogin());
+            insertDriverStatement.setString(3, driver.getPassword());
+            insertDriverStatement.setString(4, driver.getLicenseNumber());
             insertDriverStatement.executeUpdate();
             ResultSet resultSet = insertDriverStatement.getGeneratedKeys();
             if (resultSet.next()) {
@@ -76,7 +80,8 @@ public class DriverDaoImpl implements DriverDao {
 
     @Override
     public Driver update(Driver driver) {
-        String updateDriverRequest = "UPDATE drivers SET name = ?, license_number = ? "
+        String updateDriverRequest = "UPDATE drivers "
+                + "SET name = ?, login = ?, password = ?, license_number = ? "
                 + "WHERE is_deleted = false AND id  = ?;";
         String getDriverByIdRequest = "SELECT * FROM drivers "
                 + "WHERE is_deleted = false AND id = ?;";
@@ -92,8 +97,10 @@ public class DriverDaoImpl implements DriverDao {
                 oldDriver = parseResultSet(resultSet);
             }
             updateDriverStatement.setString(1, driver.getName());
-            updateDriverStatement.setString(2, driver.getLicenseNumber());
-            updateDriverStatement.setLong(3, driver.getId());
+            updateDriverStatement.setString(2, driver.getLogin());
+            updateDriverStatement.setString(3, driver.getPassword());
+            updateDriverStatement.setString(4, driver.getLicenseNumber());
+            updateDriverStatement.setLong(5, driver.getId());
             updateDriverStatement.executeUpdate();
             return oldDriver;
         } catch (SQLException e) {
@@ -139,9 +146,13 @@ public class DriverDaoImpl implements DriverDao {
         Driver driver = new Driver();
         Long id = resultSet.getObject("id", Long.class);
         String name = resultSet.getString("name");
+        String login = resultSet.getString("login");
+        String password = resultSet.getString("password");
         String licenseNumber = resultSet.getString("license_number");
         driver.setId(id);
         driver.setName(name);
+        driver.setLogin(login);
+        driver.setPassword(password);
         driver.setLicenseNumber(licenseNumber);
         return driver;
     }
