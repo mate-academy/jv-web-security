@@ -22,6 +22,11 @@ public class DriverServiceImpl implements DriverService {
     }
 
     @Override
+    public Driver getByLogin(String login) {
+        return driverDao.getByLogin(login).get();
+    }
+
+    @Override
     public List<Driver> getAll() {
         return driverDao.getAll();
     }
