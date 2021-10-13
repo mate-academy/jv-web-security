@@ -36,7 +36,7 @@
 
     <servlet>
         <servlet-name>addDriver</servlet-name>
-        <servlet-class>mate.controller.driver.AddDriverController</servlet-class>
+        <servlet-class>mate.controller.driver.CreateDriverController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>addDriver</servlet-name>
@@ -117,10 +117,19 @@
 
     <servlet>
         <servlet-name>register</servlet-name>
-        <servlet-class>mate.controller.RegisterController</servlet-class>
+        <servlet-class>mate.controller.GetMyCurrentCarsController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>register</servlet-name>
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
+
+    <filter>
+        <filter-name>authenticationFilter</filter-name>
+        <filter-class>mate.web.filter.AuthenticationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>authenticationFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>

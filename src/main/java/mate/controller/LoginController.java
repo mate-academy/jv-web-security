@@ -1,18 +1,21 @@
 package mate.controller;
 
-import mate.exception.AuthenticationException;
-import mate.lib.Injector;
-import mate.service.AuthenticationService;
-import mate.service.AuthenticationServiceImpl;
-
+import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpSessionActivationListener;
+
+import mate.exception.AuthenticationException;
+import mate.lib.Injector;
+import mate.model.Driver;
+import mate.service.AuthenticationService;
 
 public class LoginController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("mate");
+    private static final String SESSION_ATTRIBUTE_NAME = "driver_id";
     private static AuthenticationService authService =
             (AuthenticationService) injector.getInstance(AuthenticationService.class);
 
@@ -28,10 +31,13 @@ public class LoginController extends HttpServlet {
         String username = req.getParameter("login");
         String password = req.getParameter("password");
         try {
-            authService.login(username, password);
+            Driver driver = authService.login(username, password);
+            HttpSession session = req.getSession();
+            session.setAttribute(SESSION_ATTRIBUTE_NAME, driver.getId());
             resp.sendRedirect("/index");
         } catch (AuthenticationException e) {
-            throw new RuntimeException(e);
+            req.setAttribute("errorMsg", e.getMessage());
+            req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
         }
     }
 }

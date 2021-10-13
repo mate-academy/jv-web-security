@@ -28,12 +28,12 @@
         </td>
     </tr>
 </table>
-<br><br><br><br>
+<br><br><h3 style="color:red" align="center">${errorMsg}</h3><br><br>
 <table class="table_dark">
     <tr>
         <th>Redirect to</th>
     </tr>
-    <tr><td><a href="${pageContext.request.contextPath}/register">REGISTER</a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/drivers/add">Create new Driver</a></td></tr>
 </table>
 </body>
 </html>
