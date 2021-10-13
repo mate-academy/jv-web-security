@@ -30,7 +30,7 @@
 </table>
 <table border="1" class="table_dark">
     <tr>
-        <th>Or you car register a new driver</th>
+        <th>Or you can register a new driver</th>
     </tr>
     <tr>
     <td>
