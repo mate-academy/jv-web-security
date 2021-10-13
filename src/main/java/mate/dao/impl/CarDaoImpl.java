@@ -171,7 +171,7 @@ public class CarDaoImpl implements CarDao {
     }
 
     private List<Driver> getDriversForCar(Long id) {
-        String getDriversByIdRequest = "SELECT id, name, license_number "
+        String getDriversByIdRequest = "SELECT id, name, login, password, license_number "
                 + "FROM drivers d JOIN cars_drivers cd "
                 + "ON d.id = cd.driver_id "
                 + "WHERE cd.car_id = ?;";
@@ -195,6 +195,8 @@ public class CarDaoImpl implements CarDao {
         Driver driver = new Driver();
         driver.setId(resultSet.getObject("id", Long.class));
         driver.setName(resultSet.getString("name"));
+        driver.setLogin(resultSet.getString("login"));
+        driver.setPassword(resultSet.getString("password"));
         driver.setLicenseNumber(resultSet.getString("license_number"));
         return driver;
     }
