@@ -1,6 +1,5 @@
 package mate.service;
 
-import java.util.NoSuchElementException;
 import mate.exception.AuthenticationException;
 import mate.lib.Inject;
 import mate.lib.Service;
@@ -13,13 +12,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     @Override
     public Driver login(String login, String password) throws AuthenticationException {
-        Driver driver = null;
-        try {
-            driver = driverService.findByLogin(login);
-        } catch (NoSuchElementException e) {
-            throw new AuthenticationException("login or password was incorrect");
-        }
-        if (!driver.getPassword().equals(password)) {
+        Driver driver = driverService.findByLogin(login);
+        if (driver.getPassword() == null || !driver.getPassword().equals(password)) {
             throw new AuthenticationException("login or password was incorrect");
         }
         return driver;
