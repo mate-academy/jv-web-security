@@ -12,14 +12,14 @@ import mate.service.CarService;
 
 public class GetAllCarsController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("mate");
-    private final CarService carService = (CarService) injector
-            .getInstance(CarService.class);
+    private final CarService carService =
+            (CarService) injector.getInstance(CarService.class);
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+    public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        List<Car> allCars = carService.getAll();
-        req.setAttribute("cars", allCars);
-        req.getRequestDispatcher("/WEB-INF/views/cars/all.jsp").forward(req, resp);
+        List<Car> cars = carService.getAll();
+        req.setAttribute("cars", cars);
+        req.getRequestDispatcher("/WEB-INF/views/car/all_cars.jsp").forward(req, resp);
     }
 }
