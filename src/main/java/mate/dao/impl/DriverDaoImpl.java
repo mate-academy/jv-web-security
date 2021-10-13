@@ -123,7 +123,7 @@ public class DriverDaoImpl implements DriverDao {
         }
     }
 
-    public Optional<Driver> getDriverByLicenseNumber(String licenseNumber) {
+    public Optional<Driver> findByLicenseNumber(String licenseNumber) {
         String existByLicenseNumberRequest = "SELECT * FROM drivers "
                 + "WHERE is_deleted = false AND license_number = ?;";
         Driver driver = null;
@@ -137,6 +137,26 @@ public class DriverDaoImpl implements DriverDao {
             }
         } catch (SQLException e) {
             throw new DataProcessingException("Can't find driver by license number"
+                    + driver + " from DB", e);
+        }
+        return Optional.ofNullable(driver);
+    }
+
+    @Override
+    public Optional<Driver> findByLogin(String login) {
+        String findByLoginRequest = "SELECT * FROM drivers "
+                + "WHERE is_deleted = false AND login = ?;";
+        Driver driver = null;
+        try (Connection connection = ConnectionUtil.getConnect();
+                     PreparedStatement findByLoginStatement =
+                             connection.prepareStatement(findByLoginRequest)) {
+            findByLoginStatement.setString(1, login);
+            ResultSet resultSet = findByLoginStatement.executeQuery();
+            if (resultSet.next()) {
+                driver = parseResultSet(resultSet);
+            }
+        } catch (SQLException e) {
+            throw new DataProcessingException("Can't find driver by login"
                     + driver + " from DB", e);
         }
         return Optional.ofNullable(driver);

@@ -18,7 +18,7 @@ public class DriverServiceImpl implements DriverService {
     @Override
     public Driver create(Driver driver) {
         Optional<Driver> optionalDriver =
-                driverDao.getDriverByLicenseNumber(driver.getLicenseNumber());
+                driverDao.findByLicenseNumber(driver.getLicenseNumber());
         if (optionalDriver.isPresent()) {
             throw new RuntimeException("Driver with same License Number already exist");
         }
@@ -42,11 +42,16 @@ public class DriverServiceImpl implements DriverService {
     @Override
     public Driver update(Driver driver) {
         Optional<Driver> optionalDriver =
-                driverDao.getDriverByLicenseNumber(driver.getLicenseNumber());
+                driverDao.findByLicenseNumber(driver.getLicenseNumber());
         if (optionalDriver.isPresent() && !optionalDriver.get().getId().equals(driver.getId())) {
             throw new RuntimeException("Driver with same License Number already exist");
         }
         return driverDao.update(driver);
+    }
+
+    @Override
+    public Optional<Driver> findByLogin(String login) {
+        return driverDao.findByLogin(login);
     }
 
     @Override
