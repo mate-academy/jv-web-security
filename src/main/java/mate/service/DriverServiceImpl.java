@@ -38,7 +38,7 @@ public class DriverServiceImpl implements DriverService {
     }
 
     @Override
-    public Driver findByLogin(String login) throws NoSuchElementException {
+    public Driver findByLogin(String login) {
         return driverDao.findByLogin(login).get();
     }
 }

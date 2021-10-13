@@ -16,10 +16,11 @@ import javax.servlet.http.HttpSession;
 
 @WebFilter(value = "/*")
 public class AuthenticationFilter implements Filter {
-    private final Set<String> allowedUrls = new HashSet<>();
+    private Set<String> allowedUrls;
 
     @Override
     public void init(FilterConfig filterConfig) {
+        allowedUrls = new HashSet<>();
         allowedUrls.add("/login");
         allowedUrls.add("/drivers/add");
     }
