@@ -76,6 +76,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>all-car-by-driver</servlet-name>
+        <servlet-class>mate.controller.car.GetMyCurrentCarsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>all-car-by-driver</servlet-name>
+        <url-pattern>/cars_by_driver</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>car-add</servlet-name>
         <servlet-class>mate.controller.car.AddNewCarController</servlet-class>
     </servlet>

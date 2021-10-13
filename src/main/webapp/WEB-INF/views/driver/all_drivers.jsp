@@ -29,7 +29,7 @@
             </tr>
         </c:forEach>
     </table>
-    <a href="${pageContext.request.contextPath}/drivers/add">Add new driver</a><br>
-    <a href="${pageContext.request.contextPath}/">Go to main page</a><br>
+    <h3><a href="${pageContext.request.contextPath}/drivers/add">Add new driver</a></h3>
+    <h3><a href="${pageContext.request.contextPath}/">Go to main page</a></h3>
 </body>
 </html>

@@ -9,7 +9,7 @@
     <title>Cars</title>
 </head>
 <body>
-<H1>ALL CARS</H1>
+<H1>${head}</H1>
     <c:forEach items="${cars}" var="car">
     <table>
         <tr>
@@ -52,8 +52,10 @@
         </c:forEach>
         <br>
     </c:forEach>
-    <a href="${pageContext.request.contextPath}/cars/add">Add new car without drivers</a><br>
-    <a href="${pageContext.request.contextPath}/cars/add/driver">Add new driver to car</a><br>
-    <a href="${pageContext.request.contextPath}/">Go to main page</a><br>
+    <h3><a href="${pageContext.request.contextPath}/cars/add">
+        Add new car without drivers</a></h3>
+    <h3><a href="${pageContext.request.contextPath}/cars/add/driver">
+        Add new driver to car</a></h3>
+    <h3><a href="${pageContext.request.contextPath}/">Go to main page</a></h3>
 </body>
 </html>

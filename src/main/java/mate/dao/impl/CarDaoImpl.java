@@ -151,7 +151,7 @@ public class CarDaoImpl implements CarDao {
             throw new DataProcessingException("Can't get car by driver id "
                     + driverId + " from DB", e);
         }
-        List<Car> cars = getAll();
+        List<Car> cars = new ArrayList<>();
         for (Long carId : carIdSet) {
             cars.add(get(carId).get());
         }

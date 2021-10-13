@@ -16,6 +16,6 @@
         <input type="text" name="password"><br><br>
         <button type="submit">Login</button>
     </form>
-    <a href="${pageContext.request.contextPath}/drivers/add">Registration</a>
+    <H3><a href="${pageContext.request.contextPath}/drivers/add">Registration</a></H3>
 </body>
 </html>
