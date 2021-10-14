@@ -7,6 +7,7 @@
 <head>
     <title>Manufacturers</title>
 </head>
+<%@include file="../back.jsp"%>
 <body>
 <form method="post" id="manufacturer" action="${pageContext.request.contextPath}/manufacturers/add"></form>
 <h1 class="table_dark">Add manufacturer:</h1>
@@ -28,5 +29,6 @@
         </td>
     </tr>
 </table>
+<%@include file="../logout.jsp"%>
 </body>
 </html>
