@@ -7,7 +7,7 @@
   <title>Login</title>
 </head>
 <body>
-<h1 class="table_dark">Authorization</h1>
+<h1 class="table_dark">Authentication</h1>
 <h2 style="color:#ff0000">${authenticationException}</h2>
 <form method="post" id="driver" action="${pageContext.request.contextPath}/login"></form>
 <table border="1" class="table_dark">

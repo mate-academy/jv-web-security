@@ -1,4 +1,4 @@
-package mate.controller.authorization;
+package mate.controller.authentication;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

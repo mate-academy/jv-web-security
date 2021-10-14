@@ -14,7 +14,7 @@
     <tr>
         <th>Redirect to</th>
     </tr>
-    <tr><td><a href="${pageContext.request.contextPath}/login">Authorization</a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/login">Authentication</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/drivers/">Display All Drivers</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/cars/">Display All Cars</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/cars/current">Your current cars</a></td></tr>
