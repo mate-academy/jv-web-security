@@ -34,8 +34,8 @@
     <tr>
         <th>Redirect to</th>
     </tr>
-    <tr><td><a href="${pageContext.request.contextPath}/cars">Display All Cars</a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/drivers">Display All Drivers</a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/cars/all">Display All Cars</a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/drivers/all">Display All Drivers</a></td></tr>
     <tr><td><%@include file='/WEB-INF/views/footer.jsp' %></td></tr>
 </table>
 </body>
