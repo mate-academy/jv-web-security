@@ -12,15 +12,16 @@ import mate.model.Car;
 import mate.service.CarService;
 
 @WebServlet(urlPatterns = "/drivers/cars/current")
-public class GetMyCurrentCarsController extends HttpServlet {
+public class GetCurrentCarsController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("mate");
+    private static final String AUTH_ATTRIBUTE = "driver_id";
     private final CarService carService = (CarService) injector
             .getInstance(CarService.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        Long driverId = (Long) req.getSession().getAttribute("driver_id");
+        Long driverId = (Long) req.getSession().getAttribute(AUTH_ATTRIBUTE);
         List<Car> allCars = carService.getAllByDriver(driverId);
         req.setAttribute("msg", "of driver with id = " + driverId);
         req.setAttribute("cars", allCars);

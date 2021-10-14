@@ -17,6 +17,7 @@ public class LoginController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("mate");
     private static final AuthenticationService authenticationService =
             (AuthenticationService) injector.getInstance(AuthenticationService.class);
+    private static final String AUTH_ATTRIBUTE = "driver_id";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -32,7 +33,7 @@ public class LoginController extends HttpServlet {
         try {
             Driver driver = authenticationService.login(login, password);
             HttpSession httpSession = req.getSession();
-            httpSession.setAttribute("driver_id", driver.getId());
+            httpSession.setAttribute(AUTH_ATTRIBUTE, driver.getId());
             resp.sendRedirect("/index");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMsg", e.getMessage());
