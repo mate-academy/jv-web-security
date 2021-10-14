@@ -1,0 +1,11 @@
+.button {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    background: #37B5A5;
+    border: 1px solid;
+    height: auto;
+    width: 100px;
+    margin: 10px 0 0 10px;
+    display: block;
+    float: right;
+    text-decoration: none;
+}
