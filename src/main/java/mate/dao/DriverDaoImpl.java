@@ -116,4 +116,9 @@ public class DriverDaoImpl implements DriverDao {
         driver.setId(id);
         return driver;
     }
+
+    @Override
+    public Optional<Driver> findByLogin(String login) {
+        return Optional.empty();
+    }
 }
