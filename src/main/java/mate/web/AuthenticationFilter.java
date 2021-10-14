@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class AuthenticationFilter implements Filter {
+    private static final String SESSION_ATTRIBUTE = "user_id";
     private final Set<String> allowedUrls = new HashSet<>();
 
     @Override
@@ -28,12 +29,8 @@ public class AuthenticationFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
         HttpSession session = req.getSession();
-        Long userId = (Long) session.getAttribute("user_id");
-        if (userId == null && allowedUrls.contains(req.getServletPath())) {
-            chain.doFilter(req, resp);
-            return;
-        }
-        if (userId == null) {
+        Long userId = (Long) session.getAttribute(SESSION_ATTRIBUTE);
+        if (userId == null && !allowedUrls.contains(req.getServletPath())) {
             resp.sendRedirect("/login");
             return;
         }

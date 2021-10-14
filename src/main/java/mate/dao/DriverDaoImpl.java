@@ -75,14 +75,16 @@ public class DriverDaoImpl implements DriverDao {
     @Override
     public Driver update(Driver driver) {
         String query = "UPDATE drivers "
-                + "SET name = ?, license_number = ? "
+                + "SET name = ?, license_number = ?, login = ?, password = ? "
                 + "WHERE id = ? AND is_deleted = FALSE";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement updateDriverStatement
                         = connection.prepareStatement(query)) {
             updateDriverStatement.setString(1, driver.getName());
             updateDriverStatement.setString(2, driver.getLicenseNumber());
-            updateDriverStatement.setLong(3, driver.getId());
+            updateDriverStatement.setString(3,driver.getLogin());
+            updateDriverStatement.setString(4, driver.getPassword());
+            updateDriverStatement.setLong(5, driver.getId());
             updateDriverStatement.executeUpdate();
             return driver;
         } catch (SQLException e) {
@@ -105,7 +107,7 @@ public class DriverDaoImpl implements DriverDao {
 
     @Override
     public Optional<Driver> findByLogin(String login) {
-        String query = "SELECT * FROM drivers WHERE login = ?";
+        String query = "SELECT * FROM drivers WHERE login = ? AND is_deleted = FALSE";
         try (Connection connection = ConnectionUtil.getConnection();
                     PreparedStatement findByLoginStatement = connection.prepareStatement(query)) {
             findByLoginStatement.setString(1, login);
