@@ -24,6 +24,8 @@ public class DriverDaoImpl implements DriverDao {
                         Statement.RETURN_GENERATED_KEYS)) {
             createDriverStatement.setString(1, driver.getName());
             createDriverStatement.setString(2, driver.getLicenseNumber());
+            createDriverStatement.setString(3, driver.getLogin());
+            createDriverStatement.setString(4, driver.getPassword());
             createDriverStatement.executeUpdate();
             ResultSet resultSet = createDriverStatement.getGeneratedKeys();
             if (resultSet.next()) {
