@@ -3,18 +3,20 @@
 <html>
 <head>
     <style>
-        <%@include file='/WEB-INF/views/css/background-styles.css'%>
+        <%@include file='/WEB-INF/views/css/common.css'%>
         <%@include file='/WEB-INF/views/css/table-styles.css'%>
     </style>
+    <%@include file='/WEB-INF/views/head.html'%>
     <title>Manufacturers</title>
 </head>
 <body>
     <H1>ALL MANUFACTURERS</H1>
     <table>
         <tr>
-            <td>id</td>
-            <td>Name</td>
-            <td>Country</td>
+            <th>id</th>
+            <th>Name</th>
+            <th>Country</th>
+            <th></th>
         </tr>
         <c:forEach items="${manufacturers}" var="manufacturer">
             <tr>
@@ -30,6 +32,6 @@
     </table>
     <h3><a href="${pageContext.request.contextPath}/manufacturers/add">
         Add new manufacturer</a></h3>
-    <h3><a href="${pageContext.request.contextPath}/">Go to main page</a></h3>
+    <h3><a href="${pageContext.request.contextPath}/">Main page</a></h3>
 </body>
 </html>

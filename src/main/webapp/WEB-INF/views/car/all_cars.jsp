@@ -3,9 +3,10 @@
 <html>
 <head>
     <style>
-        <%@include file='/WEB-INF/views/css/background-styles.css'%>
+        <%@include file='/WEB-INF/views/css/common.css'%>
         <%@include file='/WEB-INF/views/css/table-styles.css'%>
     </style>
+    <%@include file='/WEB-INF/views/head.html'%>
     <title>Cars</title>
 </head>
 <body>
@@ -14,11 +15,11 @@
     <table>
         <tr>
             <th colspan="4"><b>Car</b></th>
-            <th rowspan="3">
+            <td rowspan="3">
                 <a href="${pageContext.request.contextPath}/cars/delete?id=${car.id}">
                     delete this Car
                 </a>
-            </th>
+            </td>
         </tr>
         <tr>
             <td>id</td>
@@ -32,30 +33,28 @@
             <td><c:out value="${car.manufacturer.name}"/></td>
             <td><c:out value="${car.manufacturer.country}"/></td>
         </tr>
-    </table>
         <c:forEach items="${car.drivers}" var="driver">
-        <table>
             <tr>
-                <th colspan="3"><b>Driver</b></th>
+                <th colspan="5"><b>Driver</b></th>
             </tr>
             <tr>
                 <td>id</td>
-                <td>Name</td>
-                <td>LicenseNumber</td>
+                <td colspan="2">Name</td>
+                <td colspan="2">LicenseNumber</td>
             </tr>
             <tr>
                 <td><c:out value="${driver.id}"/></td>
-                <td><c:out value="${driver.name}"/></td>
-                <td><c:out value="${driver.licenseNumber}"/></td>
+                <td colspan="2"><c:out value="${driver.name}"/></td>
+                <td colspan="2"><c:out value="${driver.licenseNumber}"/></td>
             </tr>
-        </table>
         </c:forEach>
+        </table>
         <br>
     </c:forEach>
     <h3><a href="${pageContext.request.contextPath}/cars/add">
         Add new car without drivers</a></h3>
     <h3><a href="${pageContext.request.contextPath}/cars/add/driver">
         Add new driver to car</a></h3>
-    <h3><a href="${pageContext.request.contextPath}/">Go to main page</a></h3>
+    <h3><a href="${pageContext.request.contextPath}/">Main page</a></h3>
 </body>
 </html>

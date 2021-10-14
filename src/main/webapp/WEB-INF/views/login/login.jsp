@@ -2,12 +2,13 @@
 <html>
 <head>
     <style>
-        <%@include file='/WEB-INF/views/css/background-styles.css'%>
+        <%@include file='/WEB-INF/views/css/common.css'%>
     </style>
+    <%@include file='/WEB-INF/views/head.html'%>
     <title>Login page</title>
 </head>
 <body>
-<h1>For Authentication you should fill in the forms below</h1>
+<h2>For Authentication you should fill in the forms below</h2>
 <h3 style="color: red">${errorMsg}</h3>
     <form method="post" action="${pageContext.request.contextPath}/login">
         <label>Enter login</label><br>

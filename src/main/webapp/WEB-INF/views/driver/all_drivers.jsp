@@ -3,19 +3,21 @@
 <html>
 <head>
     <style>
-        <%@include file='/WEB-INF/views/css/background-styles.css'%>
+        <%@include file='/WEB-INF/views/css/common.css'%>
         <%@include file='/WEB-INF/views/css/table-styles.css'%>
     </style>
+    <%@include file='/WEB-INF/views/head.html'%>
     <title>Drivers</title>
 </head>
 <body>
     <H1>ALL DRIVERS</H1>
     <table>
         <tr>
-            <td>id</td>
-            <td>Name</td>
-            <td>Login</td>
-            <td>LicenseNumber</td>
+            <th>id</th>
+            <th>Name</th>
+            <th>Login</th>
+            <th>LicenseNumber</th>
+            <th></th>
         </tr>
         <c:forEach items="${drivers}" var="driver">
             <tr>
@@ -30,6 +32,6 @@
         </c:forEach>
     </table>
     <h3><a href="${pageContext.request.contextPath}/drivers/add">Add new driver</a></h3>
-    <h3><a href="${pageContext.request.contextPath}/">Go to main page</a></h3>
+    <h3><a href="${pageContext.request.contextPath}/">Main page</a></h3>
 </body>
 </html>

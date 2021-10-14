@@ -2,8 +2,9 @@
 <html>
 <head>
     <style>
-        <%@include file='/WEB-INF/views/css/background-styles.css'%>
+        <%@include file='/WEB-INF/views/css/common.css'%>
     </style>
+    <%@include file='/WEB-INF/views/head.html'%>
     <title>Add new driver</title>
 </head>
 <body>
