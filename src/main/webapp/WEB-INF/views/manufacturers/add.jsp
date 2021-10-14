@@ -8,6 +8,7 @@
     <title>Manufacturers</title>
 </head>
 <body>
+<%@include file='/WEB-INF/views/header.jsp' %><br>
 <form method="post" id="manufacturer" action="${pageContext.request.contextPath}/manufacturers/add"></form>
 <h1 class="table_dark">Add manufacturer:</h1>
 <table border="1" class="table_dark">
@@ -34,7 +35,7 @@
         <th>Redirect to</th>
     </tr>
     <tr><td><a href="${pageContext.request.contextPath}/cars/add">Create new Car</a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/index">Main page</a></td></tr>
+    <tr><td><%@include file='/WEB-INF/views/footer.jsp' %></td></tr>
 </table>
 </body>
 </html>

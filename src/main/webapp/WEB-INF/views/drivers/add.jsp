@@ -8,6 +8,7 @@
     <title>Create driver</title>
 </head>
 <body>
+<%@include file='/WEB-INF/views/header.jsp' %><br>
 <form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/add"></form>
 <h1 class="table_dark">Create driver:</h1>
 <table border="1" class="table_dark">
@@ -41,7 +42,7 @@
     <tr>
         <th>Redirect to</th>
     </tr>
-    <tr><td><a href="${pageContext.request.contextPath}/index">Main page</a></td></tr>
+    <tr><td><%@include file='/WEB-INF/views/footer.jsp' %></td></tr>
 </table>
 </body>
 </html>

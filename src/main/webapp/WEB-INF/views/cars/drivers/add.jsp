@@ -8,6 +8,7 @@
     <title>Add driver to car</title>
 </head>
 <body>
+<%@include file='/WEB-INF/views/header.jsp' %><br>
 <form method="post" id="car" action="${pageContext.request.contextPath}/cars/drivers/add"></form>
 <h1 class="table_dark">Add driver to car:</h1>
 <table border="1" class="table_dark">
@@ -35,7 +36,7 @@
     </tr>
     <tr><td><a href="${pageContext.request.contextPath}/cars">Display All Cars</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/drivers">Display All Drivers</a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/index">Main page</a></td></tr>
+    <tr><td><%@include file='/WEB-INF/views/footer.jsp' %></td></tr>
 </table>
 </body>
 </html>

@@ -8,6 +8,7 @@
     <title>All cars</title>
 </head>
 <body>
+<%@include file='/WEB-INF/views/header.jsp' %><br>
 <h1 class="table_dark">All cars:</h1>
 <table border="1" class="table_dark">
     <tr>
@@ -34,7 +35,7 @@
             </td>
             <td>
                 <c:forEach var="driver" items="${car.drivers}">
-                    ${driver.id} ${driver.name} ${driver.login} ${driver.password} ${driver.licenseNumber} <br>
+                    ${driver.id} ${driver.name} ${driver.licenseNumber} <br>
                 </c:forEach>
             </td>
             <td>
@@ -48,7 +49,7 @@
     <tr>
         <th>Redirect to</th>
     </tr>
-    <tr><td><a href="${pageContext.request.contextPath}/index">Main page</a></td></tr>
+    <tr><td><%@include file='/WEB-INF/views/footer.jsp' %></td></tr>
 </table>
 </body>
 </html>
