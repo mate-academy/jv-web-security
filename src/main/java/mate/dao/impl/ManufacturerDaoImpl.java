@@ -12,17 +12,17 @@ import mate.dao.ManufacturerDao;
 import mate.exception.DataProcessingException;
 import mate.lib.Dao;
 import mate.model.Manufacturer;
-import mate.util.ConnectionUtil;
+import mate.util.ConnectionDeployUtil;
 
 @Dao
 public class ManufacturerDaoImpl implements ManufacturerDao {
     @Override
     public Manufacturer create(Manufacturer manufacturer) {
         String insertManufacturerRequest = "INSERT INTO manufacturers(name, country) VALUES(?, ?);";
-        try (Connection connection = ConnectionUtil.getConnect();
+        try (Connection connection = ConnectionDeployUtil.getConnect();
                  PreparedStatement insertManufacturerStatement =
-                         connection.prepareStatement(insertManufacturerRequest,
-                                 Statement.RETURN_GENERATED_KEYS)) {
+                             connection.prepareStatement(insertManufacturerRequest,
+                                     Statement.RETURN_GENERATED_KEYS)) {
             insertManufacturerStatement.setString(1, manufacturer.getName());
             insertManufacturerStatement.setString(2, manufacturer.getCountry());
             insertManufacturerStatement.executeUpdate();
@@ -42,7 +42,7 @@ public class ManufacturerDaoImpl implements ManufacturerDao {
         String getManufacturerByIdRequest = "SELECT * FROM manufacturers "
                 + "WHERE is_deleted = false AND id = ?;";
         Manufacturer manufacturer = null;
-        try (Connection connection = ConnectionUtil.getConnect();
+        try (Connection connection = ConnectionDeployUtil.getConnect();
                  PreparedStatement getManufacturerByIdStatement = connection
                          .prepareStatement(getManufacturerByIdRequest)) {
             getManufacturerByIdStatement.setLong(1, id);
@@ -61,7 +61,7 @@ public class ManufacturerDaoImpl implements ManufacturerDao {
     public List<Manufacturer> getAll() {
         String getAllManufacturersRequest = "SELECT * FROM manufacturers WHERE is_deleted = false;";
         List<Manufacturer> allManufacturers = new ArrayList<>();
-        try (Connection connection = ConnectionUtil.getConnect();
+        try (Connection connection = ConnectionDeployUtil.getConnect();
                  PreparedStatement getAllManufacturersStatement = connection
                          .prepareStatement(getAllManufacturersRequest)) {
             ResultSet resultSet = getAllManufacturersStatement.executeQuery();
@@ -80,7 +80,7 @@ public class ManufacturerDaoImpl implements ManufacturerDao {
                 + "WHERE is_deleted = false AND id  = ?;";
         String getManufacturerByIdRequest = "SELECT * FROM manufacturers "
                 + "WHERE is_deleted = false AND id = ?;";
-        try (Connection connection = ConnectionUtil.getConnect();
+        try (Connection connection = ConnectionDeployUtil.getConnect();
                  PreparedStatement updateManufactureStatement =
                          connection.prepareStatement(updateManufactureRequest);
                  PreparedStatement getManufacturerByIdStatement =
@@ -105,7 +105,7 @@ public class ManufacturerDaoImpl implements ManufacturerDao {
     @Override
     public boolean delete(Long id) {
         String deleteRequest = "UPDATE manufacturers SET is_deleted = true WHERE id  = ?;";
-        try (Connection connection = ConnectionUtil.getConnect();
+        try (Connection connection = ConnectionDeployUtil.getConnect();
                   PreparedStatement deleteStatement =
                              connection.prepareStatement(deleteRequest)) {
             deleteStatement.setLong(1, id);
@@ -120,7 +120,7 @@ public class ManufacturerDaoImpl implements ManufacturerDao {
         String existByNameRequest = "SELECT * FROM manufacturers "
                 + "WHERE is_deleted = false AND name = ?;";
         Manufacturer manufacturer = null;
-        try (Connection connection = ConnectionUtil.getConnect();
+        try (Connection connection = ConnectionDeployUtil.getConnect();
                  PreparedStatement existByNameStatement =
                          connection.prepareStatement(existByNameRequest)) {
             existByNameStatement.setString(1, name);

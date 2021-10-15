@@ -12,7 +12,7 @@ import mate.dao.DriverDao;
 import mate.exception.DataProcessingException;
 import mate.lib.Dao;
 import mate.model.Driver;
-import mate.util.ConnectionUtil;
+import mate.util.ConnectionDeployUtil;
 
 @Dao
 public class DriverDaoImpl implements DriverDao {
@@ -21,9 +21,9 @@ public class DriverDaoImpl implements DriverDao {
         String insertDriverRequest = "INSERT "
                 + "INTO drivers(name, login, password,license_number) "
                 + "VALUES(?, ?, ?, ?);";
-        try (Connection connection = ConnectionUtil.getConnect();
+        try (Connection connection = ConnectionDeployUtil.getConnect();
                  PreparedStatement insertDriverStatement =
-                         connection.prepareStatement(insertDriverRequest,
+                             connection.prepareStatement(insertDriverRequest,
                                  Statement.RETURN_GENERATED_KEYS)) {
             insertDriverStatement.setString(1, driver.getName());
             insertDriverStatement.setString(2, driver.getLogin());
@@ -46,7 +46,7 @@ public class DriverDaoImpl implements DriverDao {
         String getDriverByIdRequest = "SELECT * FROM drivers "
                 + "WHERE is_deleted = false AND id = ?;";
         Driver driver = null;
-        try (Connection connection = ConnectionUtil.getConnect();
+        try (Connection connection = ConnectionDeployUtil.getConnect();
                  PreparedStatement getDriverByIdStatement = connection
                          .prepareStatement(getDriverByIdRequest)) {
             getDriverByIdStatement.setLong(1, id);
@@ -65,7 +65,7 @@ public class DriverDaoImpl implements DriverDao {
     public List<Driver> getAll() {
         String getAllDriversRequest = "SELECT * FROM drivers WHERE is_deleted = false;";
         List<Driver> allDriversList = new ArrayList<>();
-        try (Connection connection = ConnectionUtil.getConnect();
+        try (Connection connection = ConnectionDeployUtil.getConnect();
                   PreparedStatement getAllDriversStatement = connection
                              .prepareStatement(getAllDriversRequest)) {
             ResultSet resultSet = getAllDriversStatement.executeQuery();
@@ -85,7 +85,7 @@ public class DriverDaoImpl implements DriverDao {
                 + "WHERE is_deleted = false AND id  = ?;";
         String getDriverByIdRequest = "SELECT * FROM drivers "
                 + "WHERE is_deleted = false AND id = ?;";
-        try (Connection connection = ConnectionUtil.getConnect();
+        try (Connection connection = ConnectionDeployUtil.getConnect();
                  PreparedStatement updateDriverStatement =
                          connection.prepareStatement(updateDriverRequest);
                  PreparedStatement getDriverByIdStatement =
@@ -112,7 +112,7 @@ public class DriverDaoImpl implements DriverDao {
     @Override
     public boolean delete(Long id) {
         String deleteRequest = "UPDATE drivers SET is_deleted = true WHERE id  = ?;";
-        try (Connection connection = ConnectionUtil.getConnect();
+        try (Connection connection = ConnectionDeployUtil.getConnect();
                  PreparedStatement deleteStatement =
                          connection.prepareStatement(deleteRequest)) {
             deleteStatement.setLong(1, id);
@@ -127,7 +127,7 @@ public class DriverDaoImpl implements DriverDao {
         String existByLicenseNumberRequest = "SELECT * FROM drivers "
                 + "WHERE is_deleted = false AND license_number = ?;";
         Driver driver = null;
-        try (Connection connection = ConnectionUtil.getConnect();
+        try (Connection connection = ConnectionDeployUtil.getConnect();
                  PreparedStatement existByLicenseNumberStatement =
                          connection.prepareStatement(existByLicenseNumberRequest)) {
             existByLicenseNumberStatement.setString(1, licenseNumber);
@@ -147,7 +147,7 @@ public class DriverDaoImpl implements DriverDao {
         String findByLoginRequest = "SELECT * FROM drivers "
                 + "WHERE is_deleted = false AND login = ?;";
         Driver driver = null;
-        try (Connection connection = ConnectionUtil.getConnect();
+        try (Connection connection = ConnectionDeployUtil.getConnect();
                      PreparedStatement findByLoginStatement =
                              connection.prepareStatement(findByLoginRequest)) {
             findByLoginStatement.setString(1, login);

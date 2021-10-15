@@ -16,17 +16,17 @@ import mate.lib.Dao;
 import mate.model.Car;
 import mate.model.Driver;
 import mate.model.Manufacturer;
-import mate.util.ConnectionUtil;
+import mate.util.ConnectionDeployUtil;
 
 @Dao
 public class CarDaoImpl implements CarDao {
     @Override
     public Car create(Car car) {
         String insertCarRequest = "INSERT INTO cars (model, manufacturer_id) VALUES(?, ?);";
-        try (Connection connection = ConnectionUtil.getConnect();
+        try (Connection connection = ConnectionDeployUtil.getConnect();
                  PreparedStatement insertCarStatement =
-                         connection.prepareStatement(insertCarRequest,
-                                 Statement.RETURN_GENERATED_KEYS)) {
+                             connection.prepareStatement(insertCarRequest,
+                                     Statement.RETURN_GENERATED_KEYS)) {
             insertCarStatement.setString(1, car.getModel());
             insertCarStatement.setLong(2, car.getManufacturer().getId());
             insertCarStatement.executeUpdate();
@@ -52,7 +52,7 @@ public class CarDaoImpl implements CarDao {
                 + "ON c.manufacturer_id = m.id "
                 + "WHERE c.is_deleted = false AND c.id = ?;";
         Car car = null;
-        try (Connection connection = ConnectionUtil.getConnect();
+        try (Connection connection = ConnectionDeployUtil.getConnect();
                  PreparedStatement getCarByIdStatement = connection
                          .prepareStatement(getCarByIdRequest)) {
             getCarByIdStatement.setLong(1, id);
@@ -78,7 +78,7 @@ public class CarDaoImpl implements CarDao {
                 + "ON c.manufacturer_id = m.id "
                 + "WHERE c.is_deleted = false;";
         List<Car> cars = new ArrayList<>();
-        try (Connection connection = ConnectionUtil.getConnect();
+        try (Connection connection = ConnectionDeployUtil.getConnect();
                 PreparedStatement getAllCarsStatement = connection
                          .prepareStatement(getAllCarsRequest)) {
             ResultSet resultSet = getAllCarsStatement.executeQuery();
@@ -99,7 +99,7 @@ public class CarDaoImpl implements CarDao {
         Car oldCar = get(car.getId()).get();
         String updateCarRequest = "UPDATE cars SET model = ?, manufacturer_id = ? "
                 + "WHERE is_deleted = false AND id  = ?;";
-        try (Connection connection = ConnectionUtil.getConnect();
+        try (Connection connection = ConnectionDeployUtil.getConnect();
                 PreparedStatement updateCarStatement =
                          connection.prepareStatement(updateCarRequest)) {
             updateCarStatement.setString(1, car.getModel());
@@ -122,7 +122,7 @@ public class CarDaoImpl implements CarDao {
     @Override
     public boolean delete(Long id) {
         String deleteRequest = "UPDATE cars SET is_deleted = true WHERE id  = ?;";
-        try (Connection connection = ConnectionUtil.getConnect();
+        try (Connection connection = ConnectionDeployUtil.getConnect();
                  PreparedStatement deleteStatement =
                          connection.prepareStatement(deleteRequest)) {
             deleteStatement.setLong(1, id);
@@ -140,7 +140,7 @@ public class CarDaoImpl implements CarDao {
                 + "JOIN cars ON cars_drivers.car_id = cars.id "
                 + "WHERE cars.is_deleted = false AND driver_id = ?;";
         Set<Long> carIdSet = new HashSet<>();
-        try (Connection connection = ConnectionUtil.getConnect();
+        try (Connection connection = ConnectionDeployUtil.getConnect();
                   PreparedStatement getAllByDriverStatement =
                           connection.prepareStatement(getAllByDriverRequest)) {
             getAllByDriverStatement.setLong(1, driverId);
@@ -177,7 +177,7 @@ public class CarDaoImpl implements CarDao {
                 + "ON d.id = cd.driver_id "
                 + "WHERE cd.car_id = ?;";
         List<Driver> driversList = new ArrayList<>();
-        try (Connection connection = ConnectionUtil.getConnect();
+        try (Connection connection = ConnectionDeployUtil.getConnect();
                  PreparedStatement getDriversByIdStatement = connection
                          .prepareStatement(getDriversByIdRequest)) {
             getDriversByIdStatement.setLong(1, id);
@@ -205,7 +205,7 @@ public class CarDaoImpl implements CarDao {
     private void setDriversForCar(Car car) {
         String insertDriversForCarRequest = "INSERT "
                 + "INTO cars_drivers(car_id, driver_id) VALUES(?, ?);";
-        try (Connection connection = ConnectionUtil.getConnect();
+        try (Connection connection = ConnectionDeployUtil.getConnect();
                  PreparedStatement insertDriversForCarStatement =
                          connection.prepareStatement(insertDriversForCarRequest)) {
             insertDriversForCarStatement.setLong(1, car.getId());
@@ -220,7 +220,7 @@ public class CarDaoImpl implements CarDao {
 
     private void deleteDriversForCar(Long carId) {
         String deleteDriversForCarRequest = "DELETE FROM cars_drivers WHERE car_id = ?;";
-        try (Connection connection = ConnectionUtil.getConnect();
+        try (Connection connection = ConnectionDeployUtil.getConnect();
                 PreparedStatement deleteDriversForCarStatement =
                          connection.prepareStatement(deleteDriversForCarRequest)) {
             deleteDriversForCarStatement.setLong(1, carId);
