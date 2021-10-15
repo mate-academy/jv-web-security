@@ -32,7 +32,7 @@ public class DriverDaoImpl implements DriverDao {
             insertDriverStatement.executeUpdate();
             ResultSet resultSet = insertDriverStatement.getGeneratedKeys();
             if (resultSet.next()) {
-                driver.setId(resultSet.getObject("id", Long.class));
+                driver.setId(resultSet.getObject(1, Long.class));
             }
         } catch (SQLException e) {
             throw new DataProcessingException("Can't insert driver"

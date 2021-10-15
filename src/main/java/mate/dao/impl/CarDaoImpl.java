@@ -32,7 +32,7 @@ public class CarDaoImpl implements CarDao {
             insertCarStatement.executeUpdate();
             ResultSet resultSet = insertCarStatement.getGeneratedKeys();
             if (resultSet.next()) {
-                car.setId(resultSet.getObject("id", Long.class));
+                car.setId(resultSet.getObject(1, Long.class));
             }
         } catch (SQLException e) {
             throw new DataProcessingException("Can't insert car"
