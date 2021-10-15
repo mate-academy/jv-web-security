@@ -11,9 +11,9 @@
 <h1>For add new Manufacturer fill in the forms below</h1>
     <form method="post" action="${pageContext.request.contextPath}/manufacturers/add">
         <label>Manufacturer Name</label><br>
-        <input type="text" name="name"><br>
+        <input type="text" name="name" required><br>
         <label>Country</label><br>
-        <input type="text" name="country"><br><br>
+        <input type="text" name="country" required><br><br>
         <button type="submit">Confirm</button>
     </form>
 </body>

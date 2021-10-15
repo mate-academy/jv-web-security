@@ -11,9 +11,9 @@
 <h1>For add new Driver to Car fill in the forms below</h1>
 <form method="post" action="${pageContext.request.contextPath}/cars/add/driver">
     <label>Car's id</label><br>
-    <input type="number" name="car_id"><br>
+    <input type="number" name="car_id" required><br>
     <label>Driver's id</label><br>
-    <input type="number" name="driver_id"><br><br>
+    <input type="number" name="driver_id" required><br><br>
     <button type="submit">Confirm</button>
 </form>
 </body>
