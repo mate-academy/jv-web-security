@@ -107,6 +107,7 @@
         <servlet-name>deleteManufacturer</servlet-name>
         <url-pattern>/manufacturers/delete</url-pattern>
     </servlet-mapping>
+
     <servlet>
         <servlet-name>loginController</servlet-name>
         <servlet-class>mate.controller.authentication.LoginController</servlet-class>
@@ -115,6 +116,7 @@
         <servlet-name>loginController</servlet-name>
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
+
     <servlet>
         <servlet-name>logoutController</servlet-name>
         <servlet-class>mate.controller.authentication.LogoutController</servlet-class>
@@ -123,6 +125,7 @@
         <servlet-name>logoutController</servlet-name>
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
+
     <servlet>
         <servlet-name>getMyCurrentCarsController</servlet-name>
         <servlet-class>mate.controller.car.GetMyCurrentCarsController</servlet-class>
@@ -131,6 +134,7 @@
         <servlet-name>getMyCurrentCarsController</servlet-name>
         <url-pattern>/cars/current</url-pattern>
     </servlet-mapping>
+    
     <filter>
         <filter-name>authenticationFilter</filter-name>
         <filter-class>mate.web.filter.AuthenticationFilter</filter-class>
