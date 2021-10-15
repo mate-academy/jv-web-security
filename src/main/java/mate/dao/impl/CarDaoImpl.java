@@ -137,7 +137,8 @@ public class CarDaoImpl implements CarDao {
     public List<Car> getAllByDriver(Long driverId) {
         String getAllByDriverRequest = "SELECT car_id "
                 + "FROM cars_drivers "
-                + "WHERE driver_id = ?;";
+                + "JOIN cars ON cars_drivers.car_id = cars.id "
+                + "WHERE cars.is_deleted = false AND driver_id = ?;";
         Set<Long> carIdSet = new HashSet<>();
         try (Connection connection = ConnectionUtil.getConnect();
                   PreparedStatement getAllByDriverStatement =
