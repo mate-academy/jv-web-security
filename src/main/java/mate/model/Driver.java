@@ -80,4 +80,14 @@ public class Driver {
     public int hashCode() {
         return Objects.hash(id, name, login, password, licenseNumber);
     }
+
+    @Override
+    public String toString() {
+        return "Driver{"
+                + "id=" + id
+                + ", name='" + name + '\''
+                + ", login='" + login + '\''
+                + ", licenseNumber='" + licenseNumber + '\''
+                + '}';
+    }
 }
