@@ -10,7 +10,7 @@ public class ConnectionUtil {
             + "?useUnicode=true&useJDBCCompliantTimezoneShift=true"
             + "&useLegacyDatetimeCode=false&serverTimezone=UTC";
     public static final String USERNAME = "root";
-    public static final String PASSWORD = "Merlin18111991";
+    public static final String PASSWORD = "*****";
     public static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
 
     static {
