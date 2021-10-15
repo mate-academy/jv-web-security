@@ -28,7 +28,7 @@ public class ManufacturerDaoImpl implements ManufacturerDao {
             insertManufacturerStatement.executeUpdate();
             ResultSet resultSet = insertManufacturerStatement.getGeneratedKeys();
             if (resultSet.next()) {
-                manufacturer.setId(resultSet.getObject(1 , Long.class));
+                manufacturer.setId(resultSet.getObject(1, Long.class));
             }
         } catch (SQLException e) {
             throw new DataProcessingException("Can't insert manufacturer"
