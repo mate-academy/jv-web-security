@@ -1,6 +1,6 @@
 .table_dark {
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    width: 70%;
+    width: 75%;
     color: #CAD4D6;
     font-size: 40px;
     text-align: center;
@@ -29,4 +29,24 @@
 }
 .table_dark tr:hover td {
     text-decoration: underline;
+}
+
+.table_dark a:link {
+    color: #e7d748;
+}
+
+.table_dark a:visited {
+    color: #e7d748;
+}
+
+.table_dark a:focus {
+    background: #4f4306;
+}
+
+.table_dark a:hover {
+    background: #0e4d65;
+}
+
+.table_dark a:active {
+    color: #4f4306;
 }

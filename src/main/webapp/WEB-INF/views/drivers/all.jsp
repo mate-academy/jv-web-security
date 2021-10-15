@@ -8,11 +8,14 @@
     <title>All drivers</title>
 </head>
 <body>
+<%@include file='/WEB-INF/views/header.jsp' %><br>
 <h1 class="table_dark">All drivers:</h1>
 <table border="1" class="table_dark">
     <tr>
         <th>ID</th>
         <th>Name</th>
+        <th>Login</th>
+        <th>Password</th>
         <th>License number</th>
         <th>Delete</th>
     </tr>
@@ -25,6 +28,12 @@
                 <c:out value="${driver.name}"/>
             </td>
             <td>
+                <c:out value="${driver.login}"/>
+            </td>
+            <td>
+                <c:out value="${driver.password}"/>
+            </td>
+            <td>
                 <c:out value="${driver.licenseNumber}"/>
             </td>
             <td>
@@ -32,6 +41,13 @@
             </td>
         </tr>
     </c:forEach>
+</table>
+<br><br><br><br>
+<table class="table_dark">
+    <tr>
+        <th>Redirect to</th>
+    </tr>
+    <tr><td><%@include file='/WEB-INF/views/footer.jsp' %></td></tr>
 </table>
 </body>
 </html>

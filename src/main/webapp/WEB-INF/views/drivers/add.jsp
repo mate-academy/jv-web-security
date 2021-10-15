@@ -5,28 +5,44 @@
 </style>
 <html>
 <head>
-    <title>All drivers</title>
+    <title>Create driver</title>
 </head>
 <body>
+<%@include file='/WEB-INF/views/header.jsp' %><br>
 <form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/add"></form>
-<h1 class="table_dark">Add driver:</h1>
+<h1 class="table_dark">Create driver:</h1>
 <table border="1" class="table_dark">
     <tr>
         <th>Name</th>
+        <th>Login</th>
+        <th>Password</th>
         <th>License number</th>
-        <th>Add</th>
+        <th>Create</th>
     </tr>
     <tr>
         <td>
             <input type="text" name="name" form="driver" required>
         </td>
         <td>
+            <input type="text" name="login" form="driver" required>
+        </td>
+        <td>
+            <input type="password" name="password" form="driver" required>
+        </td>
+        <td>
             <input type="text" name="license_number" form="driver" required>
         </td>
         <td>
-            <input type="submit" name="add" form="driver">
+            <button type="submit" name="add" form="driver">Confirm</button>
         </td>
     </tr>
+</table>
+<br><br><br><br>
+<table class="table_dark">
+    <tr>
+        <th>Redirect to</th>
+    </tr>
+    <tr><td><%@include file='/WEB-INF/views/footer.jsp' %></td></tr>
 </table>
 </body>
 </html>

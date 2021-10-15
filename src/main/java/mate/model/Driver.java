@@ -5,10 +5,14 @@ import java.util.Objects;
 public class Driver {
     private Long id;
     private String name;
+    private String login;
+    private String password;
     private String licenseNumber;
 
-    public Driver(String name, String licenseNumber) {
+    public Driver(String name, String login, String password, String licenseNumber) {
         this.name = name;
+        this.login = login;
+        this.password = password;
         this.licenseNumber = licenseNumber;
     }
 
@@ -26,6 +30,22 @@ public class Driver {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getLicenseNumber() {
@@ -47,11 +67,13 @@ public class Driver {
         Driver driver = (Driver) o;
         return Objects.equals(id, driver.id)
                 && Objects.equals(name, driver.name)
+                && Objects.equals(login, driver.login)
+                && Objects.equals(password, driver.password)
                 && Objects.equals(licenseNumber, driver.licenseNumber);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, licenseNumber);
+        return Objects.hash(id, name, login, password, licenseNumber);
     }
 }
