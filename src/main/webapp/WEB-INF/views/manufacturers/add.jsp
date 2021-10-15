@@ -7,7 +7,7 @@
 <head>
     <title>Manufacturers</title>
 </head>
-<%@include file="../back.jsp"%>
+<a href="${pageContext.request.contextPath}/index">Back</a>
 <body>
 <form method="post" id="manufacturer" action="${pageContext.request.contextPath}/manufacturers/add"></form>
 <h1 class="table_dark">Add manufacturer:</h1>

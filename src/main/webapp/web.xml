@@ -26,15 +26,6 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>returnBackController</servlet-name>
-        <servlet-class>mate.controller.ReturnBackController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>returnBackController</servlet-name>
-        <url-pattern>/back</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>logoutController</servlet-name>
         <servlet-class>mate.controller.LogoutController</servlet-class>
     </servlet>

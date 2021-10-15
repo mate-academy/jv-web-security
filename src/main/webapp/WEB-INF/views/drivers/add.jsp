@@ -7,7 +7,7 @@
 <head>
     <title>All drivers</title>
 </head>
-<%@include file="../back.jsp"%>
+<a href="${pageContext.request.contextPath}/index">Back</a>
 <body>
 <form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/add"></form>
 <h1 class="table_dark">Add driver:</h1>

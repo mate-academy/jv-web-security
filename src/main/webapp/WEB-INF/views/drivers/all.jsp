@@ -7,7 +7,7 @@
 <head>
     <title>All drivers</title>
 </head>
-<%@include file="../back.jsp"%>
+<a href="${pageContext.request.contextPath}/index">Back</a>
 <body>
 <h1 class="table_dark">All drivers:</h1>
 <table border="1" class="table_dark">
