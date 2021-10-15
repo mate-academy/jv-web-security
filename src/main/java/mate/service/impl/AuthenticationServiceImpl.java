@@ -1,5 +1,6 @@
 package mate.service.impl;
 
+import java.util.Optional;
 import mate.exception.AuthenticationException;
 import mate.lib.Inject;
 import mate.lib.Service;
@@ -14,11 +15,10 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     @Override
     public Driver login(String login, String password) throws AuthenticationException {
-        Driver driver = driverService.findByLogin(login).orElseThrow(
-                () -> new AuthenticationException("Username or Password was incorrect"));
-        if (driver.getPassword().equals(password)) {
-            return driver;
+        Optional<Driver> optionalDriver = driverService.findByLogin(login);
+        if (optionalDriver.isEmpty() || !optionalDriver.get().getPassword().equals(password)) {
+            throw new AuthenticationException("Username or Password was incorrect");
         }
-        throw new AuthenticationException("Username or Password was incorrect");
+        return optionalDriver.get();
     }
 }
