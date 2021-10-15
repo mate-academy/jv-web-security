@@ -5,7 +5,7 @@
     font-size: 40px;
     text-align: center;
     border-collapse: collapse;
-    background: #252F48;
+    background: #fffcfc;
     margin: auto;
 }
 .table_dark th {
@@ -29,4 +29,7 @@
 }
 .table_dark tr:hover td {
     text-decoration: underline;
+}
+h4 {
+    text-align: center;
 }
