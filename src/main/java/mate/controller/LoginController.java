@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class LoginController extends HttpServlet {
+    public static final String DRIVER_ID = "driver_id";
     private static final Injector injector = Injector.getInstance("mate");
     private final AuthenticationService authenticationService = (AuthenticationService)
             injector.getInstance(AuthenticationService.class);
@@ -29,7 +30,7 @@ public class LoginController extends HttpServlet {
         try {
             Driver driver = authenticationService.login(login, password);
             HttpSession session = req.getSession();
-            session.setAttribute("driverId", driver.getId());
+            session.setAttribute(DRIVER_ID, driver.getId());
             resp.sendRedirect("/index");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMessage", e.getMessage());

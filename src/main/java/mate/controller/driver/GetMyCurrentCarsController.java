@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class GetMyCurrentCarsController extends HttpServlet {
+    public static final String DRIVER_ID = "driver_id";
     private static final Injector injector = Injector.getInstance("mate");
     private final CarService carService = (CarService) injector
             .getInstance(CarService.class);
@@ -20,7 +21,7 @@ public class GetMyCurrentCarsController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        Long driverId = (Long) session.getAttribute("driverId");
+        Long driverId = (Long) session.getAttribute(DRIVER_ID);
         List<Car> allCarsByDriver = carService.getAllByDriver(driverId);
         req.setAttribute("cars", allCarsByDriver);
         req.getRequestDispatcher("/WEB-INF/views/cars/all.jsp").forward(req, resp);

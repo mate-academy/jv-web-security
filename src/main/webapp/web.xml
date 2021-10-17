@@ -116,6 +116,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>logout</servlet-name>
+        <servlet-class>mate.controller.LogoutController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logout</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>getCarsByDriver</servlet-name>
         <servlet-class>mate.controller.driver.GetMyCurrentCarsController</servlet-class>
     </servlet>
