@@ -8,6 +8,7 @@
     <title>Add car</title>
 </head>
 <body>
+<%@include file="/WEB-INF/views/logout.jsp"%>
 <form method="post" id="car" action="${pageContext.request.contextPath}/cars/add"></form>
 <h1 class="table_dark">Add car:</h1>
 <table border="1" class="table_dark">
@@ -27,6 +28,13 @@
             <input type="submit" name="add" form="car">
         </td>
     </tr>
+</table>
+<br><br><br><br>
+<table class="table_dark">
+    <tr>
+        <th>Redirect to</th>
+    </tr>
+    <tr><td><%@include file='/WEB-INF/views/footer.jsp' %></td></tr>
 </table>
 </body>
 </html>

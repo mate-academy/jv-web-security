@@ -8,6 +8,7 @@
     <title>All manufacturers</title>
 </head>
 <body>
+<%@include file="/WEB-INF/views/logout.jsp"%>
 <h1 class="table_dark">All manufacturers:</h1>
 <table border="1" class="table_dark">
     <tr>
@@ -32,6 +33,13 @@
             </td>
         </tr>
     </c:forEach>
+</table>
+<br><br><br><br>
+<table class="table_dark">
+    <tr>
+        <th>Redirect to</th>
+    </tr>
+    <tr><td><%@include file='/WEB-INF/views/footer.jsp' %></td></tr>
 </table>
 </body>
 </html>
