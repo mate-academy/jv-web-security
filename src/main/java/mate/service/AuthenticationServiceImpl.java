@@ -1,10 +1,7 @@
 package mate.service;
 
-import mate.dao.CarDao;
-import mate.dao.DriverDao;
 import mate.exception.AuthenticationException;
 import mate.lib.Inject;
-import mate.lib.Injector;
 import mate.lib.Service;
 import mate.model.Driver;
 
@@ -13,11 +10,11 @@ import java.util.Optional;
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
     @Inject
-    private DriverDao driverDao;
+    private DriverService driverService;
 
     @Override
     public Driver login(String login, String password) throws AuthenticationException {
-        Optional<Driver> driver = driverDao.findByLogin(login);
+        Optional<Driver> driver = driverService.findByLogin(login);
         if (driver.isEmpty()) {
             throw new AuthenticationException("Incorrect login or password");
         }
