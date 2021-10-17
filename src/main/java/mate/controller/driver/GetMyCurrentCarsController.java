@@ -12,7 +12,7 @@ import mate.model.Car;
 import mate.service.CarService;
 
 public class GetMyCurrentCarsController extends HttpServlet {
-    public static final String DRIVER_ID = "driver_id";
+    private static final String DRIVER_ID = "driver_id";
     private static final Injector injector = Injector.getInstance("mate");
     private final CarService carService = (CarService) injector
             .getInstance(CarService.class);
