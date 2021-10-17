@@ -31,10 +31,7 @@
 </table>
 <br><br><br><br>
 <table class="table_dark">
-    <tr>
-        <th>Redirect to</th>
-    </tr>
-    <tr><td><%@include file='/WEB-INF/views/footer.jsp' %></td></tr>
+       <tr><td><%@include file='/WEB-INF/views/footer.jsp' %></td></tr>
 </table>
 </body>
 </html>
