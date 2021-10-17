@@ -114,6 +114,15 @@
         <servlet-name>login</servlet-name>
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>getCarsByDriver</servlet-name>
+        <servlet-class>mate.controller.driver.GetMyCurrentCarsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>getCarsByDriver</servlet-name>
+        <url-pattern>/allByDriver/</url-pattern>
+    </servlet-mapping>
     
     <filter>
         <filter-name>authenticationFilter</filter-name>
