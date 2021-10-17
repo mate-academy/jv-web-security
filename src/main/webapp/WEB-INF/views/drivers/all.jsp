@@ -13,6 +13,8 @@
     <tr>
         <th>ID</th>
         <th>Name</th>
+        <th>Login</th>
+        <th>Password</th>
         <th>License number</th>
         <th>Delete</th>
     </tr>
@@ -23,6 +25,12 @@
             </td>
             <td>
                 <c:out value="${driver.name}"/>
+            </td>
+            <td>
+                <c:out value="${driver.login}"/>
+            </td>
+            <td>
+                <c:out value="${driver.password}"/>
             </td>
             <td>
                 <c:out value="${driver.licenseNumber}"/>
