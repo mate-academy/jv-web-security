@@ -1,16 +1,15 @@
 package mate.controller.driver;
 
-import mate.lib.Injector;
-import mate.model.Car;
-import mate.service.CarService;
-
+import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
-import java.util.List;
+import mate.lib.Injector;
+import mate.model.Car;
+import mate.service.CarService;
 
 public class GetMyCurrentCarsController extends HttpServlet {
     public static final String DRIVER_ID = "driver_id";
@@ -19,7 +18,8 @@ public class GetMyCurrentCarsController extends HttpServlet {
             .getInstance(CarService.class);
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
         HttpSession session = req.getSession();
         Long driverId = (Long) session.getAttribute(DRIVER_ID);
         List<Car> allCarsByDriver = carService.getAllByDriver(driverId);

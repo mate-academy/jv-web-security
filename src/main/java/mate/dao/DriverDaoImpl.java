@@ -8,8 +8,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
-import mate.exception.AuthenticationException;
 import mate.exception.DataProcessingException;
 import mate.lib.Dao;
 import mate.model.Driver;
@@ -123,7 +121,7 @@ public class DriverDaoImpl implements DriverDao {
     public Optional<Driver> findByLogin(String login) {
         String query = "SELECT * FROM drivers WHERE login = ? AND is_deleted = FALSE";
         try (Connection connection = ConnectionUtil.getConnection();
-             PreparedStatement findDriverStatement = connection.prepareStatement(query)) {
+                PreparedStatement findDriverStatement = connection.prepareStatement(query)) {
             findDriverStatement.setString(1, login);
             ResultSet resultSet = findDriverStatement.executeQuery();
             Driver driver = null;
