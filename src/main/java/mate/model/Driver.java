@@ -15,10 +15,9 @@ public class Driver {
     }
 
     public Driver(String name, String login, String password, String licenseNumber) {
-        this.name = name;
+        this(name, licenseNumber);
         this.login = login;
         this.password = password;
-        this.licenseNumber = licenseNumber;
     }
 
     public String getLogin() {
@@ -63,8 +62,12 @@ public class Driver {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Driver driver = (Driver) o;
         return Objects.equals(id, driver.id)
                 && Objects.equals(name, driver.name)

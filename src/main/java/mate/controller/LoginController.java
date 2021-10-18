@@ -1,11 +1,11 @@
 package mate.controller;
 
+import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
 import mate.exception.AuthenticationException;
 import mate.lib.Injector;
 import mate.model.Driver;
@@ -15,6 +15,7 @@ public class LoginController extends HttpServlet {
     private final Injector injector = Injector.getInstance("mate");
     private final AuthenticationService authenticationService
             = (AuthenticationService) injector.getInstance(AuthenticationService.class);
+    private final static String SESSION_ID = "driver_id";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -30,7 +31,7 @@ public class LoginController extends HttpServlet {
         HttpSession session = req.getSession();
         try {
             Driver driver = authenticationService.login(login, password);
-            session.setAttribute("driver_id", driver.getId());
+            session.setAttribute(SESSION_ID, driver.getId());
             resp.sendRedirect("/index");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMsg", e.getMessage());
