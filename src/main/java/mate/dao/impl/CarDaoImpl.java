@@ -1,4 +1,6 @@
-package mate.dao;
+package mate.dao.impl;
+
+import static mate.dao.impl.DriverDaoImpl.getDriver;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import mate.dao.CarDao;
 import mate.exception.DataProcessingException;
 import mate.lib.Dao;
 import mate.model.Car;
@@ -226,9 +229,7 @@ public class CarDaoImpl implements CarDao {
         Long driverId = resultSet.getObject("id", Long.class);
         String name = resultSet.getNString("name");
         String licenseNumber = resultSet.getNString("license_number");
-        Driver driver = new Driver(name, licenseNumber);
-        driver.setId(driverId);
-        return driver;
+        return getDriver(resultSet, driverId, name, licenseNumber);
     }
 
     private Car parseCarFromResultSet(ResultSet resultSet) throws SQLException {
