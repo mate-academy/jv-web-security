@@ -76,7 +76,7 @@ public class DriverDaoImpl implements DriverDao {
     @Override
     public Driver update(Driver driver) {
         String query = "UPDATE drivers "
-                + "SET name = ?, license_number = ? "
+                + "SET name = ?, license_number = ?, "
                 + "username = ?, password = ? "
                 + "WHERE id = ? AND is_deleted = FALSE";
         try (Connection connection = ConnectionUtil.getConnection();
