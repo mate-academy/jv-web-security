@@ -5,7 +5,7 @@
 </head>
 <body>
 <h1>Login page</h1>
-<h3 style="color: red">${error}</h3>
+<h3 style="color: red">${errorMsg}</h3>
 <form method="post" action="${pageContext.request.contextPath}/login">
     <td>Login:    <input type="text" name="login" required></td>
     <td>Password: <input type="password" name="password" required></td>
