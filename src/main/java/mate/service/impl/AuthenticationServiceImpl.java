@@ -1,7 +1,6 @@
 package mate.service.impl;
 
 import java.util.Optional;
-
 import mate.dao.DriverDao;
 import mate.exception.AuthenticationException;
 import mate.lib.Inject;
@@ -16,7 +15,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     @Override
     public Driver login(String username, String password) throws AuthenticationException {
-            Optional<Driver> driver = driverDao.findByUserName(username);
+        Optional<Driver> driver = driverDao.findByUserName(username);
         if (driver.get().getPassword().equals(password)) {
             return driver.get();
         }
