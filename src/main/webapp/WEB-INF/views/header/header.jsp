@@ -5,8 +5,6 @@
 <html>
 <body>
 <form class="table_dark">
-    <a href=${pageContext.request.contextPath}"/login">Login</a>
-    <a href=${pageContext.request.contextPath}"/drivers/add">Register</a>
     <a href=${pageContext.request.contextPath}"/logout">Logout</a>
 </form>
 </body>
