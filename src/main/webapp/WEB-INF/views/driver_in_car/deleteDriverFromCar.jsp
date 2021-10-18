@@ -5,6 +5,7 @@
     <title>Delete driver from car</title>
 </head>
     <body>
+        <%@include file="/WEB-INF/views/header.jsp"%>
         <form method="post" action="${pageContext.request.contextPath}/cars/drivers/delete">
             <input type="text" name="id" value="${car.id}" hidden>
             </h3> Car "${car.model}" has drivers

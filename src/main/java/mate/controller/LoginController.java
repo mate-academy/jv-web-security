@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import mate.exception.AuthenticationException;
 import mate.lib.Injector;
-import mate.model.User;
+import mate.model.Driver;
 import mate.service.AuthenticationService;
 
 @WebServlet(urlPatterns = "/login")
@@ -30,9 +30,9 @@ public class LoginController extends HttpServlet {
         String username = req.getParameter("login");
         String password = req.getParameter("password");
         try {
-            User user = authenticationService.login(username, password);
+            Driver driver = authenticationService.login(username, password);
             HttpSession session = req.getSession();
-            session.setAttribute("user_id", user.getId());
+            session.setAttribute("user_id", driver.getId());
             resp.sendRedirect("/index");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMsg", e.getMessage());

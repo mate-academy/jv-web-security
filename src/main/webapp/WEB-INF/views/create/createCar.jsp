@@ -5,6 +5,7 @@
         <title>Add Car Menu</title>
     </head>
     <body>
+        <%@include file="/WEB-INF/views/header.jsp"%>
         <form method="post" action="${pageContext.request.contextPath}/cars/add">
             <h3> Model</h3>
             <input type="text" name="model">

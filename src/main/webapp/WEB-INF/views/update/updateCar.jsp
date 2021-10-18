@@ -5,6 +5,7 @@
       <title>Add Driver Menu</title>
     </head>
     <body>
+        <%@include file="/WEB-INF/views/header.jsp"%>
         <form method="post" action="${pageContext.request.contextPath}/cars/update">
             <h3> ID</h3>
             <input type="text" name="id" value="${car.id}" readonly>

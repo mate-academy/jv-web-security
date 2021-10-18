@@ -30,8 +30,12 @@ public class UpdateDriverController extends HttpServlet {
         Driver driver = driverService.get(id);
         String name = req.getParameter("name");
         String licenseNumber = req.getParameter("license_number");
+        String username = req.getParameter("username");
+        String password = req.getParameter("password");
         driver.setName(name);
         driver.setLicenseNumber(licenseNumber);
+        driver.setUsername(username);
+        driver.setPassword(password);
         driverService.update(driver);
         resp.sendRedirect("/drivers");
     }

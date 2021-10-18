@@ -5,6 +5,7 @@
     <title>Add driver to car</title>
 </head>
     <body>
+        <%@include file="/WEB-INF/views/header.jsp"%>
         <form method="post" action="${pageContext.request.contextPath}/cars/drivers/add">
             <input type="text" name="id" value="${car.id}" hidden>
             </h3> Car "${car.model}" has drivers
