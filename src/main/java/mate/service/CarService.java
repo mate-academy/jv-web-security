@@ -10,4 +10,6 @@ public interface CarService extends GenericService<Car> {
     void removeDriverFromCar(Driver driver, Car car);
 
     List<Car> getAllByDriver(Long driverId);
+
+    List<Driver> getAllDriversNotOfCar(Long carId);
 }
