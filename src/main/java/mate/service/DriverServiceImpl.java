@@ -38,6 +38,6 @@ public class DriverServiceImpl implements DriverService {
     }
 
     public Optional<Driver> findByLogin(String login) {
-       return driverDao.findByLogin(login);
+        return driverDao.findByLogin(login);
     }
 }
