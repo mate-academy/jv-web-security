@@ -6,6 +6,5 @@
 <body>
 <h1>Login Page</h1>
 <%@include file="header.jsp"%>
-
 </body>
 </html>
