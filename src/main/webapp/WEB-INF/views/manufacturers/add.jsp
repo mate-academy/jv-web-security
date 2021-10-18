@@ -7,6 +7,9 @@
 <head>
     <title>Manufacturers</title>
 </head>
+<form action="${pageContext.request.contextPath}/index">
+    <button>Back to main</button>
+</form>
 <body>
 <form method="post" id="manufacturer" action="${pageContext.request.contextPath}/manufacturers/add"></form>
 <h1 class="table_dark">Add manufacturer:</h1>
@@ -28,5 +31,8 @@
         </td>
     </tr>
 </table>
+<form action="${pageContext.request.contextPath}/logout">
+    <button>Logout</button>
+</form>
 </body>
 </html>

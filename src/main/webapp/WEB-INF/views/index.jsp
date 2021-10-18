@@ -13,13 +13,33 @@
     <tr>
         <th>Redirect to</th>
     </tr>
-    <tr><td><a href="${pageContext.request.contextPath}/drivers/">Display All Drivers</a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/cars/">Display All Cars</a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/manufacturers/">Display All Manufacturers</a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/drivers/add">Create new Driver</a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/cars/add">Create new Car</a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/manufacturers/add">Create new Manufacturer</a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/cars/drivers/add">Add Driver to Car</a></td></tr>
+    <tr><td><form action="${pageContext.request.contextPath}/drivers/all">
+        <button>Display All Drivers</button>
+    </form></td></tr>
+    <tr><td><form action="${pageContext.request.contextPath}/cars/all">
+        <button>Display All Cars</button>
+    </form></td></tr>
+    <tr><td><form action="${pageContext.request.contextPath}/cars/my">
+        <button>Display your cars</button>
+    </form></td></tr>
+    <tr><td><form action="${pageContext.request.contextPath}/manufacturers/all">
+        <button>Display All Manufacturers</button>
+    </form></td></tr>
+    <tr><td><form action="${pageContext.request.contextPath}/drivers/add">
+        <button>Create new Driver</button>
+    </form></td></tr>
+    <tr><td><form action="${pageContext.request.contextPath}/cars/add">
+        <button>Create new Car</button>
+    </form></td></tr>
+    <tr><td><form action="${pageContext.request.contextPath}/manufacturers/add">
+        <button>Create new Manufacturer</button>
+    </form></td></tr>
+    <tr><td><form action="${pageContext.request.contextPath}/cars/drivers/add">
+        <button>Add Driver to Car</button>
+    </form></td></tr>
 </table>
+<form action="${pageContext.request.contextPath}/logout">
+    <button>Logout</button>
+</form>
 </body>
 </html>
