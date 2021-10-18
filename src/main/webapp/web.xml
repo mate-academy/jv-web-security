@@ -121,7 +121,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>getMyCurrentCars</servlet-name>
-        <url-pattern>/drivers/cars/all</url-pattern>
+        <url-pattern>/cars/my</url-pattern>
     </servlet-mapping>
 
     <filter>
