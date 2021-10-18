@@ -47,6 +47,7 @@ CREATE TABLE `cars`  (
 -- Table structure for cars_drivers
 -- ----------------------------
 DROP TABLE IF EXISTS `cars_drivers`;
+
 CREATE TABLE `cars_drivers`  (
                                  `car_id` bigint(0) UNSIGNED NOT NULL,
                                  `driver_id` bigint(0) UNSIGNED NOT NULL,
