@@ -19,7 +19,7 @@ public class AuthenticationFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         allowedUrl.add("/login");
-        allowedUrl.add("/cars/add");
+        allowedUrl.add("/drivers/add");
     }
 
     @Override
