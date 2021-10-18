@@ -27,7 +27,6 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException {
         String driverLogin = req.getParameter("login");
         String driverPassword = req.getParameter("password");
-
         try {
             Driver driver = authenticationService.login(driverLogin, driverPassword);
             req.getSession().setAttribute(SESSION_ATTRIBUTE, driver.getId());
