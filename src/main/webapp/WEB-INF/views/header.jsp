@@ -4,6 +4,6 @@
         <title>Index Page</title>
     </head>
     <body>
-        <a href="${pageContext.request.contextPath}/logout">LogOut</a>
+        <a href="${pageContext.request.contextPath}/logout">Log Out</a>
     </body>
 </html>
