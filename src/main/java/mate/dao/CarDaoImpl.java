@@ -1,4 +1,4 @@
-package mate.dao.impl;
+package mate.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
