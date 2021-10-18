@@ -16,6 +16,8 @@ import mate.util.ConnectionDeployUtil;
 
 @Dao
 public class ManufacturerDaoImpl implements ManufacturerDao {
+    private static String GIT = "GIT";
+
     @Override
     public Manufacturer create(Manufacturer manufacturer) {
         String insertManufacturerRequest = "INSERT INTO manufacturers(name, country) VALUES(?, ?);";

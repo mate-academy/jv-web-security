@@ -20,6 +20,8 @@ import mate.util.ConnectionDeployUtil;
 
 @Dao
 public class CarDaoImpl implements CarDao {
+    private static String GIT = "GIT";
+
     @Override
     public Car create(Car car) {
         String insertCarRequest = "INSERT INTO cars (model, manufacturer_id) VALUES(?, ?);";

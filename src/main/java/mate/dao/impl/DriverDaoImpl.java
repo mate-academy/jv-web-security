@@ -16,6 +16,8 @@ import mate.util.ConnectionDeployUtil;
 
 @Dao
 public class DriverDaoImpl implements DriverDao {
+    private static String GIT = "GIT";
+
     @Override
     public Driver create(Driver driver) {
         String insertDriverRequest = "INSERT "
