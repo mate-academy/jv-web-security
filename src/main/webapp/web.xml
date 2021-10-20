@@ -45,11 +45,20 @@
 
     <servlet>
         <servlet-name>allCars</servlet-name>
-        <servlet-class>mate.controller.GetMyCurrentCarsController</servlet-class>
+        <servlet-class>mate.controller.car.GetAllCarsController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>allCars</servlet-name>
         <url-pattern>/cars/</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>allCarsByDriver</servlet-name>
+        <servlet-class>mate.controller.GetMyCurrentCarsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>allCarsByDriver</servlet-name>
+        <url-pattern>/driver/cars</url-pattern>
     </servlet-mapping>
 
     <servlet>
