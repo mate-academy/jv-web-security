@@ -5,6 +5,6 @@
 </head>
 <body>
 <a href="${pageContext.request.contextPath}/index">Back to the home page</a> <br>
-<a href="${pageContext.request.contextPath}/logout">Login</a>
+<a href="${pageContext.request.contextPath}/logout">Logout</a>
 </body>
 </html>
