@@ -1,6 +1,8 @@
 package mate.controller.car;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.NoSuchElementException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,17 +23,24 @@ public class AddCarController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+        List<Manufacturer> manufacturers = manufacturerService.getAll();
+        req.setAttribute("manufacturers",manufacturers);
         req.getRequestDispatcher("/WEB-INF/views/cars/add.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws IOException {
+            throws IOException, ServletException {
         String model = req.getParameter("model");
         long manufacturerId = Long.parseLong(req.getParameter("manufacturer_id"));
-        Manufacturer manufacturer = manufacturerService.get(manufacturerId);
-        Car car = new Car(model, manufacturer);
-        carService.create(car);
-        resp.sendRedirect("/cars/add");
+
+        try {
+            Manufacturer manufacturer = manufacturerService.get(manufacturerId);
+            Car car = new Car(model, manufacturer);
+            carService.create(car);
+            resp.sendRedirect("/cars/add");
+        } catch (NoSuchElementException e) {
+            req.getRequestDispatcher("/WEB-INF/views/incorrect/input_error.jsp").forward(req, resp);
+        }
     }
 }
