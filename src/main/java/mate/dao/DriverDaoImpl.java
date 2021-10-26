@@ -23,17 +23,12 @@ public class DriverDaoImpl implements DriverDao {
                 PreparedStatement createDriverStatement = connection.prepareStatement(query,
                         Statement.RETURN_GENERATED_KEYS)) {
 
-            statement.setString(1, driver.getName());
-            statement.setString(2, driver.getLicenseNumber());
-            statement.setString(3,driver.getLogin());
-            statement.setString(4,driver.getPassword());
-            statement.executeUpdate();
-            ResultSet resultSet = statement.getGeneratedKeys();
             createDriverStatement.setString(1, driver.getName());
             createDriverStatement.setString(2, driver.getLicenseNumber());
+            createDriverStatement.setString(3,driver.getLogin());
+            createDriverStatement.setString(4,driver.getPassword());
             createDriverStatement.executeUpdate();
             ResultSet resultSet = createDriverStatement.getGeneratedKeys();
-
             if (resultSet.next()) {
                 driver.setId(resultSet.getObject(1, Long.class));
             }
@@ -87,18 +82,12 @@ public class DriverDaoImpl implements DriverDao {
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement updateDriverStatement
                         = connection.prepareStatement(query)) {
-
-            statement.setString(1, driver.getName());
-            statement.setString(2, driver.getLicenseNumber());
-            statement.setString(3, driver.getLogin());
-            statement.setString(4, driver.getPassword());
-            statement.setLong(5, driver.getId());
-            statement.executeUpdate();
             updateDriverStatement.setString(1, driver.getName());
             updateDriverStatement.setString(2, driver.getLicenseNumber());
-            updateDriverStatement.setLong(3, driver.getId());
+            updateDriverStatement.setString(3, driver.getLogin());
+            updateDriverStatement.setString(4, driver.getPassword());
+            updateDriverStatement.setLong(5, driver.getId());
             updateDriverStatement.executeUpdate();
-
             return driver;
         } catch (SQLException e) {
             throw new DataProcessingException("Couldn't update "
