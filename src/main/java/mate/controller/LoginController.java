@@ -13,6 +13,7 @@ import mate.service.AuthenticationService;
 
 public class LoginController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("mate");
+    private static final String SESSION_DRIVER_ID = "driver_id";
     private final AuthenticationService authenticationService = (AuthenticationService) injector
             .getInstance(AuthenticationService.class);
 
@@ -31,7 +32,7 @@ public class LoginController extends HttpServlet {
         try {
             Driver driver = authenticationService.login(driverLogin, driverPassword);
             HttpSession session = req.getSession();
-            session.setAttribute("driver_id", driver.getId());
+            session.setAttribute(SESSION_DRIVER_ID, driver.getId());
             resp.sendRedirect("/index");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMsq", e.getMessage());
