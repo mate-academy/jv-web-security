@@ -7,13 +7,21 @@
     <title>Login</title>
 </head>
 <body>
-<h1>Login page</h1>
+<h1 class="table_dark">Login page</h1>
 <h4 style="color: red">${errorMsg}</h4>
 <form method="post" action="${pageContext.request.contextPath}/login">
-    Please enter your login: <input type="text" name="login" required>
-    Please enter your password: <input type="password" name="password" required>
-    <button type="submit">Login</button>
+    <table border="1" class="table_dark">
+        <td>
+            Please enter your login: <input type="text" name="login" required>
+        </td>
+        <td>
+            Please enter your password: <input type="password" name="password" required>
+        </td>
+        <td>
+            <button type="submit">Login</button>
+        </td>
+    </table>
 </form>
-<h4><a href="${pageContext.request.contextPath}/drivers/add">Register</a></h4>
+<h4 align="center"><a href="${pageContext.request.contextPath}/drivers/add">Register</a></h4>
 </body>
 </html>

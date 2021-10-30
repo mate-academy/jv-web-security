@@ -28,6 +28,15 @@
         <servlet-name>loginController</servlet-name>
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>currentCars</servlet-name>
+        <servlet-class>mate.controller.car.GetMyCurrentCarsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>currentCars</servlet-name>
+        <url-pattern>/cars/drivers/current</url-pattern>
+    </servlet-mapping>
     
     <servlet>
         <servlet-name>allDrivers</servlet-name>
