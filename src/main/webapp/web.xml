@@ -105,4 +105,40 @@
         <servlet-name>deleteManufacturer</servlet-name>
         <url-pattern>/manufacturers/delete</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>loginController</servlet-name>
+        <servlet-class>mate.controller.driver.LoginController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>loginController</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>registrationController</servlet-name>
+        <servlet-class>mate.controller.driver.CreateDriverController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>registrationController</servlet-name>
+        <url-pattern>/drivers/register</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>myCarsController</servlet-name>
+        <servlet-class>mate.controller.driver.GetAllCarsByDriverController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>myCarsController</servlet-name>
+        <url-pattern>/driver/cars</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>authenticationFilter</filter-name>
+        <filter-class>mate.web.filter.AuthFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>authenticationFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>
