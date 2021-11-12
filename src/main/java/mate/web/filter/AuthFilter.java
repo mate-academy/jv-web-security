@@ -20,22 +20,18 @@ public class AuthFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
-                         FilterChain filterChain) throws IOException, ServletException {
+                         FilterChain filterChain)
+            throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         HttpSession session = request.getSession();
         Long driverId = (Long) session.getAttribute("driver_id");
 
-        if (driverId == null && allowedUrl.contains(request.getServletPath())) {
+        if (driverId != null || allowedUrl.contains(request.getServletPath())) {
             filterChain.doFilter(request, response);
-            return;
-        }
-
-        if (driverId == null) {
+        } else {
             response.sendRedirect("/login");
-            return;
         }
-        filterChain.doFilter(request,response);
     }
 
     @Override
