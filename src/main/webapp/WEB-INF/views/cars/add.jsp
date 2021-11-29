@@ -8,6 +8,7 @@
     <title>Add car</title>
 </head>
 <body>
+<h3><a href="${pageContext.request.contextPath}/index">Back to main menu</a></h3>
 <form method="post" id="car" action="${pageContext.request.contextPath}/cars/add"></form>
 <h1 class="table_dark">Add car:</h1>
 <table border="1" class="table_dark">
@@ -27,6 +28,22 @@
             <input type="submit" name="add" form="car">
         </td>
     </tr>
+</table>
+
+<table cellspacing="0" cellpadding="5" border="4" align="left">
+    <caption>All manufacturers</caption>
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>COUNTRY</th>
+    </tr>
+    <c:forEach items="${manufacturers}" var="manufacturer">
+        <tr>
+            <th><c:out value="${manufacturer.id}"/></th>
+            <th><c:out value="${manufacturer.name}"/></th>
+            <th><c:out value="${manufacturer.country}"/></th>
+        </tr>
+    </c:forEach>
 </table>
 </body>
 </html>
