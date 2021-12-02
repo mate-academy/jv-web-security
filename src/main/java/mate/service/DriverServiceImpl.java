@@ -1,6 +1,7 @@
 package mate.service;
 
 import java.util.List;
+import java.util.Optional;
 import mate.dao.DriverDao;
 import mate.lib.Inject;
 import mate.lib.Service;
@@ -8,8 +9,7 @@ import mate.model.Driver;
 
 @Service
 public class DriverServiceImpl implements DriverService {
-    @Inject
-    private DriverDao driverDao;
+    @Inject private DriverDao driverDao;
 
     @Override
     public Driver create(Driver driver) {
@@ -34,5 +34,10 @@ public class DriverServiceImpl implements DriverService {
     @Override
     public boolean delete(Long id) {
         return driverDao.delete(id);
+    }
+
+    @Override
+    public Optional<Driver> findByLogin(String login) {
+        return driverDao.findByLogin(login);
     }
 }
