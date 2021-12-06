@@ -1,6 +1,8 @@
 package mate.web.filter;
 
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -11,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class AuthenticationFilter implements Filter {
+
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
             FilterChain filterChain) throws IOException, ServletException {
@@ -18,12 +21,10 @@ public class AuthenticationFilter implements Filter {
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         HttpSession session = req.getSession();
         Long driverId = (Long) session.getAttribute("driver_id");
-        if (driverId == null && req.getServletPath().equals("/login") || req.getServletPath()
-                .equals("/drivers/add")) {
-            filterChain.doFilter(req, resp);
-            return;
-        }
-        if (driverId == null) {
+        Set<String> links = new HashSet<>();
+        links.add("/login");
+        links.add("/drivers/add");
+        if (driverId == null && !links.contains(req.getServletPath())) {
             resp.sendRedirect("/login");
             return;
         }
