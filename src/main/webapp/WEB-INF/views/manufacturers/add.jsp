@@ -28,5 +28,6 @@
         </td>
     </tr>
 </table>
+<%@include file="/WEB-INF/views/logout.jsp"%>
 </body>
 </html>
