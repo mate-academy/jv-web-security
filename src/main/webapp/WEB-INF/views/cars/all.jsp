@@ -8,6 +8,7 @@
     <title>${title}</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 <h1 class="table_dark">${title}</h1>
 <table border="1" class="table_dark">
     <tr>

@@ -7,6 +7,7 @@
     <title>My team</title>
 </head>
 <body>
+<jsp:include page="header.jsp"></jsp:include>
 <form method="post" id="redirect"></form>
 <h1 class="table_dark">Hello, mates</h1>
 <table class="table_dark">
