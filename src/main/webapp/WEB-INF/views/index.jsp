@@ -13,13 +13,22 @@
     <tr>
         <th>Redirect to</th>
     </tr>
-    <tr><td><a href="${pageContext.request.contextPath}/drivers/">Display All Drivers</a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/cars/">Display All Cars</a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/manufacturers/">Display All Manufacturers</a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/drivers/add">Create new Driver</a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/cars/add">Create new Car</a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/manufacturers/add">Create new Manufacturer</a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/cars/drivers/add">Add Driver to Car</a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/drivers/"><button type="submit">
+        Display All Drivers</button></a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/cars/"><button type="submit">
+        Display All Cars</button></a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/manufacturers/"><button type="submit">
+        Display All Manufacturers</button></a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/drivers/add"><button type="submit">
+        Create new Driver</button></a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/cars/add"><button type="submit">
+        Create new Car</button></a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/manufacturers/add"><button type="submit">
+        Create new Manufacturer</button></a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/cars/drivers/add"><button type="submit">
+        Add Driver to Car</button></a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/cars/all"><button type="submit">
+        Display All My Cars</button></a></td></tr>
 </table>
 </body>
 </html>
