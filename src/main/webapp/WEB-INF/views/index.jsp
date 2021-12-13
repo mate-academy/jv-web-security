@@ -13,6 +13,7 @@
     <tr>
         <th>Redirect to</th>
     </tr>
+    <tr><td><a href="${pageContext.request.contextPath}/drivers/cars">Get all cars by current user</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/drivers/">Display All Drivers</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/cars/">Display All Cars</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/manufacturers/">Display All Manufacturers</a></td></tr>
@@ -21,5 +22,6 @@
     <tr><td><a href="${pageContext.request.contextPath}/manufacturers/add">Create new Manufacturer</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/cars/drivers/add">Add Driver to Car</a></td></tr>
 </table>
+<h3><a href="/logout">Logout</a></h3>
 </body>
 </html>
