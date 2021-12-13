@@ -88,5 +88,3 @@ public class Driver {
         return Objects.hash(id, name, licenseNumber);
     }
 }
-
-
