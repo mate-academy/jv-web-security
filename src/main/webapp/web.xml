@@ -120,7 +120,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>getMyCurrentCarsController</servlet-name>
-        <url-pattern>/cars/current</url-pattern>
+        <url-pattern>/driver/cars</url-pattern>
     </servlet-mapping>
     <filter>
         <filter-name>authenticationFilter</filter-name>
