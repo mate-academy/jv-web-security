@@ -13,12 +13,20 @@
 <table border="1" class="table_dark">
     <tr>
         <th>Name</th>
+        <th>Login</th>
+        <th>Password</th>
         <th>License number</th>
         <th>Add</th>
     </tr>
     <tr>
         <td>
             <input type="text" name="name" form="driver" required>
+        </td>
+        <td>
+            <input type="text" name="login" form="driver" required>
+        </td>
+        <td>
+            <input type="password" name="password" form="driver" required>
         </td>
         <td>
             <input type="text" name="license_number" form="driver" required>
@@ -28,5 +36,8 @@
         </td>
     </tr>
 </table>
+<%@include file="../header.jsp"%>
+<br/>
+<a href="${pageContext.request.contextPath}/index">Back to Index page</a>
 </body>
 </html>
