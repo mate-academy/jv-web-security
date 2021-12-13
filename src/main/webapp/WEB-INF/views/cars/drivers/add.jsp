@@ -28,5 +28,6 @@
         </td>
     </tr>
 </table>
+<%@include file="../../authentication/logout.jsp"%>
 </body>
 </html>
