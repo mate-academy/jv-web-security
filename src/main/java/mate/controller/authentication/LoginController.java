@@ -12,27 +12,27 @@ import mate.model.Driver;
 import mate.service.AuthenticationService;
 
 public class LoginController extends HttpServlet {
-    private static final String SESSION_ATTRIBUTE = "driver_id";
+    private static final String DRIVER_ID = "driver_id";
     private static final Injector injector = Injector.getInstance("mate");
     private final AuthenticationService authService = (AuthenticationService) injector
             .getInstance(AuthenticationService.class);
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+    public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         req.getRequestDispatcher("/WEB-INF/views/authentication/login.jsp")
                 .forward(req,resp);
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+    public void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         try {
             Driver driver = authService.login(login, password);
             HttpSession session = req.getSession();
-            session.setAttribute(SESSION_ATTRIBUTE, driver.getId());
+            session.setAttribute(DRIVER_ID, driver.getId());
             resp.sendRedirect("/");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMsg", e.getMessage());
