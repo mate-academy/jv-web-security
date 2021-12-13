@@ -43,6 +43,5 @@
         </tr>
     </c:forEach>
 </table>
-<h1 align="center"><a href="${pageContext.request.contextPath}/cars/my?id=${car.id}">My current cars</a></h1>
 </body>
 </html>
