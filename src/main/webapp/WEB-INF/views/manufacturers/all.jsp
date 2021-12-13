@@ -7,6 +7,9 @@
 <head>
     <title>All manufacturers</title>
 </head>
+<form action="${pageContext.request.contextPath}/index">
+    <button>Back to main</button>
+</form>
 <body>
 <h1 class="table_dark">All manufacturers:</h1>
 <table border="1" class="table_dark">
@@ -33,5 +36,8 @@
         </tr>
     </c:forEach>
 </table>
+<form action="${pageContext.request.contextPath}/logout">
+    <button>Logout</button>
+</form>
 </body>
 </html>

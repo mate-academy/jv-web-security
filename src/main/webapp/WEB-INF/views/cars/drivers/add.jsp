@@ -7,6 +7,9 @@
 <head>
     <title>Add driver to car</title>
 </head>
+<form action="${pageContext.request.contextPath}/index">
+    <button>Back to main</button>
+</form>
 <body>
 <form method="post" id="car" action="${pageContext.request.contextPath}/cars/drivers/add"></form>
 <h1 class="table_dark">Add driver to car:</h1>
@@ -28,5 +31,8 @@
         </td>
     </tr>
 </table>
+<form action="${pageContext.request.contextPath}/logout">
+    <button>Logout</button>
+</form>
 </body>
 </html>
