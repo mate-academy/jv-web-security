@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 
 @WebFilter (urlPatterns = "/*")
 public class AuthenticationFilter implements Filter {
-    private Long driverId;
+    private static final String DRIVER_ID = "driver_id";
     private Set<String> allowedUrls;
 
     @Override
@@ -32,7 +32,7 @@ public class AuthenticationFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         HttpSession session = request.getSession();
-        driverId = (Long) session.getAttribute("driver_id");
+        Long driverId = (Long) session.getAttribute(DRIVER_ID);
         if (driverId == null && !allowedUrls.contains(request.getServletPath())) {
             response.sendRedirect("/login");
             return;
