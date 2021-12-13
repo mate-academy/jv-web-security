@@ -4,43 +4,12 @@
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
     <servlet>
-        <servlet-name>index</servlet-name>
-        <servlet-class>mate.controller.IndexController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>index</servlet-name>
-        <url-pattern>/index</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>index</servlet-name>
-        <url-pattern>/</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>allDrivers</servlet-name>
-        <servlet-class>mate.controller.driver.GetAllDriversController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>allDrivers</servlet-name>
-        <url-pattern>/drivers/</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>deleteDriver</servlet-name>
         <servlet-class>mate.controller.driver.DeleteDriverController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>deleteDriver</servlet-name>
         <url-pattern>/drivers/delete</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>addDriver</servlet-name>
-        <servlet-class>mate.controller.driver.AddDriverController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>addDriver</servlet-name>
-        <url-pattern>/drivers/add</url-pattern>
     </servlet-mapping>
 
     <servlet>
