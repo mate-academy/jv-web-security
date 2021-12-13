@@ -14,7 +14,7 @@ import mate.service.CarService;
 
 @WebServlet(urlPatterns = "/drivers/cars")
 public class GetMyCurrentCarsController extends HttpServlet {
-    public static final String ATTRIBUTE_SESSION_ID = "driver_id";
+    private static final String ATTRIBUTE_SESSION_ID = "driver_id";
     private static final Injector injector = Injector.getInstance("mate");
     private final CarService carService = (CarService) injector
             .getInstance(CarService.class);

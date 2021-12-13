@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 
 @WebFilter(urlPatterns = "/*")
 public class AuthenticationFilter implements Filter {
-    public static final String ATTRIBUTE_SESSION_ID = "driver_id";
+    private static final String ATTRIBUTE_SESSION_ID = "driver_id";
     private Set<String> allowedUrls = new HashSet<>();
 
     @Override

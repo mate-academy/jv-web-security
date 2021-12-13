@@ -14,7 +14,7 @@ import mate.service.AuthenticationService;
 
 @WebServlet(urlPatterns = "/login")
 public class LoginController extends HttpServlet {
-    public static final String ATTRIBUTE_SESSION_ID = "driver_id";
+    private static final String ATTRIBUTE_SESSION_ID = "driver_id";
     private static final Injector injector = Injector.getInstance("mate");
     private final AuthenticationService authenticationService =
             (AuthenticationService) injector.getInstance(AuthenticationService.class);
