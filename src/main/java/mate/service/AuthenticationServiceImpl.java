@@ -2,6 +2,7 @@ package mate.service;
 
 import java.util.Optional;
 import mate.dao.DriverDao;
+import mate.exception.AuthenticationException;
 import mate.lib.Inject;
 import mate.lib.Service;
 import mate.model.Driver;
@@ -12,11 +13,11 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private DriverDao driverDao;
 
     @Override
-    public Driver login(String login, String password) throws Exception {
+    public Driver login(String login, String password) throws AuthenticationException {
         Optional<Driver> driver = driverDao.findByLogin(login);
         if (driver.isPresent() && driver.get().getPassword().equals(password)) {
             return driver.get();
         }
-        throw new Exception("Username or password was incorrect");
+        throw new AuthenticationException("Username or password was incorrect");
     }
 }

@@ -28,7 +28,7 @@
     </td>
   </tr>
 </table>
+<h4 style="color: red">${errorMsg}</h4>
 <a href="${pageContext.request.contextPath}/drivers/add">Register</a>
-<h4 style="caret-color: red">${errorMsg}</h4>
 </body>
 </html>
