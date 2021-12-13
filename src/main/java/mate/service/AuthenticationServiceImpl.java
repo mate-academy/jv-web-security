@@ -10,12 +10,13 @@ import mate.model.Driver;
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
     @Inject
-    private DriverDao driverDao;
+    private DriverService driverService;
+
     @Override
     public Driver login(String login, String password)
             throws AuthenticationException {
-        Optional<Driver> driver = driverDao.findByDriverLogin(login);
-        if (driver.isEmpty()){
+        Optional<Driver> driver = driverService.findByDriverLogin(login);
+        if (driver.isEmpty()) {
             throw new AuthenticationException("Username or password was incorrect");
         }
         if (driver.get().getPassword().equals(password)) {

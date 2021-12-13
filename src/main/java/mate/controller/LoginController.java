@@ -1,23 +1,22 @@
 package mate.controller;
 
 import java.io.IOException;
-import java.net.Authenticator;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import mate.exception.AuthenticationException;
-import mate.lib.Inject;
 import mate.lib.Injector;
 import mate.model.Driver;
 import mate.service.AuthenticationService;
-import mate.service.DriverService;
 
 public class LoginController extends HttpServlet {
+    private static final String SESSION_ATTRIBUTE = "driver_id";
     private static final Injector injector = Injector.getInstance("mate");
     private final AuthenticationService authenticationService = (AuthenticationService) injector
             .getInstance(AuthenticationService.class);
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -32,7 +31,7 @@ public class LoginController extends HttpServlet {
         try {
             Driver driver = authenticationService.login(login, password);
             HttpSession session = req.getSession();
-            session.setAttribute("driver_id", driver.getId());
+            session.setAttribute(SESSION_ATTRIBUTE, driver.getId());
             resp.sendRedirect("/index");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMsg", e.getMessage());

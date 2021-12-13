@@ -12,7 +12,6 @@ public class ConnectionUtil {
     private static final String PASSWORD = "Qwerty123@";
     private static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
 
-
     static {
         try {
             Class.forName(JDBC_DRIVER);

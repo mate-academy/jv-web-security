@@ -51,6 +51,7 @@ public class Driver {
     public String getPassword() {
         return password;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {

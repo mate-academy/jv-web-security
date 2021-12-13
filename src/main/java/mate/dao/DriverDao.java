@@ -4,5 +4,5 @@ import java.util.Optional;
 import mate.model.Driver;
 
 public interface DriverDao extends GenericDao<Driver> {
-    Optional<Driver> findByDriverLogin(String username);
+    Optional<Driver> findByDriverLogin(String login);
 }

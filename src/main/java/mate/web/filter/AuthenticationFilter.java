@@ -1,8 +1,8 @@
 package mate.web.filter;
 
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
-import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class AuthenticationFilter implements Filter {
+    private static final String SESSION_ATTRIBUTE = "driver_id";
     private Set<String> allowedUrls = new HashSet<>();
 
     @Override
@@ -23,17 +24,18 @@ public class AuthenticationFilter implements Filter {
     }
 
     @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain)
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
+                         FilterChain filterChain)
             throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         HttpSession session = req.getSession();
-        Long user_id = (Long) session.getAttribute("driver_id");
-        if(user_id == null && allowedUrls.contains(req.getServletPath())){
+        Long driverId = (Long) session.getAttribute(SESSION_ATTRIBUTE);
+        if (driverId == null && allowedUrls.contains(req.getServletPath())) {
             filterChain.doFilter(req, resp);
             return;
         }
-        if (user_id == null) {
+        if (driverId == null) {
             resp.sendRedirect("/login");
             return;
         }
