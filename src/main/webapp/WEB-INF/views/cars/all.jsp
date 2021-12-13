@@ -8,6 +8,7 @@
     <title>All cars</title>
 </head>
 <body>
+<%@include file="../header.jsp"%>
 <h1 class="table_dark">All cars:</h1>
 <table border="1" class="table_dark">
     <tr>
@@ -38,10 +39,13 @@
                 </c:forEach>
             </td>
             <td>
-                <a href="${pageContext.request.contextPath}/cars/delete?id=${car.id}">DELETE</a>
+                <a href="${pageContext.request.contextPath}/cars/delete?id=${car.id}">
+                    <button type="submit">DELETE</button></a>
             </td>
         </tr>
     </c:forEach>
+    <tr><td><a href="${pageContext.request.contextPath}/index"><button type="submit">
+        click here to back to main menu</button></a></td></tr>
 </table>
 </body>
 </html>

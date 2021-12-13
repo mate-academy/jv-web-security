@@ -8,6 +8,7 @@
     <title>All drivers</title>
 </head>
 <body>
+<%@include file="../header.jsp"%>
 <form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/add"></form>
 <h1 class="table_dark">Add driver:</h1>
 <table border="1" class="table_dark">
@@ -35,6 +36,8 @@
             <input type="submit" name="add" form="driver">
         </td>
     </tr>
+    <tr><td><a href="${pageContext.request.contextPath}/index"><button type="submit">
+        click here to back to main menu</button></a></td></tr>
 </table>
 </body>
 </html>

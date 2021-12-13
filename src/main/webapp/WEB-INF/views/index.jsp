@@ -7,17 +7,18 @@
     <title>My team</title>
 </head>
 <body>
+<%@include file="header.jsp"%>
 <form method="post" id="redirect"></form>
-<h1 class="table_dark">Hello, mates</h1>
+<h1 class="table_dark">Welcome to taxi service</h1>
 <table class="table_dark">
     <tr>
-        <th>Redirect to</th>
+        <th>PLEASE MAKE YOUR DECISION</th>
     </tr>
-    <tr><td><a href="${pageContext.request.contextPath}/drivers/"><button type="submit">
+    <tr><td><a href="${pageContext.request.contextPath}/drivers"><button type="submit">
         Display All Drivers</button></a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/cars/"><button type="submit">
+    <tr><td><a href="${pageContext.request.contextPath}/cars"><button type="submit">
         Display All Cars</button></a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/manufacturers/"><button type="submit">
+    <tr><td><a href="${pageContext.request.contextPath}/manufacturers"><button type="submit">
         Display All Manufacturers</button></a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/drivers/add"><button type="submit">
         Create new Driver</button></a></td></tr>

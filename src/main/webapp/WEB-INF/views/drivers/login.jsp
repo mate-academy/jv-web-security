@@ -1,17 +1,38 @@
+
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<style>
+    <%@include file='/WEB-INF/views/css/table_dark.css' %>
+</style>
 <html>
 <head>
     <title>Login</title>
 </head>
 <body>
-<h1>Please enter your login and password</h1>
-<h4 style="color: red">${errorMsg}</h4>
+<%@include file="../header.jsp"%>
 <form method="post" action="${pageContext.request.contextPath}/login">
-    <label>Login</label> <input type="text" name="login" required> <br>
-    <label>Password</label> <input type="password" name="password" required> <br>
-    <button type="submit">Log in</button>
+<h1 class="table_dark">Please enter your login and password</h1>
+<table border="1" class="table_dark">
+    <tr>
+        <th>Login</th>
+        <th>Password</th>
+        <th>Enter</th>
+    </tr>
+    <tr>
+        <td>
+            <input type="text" name="login" required>
+        </td>
+        <td>
+            <input type="password" name="password" required>
+        </td>
+        <td>
+            <button type="submit">Enter</button>
+        </td>
+    </tr>
+    <tr><td><a href="${pageContext.request.contextPath}/drivers/add"><button type="submit">
+        click here to register a new Driver</button></a></td></tr>
+</table>
 </form>
-<a href="${pageContext.request.contextPath}/drivers/add"><button type="submit">
-    Or register new Driver</button></a>
 </body>
 </html>

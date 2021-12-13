@@ -8,6 +8,7 @@
     <title>All drivers</title>
 </head>
 <body>
+<%@include file="../header.jsp"%>
 <h1 class="table_dark">All drivers:</h1>
 <table border="1" class="table_dark">
     <tr>
@@ -28,10 +29,13 @@
                 <c:out value="${driver.licenseNumber}"/>
             </td>
             <td>
-                <a href="${pageContext.request.contextPath}/drivers/delete?id=${driver.id}">DELETE</a>
+                <a href="${pageContext.request.contextPath}/drivers/delete?id=${driver.id}">
+                    <button type="submit">DELETE</button></a>
             </td>
         </tr>
     </c:forEach>
+    <tr><td><a href="${pageContext.request.contextPath}/index"><button type="submit">
+        click here to back to main menu</button></a></td></tr>
 </table>
 </body>
 </html>
