@@ -9,28 +9,15 @@
 </head>
 <body>
 <%@include file="../header.jsp"%>
+<h4 style="color: red">${errorMsg}</h4>
 <form method="post" action="${pageContext.request.contextPath}/login">
-<h1 class="table_dark">Please enter your login and password</h1>
 <table border="1" class="table_dark">
-    <tr>
-        <th>Login</th>
-        <th>Password</th>
-        <th>Enter</th>
-    </tr>
-    <tr>
-        <td>
-            <input type="text" name="login" required>
-        </td>
-        <td>
-            <input type="password" name="password" required>
-        </td>
-        <td>
-            <button type="submit">Enter</button>
-        </td>
-    </tr>
-    <tr><td><a href="${pageContext.request.contextPath}/drivers/add"><button type="submit">
-        click here to register a new Driver</button></a></td></tr>
+    Please enter your login    <input type="text" name="login" required></br>
+    Please enter your password  <input type="password" name="password" required></br>
+    <button type="submit">Enter</button></br>
 </table>
 </form>
+<tr><td><a href="${pageContext.request.contextPath}/drivers/add"><button type="submit">
+    click here to register a new Driver</button></a></td></tr>
 </body>
 </html>
