@@ -125,7 +125,7 @@ public class DriverDaoImpl implements DriverDao {
 
     private Driver getDriver(ResultSet resultSet) throws SQLException {
         Driver driver = new Driver();
-        driver.setId(resultSet.getObject("driver_id", Long.class));
+        driver.setId(resultSet.getObject("id", Long.class));
         driver.setName(resultSet.getString("name"));
         driver.setLogin(resultSet.getString("login"));
         driver.setPassword(resultSet.getString("password"));
