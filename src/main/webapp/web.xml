@@ -3,6 +3,10 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <session-config>
+        <session-timeout>60</session-timeout>
+    </session-config>
+
     <servlet>
         <servlet-name>index</servlet-name>
         <servlet-class>mate.controller.IndexController</servlet-class>
@@ -49,7 +53,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>allCars</servlet-name>
-        <url-pattern>/cars/</url-pattern>
+        <url-pattern>/cars</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -105,4 +109,13 @@
         <servlet-name>deleteManufacturer</servlet-name>
         <url-pattern>/manufacturers/delete</url-pattern>
     </servlet-mapping>
+
+    <filter>
+        <filter-name>authenticationFilter</filter-name>
+        <filter-class>mate.web.filter.AuthenticationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>authenticationFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>
