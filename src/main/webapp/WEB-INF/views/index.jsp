@@ -19,7 +19,8 @@
     <tr><td><a href="${pageContext.request.contextPath}/drivers/add">Create new Driver</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/cars/add">Create new Car</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/manufacturers/add">Create new Manufacturer</a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/cars/drivers/add">Add Driver to Car</a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/cars/drivers/add">Add Drivers to Car</a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/cars/my">All my cars</a></td></tr>
 </table>
 </body>
 </html>
