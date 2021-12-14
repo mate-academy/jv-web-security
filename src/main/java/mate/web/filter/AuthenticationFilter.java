@@ -1,8 +1,8 @@
 package mate.web.filter;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -16,11 +16,11 @@ import javax.servlet.http.HttpSession;
 
 @WebFilter(urlPatterns = "/*")
 public class AuthenticationFilter implements Filter {
-    private List<String> urls;
+    private Set<String> urls;
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        urls = new ArrayList<>();
+        urls = new HashSet<>();
         urls.add("/login");
         urls.add("/drivers/add");
     }
