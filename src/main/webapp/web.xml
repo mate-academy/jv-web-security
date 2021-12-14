@@ -32,6 +32,16 @@
         <servlet-name>login</servlet-name>
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>mycars</servlet-name>
+        <servlet-class>mate.controller.GetMyCurrentCarsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>mycars</servlet-name>
+        <url-pattern>/drivers/mycars/</url-pattern>
+    </servlet-mapping>
+
     <servlet>
         <servlet-name>allDrivers</servlet-name>
         <servlet-class>mate.controller.driver.GetAllDriversController</servlet-class>

@@ -1,6 +1,7 @@
 package mate.service;
 
 import java.util.List;
+import java.util.Optional;
 import mate.dao.DriverDao;
 import mate.lib.Inject;
 import mate.lib.Service;
@@ -37,7 +38,7 @@ public class DriverServiceImpl implements DriverService {
     }
 
     @Override
-    public Driver getByLogin(String login) {
-        return driverDao.getByLogin(login).get();
+    public Optional<Driver> getByLogin(String login) {
+        return driverDao.getByLogin(login);
     }
 }
