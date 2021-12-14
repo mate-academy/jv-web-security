@@ -14,6 +14,9 @@
     <tr>
         <th>Name</th>
         <th>License number</th>
+        <th>Login</th>
+        <th>Password</th>
+        <th>Password Again</th>
         <th>Add</th>
     </tr>
     <tr>
@@ -22,6 +25,15 @@
         </td>
         <td>
             <input type="text" name="license_number" form="driver" required>
+        </td>
+        <td>
+            <input type="text" name="login" form="driver" required>
+        </td>
+        <td>
+            <input type="password" name="password" form="driver" required>
+        </td>
+        <td>
+            <input type="password" name="password_again" form="driver" required>
         </td>
         <td>
             <input type="submit" name="add" form="driver">
