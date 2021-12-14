@@ -112,7 +112,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>loginDriver</servlet-name>
-        <url-pattern>/drivers/login</url-pattern>
+        <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -121,7 +121,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>getMyCurrentCars</servlet-name>
-        <url-pattern>/drivers/cars/all</url-pattern>
+        <url-pattern>/drivers/cars</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -130,7 +130,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>logout</servlet-name>
-        <url-pattern>/drivers/logout</url-pattern>
+        <url-pattern>/logout</url-pattern>
     </servlet-mapping>
 
     <filter>
