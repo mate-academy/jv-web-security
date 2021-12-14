@@ -4,6 +4,7 @@
     <%@include file='/WEB-INF/views/css/table_dark.css' %>
 </style>
 <html>
+<%@include file="/WEB-INF/views/header.jsp"%>
 <head>
     <title>All drivers</title>
 </head>
@@ -14,7 +15,8 @@
     <tr>
         <th>Name</th>
         <th>License number</th>
-        <th>Add</th>
+        <th>Login</th>
+        <th>Password</th>
     </tr>
     <tr>
         <td>
@@ -22,6 +24,12 @@
         </td>
         <td>
             <input type="text" name="license_number" form="driver" required>
+        </td>
+        <td>
+            <input type="text" name="login" form="driver" required>
+        </td>
+        <td>
+            <input type="password" name="password" form="driver" required>
         </td>
         <td>
             <input type="submit" name="add" form="driver">

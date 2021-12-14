@@ -3,6 +3,7 @@
     <%@include file='/WEB-INF/views/css/table_dark.css' %>
 </style>
 <html>
+<%@include file="/WEB-INF/views/header.jsp"%>
 <head>
     <title>My team</title>
 </head>
@@ -20,6 +21,8 @@
     <tr><td><a href="${pageContext.request.contextPath}/cars/add">Create new Car</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/manufacturers/add">Create new Manufacturer</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/cars/drivers/add">Add Driver to Car</a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/login">Login Driver</a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/drivers/cars">Get current drivers cars</a></td></tr>
 </table>
 </body>
 </html>
