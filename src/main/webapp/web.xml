@@ -3,31 +3,4 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-
-    <servlet>
-        <servlet-name>deleteDriver</servlet-name>
-        <servlet-class>mate.controller.driver.DeleteDriverController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>deleteDriver</servlet-name>
-        <url-pattern>/drivers/delete</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>deleteCar</servlet-name>
-        <servlet-class>mate.controller.car.DeleteCarController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>deleteCar</servlet-name>
-        <url-pattern>/cars/delete</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>deleteManufacturer</servlet-name>
-        <servlet-class>mate.controller.manufacturer.DeleteManufacturerController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>deleteManufacturer</servlet-name>
-        <url-pattern>/manufacturers/delete</url-pattern>
-    </servlet-mapping>
 </web-app>
