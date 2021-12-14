@@ -43,5 +43,8 @@
         </tr>
     </c:forEach>
 </table>
+<%@include file="../header.jsp"%>
+<br/>
+<a href="${pageContext.request.contextPath}/index">Back to Index page</a>
 </body>
 </html>

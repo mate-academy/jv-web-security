@@ -204,7 +204,8 @@ public class CarDaoImpl implements CarDao {
     }
 
     private List<Driver> getAllDriversByCarId(Long carId) {
-        String selectQuery = "SELECT id, name, license_number FROM cars_drivers cd "
+        String selectQuery = "SELECT d.id AS driver_id, name, login, password, license_number "
+                + "FROM cars_drivers cd "
                 + "JOIN drivers d on cd.driver_id = d.id "
                 + "where car_id = ? AND is_deleted = false";
         try (Connection connection = ConnectionUtil.getConnection();
@@ -223,24 +224,24 @@ public class CarDaoImpl implements CarDao {
     }
 
     private Driver parseDriverFromResultSet(ResultSet resultSet) throws SQLException {
-        Long driverId = resultSet.getObject("id", Long.class);
-        String name = resultSet.getNString("name");
-        String licenseNumber = resultSet.getNString("license_number");
-        Driver driver = new Driver(name, licenseNumber);
-        driver.setId(driverId);
+        Driver driver = new Driver();
+        driver.setId(resultSet.getObject("driver_id", Long.class));
+        driver.setName(resultSet.getString("name"));
+        driver.setLogin(resultSet.getString("login"));
+        driver.setPassword(resultSet.getString("password"));
+        driver.setLicenseNumber(resultSet.getString("license_number"));
         return driver;
     }
 
     private Car parseCarFromResultSet(ResultSet resultSet) throws SQLException {
-        Long manufacturerId = resultSet.getObject("manufacturer_id", Long.class);
-        String manufacturerName = resultSet.getNString("manufacturer_name");
-        String manufacturerCountry = resultSet.getNString("manufacturer_country");
-        Manufacturer manufacturer = new Manufacturer(manufacturerName, manufacturerCountry);
-        manufacturer.setId(manufacturerId);
-        Long carId = resultSet.getObject("id", Long.class);
-        String model = resultSet.getNString("model");
-        Car car = new Car(model, manufacturer);
-        car.setId(carId);
+        Manufacturer manufacturer = new Manufacturer();
+        manufacturer.setId(resultSet.getObject("manufacturer_id", Long.class));
+        manufacturer.setCountry(resultSet.getNString("manufacturer_country"));
+        manufacturer.setName(resultSet.getNString("manufacturer_name"));
+        Car car = new Car();
+        car.setId(resultSet.getObject("id", Long.class));
+        car.setModel(resultSet.getNString("model"));
+        car.setManufacturer(manufacturer);
         return car;
     }
 }

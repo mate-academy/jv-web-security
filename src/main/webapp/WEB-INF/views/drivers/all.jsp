@@ -13,6 +13,7 @@
     <tr>
         <th>ID</th>
         <th>Name</th>
+        <th>Login</th>
         <th>License number</th>
         <th>Delete</th>
     </tr>
@@ -25,6 +26,9 @@
                 <c:out value="${driver.name}"/>
             </td>
             <td>
+                <c:out value="${driver.login}"/>
+            </td>
+            <td>
                 <c:out value="${driver.licenseNumber}"/>
             </td>
             <td>
@@ -33,5 +37,8 @@
         </tr>
     </c:forEach>
 </table>
+<%@include file="../header.jsp"%>
+<br/>
+<a href="${pageContext.request.contextPath}/index">Back to Index page</a>
 </body>
 </html>
