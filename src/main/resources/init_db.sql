@@ -6,19 +6,24 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 -- Table structure for drivers
 -- ----------------------------
+DROP TABLE IF EXISTS `cars_drivers`;
+DROP TABLE IF EXISTS `manufacturers`;
+DROP TABLE IF EXISTS `cars`;
 DROP TABLE IF EXISTS `drivers`;
-CREATE TABLE `drivers`  (
-                            `id` bigint(0) UNSIGNED NOT NULL AUTO_INCREMENT,
-                            `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                            `license_number` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                            `is_deleted` bit(1) NOT NULL DEFAULT b'0',
-                            PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+CREATE TABLE `drivers` (
+                           `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+                           `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                           `license_number` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                           `is_deleted` bit(1) NOT NULL DEFAULT b'0',
+                           `login` varchar(255) NOT NULL,
+                           `password` varchar(20) DEFAULT NULL,
+                           PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Table structure for manufacturers
 -- ----------------------------
-DROP TABLE IF EXISTS `manufacturers`;
 CREATE TABLE `manufacturers`  (
                                   `id` bigint(0) UNSIGNED NOT NULL AUTO_INCREMENT,
                                   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
@@ -30,7 +35,6 @@ CREATE TABLE `manufacturers`  (
 -- ----------------------------
 -- Table structure for cars
 -- ----------------------------
-DROP TABLE IF EXISTS `cars`;
 CREATE TABLE `cars`  (
                          `id` bigint(0) UNSIGNED NOT NULL AUTO_INCREMENT,
                          `model` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
@@ -44,7 +48,6 @@ CREATE TABLE `cars`  (
 -- ----------------------------
 -- Table structure for cars_drivers
 -- ----------------------------
-DROP TABLE IF EXISTS `cars_drivers`;
 CREATE TABLE `cars_drivers`  (
                                  `car_id` bigint(0) UNSIGNED NOT NULL,
                                  `driver_id` bigint(0) UNSIGNED NOT NULL,
