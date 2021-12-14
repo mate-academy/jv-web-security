@@ -8,7 +8,7 @@
     <title>My current cars</title>
 </head>
 <body>
-<%@include file="../header.jsp"%>
+<%@include file="../../header.jsp"%>
 <h1 class="table_dark">My current cars:</h1>
 <table border="1" class="table_dark">
     <tr>
