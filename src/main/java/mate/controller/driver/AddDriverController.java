@@ -30,6 +30,6 @@ public class AddDriverController extends HttpServlet {
         Driver driver = new Driver(name, licenseNumber, login);
         driver.setPassword(password);
         driverService.create(driver);
-        resp.sendRedirect("/drivers/add");
+        resp.sendRedirect("/index");
     }
 }
