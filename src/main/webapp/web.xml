@@ -109,7 +109,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>getMyCurrentCars</servlet-name>
-        <url-pattern>/cars/current</url-pattern>
+        <url-pattern>/drivers/cars/current</url-pattern>
     </servlet-mapping>
     <filter>
         <filter-name>authenticationFilter</filter-name>
