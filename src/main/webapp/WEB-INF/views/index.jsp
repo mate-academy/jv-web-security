@@ -4,7 +4,7 @@
 </style>
 <html>
 <head>
-    <title>My team</title>
+    <title>Index page</title>
 </head>
 <body>
 <%@include file="header.jsp"%>
