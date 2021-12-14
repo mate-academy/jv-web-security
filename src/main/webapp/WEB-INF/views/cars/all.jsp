@@ -5,10 +5,10 @@
 </style>
 <html>
 <head>
-    <title>All cars</title>
+    <title>Cars</title>
 </head>
 <body>
-<h1 class="table_dark">All cars:</h1>
+<h1 class="table_dark">cars:</h1>
 <table border="1" class="table_dark">
     <tr>
         <th>ID</th>
@@ -34,7 +34,7 @@
             </td>
             <td>
                 <c:forEach var="driver" items="${car.drivers}">
-                    ${driver.id} ${driver.name} ${driver.licenseNumber} <br>
+                    ${driver.id} ${driver.name} ${driver.licenseNumber} ${driver.login} <br>
                 </c:forEach>
             </td>
             <td>
