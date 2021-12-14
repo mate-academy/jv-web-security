@@ -33,12 +33,13 @@
             <input type="password" name="password" form="driver" required>
         </td>
         <td>
-            <input type="password" name="password_again" form="driver" required>
+            <input type="password" name="repeat_password" form="driver" required>
         </td>
         <td>
             <input type="submit" name="add" form="driver">
         </td>
     </tr>
 </table>
+<h4 style="color:red">${errorMsg}</h4>
 </body>
 </html>
