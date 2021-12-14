@@ -7,6 +7,7 @@
 <head>
     <title>All manufacturers</title>
 </head>
+<%@include file="../header.jsp"%>
 <body>
 <h1 class="table_dark">All manufacturers:</h1>
 <table border="1" class="table_dark">
@@ -33,5 +34,6 @@
         </tr>
     </c:forEach>
 </table>
+<a href="${pageContext.request.contextPath}/index">MENU</a>
 </body>
 </html>
