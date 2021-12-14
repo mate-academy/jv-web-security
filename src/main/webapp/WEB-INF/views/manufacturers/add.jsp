@@ -8,6 +8,7 @@
     <title>Manufacturers</title>
 </head>
 <body>
+<%@include file="/WEB-INF/views/logout.jsp"%>
 <form method="post" id="manufacturer" action="${pageContext.request.contextPath}/manufacturers/add"></form>
 <h1 class="table_dark">Add manufacturer:</h1>
 <table border="1" class="table_dark">
@@ -27,6 +28,10 @@
             <input type="submit" name="add" form="manufacturer" required>
         </td>
     </tr>
+</table>
+<br><br><br><br>
+<table class="table_dark">
+       <tr><td><%@include file='/WEB-INF/views/footer.jsp' %></td></tr>
 </table>
 </body>
 </html>
