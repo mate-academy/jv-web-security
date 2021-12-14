@@ -17,7 +17,8 @@ public class GetMyCurrentCarsController extends HttpServlet {
     private static final String PAGE_PATH = "/WEB-INF/views/cars/all.jsp";
     private static final Injector injector = Injector.getInstance("mate");
     private static final String USER_ID = "user_id";
-    private CarService carService;
+    private final CarService carService =
+            (CarService) injector.getInstance(CarService.class);
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -27,10 +28,5 @@ public class GetMyCurrentCarsController extends HttpServlet {
         List<Car> userCars = carService.getAllByDriver(userId);
         req.setAttribute("cars", userCars);
         req.getRequestDispatcher(PAGE_PATH).forward(req, resp);
-    }
-
-    @Override
-    public void init() {
-        carService = (CarService) injector.getInstance(CarService.class);
     }
 }

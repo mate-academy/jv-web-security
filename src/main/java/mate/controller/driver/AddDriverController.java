@@ -22,7 +22,7 @@ public class AddDriverController extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws IOException, ServletException {
+            throws IOException {
         String name = req.getParameter("name");
         String licenseNumber = req.getParameter("license_number");
         String login = req.getParameter("login");
