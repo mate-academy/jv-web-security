@@ -4,8 +4,9 @@
     <%@include file='/WEB-INF/views/css/table_dark.css' %>
 </style>
 <html>
+<%@include file="../header.jsp" %>
 <head>
-    <title>All drivers</title>
+    <title>Add drivers</title>
 </head>
 <body>
 <form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/add"></form>

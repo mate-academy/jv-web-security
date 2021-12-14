@@ -124,6 +124,15 @@
         <url-pattern>/driver/cars</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>logoutController</servlet-name>
+        <servlet-class>mate.controller.LogoutController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logoutController</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+
     <filter>
         <filter-name>authenticationFilter</filter-name>
         <filter-class>mate.web.filter.AuthenticationFilter</filter-class>
