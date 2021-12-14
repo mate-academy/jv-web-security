@@ -24,9 +24,19 @@
             <input type="text" name="license_number" form="driver" required>
         </td>
         <td>
+            <input type="text" name="login" form="driver" required>
+        </td>
+        <td>
+            <input type="password" name="password" form="driver" required>
+        </td>
+        <td>
+            <input type="password" name="repeat_password" form="driver" required>
+        </td>
+        <td>
             <input type="submit" name="add" form="driver">
         </td>
     </tr>
 </table>
+<h4 style="color:yellow">${errorMsg}</h4>
 </body>
 </html>
