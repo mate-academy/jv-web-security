@@ -5,37 +5,36 @@
 </style>
 <html>
 <head>
-    <title>All manufacturers</title>
+    <title>All my cars</title>
 </head>
 <body>
 <%@include file="../header.jsp"%>
-<h1 class="table_dark">All manufacturers:</h1>
+<h1 class="table_dark">All my cars:</h1>
 <table border="1" class="table_dark">
     <tr>
         <th>ID</th>
-        <th>Name</th>
-        <th>License number</th>
-        <th>Delete</th>
+        <th>Model</th>
+        <th>Manufacturer name</th>
+        <th>Manufacturer country</th>
     </tr>
-    <c:forEach var="manufacturer" items="${manufacturers}">
+    <c:forEach var="car" items="${cars}">
         <tr>
             <td>
-                <c:out value="${manufacturer.id}"/>
+                <c:out value="${car.id}"/>
             </td>
             <td>
-                <c:out value="${manufacturer.name}"/>
+                <c:out value="${car.model}"/>
             </td>
             <td>
-                <c:out value="${manufacturer.country}"/>
+                <c:out value="${car.manufacturer.name}"/>
             </td>
             <td>
-                <a href="${pageContext.request.contextPath}/manufacturers/delete?id=${manufacturer.id}">
-                    <button type="submit">DELETE</button></a>
+                <c:out value="${car.manufacturer.country}"/>
             </td>
         </tr>
     </c:forEach>
     <tr><td><a href="${pageContext.request.contextPath}/index"><button type="submit">
-            click here to go back to main menu</button></a></td></tr>
+        click here to go back to main menu</button></a></td></tr>
 </table>
 </body>
 </html>
