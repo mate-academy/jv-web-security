@@ -21,7 +21,7 @@
             <input type="text" name="login" form="login" required>
         </td>
         <td>
-            <input type="text" name="password" form="login" required>
+            <input type="password" name="password" form="login" required>
         </td>
         <td>
             <input type="submit" name="login" form="login">
