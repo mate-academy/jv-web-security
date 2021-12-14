@@ -24,7 +24,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>allDrivers</servlet-name>
-        <url-pattern>/drivers/</url-pattern>
+        <url-pattern>/drivers</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>deleteDriver</servlet-name>
@@ -48,7 +48,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>allCars</servlet-name>
-        <url-pattern>/cars/</url-pattern>
+        <url-pattern>/cars</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>addCar</servlet-name>
@@ -80,7 +80,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>allManufacturers</servlet-name>
-        <url-pattern>/manufacturers/</url-pattern>
+        <url-pattern>/manufacturers</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>addManufacturer</servlet-name>
@@ -120,7 +120,15 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>getMyCurrentCarsController</servlet-name>
-        <url-pattern>/driver/cars</url-pattern>
+        <url-pattern>/drivers/cars</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>injectController</servlet-name>
+        <servlet-class>mate.controller.InjectDataController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>injectController</servlet-name>
+        <url-pattern>/inject</url-pattern>
     </servlet-mapping>
     <filter>
         <filter-name>authenticationFilter</filter-name>
