@@ -15,10 +15,11 @@ import javax.servlet.http.HttpSession;
 
 public class AuthenticationFilter implements Filter {
     private static final String SESSION_ATTRIBUTE_DRIVER_ID = "driver_id";
-    private Set<String> allowedUrls = new HashSet<>();
+    private Set<String> allowedUrls;
 
     @Override
     public void init(FilterConfig filterConfig) {
+        allowedUrls = new HashSet<>();
         allowedUrls.add("/login");
         allowedUrls.add("/drivers/add");
     }
