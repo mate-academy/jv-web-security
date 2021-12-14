@@ -37,7 +37,7 @@
         </td>
     </tr>
     <tr><td><a href="${pageContext.request.contextPath}/index"><button type="submit">
-        click here to back to main menu</button></a></td></tr>
+        click here to go back to main menu</button></a></td></tr>
 </table>
 </body>
 </html>

@@ -28,7 +28,7 @@
         Create new Manufacturer</button></a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/cars/drivers/add"><button type="submit">
         Add Driver to Car</button></a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/cars/all"><button type="submit">
+    <tr><td><a href="${pageContext.request.contextPath}/cars/current"><button type="submit">
         Display All My Cars</button></a></td></tr>
 </table>
 </body>
