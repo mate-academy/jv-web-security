@@ -49,6 +49,25 @@ public class Car {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Car)) {
+            return false;
+        }
+        Car car = (Car) o;
+        return Objects.equals(getId(), car.getId()) && Objects.equals(getModel(),
+                car.getModel()) && Objects.equals(getManufacturer(), car.getManufacturer())
+                && Objects.equals(getDrivers(), car.getDrivers());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getModel(), getManufacturer(), getDrivers());
+    }
+
+    @Override
     public String toString() {
         return "Car{"
                 + "id=" + id
@@ -56,24 +75,5 @@ public class Car {
                 + ", manufacturer=" + manufacturer
                 + ", drivers=" + drivers
                 + '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        Car car = (Car) o;
-        return Objects.equals(id, car.id) && Objects.equals(model, car.model)
-                && Objects.equals(manufacturer, car.manufacturer)
-                && Objects.equals(drivers, car.drivers);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, model, manufacturer, drivers);
     }
 }

@@ -41,17 +41,25 @@ public class Manufacturer {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (!(o instanceof Manufacturer)) {
             return false;
         }
         Manufacturer that = (Manufacturer) o;
-        return Objects.equals(id, that.id)
-                && Objects.equals(name, that.name)
-                && Objects.equals(country, that.country);
+        return Objects.equals(getId(), that.getId()) && Objects.equals(getName(), that.getName())
+                && Objects.equals(getCountry(), that.getCountry());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, country);
+        return Objects.hash(getId(), getName(), getCountry());
+    }
+
+    @Override
+    public String toString() {
+        return "Manufacturer{"
+                + "id=" + id
+                + ", name='" + name + '\''
+                + ", country='" + country + '\''
+                + '}';
     }
 }
