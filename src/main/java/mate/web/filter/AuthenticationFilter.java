@@ -15,7 +15,11 @@ import javax.servlet.http.HttpSession;
 
 public class AuthenticationFilter implements Filter {
     private static final String SESSION_ATTRIBUTE_DRIVER_ID = "driver_id";
-    private final Set<String> allowedUrls = new HashSet<>();
+    private Set<String> allowedUrls;
+
+    public AuthenticationFilter() {
+        this.allowedUrls = new HashSet<>();
+    }
 
     @Override
     public void init(FilterConfig filterConfig)
