@@ -35,6 +35,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>GetMyCurrentCars</servlet-name>
+        <servlet-class>mate.controller.driver.GetMyCurrentCarsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetMyCurrentCars</servlet-name>
+        <url-pattern>/cars/current/</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>deleteDriver</servlet-name>
         <servlet-class>mate.controller.driver.DeleteDriverController</servlet-class>
     </servlet>

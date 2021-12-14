@@ -11,6 +11,7 @@ import mate.model.Car;
 import mate.service.CarService;
 
 public class GetAllCarsController extends HttpServlet {
+    private static final String ALL_CARS_JSP_PATH = "/WEB-INF/views/cars/all.jsp";
     private static final Injector injector = Injector.getInstance("mate");
     private final CarService carService = (CarService) injector
             .getInstance(CarService.class);
@@ -20,6 +21,6 @@ public class GetAllCarsController extends HttpServlet {
             throws ServletException, IOException {
         List<Car> allCars = carService.getAll();
         req.setAttribute("cars", allCars);
-        req.getRequestDispatcher("/WEB-INF/views/cars/all.jsp").forward(req, resp);
+        req.getRequestDispatcher(ALL_CARS_JSP_PATH).forward(req, resp);
     }
 }

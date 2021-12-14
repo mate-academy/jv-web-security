@@ -7,9 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class IndexController extends HttpServlet {
+    private static final String INDEX_JSP_PATH = "/WEB-INF/views/index.jsp";
+
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(req, resp);
+        req.getRequestDispatcher(INDEX_JSP_PATH).forward(req, resp);
     }
 }
