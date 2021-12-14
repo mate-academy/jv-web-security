@@ -43,5 +43,6 @@
         </tr>
     </c:forEach>
 </table>
+<a href="${pageContext.request.contextPath}/index">Back to main page</a>
 </body>
 </html>
