@@ -20,7 +20,7 @@ public class AuthenticationFilter implements Filter {
     private Set<String> allowedUrls = new HashSet<>();
 
     @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
+    public void init(FilterConfig filterConfig) {
         allowedUrls.add("/login");
         allowedUrls.add("/drivers/add");
     }
@@ -32,8 +32,8 @@ public class AuthenticationFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         HttpSession session = req.getSession();
-        Long userId = (Long) session.getAttribute(SESSION_ATTRIBUTE);
-        if (!allowedUrls.contains(req.getServletPath()) && userId == null) {
+        Long driverId = (Long) session.getAttribute(SESSION_ATTRIBUTE);
+        if (driverId == null && !allowedUrls.contains(req.getServletPath())) {
             resp.sendRedirect("/login");
             return;
         }
