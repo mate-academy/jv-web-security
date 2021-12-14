@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class AuthenticationFilter implements Filter {
+    private static final String DRIVER_ID_ATTRIBUTE = "driver_id";
     private Set<String> allowedUrl = new HashSet<>();
 
     @Override
@@ -29,7 +30,7 @@ public class AuthenticationFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         HttpSession session = req.getSession();
-        Long driverId = (Long) session.getAttribute("driver_id");
+        Long driverId = (Long) session.getAttribute(DRIVER_ID_ATTRIBUTE);
         if (driverId == null && allowedUrl.contains(req.getServletPath())) {
             filterChain.doFilter(req, resp);
             return;
