@@ -4,9 +4,10 @@
 </style>
 <html>
 <head>
-    <title>My team</title>
+    <title>Welcome to Taxi Service!</title>
 </head>
 <body>
+<jsp:include page="header.jsp"></jsp:include>
 <form method="post" id="redirect"></form>
 <h1 class="table_dark">Hello, mates</h1>
 <table class="table_dark">
@@ -14,6 +15,7 @@
         <th>Redirect to</th>
     </tr>
     <tr><td><a href="${pageContext.request.contextPath}/drivers/">Display All Drivers</a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/cars/my">Display My Cars</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/cars/">Display All Cars</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/manufacturers/">Display All Manufacturers</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/drivers/add">Create new Driver</a></td></tr>
