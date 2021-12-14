@@ -4,6 +4,7 @@
     <%@include file='/WEB-INF/views/css/table_dark.css' %>
 </style>
 <html>
+<%@include file="../header.jsp" %>
 <head>
     <title>Add car</title>
 </head>
