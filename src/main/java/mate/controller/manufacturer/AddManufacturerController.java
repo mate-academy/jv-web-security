@@ -10,23 +10,25 @@ import mate.model.Manufacturer;
 import mate.service.ManufacturerService;
 
 public class AddManufacturerController extends HttpServlet {
+    private static final String ADD_MANUFACTURER_JSP_PATH = "/WEB-INF/views/manufacturers/add.jsp";
+    private static final String ADD_MANUFACTURER_URL = "/manufacturers/add";
     private static final Injector injector = Injector.getInstance("mate");
     private final ManufacturerService manufacturerService = (ManufacturerService) injector
             .getInstance(ManufacturerService.class);
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+    public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/views/manufacturers/add.jsp").forward(req, resp);
+        req.getRequestDispatcher(ADD_MANUFACTURER_JSP_PATH).forward(req, resp);
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+    public void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws IOException {
         String name = req.getParameter("name");
         String country = req.getParameter("country");
         Manufacturer manufacturer = new Manufacturer(name, country);
         manufacturerService.create(manufacturer);
-        resp.sendRedirect("/manufacturers/add");
+        resp.sendRedirect(ADD_MANUFACTURER_URL);
     }
 }

@@ -8,14 +8,15 @@ import mate.lib.Injector;
 import mate.service.ManufacturerService;
 
 public class DeleteManufacturerController extends HttpServlet {
+    private static final String ALL_MANUFACTURERS_URL = "/manufacturers/all";
     private static final Injector injector = Injector.getInstance("mate");
     private final ManufacturerService manufacturerService = (ManufacturerService) injector
             .getInstance(ManufacturerService.class);
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+    public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws IOException {
         manufacturerService.delete(Long.parseLong(req.getParameter("id")));
-        resp.sendRedirect("/manufacturers/all");
+        resp.sendRedirect(ALL_MANUFACTURERS_URL);
     }
 }

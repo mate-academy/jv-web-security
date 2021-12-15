@@ -10,23 +10,27 @@ import mate.model.Driver;
 import mate.service.DriverService;
 
 public class AddDriverController extends HttpServlet {
+    private static final String ADD_DRIVER_JSP_PATH = "/WEB-INF/views/drivers/add.jsp";
+    private static final String ADD_DRIVER_URL = "/drivers/add";
     private static final Injector injector = Injector.getInstance("mate");
     private final DriverService driverService = (DriverService) injector
             .getInstance(DriverService.class);
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+    public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/views/drivers/add.jsp").forward(req, resp);
+        req.getRequestDispatcher(ADD_DRIVER_JSP_PATH).forward(req, resp);
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+    public void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws IOException {
         String name = req.getParameter("name");
         String licenseNumber = req.getParameter("license_number");
-        Driver driver = new Driver(name, licenseNumber);
+        String login = req.getParameter("login");
+        String password = req.getParameter("password");
+        Driver driver = new Driver(name, licenseNumber, login, password);
         driverService.create(driver);
-        resp.sendRedirect("/drivers/add");
+        resp.sendRedirect(ADD_DRIVER_URL);
     }
 }
