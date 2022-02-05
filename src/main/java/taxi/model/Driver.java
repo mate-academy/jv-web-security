@@ -9,6 +9,20 @@ public class Driver {
     private String login;
     private String password;
 
+    public Driver() {
+    }
+
+    public Driver(String name, String licenseNumber) {
+        this.name = name;
+        this.licenseNumber = licenseNumber;
+    }
+
+    public Driver(String name, String licenseNumber, String login, String password) {
+        this(name, licenseNumber);
+        this.login = login;
+        this.password = password;
+    }
+
     public String getLogin() {
         return login;
     }
@@ -22,20 +36,6 @@ public class Driver {
     }
 
     public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Driver() {
-    }
-
-    public Driver(String name, String licenseNumber) {
-        this.name = name;
-        this.licenseNumber = licenseNumber;
-    }
-
-    public Driver(String name, String licenseNumber, String login, String password) {
-        this(name, licenseNumber);
-        this.login = login;
         this.password = password;
     }
 
@@ -65,10 +65,17 @@ public class Driver {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Driver driver = (Driver) o;
-        return Objects.equals(id, driver.id) && Objects.equals(name, driver.name) && Objects.equals(licenseNumber, driver.licenseNumber) && Objects.equals(login, driver.login) && Objects.equals(password, driver.password);
+        return Objects.equals(id, driver.id) && Objects.equals(name, driver.name)
+                && Objects.equals(licenseNumber, driver.licenseNumber)
+                && Objects.equals(login, driver.login)
+                && Objects.equals(password, driver.password);
     }
 
     @Override
@@ -78,11 +85,11 @@ public class Driver {
 
     @Override
     public String toString() {
-        return "Driver{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", licenseNumber='" + licenseNumber + '\'' +
-                ", login='" + login + '\'' +
-                '}';
+        return "Driver{"
+                + "id=" + id
+                + ", name='" + name + '\''
+                + ", licenseNumber='" + licenseNumber + '\''
+                + ", login='" + login + '\''
+                + '}';
     }
 }
