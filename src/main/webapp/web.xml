@@ -80,15 +80,6 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>allManufacturers</servlet-name>
-        <servlet-class>taxi.controller.manufacturer.GetAllManufacturersController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>allManufacturers</servlet-name>
-        <url-pattern>/manufacturers</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>addManufacturer</servlet-name>
         <servlet-class>taxi.controller.manufacturer.AddManufacturerController</servlet-class>
     </servlet>
