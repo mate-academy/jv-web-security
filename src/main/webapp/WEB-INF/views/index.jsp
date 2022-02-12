@@ -5,6 +5,7 @@
 <html>
 <head>
     <title>My team</title>
+    <%@ include file="/WEB-INF/views/headers/logout.jsp" %>
 </head>
 <body>
 <form method="post" id="redirect"></form>
