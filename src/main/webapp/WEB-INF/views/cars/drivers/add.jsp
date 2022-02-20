@@ -6,6 +6,7 @@
 <html>
 <head>
     <title>Add driver to car</title>
+    <%@ include file="/WEB-INF/views/headers/logout.jsp" %>
 </head>
 <body>
 <form method="post" id="car" action="${pageContext.request.contextPath}/cars/drivers/add"></form>
@@ -14,6 +15,8 @@
     <tr>
         <th>Car ID</th>
         <th>Driver ID</th>
+        <th>Login</th>
+        <th>Password</th>
         <th>Add</th>
     </tr>
     <tr>
