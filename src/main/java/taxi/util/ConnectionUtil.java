@@ -11,6 +11,7 @@ public class ConnectionUtil {
     private static final String USERNAME = "root";
     private static final String PASSWORD = "Apple2018";
     private static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
+
     static {
         try {
             Class.forName(JDBC_DRIVER);
