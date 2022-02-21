@@ -56,3 +56,10 @@ CREATE TABLE `cars_drivers`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 SET FOREIGN_KEY_CHECKS = 1;
+
+-- ----------------------------
+-- Update table structure for drivers
+-- ----------------------------
+ALTER TABLE `taxi`.`drivers`
+    ADD COLUMN `login` VARCHAR(16) NOT NULL AFTER `is_deleted`,
+    ADD COLUMN `password` VARCHAR(32) NOT NULL AFTER `login`;
