@@ -25,14 +25,16 @@ public class AuthenticationFilter extends HttpFilter {
             throws IOException, ServletException {
         HttpSession session = req.getSession();
         Long driverId = (Long) session.getAttribute("driver_id");
+
+        if (driverId == null && allowedUrls.contains(req.getServletPath())) {
+            chain.doFilter(req, res);
+            return;
+        }
         if (driverId == null) {
-            if (allowedUrls.contains(req.getServletPath())) {
-                chain.doFilter(req, res);
-                return;
-            }
             res.sendRedirect("/login");
             return;
         }
+
         chain.doFilter(req, res);
     }
 }
