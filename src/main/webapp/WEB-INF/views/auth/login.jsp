@@ -1,5 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<style>
+    <%@include file='/WEB-INF/views/css/table_dark.css' %>
+</style>
 <html>
 <head>
     <title>Login</title>
@@ -23,5 +26,8 @@
     </table>
     <input type="submit" name="login"/>
 </form>
+<p>
+<a href="${pageContext.request.contextPath}/drivers/add">Registration</a>
+</p>
 </body>
 </html>
