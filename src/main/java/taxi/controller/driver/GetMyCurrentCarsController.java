@@ -1,4 +1,4 @@
-package taxi.controller.car;
+package taxi.controller.driver;
 
 import taxi.lib.Injector;
 import taxi.model.Car;
