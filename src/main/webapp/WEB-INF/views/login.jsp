@@ -14,6 +14,6 @@ Login: <input type="text" name="login" required>
 Password: <input type="password" name="password" required>
 <button type="submit">Log in</button>
 </form>
-<h4 class="table_dark"><a href="${pageContext.request.contextPath}/register">Register</a> </h4>
+<h4 class="table_dark"><a href="${pageContext.request.contextPath}/drivers/add">Register</a> </h4>
 </body>
 </html>
