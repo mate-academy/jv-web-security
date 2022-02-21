@@ -55,4 +55,10 @@ CREATE TABLE `cars_drivers`  (
                                  CONSTRAINT `driver_id` FOREIGN KEY (`driver_id`) REFERENCES `drivers` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
+-- ----------------------------
+-- Drivers table modifications for authentication service
+-- ----------------------------
+ALTER TABLE `drivers` ADD COLUMN `login` VARCHAR(255) NOT NULL UNIQUE,
+ADD COLUMN `password` VARCHAR(255) NOT NULL;
+
 SET FOREIGN_KEY_CHECKS = 1;
