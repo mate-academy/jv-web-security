@@ -24,7 +24,7 @@
             </td>
         </tr>
     </table>
-    <input type="submit" name="login"/>
+    <input type="submit" value="login"/>
 </form>
 <p>
 <a href="${pageContext.request.contextPath}/drivers/add">Registration</a>
