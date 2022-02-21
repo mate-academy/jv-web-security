@@ -1,16 +1,15 @@
 package taxi.controller.authentication;
 
-import taxi.exception.AuthenticationException;
-import taxi.lib.Injector;
-import taxi.model.Driver;
-import taxi.service.AuthenticationService;
-
+import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
+import taxi.exception.AuthenticationException;
+import taxi.lib.Injector;
+import taxi.model.Driver;
+import taxi.service.AuthenticationService;
 
 public class LoginController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
@@ -18,12 +17,14 @@ public class LoginController extends HttpServlet {
             .getInstance(AuthenticationService.class);
 
     @Override
-    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
         req.getRequestDispatcher("/WEB-INF/views/auth/login.jsp").forward(req, resp);
     }
 
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         try {
