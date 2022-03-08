@@ -34,14 +34,10 @@ public class AuthenticationFilter implements Filter {
         HttpSession session = hreq.getSession();
 
         Long driverId = (Long) session.getAttribute("driver_id");
-        if (driverId == null && allowedUrls.contains(hreq.getServletPath())) {
+        if (driverId != null || (driverId == null && allowedUrls.contains(hreq.getServletPath()))) {
             filterChain.doFilter(hreq, hresp);
             return;
         }
-        if (driverId == null) {
-            hresp.sendRedirect("/login");
-            return;
-        }
-        filterChain.doFilter(hreq, hresp);
+        hresp.sendRedirect("/login");
     }
 }
