@@ -6,6 +6,7 @@
 <html>
 <head>
     <title>All manufacturers</title>
+    <jsp:include page="../header.jsp"></jsp:include>
 </head>
 <body>
 <h1 class="table_dark">All manufacturers:</h1>
@@ -13,7 +14,7 @@
     <tr>
         <th>ID</th>
         <th>Name</th>
-        <th>License number</th>
+        <th>Country</th>
         <th>Delete</th>
     </tr>
     <c:forEach var="manufacturer" items="${manufacturers}">
