@@ -18,7 +18,6 @@ import javax.servlet.http.HttpSession;
 public class AuthenticationFilter implements Filter {
     private static final Set<String> allowedUrl = new HashSet<>();
 
-
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         allowedUrl.add("/login");
