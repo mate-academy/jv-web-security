@@ -40,7 +40,7 @@ public class DriverDaoImpl implements DriverDao {
 
     @Override
     public Optional<Driver> get(Long id) {
-        String query = "SELECT id, name, license_number, login FROM drivers" +
+        String query = "SELECT * FROM drivers" +
                 " WHERE id = ? AND is_deleted = FALSE";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement getDriverStatement = connection.prepareStatement(query)) {
@@ -58,7 +58,7 @@ public class DriverDaoImpl implements DriverDao {
 
     @Override
     public List<Driver> getAll() {
-        String query = "SELECT id, name, license_number, login FROM drivers" +
+        String query = "SELECT * FROM drivers" +
                 " WHERE is_deleted = FALSE";
         List<Driver> drivers = new ArrayList<>();
         try (Connection connection = ConnectionUtil.getConnection();
@@ -107,16 +107,35 @@ public class DriverDaoImpl implements DriverDao {
         }
     }
 
+    @Override
+    public Optional<Driver> findByLogin(String login) {
+        String query = "SELECT * FROM drivers WHERE login = ?;";
+        try (Connection connection = ConnectionUtil.getConnection();
+             PreparedStatement getDriverByLogin = connection.prepareStatement(query)) {
+            getDriverByLogin.setString(1, login);
+            ResultSet resultSet = getDriverByLogin.executeQuery();
+            Driver driver = null;
+            if (resultSet.next()) {
+                driver = parseDriverFromResultSet(resultSet);
+            }
+            return Optional.ofNullable(driver);
+        } catch (SQLException e) {
+            throw new DataProcessingException("---", e);
+        }
+    }
+
     private Driver parseDriverFromResultSet(ResultSet resultSet) throws SQLException {
         Long id = resultSet.getObject("id", Long.class);
         String name = resultSet.getString("name");
         String licenseNumber = resultSet.getString("license_number");
         String login = resultSet.getString("login");
+        String password = resultSet.getString("password");
         Driver driver = new Driver();
         driver.setId(id);
         driver.setName(name);
         driver.setLicenseNumber(licenseNumber);
         driver.setLogin(login);
+        driver.setPassword(password);
         return driver;
     }
 }
