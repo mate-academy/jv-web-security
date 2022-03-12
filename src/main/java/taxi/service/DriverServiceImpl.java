@@ -17,6 +17,11 @@ public class DriverServiceImpl implements DriverService {
     }
 
     @Override
+    public Driver findByLogin(String login) {
+        return driverDao.findByLogin(login).get();
+    }
+
+    @Override
     public Driver get(Long id) {
         return driverDao.get(id).get();
     }
