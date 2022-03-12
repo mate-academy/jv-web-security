@@ -58,6 +58,14 @@
         <servlet-name>logoutDriver</servlet-name>
         <url-pattern>/drivers/logout</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>myCars</servlet-name>
+        <servlet-class>taxi.controller.driver.GetMyCurrentCarsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>myCars</servlet-name>
+        <url-pattern>/drivers/cars</url-pattern>
+    </servlet-mapping>
 
     <servlet>
         <servlet-name>allCars</servlet-name>
