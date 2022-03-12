@@ -1,14 +1,14 @@
 package taxi.controller.driver;
 
-import taxi.lib.Injector;
-import taxi.model.Driver;
-import taxi.service.AuthenticationService;
 import java.io.IOException;
 import javax.security.sasl.AuthenticationException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import taxi.lib.Injector;
+import taxi.model.Driver;
+import taxi.service.AuthenticationService;
 
 public class LoginController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
@@ -33,8 +33,9 @@ public class LoginController extends HttpServlet {
         String password = req.getParameter("password");
         try {
             Driver driver = authService.login(login, password);
-            req.getSession().setAttribute("id", driver.getId());
-            //TODO: implement Authentication filter
+            req.getSession().setAttribute("driver_id", driver.getId());
+            resp.sendRedirect(req.getContextPath());
+            //TODO: implement Authentication filter and send redirect to drivers cars page
         } catch (AuthenticationException e) {
             throw new RuntimeException("invalid login or password, try again");
         }

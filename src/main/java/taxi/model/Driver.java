@@ -91,6 +91,4 @@ public class Driver {
                 + ", login='" + login + '\''
                 + '}';
     }
-
-
 }

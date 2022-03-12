@@ -50,6 +50,14 @@
         <servlet-name>loginDriver</servlet-name>
         <url-pattern>/drivers/login</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>logoutDriver</servlet-name>
+        <servlet-class>taxi.controller.driver.LogoutController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logoutDriver</servlet-name>
+        <url-pattern>/drivers/logout</url-pattern>
+    </servlet-mapping>
 
     <servlet>
         <servlet-name>allCars</servlet-name>

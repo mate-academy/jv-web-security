@@ -1,9 +1,9 @@
 package taxi.service;
 
+import javax.security.sasl.AuthenticationException;
 import taxi.lib.Inject;
 import taxi.lib.Service;
 import taxi.model.Driver;
-import javax.security.sasl.AuthenticationException;
 
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
