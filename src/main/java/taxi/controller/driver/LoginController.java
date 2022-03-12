@@ -28,14 +28,13 @@ public class LoginController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
+            throws IOException {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         try {
             Driver driver = authService.login(login, password);
             req.getSession().setAttribute("driver_id", driver.getId());
-            resp.sendRedirect(req.getContextPath());
-            //TODO: implement Authentication filter and send redirect to drivers cars page
+            resp.sendRedirect(req.getContextPath() + "/index");
         } catch (AuthenticationException e) {
             throw new RuntimeException("invalid login or password, try again");
         }

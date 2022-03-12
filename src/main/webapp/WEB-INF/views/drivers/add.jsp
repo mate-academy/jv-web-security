@@ -31,10 +31,10 @@
             <input type="text" name="login" form="driver" required>
         </td>
         <td>
-            <input type="text" name="password" form="driver" required>
+            <input type="password" name="password" form="driver" required>
         </td>
         <td>
-            <input type="text" name="repeat_password" form="driver" required>
+            <input type="password" name="repeat_password" form="driver" required>
         </td>
         <td>
             <input type="submit" name="add" form="driver">

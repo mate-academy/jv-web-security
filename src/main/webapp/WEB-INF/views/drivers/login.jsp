@@ -21,7 +21,7 @@
             <input type="text" name="login" form="driver" required>
         </td>
         <td>
-            <input type="text" name="password" form="driver" required>
+            <input type="password" name="password" form="driver" required>
         </td>
         <td>
             <input type="submit" name="log_in" form="driver">
