@@ -42,6 +42,14 @@
         <servlet-name>addDriver</servlet-name>
         <url-pattern>/drivers/add</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>loginDriver</servlet-name>
+        <servlet-class>taxi.controller.driver.LoginController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>loginDriver</servlet-name>
+        <url-pattern>/drivers/login</url-pattern>
+    </servlet-mapping>
 
     <servlet>
         <servlet-name>allCars</servlet-name>
