@@ -33,6 +33,6 @@ public class AuthenticationFilter implements Filter {
             filterChain.doFilter(request, response);
             return;
         }
-        response.sendRedirect("/login");
+        response.sendRedirect(request.getContextPath() + "/login");
     }
 }
