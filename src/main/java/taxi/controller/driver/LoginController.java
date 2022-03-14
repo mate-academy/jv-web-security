@@ -36,7 +36,7 @@ public class LoginController extends HttpServlet {
             req.getSession().setAttribute("driver_id", driver.getId());
             resp.sendRedirect(req.getContextPath() + "/index");
         } catch (AuthenticationException e) {
-            throw new RuntimeException("invalid login or password, try again");
+            throw new RuntimeException(e.getMessage());
         }
     }
 }
