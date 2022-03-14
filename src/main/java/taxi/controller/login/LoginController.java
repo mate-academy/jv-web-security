@@ -21,7 +21,7 @@ public class LoginController extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/views/auth/authDriver.jsp")
+        req.getRequestDispatcher("/WEB-INF/views/auth/login.jsp")
                 .forward(req, resp);
     }
 
@@ -37,7 +37,7 @@ public class LoginController extends HttpServlet {
             resp.sendRedirect(req.getContextPath() + "/");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMsg", e.getMessage());
-            req.getRequestDispatcher("/WEB-INF/views/auth/authDriver.jsp")
+            req.getRequestDispatcher("/WEB-INF/views/auth/login.jsp")
                     .forward(req, resp);
         }
     }
