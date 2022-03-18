@@ -10,6 +10,7 @@
 <body>
 <form method="post" id="car" action="${pageContext.request.contextPath}/cars/drivers/add"></form>
 <h1 class="table_dark">Add driver to car:</h1>
+<%@include file="../../header.jsp"%>
 <table border="1" class="table_dark">
     <tr>
         <th>Car ID</th>
