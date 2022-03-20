@@ -25,7 +25,13 @@ public class AddDriverController extends HttpServlet {
             throws IOException {
         String name = req.getParameter("name");
         String licenseNumber = req.getParameter("license_number");
-        Driver driver = new Driver(name, licenseNumber);
+        String login = req.getParameter("login");
+        String password = req.getParameter("password");
+        String repeatPassword = req.getParameter("repeat_password");
+        if (!password.equals(repeatPassword)) {
+            throw new RuntimeException("cant create new driver, passwords differed");
+        }
+        Driver driver = new Driver(name, licenseNumber, login, password);
         driverService.create(driver);
         resp.sendRedirect(req.getContextPath() + "/drivers/add");
     }
