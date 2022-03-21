@@ -1,0 +1,24 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #FEF4AB;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    color: #7C5FAB;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #98E2CA;
+}
