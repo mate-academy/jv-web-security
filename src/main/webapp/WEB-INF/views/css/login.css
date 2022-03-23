@@ -1,0 +1,47 @@
+.login {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    width: 70%;
+    color: #7C5FAB;
+    text-align: center;
+    background: #FEF4AB;
+    margin: auto;
+}
+
+.login h1 {
+    font-size: 40px;
+}
+
+.login h4 {
+    color: red;
+    font-size: 14px;
+}
+
+input[type=text], input[type=password] {
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.login button {
+    background-color: #7C5FAB;
+    color: white;
+    font-size: 14px;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+}
+
+.login a {
+    font-size: 14px;
+    color: blueviolet;
+    text-align: right;
+}
+
+.logout {
+    text-align: right;
+    font-size: 20px;
+    color: blueviolet;
+}
