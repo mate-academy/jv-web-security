@@ -115,7 +115,7 @@ public class DriverDaoImpl implements DriverDao {
                 driver = parseDriverFromResultSet(resultSet);
             }
         } catch (SQLException e) {
-            throw new DataProcessingException("Couldn't get access to DB.", e);
+            throw new DataProcessingException("Couldn't find user with login:" + login, e);
         }
         return Optional.ofNullable(driver);
     }
