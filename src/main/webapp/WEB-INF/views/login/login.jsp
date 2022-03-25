@@ -12,10 +12,12 @@
 <table class="table_login">
     <tr>
         <th>
+            <h4 style="color: red">${errorMsg}</h4>
             <p>Login:</p>
             <p><input type="text" name="login" form="login" required></p>
             <p>Password:</p>
             <p><input type="password" name="password" form="login" required></p>
+            <button type="submit" form="login">Login</button>
             <p><a href="${pageContext.request.contextPath}/register">Register</a> </p>
         </th>
     </tr>
