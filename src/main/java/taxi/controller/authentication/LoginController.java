@@ -1,4 +1,4 @@
-package taxi.controller.autentication;
+package taxi.controller.authentication;
 
 import taxi.exception.AuthenticationException;
 import taxi.lib.Injector;

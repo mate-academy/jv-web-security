@@ -1,4 +1,4 @@
-package taxi.controller.autentication;
+package taxi.controller.authentication;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
