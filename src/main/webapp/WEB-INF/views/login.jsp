@@ -5,6 +5,8 @@
 </head>
 <body>
 <h1>Login page</h1>
+<h4 style="color: darkorange">Sensitive information for project verification - Login: bob Password: 1234. Enjoy =)</h4>
+<
 <form method="post" action="${pageContext.request.contextPath}/login">
     Enter your login: <input type="text" name="login" required>
     Enter your password: <input type="password" name="password" required>
