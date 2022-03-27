@@ -34,8 +34,6 @@ public class AuthenticationFilter implements Filter {
             filterChain.doFilter(req, resp);
             return;
         }
-        if (id == null) {
-            resp.sendRedirect("/login");
-        }
+        resp.sendRedirect(req.getContextPath() + "/login");
     }
 }
