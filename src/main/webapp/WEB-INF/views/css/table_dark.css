@@ -10,14 +10,14 @@
 }
 .table_dark th {
     color: #000000;
-    border-bottom: 1px solid #98E2CA;
+    border-bottom: 1px solid #000000;
     padding: 12px 17px;
     font-size: 14px;
 }
 .table_dark td {
     color: #000000;
-    border-bottom: 1px solid #98E2CA;
-    border-right: 1px solid #98E2CA;
+    border-bottom: 1px solid #000000;
+    border-right: 1px solid #000000;
     padding: 7px 17px;
     font-size: 14px;
 }
