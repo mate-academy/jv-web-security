@@ -5,6 +5,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import taxi.lib.Injector;
 import taxi.model.Driver;
 import taxi.service.DriverService;
@@ -22,11 +24,20 @@ public class AddDriverController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws IOException {
+            throws IOException, ServletException {
         String password = req.getParameter("password");
         String confirmPassword = req.getParameter("confirmPassword");
         if (!password.equals(confirmPassword)) {
             req.setAttribute("errorMsg", "Passwords do not match.");
+            HttpSession session = req.getSession();
+            Long driverId = (Long) session.getAttribute("driver_id");
+            if(driverId == null) {
+                req.getRequestDispatcher("/WEB-INF/views/authentication/register.jsp")
+                        .forward(req, resp);
+            } else {
+                req.getRequestDispatcher("/WEB-INF/views/drivers/add.jsp")
+                        .forward(req, resp);
+            }
             return;
         }
         String login = req.getParameter("login");
