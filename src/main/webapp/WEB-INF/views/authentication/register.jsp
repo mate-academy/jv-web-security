@@ -4,7 +4,7 @@
     <title>Registration</title>
 </head>
 <body>
-<form method="post" id="register" action="${pageContext.request.contextPath}/drivers/add"></form>
+<form method="post" id="register" action="${pageContext.request.contextPath}/register"></form>
 <h4 style="color: red">${errorMsg}</h4>
 <h1 class="table_dark">Registration of a new driver:</h1>
 <table border="1" class="table_dark">
