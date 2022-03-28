@@ -1,15 +1,14 @@
 package taxi.controller.authentication;
 
-import taxi.lib.Injector;
-import taxi.model.Driver;
-import taxi.service.DriverService;
-
+import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
+import taxi.lib.Injector;
+import taxi.model.Driver;
+import taxi.service.DriverService;
 
 public class RegisterController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
@@ -33,7 +32,8 @@ public class RegisterController extends HttpServlet {
             HttpSession session = req.getSession();
             Long driverId = (Long) session.getAttribute("driver_id");
             if (driverId == null) {
-                req.getRequestDispatcher("/WEB-INF/views/authentication/register.jsp").forward(req, resp);
+                req.getRequestDispatcher("/WEB-INF/views/authentication/register.jsp")
+                        .forward(req, resp);
             } else {
                 req.getRequestDispatcher("/WEB-INF/views/drivers/add.jsp").forward(req, resp);
             }

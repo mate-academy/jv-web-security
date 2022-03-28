@@ -108,7 +108,7 @@ public class DriverDaoImpl implements DriverDao {
         String query = "select * from drivers where login = ? and is_deleted = false";
         Driver driver = null;
         try (Connection connection = ConnectionUtil.getConnection();
-             PreparedStatement findByLoginStatement = connection.prepareStatement(query)) {
+                PreparedStatement findByLoginStatement = connection.prepareStatement(query)) {
             findByLoginStatement.setString(1, login);
             ResultSet resultSet = findByLoginStatement.executeQuery();
             if (resultSet.next()) {
