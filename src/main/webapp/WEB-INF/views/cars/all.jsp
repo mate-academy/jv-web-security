@@ -21,6 +21,7 @@
             <li><a href="${pageContext.request.contextPath}/manufacturers/add">Create new Manufacturer</a></li>
             <li><a href="${pageContext.request.contextPath}/cars/drivers/add">Add Driver to Car</a></li>
             <li><a href="${pageContext.request.contextPath}/drivers/get_current_cars">Get my current cars</a></li>
+            <li><p><a href="${pageContext.request.contextPath}/logout">Logout</a></p></li>
         </ul>
     </nav>
 </header>
