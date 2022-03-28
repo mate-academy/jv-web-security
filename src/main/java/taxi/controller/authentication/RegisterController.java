@@ -30,7 +30,7 @@ public class RegisterController extends HttpServlet {
             throws ServletException, IOException {
         String password = req.getParameter("password");
         String confirmPassword = req.getParameter("confirmPassword");
-        if (!authenticationService.passwordValidation(password,
+        if (!authenticationService.validationPassword(password,
                 confirmPassword)) {
             req.setAttribute("errorMsg", "Passwords do not match.");
             HttpSession session = req.getSession();

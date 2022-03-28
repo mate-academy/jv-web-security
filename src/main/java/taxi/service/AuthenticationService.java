@@ -6,5 +6,5 @@ import taxi.model.Driver;
 public interface AuthenticationService {
     Driver login(String login, String password) throws AuthenticationException;
 
-    boolean passwordValidation(String password, String confirmPassword);
+    boolean validationPassword(String password, String confirmPassword);
 }
