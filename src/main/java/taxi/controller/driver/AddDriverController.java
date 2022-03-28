@@ -23,10 +23,21 @@ public class AddDriverController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws IOException {
+        String password = req.getParameter("password");
+        String confirmPassword = req.getParameter("confirmPassword");
+        if (!password.equals(confirmPassword)) {
+            req.setAttribute("errorMsg", "Passwords do not match.");
+            return;
+        }
+        String login = req.getParameter("login");
         String name = req.getParameter("name");
         String licenseNumber = req.getParameter("license_number");
-        Driver driver = new Driver(name, licenseNumber);
+        Driver driver = new Driver();
+        driver.setName(name);
+        driver.setLogin(login);
+        driver.setPassword(password);
+        driver.setLicenseNumber(licenseNumber);
         driverService.create(driver);
-        resp.sendRedirect(req.getContextPath() + "/drivers/add");
+        resp.sendRedirect(req.getContextPath() + "/drivers/all");
     }
 }
