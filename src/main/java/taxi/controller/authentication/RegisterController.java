@@ -8,12 +8,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import taxi.lib.Injector;
 import taxi.model.Driver;
+import taxi.service.AuthenticationService;
 import taxi.service.DriverService;
 
 public class RegisterController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
     private final DriverService driverService = (DriverService) injector
             .getInstance(DriverService.class);
+    private final AuthenticationService authenticationService =
+            (AuthenticationService) injector.getInstance(AuthenticationService.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -27,7 +30,8 @@ public class RegisterController extends HttpServlet {
             throws ServletException, IOException {
         String password = req.getParameter("password");
         String confirmPassword = req.getParameter("confirmPassword");
-        if (!password.equals(confirmPassword)) {
+        if (!authenticationService.passwordValidation("password",
+                "confirmPassword")) {
             req.setAttribute("errorMsg", "Passwords do not match.");
             HttpSession session = req.getSession();
             Long driverId = (Long) session.getAttribute("driver_id");

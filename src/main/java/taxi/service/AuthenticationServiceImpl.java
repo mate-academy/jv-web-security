@@ -19,4 +19,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         }
         throw new AuthenticationException("Login or password are incorrect");
     }
+
+    public boolean passwordValidation(String password, String confirmPassword) {
+        return password.equals(confirmPassword);
+    }
 }
