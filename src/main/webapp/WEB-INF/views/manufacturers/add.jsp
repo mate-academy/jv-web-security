@@ -28,5 +28,10 @@
         </td>
     </tr>
 </table>
+<table border="1" class="table_dark">
+    <td>
+        <%@include file="/WEB-INF/views/header.jsp" %>
+    </td>
+</table>
 </body>
 </html>
