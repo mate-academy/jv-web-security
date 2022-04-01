@@ -8,13 +8,15 @@
     <title>Login</title>
 </head>
 <body>
-<form method="post" id="login" action="${pageContext.request.contextPath}/login"></form>
+<h4 style="color:red">${errorMsg}</h4>
 <h1 class="table_dark">Login page</h1>
 <table border="1" class="table_dark">
+<form method="post" id="login" action="${pageContext.request.contextPath}/login"></form>
     <tr>
         <th>Login</th>
         <th>Password</th>
-        <th>Submit</th>
+        <th>Submit credentials</th>
+        <th>Register new driver</th>
     </tr>
     <tr>
         <td>
@@ -25,6 +27,9 @@
         </td>
         <td>
             <input type="submit" name="add" form="login">
+        </td>
+        <td>
+            <a href="${pageContext.request.contextPath}/drivers/add">Click Here</a>
         </td>
     </tr>
 </table>
