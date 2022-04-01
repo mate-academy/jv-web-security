@@ -34,7 +34,7 @@
             </td>
             <td>
                 <c:forEach var="driver" items="${car.drivers}">
-                    ${driver.id} ${driver.name} ${driver.licenseNumber} <br>
+                    ${driver.id} ${driver.name} ${driver.licenseNumber} ${driver.login} <br>
                 </c:forEach>
             </td>
             <td>
@@ -42,6 +42,11 @@
             </td>
         </tr>
     </c:forEach>
+</table>
+<table border="1" class="table_dark">
+    <td>
+        <%@include file="/WEB-INF/views/header.jsp" %>
+    </td>
 </table>
 </body>
 </html>
