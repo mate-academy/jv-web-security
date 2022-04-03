@@ -8,7 +8,6 @@
     <title>Login</title>
 </head>
 <body>
-<h4 style="color:red">${errorMsg}</h4>
 <h1 class="table_dark">Login page</h1>
 <table border="1" class="table_dark">
 <form method="post" id="login" action="${pageContext.request.contextPath}/login"></form>
@@ -33,5 +32,8 @@
         </td>
     </tr>
 </table>
+<p align="center">
+<a style="color:red">${errorMsg}</a>
+</p>
 </body>
 </html>
