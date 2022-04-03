@@ -2,6 +2,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <style>
     <%@include file='/WEB-INF/views/css/table_dark.css' %>
+    body {
+        background: #333;
+        color: #fff;
+    }
 </style>
 <html>
 <head>
@@ -9,7 +13,7 @@
 </head>
 <body>
 <form method="post" id="manufacturer" action="${pageContext.request.contextPath}/manufacturers/add"></form>
-<h1 class="table_dark">Add manufacturer:</h1>
+<h1 class="table table_dark">Add manufacturer:</h1>
 <table border="1" class="table_dark">
     <tr>
         <th>Name</th>

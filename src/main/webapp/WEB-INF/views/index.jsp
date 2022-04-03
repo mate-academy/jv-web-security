@@ -1,15 +1,22 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <style>
     <%@include file='/WEB-INF/views/css/table_dark.css' %>
+    body {
+        background: #333;
+        color: #fff;
+    }
 </style>
 <html>
 <head>
     <title>My team</title>
 </head>
 <body>
+<p align="center">
+    <img width="25%" align="middle" src="${pageContext.request.contextPath}/img/home.png"/>
+</p>
 <form method="post" id="redirect"></form>
-<h1 class="table_dark">Hello, mates</h1>
-<table class="table_dark">
+<h1 class="table table_dark">Hello, mates</h1>
+<table class="table table-dark table-hover table align-middle">
     <tr>
         <th>Redirect to</th>
     </tr>
