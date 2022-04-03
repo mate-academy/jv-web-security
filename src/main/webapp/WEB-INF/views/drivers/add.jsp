@@ -12,6 +12,7 @@
     <title>All drivers</title>
 </head>
 <body>
+<%@include file="/WEB-INF/views/header.jsp"%>
 <form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/add"></form>
 <h1 class="table table_dark">Add driver:</h1>
 <table border="1" class="table_dark">

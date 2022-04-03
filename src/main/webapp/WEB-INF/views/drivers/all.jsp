@@ -12,6 +12,7 @@
     <title>All drivers</title>
 </head>
 <body>
+<%@include file="/WEB-INF/views/header.jsp"%>
 <h1 class="table table_dark">All drivers:</h1>
 <table border="1" class="table table-dark table-hover">
     <tr>

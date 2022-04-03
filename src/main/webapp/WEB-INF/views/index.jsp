@@ -11,6 +11,7 @@
     <title>My team</title>
 </head>
 <body>
+<%@include file="/WEB-INF/views/header.jsp"%>
 <p align="center">
     <img width="25%" align="middle" src="${pageContext.request.contextPath}/img/home.png"/>
 </p>
