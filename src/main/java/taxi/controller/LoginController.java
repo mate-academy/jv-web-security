@@ -10,7 +10,6 @@ import taxi.exception.AuthenticationException;
 import taxi.lib.Injector;
 import taxi.model.Driver;
 import taxi.service.AuthenticationService;
-import taxi.service.DriverService;
 
 public class LoginController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
@@ -29,13 +28,13 @@ public class LoginController extends HttpServlet {
         String username = req.getParameter("login");
         String password = req.getParameter("password");
         try {
-            Driver driver = auth.login("login", "password");
+            Driver driver = auth.login(username, password);
             HttpSession session = req.getSession();
             session.setAttribute("driver_id", driver.getId());
             resp.sendRedirect(req.getContextPath() + "/index");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMsg", e.getMessage());
-            req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req,resp);
+            req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
         }
     }
 }
