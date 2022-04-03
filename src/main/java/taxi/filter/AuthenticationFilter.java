@@ -9,34 +9,31 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class AuthenticationFilter implements Filter {
-    private Set<String> allowedUrls = new HashSet();
+    private final Set<String> allowedUrl = new HashSet<>();
 
     @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
-        allowedUrls.add("/login");
-        allowedUrls.add("/drivers/add");
+    public void init(FilterConfig filterConfig) {
+        allowedUrl.add("/login");
+        allowedUrl.add("/drivers/add");
     }
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
-        FilterChain filterChain) throws IOException, ServletException {
-        HttpServletRequest req = (HttpServletRequest) servletRequest;
-        HttpServletResponse resp = (HttpServletResponse) servletResponse;
-        HttpSession session = req.getSession();
-        Long driverId = (Long) session.getAttribute("user_id");
-        if (driverId == null && allowedUrls.contains(req.getServletPath())) {
-            filterChain.doFilter(req, resp);
+            FilterChain filterChain)
+            throws IOException, ServletException {
+        HttpServletRequest request = (HttpServletRequest) servletRequest;
+        HttpServletResponse response = (HttpServletResponse) servletResponse;
+        HttpSession session = request.getSession();
+        Long driverId = (Long) session.getAttribute("driver_id");
+        if (allowedUrl.contains(request.getServletPath()) || driverId != null) {
+            filterChain.doFilter(request, response);
             return;
         }
-        resp.sendRedirect(req.getContextPath() + "/login");
-
-        }
-
+        response.sendRedirect(request.getContextPath() + "/login");
+    }
 }
-

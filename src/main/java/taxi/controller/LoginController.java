@@ -14,17 +14,17 @@ import taxi.service.AuthenticationService;
 public class LoginController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
     private final AuthenticationService auth = (AuthenticationService) injector
-        .getInstance(AuthenticationService.class);
+            .getInstance(AuthenticationService.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-        throws ServletException, IOException {
+            throws ServletException, IOException {
         req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-        throws ServletException, IOException {
+            throws ServletException, IOException {
         String username = req.getParameter("login");
         String password = req.getParameter("password");
         try {
