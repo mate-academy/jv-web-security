@@ -137,4 +137,13 @@
         <filter-name>authenticationFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+
+    <servlet>
+        <servlet-name>getMyCurrentCarsController</servlet-name>
+        <servlet-class>taxi.controller.car.GetMyCurrentCarsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>getMyCurrentCarsController</servlet-name>
+        <url-pattern>/drivers/cars</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class AuthenticationFilter implements Filter {
-    private Set<String> allowedUrls = new HashSet<>();
+    private final Set<String> allowedUrls = new HashSet<>();
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -25,17 +25,14 @@ public class AuthenticationFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
                          FilterChain filterChain) throws IOException, ServletException {
-        HttpServletRequest request = (HttpServletRequest)servletRequest;
-        HttpServletResponse response = (HttpServletResponse)servletResponse;
+        HttpServletRequest request = (HttpServletRequest) servletRequest;
+        HttpServletResponse response = (HttpServletResponse) servletResponse;
         HttpSession httpSession = request.getSession();
         Long driverId = (Long) httpSession.getAttribute("driver_id");
-        if (driverId == null && allowedUrls.contains(request.getServletPath())) {
+        if (driverId != null || allowedUrls.contains(request.getServletPath())) {
             filterChain.doFilter(request, response);
             return;
         }
-        if (driverId == null) {
-            response.sendRedirect("/drivers/login");
-            return;
-        }
+        response.sendRedirect("/drivers/login");
     }
 }
