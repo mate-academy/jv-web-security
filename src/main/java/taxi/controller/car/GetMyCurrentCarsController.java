@@ -9,30 +9,19 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import taxi.lib.Injector;
 import taxi.model.Car;
-import taxi.model.Driver;
 import taxi.service.CarService;
-import taxi.service.DriverService;
 
 public class GetMyCurrentCarsController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
     private final CarService carService = (CarService) injector
             .getInstance(CarService.class);
-    private final DriverService driverService
-            = (DriverService) injector.getInstance(DriverService.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         HttpSession session = req.getSession();
         Long driverId = (Long) session.getAttribute("driver_id");
-        Driver driver = driverService.get(driverId);
-        List<Car> allCars = carService.getAll();
-        for (int i = 0; i < allCars.size(); i++) {
-            if (!allCars.get(i).getDrivers().contains(driver)) {
-                allCars.remove(i);
-                i--;
-            }
-        }
+        List<Car> allCars = carService.getAllByDriver(driverId);
         req.setAttribute("cars", allCars);
         req.getRequestDispatcher("/WEB-INF/views/cars/all.jsp").forward(req, resp);
     }

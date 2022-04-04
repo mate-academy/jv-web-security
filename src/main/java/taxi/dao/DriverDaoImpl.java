@@ -120,12 +120,18 @@ public class DriverDaoImpl implements DriverDao {
 
     @Override
     public Optional<Driver> findByLogin(String login) {
-        List<Driver> drivers = getAll();
-        for (Driver driver: drivers) {
-            if (driver.getLogin().equals(login)) {
-                return Optional.ofNullable(driver);
+        String query = "SELECT * FROM drivers WHERE login = ? AND is_deleted = FALSE";
+        try (Connection connection = ConnectionUtil.getConnection();
+                PreparedStatement getDriverStatement = connection.prepareStatement(query)) {
+            getDriverStatement.setString(1, login);
+            ResultSet resultSet = getDriverStatement.executeQuery();
+            Driver driver = null;
+            if (resultSet.next()) {
+                driver = parseDriverFromResultSet(resultSet);
             }
+            return Optional.ofNullable(driver);
+        } catch (SQLException e) {
+            throw new DataProcessingException("Couldn't get driver by login " + login, e);
         }
-        return Optional.empty();
     }
 }
