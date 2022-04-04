@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <style>
     <%@include file='/WEB-INF/views/css/table_dark.css' %>
+    <%@include file="header.jsp"%>
 </style>
 <html>
 <head>
@@ -9,6 +10,7 @@
 <body>
 <form method="post" id="redirect"></form>
 <h1 class="table_dark">Hello, mates</h1>
+<%@include file="header.jsp"%>
 <table class="table_dark">
     <tr>
         <th>Redirect to</th>
