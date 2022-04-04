@@ -40,7 +40,7 @@ public class CreateDriverController extends HttpServlet {
         if (req.getParameter("driver_password").equals(req.getParameter("password_repeat"))) {
             driver.setPassword(req.getParameter("driver_password"));
             driverService.create(driver);
-            resp.sendRedirect("/login");
+            resp.sendRedirect(req.getContextPath() + "/login");
         } else {
             req.setAttribute("errorMsg", "Passwords are not the same");
             req.getRequestDispatcher("/WEB-INF/views/authentication/register.jsp")
