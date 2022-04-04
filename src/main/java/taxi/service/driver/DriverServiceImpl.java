@@ -1,9 +1,10 @@
-package taxi.service;
+package taxi.service.driver;
 
 import java.util.List;
-import taxi.dao.DriverDao;
-import taxi.lib.Inject;
-import taxi.lib.Service;
+import java.util.Optional;
+import taxi.dao.driver.DriverDao;
+import taxi.lib.annotation.Inject;
+import taxi.lib.annotation.Service;
 import taxi.model.Driver;
 
 @Service
@@ -34,5 +35,10 @@ public class DriverServiceImpl implements DriverService {
     @Override
     public boolean delete(Long id) {
         return driverDao.delete(id);
+    }
+
+    @Override
+    public Optional<Driver> findByLogin(String login) {
+        return driverDao.findByLogin(login);
     }
 }

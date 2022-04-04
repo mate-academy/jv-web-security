@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <style>
-    <%@include file='/WEB-INF/views/css/table_dark.css' %>
+    <%@include file='/WEB-INF/views/css/styled_table.css' %>
 </style>
 <html>
 <head>
@@ -9,13 +9,16 @@
 </head>
 <body>
 <form method="post" id="manufacturer" action="${pageContext.request.contextPath}/manufacturers/add"></form>
-<h1 class="table_dark">Add manufacturer:</h1>
-<table border="1" class="table_dark">
+<h2>Add manufacturer:</h2>
+<table class="styled-table">
+    <thead>
     <tr>
         <th>Name</th>
         <th>Country</th>
         <th>Add</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <td>
             <input type="text" name="name" form="manufacturer" required>
@@ -27,6 +30,7 @@
             <input type="submit" name="add" form="manufacturer" required>
         </td>
     </tr>
+    </tbody>
 </table>
 </body>
 </html>

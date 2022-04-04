@@ -1,21 +1,25 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <style>
-    <%@include file='/WEB-INF/views/css/table_dark.css' %>
+    <%@include file='/WEB-INF/views/css/styled_table.css' %>
 </style>
 <html>
 <head>
     <title>All manufacturers</title>
 </head>
 <body>
-<h1 class="table_dark">All manufacturers:</h1>
-<table border="1" class="table_dark">
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>License number</th>
-        <th>Delete</th>
-    </tr>
+<%@include file="../header.jsp"%>
+<h2>All manufacturers:</h2>
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>License number</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
     <c:forEach var="manufacturer" items="${manufacturers}">
         <tr>
             <td>
@@ -32,6 +36,7 @@
             </td>
         </tr>
     </c:forEach>
+    </tbody>
 </table>
 </body>
 </html>

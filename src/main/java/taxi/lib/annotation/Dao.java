@@ -1,8 +1,8 @@
-package taxi.lib;
+package taxi.lib.annotation;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Service {
+public @interface Dao {
 }

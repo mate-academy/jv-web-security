@@ -1,9 +1,9 @@
-package taxi.service;
+package taxi.service.car;
 
 import java.util.List;
-import taxi.dao.CarDao;
-import taxi.lib.Inject;
-import taxi.lib.Service;
+import taxi.dao.car.CarDao;
+import taxi.lib.annotation.Inject;
+import taxi.lib.annotation.Service;
 import taxi.model.Car;
 import taxi.model.Driver;
 

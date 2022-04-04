@@ -1,9 +1,9 @@
-package taxi.service;
+package taxi.service.manufacturer;
 
 import java.util.List;
-import taxi.dao.ManufacturerDao;
-import taxi.lib.Inject;
-import taxi.lib.Service;
+import taxi.dao.manufacturer.ManufacturerDao;
+import taxi.lib.annotation.Inject;
+import taxi.lib.annotation.Service;
 import taxi.model.Manufacturer;
 
 @Service
