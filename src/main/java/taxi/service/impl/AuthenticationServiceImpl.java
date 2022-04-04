@@ -17,12 +17,10 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     public Driver login(String drivername, String password)
             throws AuthenticationException {
         Optional<Driver> foundByloginDriver = driverService.findByLogin(drivername);
-        if (foundByloginDriver.isEmpty()) {
-            throw new AuthenticationException("Drivers name or password was incorrect");
-        }
-        if (foundByloginDriver.get().getPassword().equals(password)) {
+        if (foundByloginDriver.isPresent() && foundByloginDriver.get()
+                .getPassword().equals(password)) {
             return foundByloginDriver.get();
         }
-        throw new AuthenticationException("Drivers name or password was incorrect");
+        throw new AuthenticationException("Login or password is incorrect");
     }
 }
