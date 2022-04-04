@@ -30,3 +30,21 @@
 .table_dark tr:hover td {
     text-decoration: underline;
 }
+
+.btn_container {
+  display: flex;
+    justify-content: center;
+}
+.btn {
+    color: #7C5FAB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    border: 1px solid grey;
+    border-radius: 27px;
+    width: 100px;
+    height: 40px;
+}
