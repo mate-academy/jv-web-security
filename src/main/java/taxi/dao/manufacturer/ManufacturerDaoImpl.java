@@ -1,4 +1,4 @@
-package taxi.dao;
+package taxi.dao.manufacturer;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import taxi.exception.DataProcessingException;
-import taxi.lib.Dao;
+import taxi.lib.annotation.Dao;
 import taxi.model.Manufacturer;
 import taxi.util.ConnectionUtil;
 

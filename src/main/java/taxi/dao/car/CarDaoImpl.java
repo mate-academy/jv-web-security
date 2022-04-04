@@ -1,4 +1,4 @@
-package taxi.dao;
+package taxi.dao.car;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import taxi.exception.DataProcessingException;
-import taxi.lib.Dao;
+import taxi.lib.annotation.Dao;
 import taxi.model.Car;
 import taxi.model.Driver;
 import taxi.model.Manufacturer;
@@ -204,7 +204,7 @@ public class CarDaoImpl implements CarDao {
     }
 
     private List<Driver> getAllDriversByCarId(Long carId) {
-        String selectQuery = "SELECT id, name, license_number FROM cars_drivers cd "
+        String selectQuery = "SELECT id, name, login, password, license_number FROM cars_drivers cd "
                 + "JOIN drivers d ON cd.driver_id = d.id "
                 + "WHERE car_id = ? AND is_deleted = false";
         try (Connection connection = ConnectionUtil.getConnection();
@@ -225,10 +225,14 @@ public class CarDaoImpl implements CarDao {
     private Driver parseDriverFromResultSet(ResultSet resultSet) throws SQLException {
         Long driverId = resultSet.getObject("id", Long.class);
         String name = resultSet.getNString("name");
+        String login = resultSet.getNString("login");
+        String password = resultSet.getNString("password");
         String licenseNumber = resultSet.getNString("license_number");
         Driver driver = new Driver();
         driver.setId(driverId);
         driver.setName(name);
+        driver.setLogin(login);
+        driver.setPassword(password);
         driver.setLicenseNumber(licenseNumber);
         return driver;
     }

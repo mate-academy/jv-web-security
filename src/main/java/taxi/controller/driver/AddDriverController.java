@@ -5,9 +5,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import taxi.lib.Injector;
 import taxi.model.Driver;
-import taxi.service.DriverService;
+import taxi.service.driver.DriverService;
 
 public class AddDriverController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
@@ -17,6 +18,9 @@ public class AddDriverController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+        HttpSession session = req.getSession();
+        Long driver_id = (Long) session.getAttribute("driver_id");
+        req.setAttribute("driver_id", driver_id);
         req.getRequestDispatcher("/WEB-INF/views/drivers/add.jsp").forward(req, resp);
     }
 
@@ -24,8 +28,10 @@ public class AddDriverController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws IOException {
         String name = req.getParameter("name");
+        String login = req.getParameter("login");
+        String password = req.getParameter("password");
         String licenseNumber = req.getParameter("license_number");
-        Driver driver = new Driver(name, licenseNumber);
+        Driver driver = new Driver(name, login, password, licenseNumber);
         driverService.create(driver);
         resp.sendRedirect(req.getContextPath() + "/drivers/add");
     }
