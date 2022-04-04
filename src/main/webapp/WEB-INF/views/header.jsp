@@ -5,7 +5,7 @@
 </head>
 <body>
 <a href="${pageContext.request.contextPath}/logout">Logout</a>
-<a href="${pageContext.request.contextPath}/drivers/allCars">My Cars</a>
+<a href="${pageContext.request.contextPath}/drivers/сars">My Cars</a>
 <a href="${pageContext.request.contextPath}/Index">Main</a>
 </body>
 </html>
