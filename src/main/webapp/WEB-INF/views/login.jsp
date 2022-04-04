@@ -15,6 +15,7 @@
   Pleas enter your password: <input type="password" name="password" required>
   <button type="submit">Login</button>
 </form>
+<h3 style="color: darkred">${errorMsg}</h3>
 <h4><a href="${pageContext.request.contextPath}/register">Register</a></h4>
 </body>
 </html>
