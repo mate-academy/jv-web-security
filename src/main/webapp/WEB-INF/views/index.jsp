@@ -7,6 +7,7 @@
     <title>Taxi service</title>
 </head>
 <body>
+<%@include file="header.jsp"%>
 <form method="post" id="redirect"></form>
 <h1 class="table_dark">Taxi service</h1>
 <table class="table_dark">
