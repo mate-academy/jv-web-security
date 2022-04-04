@@ -2,14 +2,19 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <style>
     <%@include file='/WEB-INF/views/css/table_dark.css' %>
+    body {
+        background: #333;
+        color: #fff;
+    }
 </style>
 <html>
 <head>
     <title>Add car</title>
 </head>
 <body>
+<%@include file="/WEB-INF/views/header.jsp"%>
 <form method="post" id="car" action="${pageContext.request.contextPath}/cars/add"></form>
-<h1 class="table_dark">Add car:</h1>
+<h1 class="table table_dark">Add car:</h1>
 <table border="1" class="table_dark">
     <tr>
         <th>Model</th>

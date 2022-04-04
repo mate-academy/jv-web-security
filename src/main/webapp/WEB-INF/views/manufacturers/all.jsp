@@ -2,14 +2,19 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <style>
     <%@include file='/WEB-INF/views/css/table_dark.css' %>
+    body {
+        background: #333;
+        color: #fff;
+    }
 </style>
 <html>
 <head>
     <title>All manufacturers</title>
 </head>
 <body>
-<h1 class="table_dark">All manufacturers:</h1>
-<table border="1" class="table_dark">
+<%@include file="/WEB-INF/views/header.jsp"%>
+<h1 class="table table_dark">All manufacturers:</h1>
+<table border="1" class="table table-dark table-hover">
     <tr>
         <th>ID</th>
         <th>Name</th>
