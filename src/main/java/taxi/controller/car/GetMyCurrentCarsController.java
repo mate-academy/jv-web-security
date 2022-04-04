@@ -22,5 +22,4 @@ public class GetMyCurrentCarsController extends HttpServlet {
         req.setAttribute("cars", allCarsByDriver);
         req.getRequestDispatcher("/WEB-INF/views/cars/all.jsp").forward(req, resp);
     }
-
 }

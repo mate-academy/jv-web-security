@@ -18,6 +18,5 @@ public class AuthenticationServiceImpl implements AuthenticationService {
             return driver.get();
         }
         throw new AuthenticationException("User name or password was incorrect");
-
     }
 }

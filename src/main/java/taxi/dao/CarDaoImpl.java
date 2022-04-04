@@ -205,7 +205,7 @@ public class CarDaoImpl implements CarDao {
 
     private List<Driver> getAllDriversByCarId(Long carId) {
         String selectQuery = "SELECT id, name, license_number, login, password"
-                + " FROM cars_drivers cd "
+                + "FROM cars_drivers cd "
                 + "JOIN drivers d ON cd.driver_id = d.id "
                 + "WHERE car_id = ? AND is_deleted = false";
         try (Connection connection = ConnectionUtil.getConnection();
