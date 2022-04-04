@@ -19,8 +19,8 @@ public class AddDriverController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         HttpSession session = req.getSession();
-        Long driver_id = (Long) session.getAttribute("driver_id");
-        req.setAttribute("driver_id", driver_id);
+        Long driverId = (Long) session.getAttribute("driver_id");
+        req.setAttribute("driver_id", driverId);
         req.getRequestDispatcher("/WEB-INF/views/drivers/add.jsp").forward(req, resp);
     }
 

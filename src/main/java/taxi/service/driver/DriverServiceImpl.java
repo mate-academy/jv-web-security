@@ -3,7 +3,6 @@ package taxi.service.driver;
 import java.util.List;
 import java.util.Optional;
 import taxi.dao.driver.DriverDao;
-import taxi.exception.AuthenticationException;
 import taxi.lib.annotation.Inject;
 import taxi.lib.annotation.Service;
 import taxi.model.Driver;
