@@ -8,6 +8,7 @@
     <title>Add driver</title>
 </head>
 <body>
+<h1><%@include file="/WEB-INF/views/header.jsp"%></h1>
 <form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/add"></form>
 <h1 class="table_dark">Add driver:</h1>
 <h1 class="table_dark" style="color: red">${errorMsg}</h1>
