@@ -2,7 +2,6 @@ package taxi.service;
 
 import java.util.List;
 import taxi.dao.DriverDao;
-import taxi.dao.DriverDaoImpl;
 import taxi.lib.Inject;
 import taxi.lib.Service;
 import taxi.model.Driver;
@@ -10,7 +9,7 @@ import taxi.model.Driver;
 @Service
 public class DriverServiceImpl implements DriverService {
     @Inject
-    private DriverDao driverDao = new DriverDaoImpl();
+    private DriverDao driverDao;
 
     @Override
     public Driver create(Driver driver) {
