@@ -59,7 +59,4 @@ SET FOREIGN_KEY_CHECKS = 1;
 
 ALTER TABLE `taxi`.`drivers`
     ADD COLUMN `login` VARCHAR(255) NOT NULL AFTER `is_deleted`,
-ADD COLUMN `password` VARCHAR(16) DEFAULT NULL AFTER `login`;
-
-ALTER TABLE `taxi`.`drivers`
-    CHANGE COLUMN `password` `password` VARCHAR(16) NOT NULL ;
+ADD COLUMN `password` VARCHAR(255) NOT NULL AFTER `login`;
