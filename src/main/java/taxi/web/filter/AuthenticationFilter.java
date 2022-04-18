@@ -20,7 +20,6 @@ public class AuthenticationFilter implements Filter {
     public void init(FilterConfig filterConfig) {
         allowedUrls.add("/login");
         allowedUrls.add("/drivers/add");
-
     }
 
     @Override
@@ -31,14 +30,11 @@ public class AuthenticationFilter implements Filter {
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         HttpSession session = req.getSession();
         Long userId = (Long) session.getAttribute("user_id");
-        if (userId == null && allowedUrls.contains(req.getServletPath())) {
+        if ((userId == null && allowedUrls.contains(req.getServletPath())) || ! (userId == null)) {
             filterChain.doFilter(req, resp);
             return;
         }
-        if (userId == null) {
-            resp.sendRedirect("/login");
-            return;
-        }
-        filterChain.doFilter(req, resp);
+        resp.sendRedirect("/login");
+        return;
     }
 }
