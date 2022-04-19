@@ -7,6 +7,10 @@
 <head>
     <title>All manufacturers</title>
 </head>
+<header>
+    <a href="/logout">Log out</a>
+    <a href="/drivers/cars">Get my current cars</a>
+</header>
 <body>
 <h1 class="table_dark">All manufacturers:</h1>
 <table border="1" class="table_dark">

@@ -7,6 +7,10 @@
 <head>
     <title>Add car</title>
 </head>
+<header>
+    <a href="/logout">Log out</a>
+    <a href="/drivers/cars">Get my current cars</a>
+</header>
 <body>
 <form method="post" id="car" action="${pageContext.request.contextPath}/cars/add"></form>
 <h1 class="table_dark">Add car:</h1>

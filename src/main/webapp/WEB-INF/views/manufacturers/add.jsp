@@ -7,6 +7,10 @@
 <head>
     <title>Manufacturers</title>
 </head>
+<header>
+    <a href="/logout">Log out</a>
+    <a href="/drivers/cars">Get my current cars</a>
+</header>
 <body>
 <form method="post" id="manufacturer" action="${pageContext.request.contextPath}/manufacturers/add"></form>
 <h1 class="table_dark">Add manufacturer:</h1>
