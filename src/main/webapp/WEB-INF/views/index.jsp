@@ -6,6 +6,10 @@
 <head>
     <title>My team</title>
 </head>
+<header>
+    <a href="/logout">Log out</a>
+    <a href="/drivers/cars">Get my current cars</a>
+</header>
 <body>
 <form method="post" id="redirect"></form>
 <h1 class="table_dark">Hello, mates</h1>
