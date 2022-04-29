@@ -14,4 +14,3 @@ public class LogoutController extends HttpServlet {
         resp.sendRedirect("/index");
     }
 }
-

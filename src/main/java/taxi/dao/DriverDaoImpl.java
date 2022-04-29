@@ -121,7 +121,7 @@ public class DriverDaoImpl implements DriverDao {
     }
 
     @Override
-    public Optional<Driver> checkDriverByLogin(String login) {
+    public Optional<Driver> findByLogin(String login) {
         String getDriverByLogin =
                 "SELECT * FROM drivers WHERE login = ? AND is_deleted = FALSE";
         try (Connection connection = ConnectionUtil.getConnection();
