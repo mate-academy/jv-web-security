@@ -7,6 +7,10 @@
 <head>
     <title>All cars</title>
 </head>
+<header>
+    <a href="/logout">Log out</a>
+    <a href="/drivers/cars">Get my current cars</a>
+</header>
 <body>
 <h1 class="table_dark">All cars:</h1>
 <table border="1" class="table_dark">
@@ -34,7 +38,7 @@
             </td>
             <td>
                 <c:forEach var="driver" items="${car.drivers}">
-                    ${driver.id} ${driver.name} ${driver.licenseNumber} <br>
+                    ${driver.id} ${driver.name} ${driver.login} ${driver.licenseNumber} <br>
                 </c:forEach>
             </td>
             <td>

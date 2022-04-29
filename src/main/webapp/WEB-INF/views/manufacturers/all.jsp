@@ -7,6 +7,10 @@
 <head>
     <title>All manufacturers</title>
 </head>
+<header>
+    <a href="${pageContext.request.contextPath}/logout">Log out</a>
+    <a href="${pageContext.request.contextPath}/drivers/cars">Get my current cars</a>
+</header>
 <body>
 <h1 class="table_dark">All manufacturers:</h1>
 <table border="1" class="table_dark">
