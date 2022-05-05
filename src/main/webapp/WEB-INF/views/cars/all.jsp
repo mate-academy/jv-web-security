@@ -8,7 +8,13 @@
     <title>All cars</title>
 </head>
 <body>
-<h1 class="table_dark">All cars:</h1>
+<%@ include file = "../header.jsp" %>
+<c:if test= "${isDriverSpecified == true}">
+    <h1 class="table_dark">Cars of Driver ${driver_id}:</h1>
+</c:if>
+<c:if test= "${isDriverSpecified == null}">
+    <h1 class="table_dark">All cars:</h1>
+</c:if>
 <table border="1" class="table_dark">
     <tr>
         <th>ID</th>

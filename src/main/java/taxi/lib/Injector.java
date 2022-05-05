@@ -19,6 +19,19 @@ public class Injector {
     private Injector(String mainPackageName) {
         try {
             classes.addAll(getClasses(mainPackageName));
+            System.out.println("+");
+            System.out.println("+");
+            System.out.println("+");
+            System.out.println("+");
+            System.out.println("+");
+            System.out.println("+");
+            System.out.println("+");
+            System.out.println("+");
+            System.out.println("+");
+            System.out.println("+");
+            System.out.println("+");
+            System.out.println("+");
+            System.out.println(classes);
         } catch (IOException | ClassNotFoundException e) {
             throw new RuntimeException("Can't get information about all classes", e);
         }
