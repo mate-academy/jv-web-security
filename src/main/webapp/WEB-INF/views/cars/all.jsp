@@ -9,12 +9,14 @@
 </head>
 <body>
 <%@ include file = "../header.jsp" %>
-<c:if test= "${isDriverSpecified == true}">
-    <h1 class="table_dark">Cars of Driver ${driver_id}:</h1>
-</c:if>
-<c:if test= "${isDriverSpecified == null}">
-    <h1 class="table_dark">All cars:</h1>
-</c:if>
+<c:choose>
+    <c:when test= "${isDriverSpecified == true}">
+        <h1 class="table_dark">Cars of Driver ${driver_id}:</h1>
+    </c:when>
+    <c:otherwise>
+        <h1 class="table_dark">All cars:</h1>
+    </c:otherwise>
+</c:choose>
 <table border="1" class="table_dark">
     <tr>
         <th>ID</th>

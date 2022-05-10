@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 public class AuthenticationFilter implements Filter {
     private List<String> allowedUrls;
 
-    public void init(FilterConfig config) throws ServletException {
+    public void init(FilterConfig config) {
         allowedUrls = new ArrayList<>();
         allowedUrls.add("/login");
         allowedUrls.add("/drivers/add");
@@ -35,8 +35,4 @@ public class AuthenticationFilter implements Filter {
         }
         resp.sendRedirect("/login");
     }
-
-    public void destroy() {
-    }
-
 }

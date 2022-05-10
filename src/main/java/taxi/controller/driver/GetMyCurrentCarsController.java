@@ -1,4 +1,4 @@
-package taxi.controller.car;
+package taxi.controller.driver;
 
 import java.io.IOException;
 import java.util.List;
@@ -11,7 +11,7 @@ import taxi.lib.Injector;
 import taxi.model.Car;
 import taxi.service.CarService;
 
-@WebServlet(urlPatterns = "/cars/of/driver")
+@WebServlet(urlPatterns = "/drivers/cars")
 public class GetMyCurrentCarsController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
     private final CarService carService = (CarService) injector

@@ -12,11 +12,13 @@
             && pageContext.request.requestURI != '/WEB-INF/views/index.jsp'}">
     <a href="/">Back<c:out value="${pageContext.servletContext.contextPath}" /></a>
     </c:if>
-    <c:if test= "${sessionScope.driver_id != null}">
-        <a href="/logout">Logout</a>
-    </c:if>
-    <c:if test= "${sessionScope.driver_id == null}">
-        <a href="/drivers/add">Create driver</a>
-    </c:if>
+    <c:choose>
+        <c:when test= "${sessionScope.driver_id != null}">
+            <a href="/logout">Logout</a>
+        </c:when>
+        <c:otherwise>
+            <a href="/drivers/add">Create driver</a>
+        </c:otherwise>
+    </c:choose>
 </body>
 </html>
