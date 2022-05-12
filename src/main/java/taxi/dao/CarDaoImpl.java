@@ -50,9 +50,9 @@ public class CarDaoImpl implements CarDao {
                 + "manufacturer_id, "
                 + "m.name AS manufacturer_name, "
                 + "m.country AS manufacturer_country "
-                + "FROM cars c"
-                + " JOIN manufacturers m ON c.manufacturer_id = m.id"
-                + " WHERE c.id = ? AND c.is_deleted = FALSE";
+                + "FROM cars c "
+                + "JOIN manufacturers m ON c.manufacturer_id = m.id "
+                + "WHERE c.id = ? AND c.is_deleted = FALSE";
         Car car = null;
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement getCarStatement =
