@@ -199,7 +199,7 @@ public class CarDaoImpl implements CarDao {
             }
             deleteAllDriversExceptLinkedStatement.executeUpdate();
         } catch (SQLException e) {
-            throw new DataProcessingException("Can't delete drivers " + exceptions, e);
+            throw new DataProcessingException("Cant delete drivers " + exceptions, e);
         }
     }
 
