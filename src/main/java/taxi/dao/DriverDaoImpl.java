@@ -133,7 +133,7 @@ public class DriverDaoImpl implements DriverDao {
             }
             return Optional.ofNullable(driver);
         } catch (SQLException e) {
-            throw new DataProcessingException("Entered login does not exists " + login, e);
+            throw new DataProcessingException("Couldn't find driver by login: " + login, e);
         }
     }
 }
