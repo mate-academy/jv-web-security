@@ -19,10 +19,10 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        String userName = req.getParameter("login");
+        String login = req.getParameter("login");
         String password = req.getParameter("password");
         try {
-            Driver driver = authenticationService.login(userName, password);
+            Driver driver = authenticationService.login(login, password);
             HttpSession httpSession = req.getSession();
             httpSession.setAttribute("driver_id", driver.getId());
             resp.sendRedirect(req.getContextPath() + "/");
@@ -36,6 +36,5 @@ public class LoginController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req,resp);
-
     }
 }

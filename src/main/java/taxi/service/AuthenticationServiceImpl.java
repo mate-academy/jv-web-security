@@ -8,7 +8,6 @@ import taxi.model.Driver;
 
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
-
     @Inject
     private DriverService driverService;
 
