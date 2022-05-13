@@ -50,9 +50,9 @@ public class CarDaoImpl implements CarDao {
                 + "manufacturer_id, "
                 + "m.name AS manufacturer_name, "
                 + "m.country AS manufacturer_country "
-                + "FROM cars c "
-                + "JOIN manufacturers m ON c.manufacturer_id = m.id "
-                + "WHERE c.id = ? AND c.is_deleted = FALSE";
+                + "FROM cars c"
+                + " JOIN manufacturers m ON c.manufacturer_id = m.id"
+                + " WHERE c.id = ? AND c.is_deleted = FALSE";
         Car car = null;
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement getCarStatement =
@@ -204,8 +204,7 @@ public class CarDaoImpl implements CarDao {
     }
 
     private List<Driver> getAllDriversByCarId(Long carId) {
-        String selectQuery = "SELECT id, name, license_number "
-                + "FROM cars_drivers cd "
+        String selectQuery = "SELECT id, name, license_number FROM cars_drivers cd "
                 + "JOIN drivers d ON cd.driver_id = d.id "
                 + "WHERE car_id = ? AND is_deleted = false";
         try (Connection connection = ConnectionUtil.getConnection();
