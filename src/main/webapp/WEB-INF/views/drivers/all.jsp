@@ -14,6 +14,7 @@
         <th>ID</th>
         <th>Name</th>
         <th>License number</th>
+        <th>Login</th>
         <th>Delete</th>
     </tr>
     <c:forEach var="driver" items="${drivers}">
@@ -28,7 +29,13 @@
                 <c:out value="${driver.licenseNumber}"/>
             </td>
             <td>
+                <c:out value="${driver.username}"/>
+            </td>
+            <td>
                 <a href="${pageContext.request.contextPath}/drivers/delete?id=${driver.id}">DELETE</a>
+            </td>
+            <td>
+                <%@include file="/WEB-INF/views/header.jsp"%>
             </td>
         </tr>
     </c:forEach>
