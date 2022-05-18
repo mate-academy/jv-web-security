@@ -18,7 +18,6 @@ public class LoginController extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        req.setAttribute("someMsg", "Use login: bob & password: 1234 to enter by default.");
         req.getRequestDispatcher("WEB-INF/views/login.jsp").forward(req, resp);
     }
 

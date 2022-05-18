@@ -14,9 +14,9 @@
     <tr>
         <th>Name</th>
         <th>License number</th>
-        <th>Add</th>
         <th>Login</th>
         <th>Password</th>
+        <th>Add Driver</th>
     </tr>
     <tr>
         <td>

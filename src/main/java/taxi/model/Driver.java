@@ -13,8 +13,7 @@ public class Driver {
     }
 
     public Driver(String name, String licenseNumber) {
-        this.name = name;
-        this.licenseNumber = licenseNumber;
+        this(name, licenseNumber, "", "");
     }
 
     public Driver(String name, String licenseNumber, String login, String password) {
@@ -92,7 +91,6 @@ public class Driver {
                 + ", name='" + name + '\'' 
                 + ", licenseNumber='" + licenseNumber + '\'' 
                 + ", login='" + login + '\'' 
-                + ", password='" + password + '\'' 
                 + '}';
     }
 }
