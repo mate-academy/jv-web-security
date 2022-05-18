@@ -6,6 +6,7 @@
 <html>
 <head>
     <title>All cars</title>
+    <jsp:include page="../header.jsp"></jsp:include>
 </head>
 <body>
 <h1 class="table_dark">All cars:</h1>
