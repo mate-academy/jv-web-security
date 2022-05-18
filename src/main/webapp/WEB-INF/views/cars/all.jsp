@@ -8,7 +8,9 @@
     <title>All cars</title>
 </head>
 <body>
+<%@include file="../header.jsp"%>
 <h1 class="table_dark">All cars:</h1>
+<h3 style="color: red">${errorMsg}</h3>
 <table border="1" class="table_dark">
     <tr>
         <th>ID</th>
