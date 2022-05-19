@@ -40,6 +40,9 @@
             <td>
                 <a href="${pageContext.request.contextPath}/cars/delete?id=${car.id}">DELETE</a>
             </td>
+            <td>
+                <%@include file="/WEB-INF/views/header.jsp"%>
+            </td>
         </tr>
     </c:forEach>
 </table>
