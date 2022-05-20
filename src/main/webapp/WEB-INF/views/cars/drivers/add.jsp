@@ -8,6 +8,7 @@
     <title>Add driver to car</title>
 </head>
 <body>
+<%@include file="/WEB-INF/views/header.jsp"%>
 <form method="post" id="car" action="${pageContext.request.contextPath}/cars/drivers/add"></form>
 <h1 class="table_dark">Add driver to car:</h1>
 <table border="1" class="table_dark">
@@ -18,10 +19,20 @@
     </tr>
     <tr>
         <td>
-            <input type="number" name="car_id" form="car" required>
+            <select name="car_id" form="car" required>
+                <option selected="selected"></option>
+                <c:forEach items="${allCars}" var="car">
+                    <option value="${car.id}">${car.model} - ${car.manufacturer.name}</option>
+                </c:forEach>
+            </select>
         </td>
         <td>
-            <input type="number" name="driver_id" form="car" required>
+            <select name="driver_id" form="car" required>
+                <option selected="selected"></option>
+                <c:forEach items="${allDrivers}" var="driver">
+                    <option value="${driver.id}">${driver.name} - License # ${driver.licenseNumber}</option>
+                </c:forEach>
+            </select>
         </td>
         <td>
             <input type="submit" name="add" form="car">
