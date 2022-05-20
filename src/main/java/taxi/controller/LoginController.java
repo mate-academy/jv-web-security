@@ -36,6 +36,5 @@ public class LoginController extends HttpServlet {
             req.setAttribute("errorMsg", e.getMessage());
             req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
         }
-
     }
 }
