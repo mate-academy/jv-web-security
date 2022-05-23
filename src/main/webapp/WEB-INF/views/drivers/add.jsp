@@ -9,8 +9,8 @@
 </head>
 <body>
 <form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/add"></form>
-<h1 class="table_dark">Add driver:</h1>
 <table border="1" class="table_dark">
+    <tr><h1 class="table_dark">Add driver:</h1></tr>
     <tr>
         <th>Name</th>
         <th>Login</th>
@@ -36,5 +36,6 @@
         </td>
     </tr>
 </table>
+<center><a style="font-size:1.5em" href="${pageContext.request.contextPath}/index">Main menu</a></center>
 </body>
 </html>

@@ -33,6 +33,7 @@
         </tr>
     </c:forEach>
 </table>
+<center><a style="font-size:1.5em" href="${pageContext.request.contextPath}/index">Main menu</a></center>
 <center><%@include file="/WEB-INF/views/header.jsp"%></center>
 </body>
 </html>
