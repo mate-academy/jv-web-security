@@ -2,7 +2,7 @@ package taxi.service;
 
 import java.util.Optional;
 import taxi.dao.DriverDao;
-import taxi.exception.CustomAuthenticationException;
+import taxi.exception.AuthenticationException;
 import taxi.lib.Inject;
 import taxi.lib.Service;
 import taxi.model.Driver;
@@ -13,14 +13,14 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private DriverDao driverDao;
 
     @Override
-    public Driver login(String login, String password) throws CustomAuthenticationException {
+    public Driver login(String login, String password) throws AuthenticationException {
         Optional<Driver> driver = driverDao.getByLogin(login);
         if (driver.isEmpty()) {
-            throw new CustomAuthenticationException("Incorrect credentials");
+            throw new AuthenticationException("Incorrect credentials");
         }
         if (driver.get().getPassword().equals(password)) {
             return driver.get();
         }
-        throw new CustomAuthenticationException("Incorrect credentials");
+        throw new AuthenticationException("Incorrect credentials");
     }
 }
