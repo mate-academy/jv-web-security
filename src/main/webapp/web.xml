@@ -67,12 +67,12 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>onlineCars</servlet-name>
+        <servlet-name>currentCars</servlet-name>
         <servlet-class>taxi.controller.car.GetMyCurrentCarsController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>onlineCars</servlet-name>
-        <url-pattern>/cars/online</url-pattern>
+        <servlet-name>currentCars</servlet-name>
+        <url-pattern>/cars/current</url-pattern>
     </servlet-mapping>
 
     <servlet>
