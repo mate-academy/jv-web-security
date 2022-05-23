@@ -137,4 +137,21 @@ public class DriverDaoImpl implements DriverDao {
             throw new DataProcessingException("Couldn't get driver by login " + login, e);
         }
     }
+
+    @Override
+    public String findNameById(Long driverId) {
+        String query = "SELECT * FROM drivers WHERE id = ? AND is_deleted = FALSE";
+        try (Connection connection = ConnectionUtil.getConnection();
+                PreparedStatement getDriverStatement = connection.prepareStatement(query)) {
+            getDriverStatement.setLong(1, driverId);
+            ResultSet resultSet = getDriverStatement.executeQuery();
+            String name = "";
+            if (resultSet.next()) {
+                name = resultSet.getString("name");
+            }
+            return name;
+        } catch (SQLException e) {
+            throw new DataProcessingException("Couldn't get driver by id " + driverId, e);
+        }
+    }
 }
