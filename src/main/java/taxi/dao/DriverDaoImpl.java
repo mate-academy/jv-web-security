@@ -67,8 +67,7 @@ public class DriverDaoImpl implements DriverDao {
             }
             return drivers;
         } catch (SQLException e) {
-            throw new DataProcessingException("Couldn't get a list of drivers from driversDB.",
-                    e);
+            throw new DataProcessingException("Couldn't get a list of drivers from DB.", e);
         }
     }
 
@@ -86,7 +85,6 @@ public class DriverDaoImpl implements DriverDao {
             updateDriverStatement.setString(4, driver.getPassword());
             updateDriverStatement.setLong(3, driver.getId());
             updateDriverStatement.executeUpdate();
-
             return driver;
         } catch (SQLException e) {
             throw new DataProcessingException("Couldn't update "
