@@ -20,7 +20,7 @@
             </td>
         </tr>
     </table>
-    <button type="submit">Login</button>
+    <button>Login</button>
     <h4 style="color: red">${errorMsg}</h4>
 </form>
 </body>
