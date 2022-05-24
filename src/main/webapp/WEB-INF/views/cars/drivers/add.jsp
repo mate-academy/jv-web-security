@@ -28,5 +28,6 @@
         </td>
     </tr>
 </table>
+<center><a style="font-size:1.5em" href="${pageContext.request.contextPath}/index">Main menu</a></center>
 </body>
 </html>
