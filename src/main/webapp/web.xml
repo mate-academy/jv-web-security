@@ -18,7 +18,7 @@
 
     <servlet>
         <servlet-name>login</servlet-name>
-        <servlet-class>taxi.controller.LoginContoller</servlet-class>
+        <servlet-class>taxi.controller.LoginController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>login</servlet-name>
