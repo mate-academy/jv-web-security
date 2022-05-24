@@ -1,0 +1,11 @@
+.main-header {
+    background-color: #000;
+    color: #FFF;
+    min-height: 50px;
+    padding: 15px 30px;
+}
+
+.main-header a {
+    float: right;
+    background-color: yellow;
+}
