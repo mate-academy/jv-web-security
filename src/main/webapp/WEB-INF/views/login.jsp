@@ -11,7 +11,7 @@
     Enter your password: <input type="password" name="password" required>
     <button type="submit">Log in</button>
 </form>
-<button type="submit">
+<button>
     <a href="${pageContext.request.contextPath}/drivers/add">Sign in</a>
 </button>
 </body>

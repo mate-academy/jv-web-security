@@ -31,9 +31,6 @@
             <td>
                 <a href="${pageContext.request.contextPath}/drivers/delete?id=${driver.id}">DELETE</a>
             </td>
-            <td>
-                <%@include file="/WEB-INF/views/header.jsp"%>
-            </td>
         </tr>
     </c:forEach>
 </table>

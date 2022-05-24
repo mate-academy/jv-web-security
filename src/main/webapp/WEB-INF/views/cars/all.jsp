@@ -37,6 +37,9 @@
                 <c:forEach var="driver" items="${car.drivers}">
                     ${driver.id} ${driver.name} ${driver.licenseNumber} <br>
                 </c:forEach>
+            <td>
+                <a href="${pageContext.request.contextPath}/cars/delete?id=${car.id}">DELETE</a>
+            </td>
             </td>
         </tr>
     </c:forEach>
