@@ -72,7 +72,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>currentCars</servlet-name>
-        <url-pattern>/cars/current</url-pattern>
+        <url-pattern>/drivers/cars</url-pattern>
     </servlet-mapping>
 
     <servlet>
