@@ -18,7 +18,6 @@ public class GetMyCurrentCarsController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-
         HttpSession session = req.getSession();
         Long driverId = (Long) session.getAttribute("driver_id");
         List<Car> allCars = carService.getAllByDriver(driverId);
