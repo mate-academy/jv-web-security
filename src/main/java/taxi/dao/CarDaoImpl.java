@@ -78,7 +78,7 @@ public class CarDaoImpl implements CarDao {
                 + "manufacturer_id, "
                 + "m.name AS manufacturer_name, "
                 + "m.country AS manufacturer_country "
-                + "FROM cars c"
+                + " FROM cars c"
                 + " JOIN manufacturers m ON c.manufacturer_id = m.id"
                 + " WHERE c.is_deleted = FALSE";
         List<Car> cars = new ArrayList<>();
@@ -204,9 +204,9 @@ public class CarDaoImpl implements CarDao {
     }
 
     private List<Driver> getAllDriversByCarId(Long carId) {
-        String selectQuery = "SELECT id, name, license_number "
-                + "FROM cars_drivers cd "
-                + "JOIN drivers d ON cd.driver_id = d.id "
+        String selectQuery = "SELECT id, login, username, license_number, password "
+                + "FROM taxi.cars_drivers "
+                + "JOIN taxi.drivers ON cars_drivers.driver_id = drivers.id "
                 + "WHERE car_id = ? AND is_deleted = false";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement getDriversByCarIdStatement =
@@ -225,12 +225,16 @@ public class CarDaoImpl implements CarDao {
 
     private Driver parseDriverFromResultSet(ResultSet resultSet) throws SQLException {
         Long driverId = resultSet.getObject("id", Long.class);
-        String name = resultSet.getNString("name");
+        String name = resultSet.getNString("username");
         String licenseNumber = resultSet.getNString("license_number");
+        String login = resultSet.getNString("login");
+        String password = resultSet.getNString("password");
         Driver driver = new Driver();
         driver.setId(driverId);
         driver.setName(name);
         driver.setLicenseNumber(licenseNumber);
+        driver.setLogin(login);
+        driver.setPassword(password);
         return driver;
     }
 
