@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-  <title>LOGIN</title>
+  <title>Login</title>
 </head>
 <body>
 <h1>Login page</h1>
