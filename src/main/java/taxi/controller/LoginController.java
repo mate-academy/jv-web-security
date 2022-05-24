@@ -6,7 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import taxi.exception.AuthenticationServiceException;
+import taxi.exception.AuthenticationException;
 import taxi.lib.Injector;
 import taxi.model.Driver;
 import taxi.service.AuthenticationService;
@@ -32,7 +32,7 @@ public class LoginController extends HttpServlet {
             Driver driver = authenticationService.login(login, password);
             req.getSession().setAttribute("driver_id", driver.getId());
             resp.sendRedirect(req.getContextPath() + "/index");
-        } catch (AuthenticationServiceException e) {
+        } catch (AuthenticationException e) {
             req.setAttribute("errorMsg", e.getMessage());
             req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
         }
