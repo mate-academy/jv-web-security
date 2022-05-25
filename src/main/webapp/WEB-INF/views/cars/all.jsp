@@ -10,6 +10,7 @@
 <body>
 <h1 class="table_dark">All cars:</h1>
 <table border="1" class="table_dark">
+    <%@include file="/WEB-INF/views/header.jsp"%>
     <tr>
         <th>ID</th>
         <th>Model</th>
