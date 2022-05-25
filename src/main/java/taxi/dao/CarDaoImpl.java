@@ -136,8 +136,6 @@ public class CarDaoImpl implements CarDao {
                 + "manufacturer_id, "
                 + "m.name AS manufacturer_name, "
                 + "m.country AS manufacturer_country "
-                + "d.login AS driver_login"
-                + "d.password AS driver_password"
                 + "FROM cars c"
                 + " JOIN manufacturers m ON c.manufacturer_id = m.id"
                 + " JOIN cars_drivers cd ON c.id = cd.car_id"
