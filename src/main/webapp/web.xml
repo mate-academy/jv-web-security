@@ -125,12 +125,12 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>allCarsByDriver</servlet-name>
+        <servlet-name>myCurrentCarsController</servlet-name>
         <servlet-class>taxi.controller.driver.GetMyCurrentCarsController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>allCarsByDriver</servlet-name>
-        <url-pattern>/cars/all</url-pattern>
+        <servlet-name>myCurrentCarsController</servlet-name>
+        <url-pattern>/drivers/cars</url-pattern>
     </servlet-mapping>
 
     <filter>
