@@ -29,7 +29,8 @@ public class LoginController extends HttpServlet {
         String password = req.getParameter("password");
         try {
             Driver driver = authenticationService.login(login, password);
-            req.getSession().setAttribute("driver_id", driver.getId());
+            HttpSession session = req.getSession();
+            session.setAttribute("driver_id", driver.getId());
             resp.sendRedirect(req.getContextPath() + "/index");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMsg", e.getMessage());
