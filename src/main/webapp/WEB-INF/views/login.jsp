@@ -11,7 +11,7 @@
     <form method="post" action="${pageContext.request.contextPath}/login">
         <h3  class="text-center"><div style="text-align: center;"> Форма входа</div></h3>
         <div class="form-group">
-            <input class="form-control item" type="text" name="login" id="username" placeholder="Логин" required>
+            <input class="form-control item" type="text" name="login" id="username" placeholder="Логін" required>
         </div>
         <div class="form-group">
             <input class="form-control item" type="password" name="password" id="password" placeholder="Пароль" required>
@@ -21,7 +21,7 @@
         </div>
         <div class="form-group">
             <button  class="btn btn-primary btn-block create-account">
-                <a class="btn btn-primary btn-block create-account" href="${pageContext.request.contextPath}/drivers/add">Регістрація</a>
+                <a class="btn btn-primary btn-block create-account" href="${pageContext.request.contextPath}/drivers/add">Реєстрація</a>
             </button>
         </div>
     </form>

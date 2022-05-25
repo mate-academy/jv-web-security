@@ -23,7 +23,7 @@
 </table>
 <div class="Logout">
     <button style="margin-top: 20px"  class="btn btn-primary btn-block create-account">
-        <a class="btn btn-primary btn-block create-account" href="${pageContext.request.contextPath}/drivers/add">Log out</a>
+        <a class="btn btn-primary btn-block create-account" href="${pageContext.request.contextPath}/logout">Log out</a>
     </button>
 </div>
 </body>
