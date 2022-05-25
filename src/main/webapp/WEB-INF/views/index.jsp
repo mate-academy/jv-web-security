@@ -15,6 +15,7 @@
         <th>Redirect to</th>
     </tr>
     <tr><td><a href="${pageContext.request.contextPath}/drivers">Display All Drivers</a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/drivers/cars">Display All Drivers Of Current Driver</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/cars">Display All Cars</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/manufacturers">Display All Manufacturers</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/drivers/add">Create new Driver</a></td></tr>
