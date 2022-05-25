@@ -30,7 +30,7 @@ public class LoginController extends HttpServlet {
         try {
             Driver driver = authenticationService.login(login, password);
             HttpSession session = request.getSession();
-            session.setAttribute("driverId", driver.getId());
+            session.setAttribute("driver_id", driver.getId());
             response.sendRedirect(request.getContextPath() + "/index");
         } catch (AuthenticationException e) {
             request.setAttribute("errorMessage", e.getMessage());

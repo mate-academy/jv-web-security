@@ -16,7 +16,7 @@
         </div>
         <div class="formTitle">License Number</div>
         <div class="formTitle">
-            <input type="text" name="licenseNumber" form="driver" required></br>
+            <input type="text" name="license_number" form="driver" required></br>
         </div>
         <div class="formTitle">Login</div>
         <div class="formTitle">

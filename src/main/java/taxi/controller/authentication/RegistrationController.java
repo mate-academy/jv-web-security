@@ -26,7 +26,7 @@ public class RegistrationController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String name = request.getParameter("name");
-        String licenseNumber = request.getParameter("licenseNumber");
+        String licenseNumber = request.getParameter("license_number");
         String login = request.getParameter("login");
         String password = request.getParameter("password");
         Driver driver = new Driver(name, licenseNumber, login, password);
