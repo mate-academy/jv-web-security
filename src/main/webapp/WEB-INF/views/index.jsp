@@ -21,5 +21,10 @@
     <tr><td><a href="${pageContext.request.contextPath}/manufacturers/add">Create new Manufacturer</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/cars/drivers/add">Add Driver to Car</a></td></tr>
 </table>
+<div class="Logout">
+    <button style="margin-top: 20px"  class="btn btn-primary btn-block create-account">
+        <a class="btn btn-primary btn-block create-account" href="${pageContext.request.contextPath}/drivers/add">Log out</a>
+    </button>
+</div>
 </body>
 </html>

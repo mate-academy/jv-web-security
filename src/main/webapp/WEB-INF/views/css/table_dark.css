@@ -30,3 +30,13 @@
 .table_dark tr:hover td {
     text-decoration: underline;
 }
+
+button {
+    border-radius:30px;
+    padding:10px 20px;
+    font-size:18px;
+    font-weight:bold;
+    border:none;
+    margin: 0 auto;
+    display: block;
+}
