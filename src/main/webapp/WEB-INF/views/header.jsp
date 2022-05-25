@@ -14,10 +14,10 @@
 </c:if>
 <c:choose>
   <c:when test= "${sessionScope.driver_id != null}">
-    <a href="/logout">Logout</a>
+    <a href="${pageContext.request.contextPath}/logout">Logout</a>
   </c:when>
   <c:otherwise>
-    <a href="/drivers/add">Create driver</a>
+    <a href="${pageContext.request.contextPath}/drivers/add">Create driver</a>
   </c:otherwise>
 </c:choose>
 </body>

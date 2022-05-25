@@ -73,9 +73,11 @@ public class Driver {
             return false;
         }
         Driver driver = (Driver) o;
-        return Objects.equals(id, driver.id) && Objects.equals(name, driver.name)
+        return Objects.equals(id, driver.id)
+                && Objects.equals(name, driver.name)
                 && Objects.equals(licenseNumber, driver.licenseNumber)
-                && Objects.equals(login, driver.login) && Objects.equals(password, driver.password);
+                && Objects.equals(login, driver.login)
+                && Objects.equals(password, driver.password);
     }
 
     @Override
@@ -90,6 +92,6 @@ public class Driver {
                 + ", name='" + name + '\''
                 + ", licenseNumber='" + licenseNumber + '\''
                 + ", login='" + login + '\''
-                + ", password='" + password + '\'' + '}';
+                + '}';
     }
 }

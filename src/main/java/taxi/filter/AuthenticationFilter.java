@@ -1,8 +1,8 @@
 package taxi.filter;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -16,10 +16,10 @@ import javax.servlet.http.HttpSession;
 
 @WebFilter(filterName = "AuthenticationFilter", urlPatterns = "/*")
 public class AuthenticationFilter implements Filter {
-    private List<String> allowedUrls;
+    private Set<String> allowedUrls;
 
     public void init(FilterConfig config) {
-        allowedUrls = new ArrayList<>();
+        allowedUrls = new TreeSet<>();
         allowedUrls.add("/login");
         allowedUrls.add("/drivers/add");
     }
@@ -35,7 +35,7 @@ public class AuthenticationFilter implements Filter {
             chain.doFilter(req, resp);
             return;
         }
-        resp.sendRedirect("/login");
+        resp.sendRedirect(req.getContextPath() + "/login");
 
     }
 }
