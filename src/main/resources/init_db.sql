@@ -1,5 +1,5 @@
-CREATE SCHEMA IF NOT EXISTS `taxi` DEFAULT CHARACTER SET utf8;
-USE `taxi`;
+CREATE SCHEMA IF NOT EXISTS `taxi_service_schema` DEFAULT CHARACTER SET utf8;
+USE `taxi_service_schema`;
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
@@ -7,13 +7,16 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- Table structure for drivers
 -- ----------------------------
 DROP TABLE IF EXISTS `drivers`;
-CREATE TABLE `drivers`  (
-                            `id` bigint(0) UNSIGNED NOT NULL AUTO_INCREMENT,
-                            `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                            `license_number` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                            `is_deleted` bit(1) NOT NULL DEFAULT b'0',
-                            PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+CREATE TABLE `drivers` (
+                           `id` bigint NOT NULL AUTO_INCREMENT,
+                           `name` varchar(45) DEFAULT NULL,
+                           `license_number` varchar(45) DEFAULT NULL,
+                           `is_deleted` tinyint(1) NOT NULL DEFAULT '0',
+                           `login` varchar(45) NOT NULL,
+                           `password` varchar(45) NOT NULL,
+                           PRIMARY KEY (`id`),
+                           UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=utf8mb3
 
 -- ----------------------------
 -- Table structure for manufacturers
