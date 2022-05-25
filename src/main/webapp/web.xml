@@ -47,6 +47,7 @@
         <servlet-name>allDrivers</servlet-name>
         <servlet-class>taxi.controller.driver.GetAllDriversController</servlet-class>
     </servlet>
+
     <servlet-mapping>
         <servlet-name>allDrivers</servlet-name>
         <url-pattern>/drivers</url-pattern>
