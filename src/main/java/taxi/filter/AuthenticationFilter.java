@@ -1,8 +1,8 @@
 package taxi.filter;
 
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.Set;
-import java.util.TreeSet;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -19,7 +19,7 @@ public class AuthenticationFilter implements Filter {
     private Set<String> allowedUrls;
 
     public void init(FilterConfig config) {
-        allowedUrls = new TreeSet<>();
+        allowedUrls = new HashSet<>();
         allowedUrls.add("/login");
         allowedUrls.add("/drivers/add");
     }
