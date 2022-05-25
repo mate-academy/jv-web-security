@@ -9,7 +9,7 @@
 <body>
 <form method="post" id="login" action="${pageContext.request.contextPath}/login"></form>
 <h1 class="table_dark">Login</h1>
-<h4 class="table_dark" style="color:red">${errorMassage}</h4>
+<h4 class="table_dark" style="color:red">${errorMessage}</h4>
 <table border="1" class="table_dark">
     <tr>
         <th>Login</th>
