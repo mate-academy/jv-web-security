@@ -1,4 +1,4 @@
-package taxi.service;
+package taxi.service.dao;
 
 import taxi.model.Manufacturer;
 

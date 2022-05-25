@@ -1,15 +1,15 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <style>
     <%@include file='/WEB-INF/views/css/table_dark.css' %>
 </style>
 <html>
 <head>
-    <title>All drivers</title>
+    <title>Drivers</title>
 </head>
 <body>
-<h1 class="table_dark">All drivers:</h1>
-<table border="1" class="table_dark">
+<jsp:include page="/WEB-INF/views/index.jsp"/>
+<table>
     <tr>
         <th>ID</th>
         <th>Name</th>
