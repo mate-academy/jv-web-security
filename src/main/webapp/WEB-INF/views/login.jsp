@@ -12,12 +12,12 @@
                 <input type="text" name="login"/>
             </div>
             <div>
-                <label>Password</label>
-                <input type="text" name="password">
+                <label>Password:</label>
+                <input type="password" name="password">
             </div>
                 <button type="submit">Sign in</button>
         </form>
-        <button type="submit">
+        <button>
             <a href="${pageContext.request.contextPath}/drivers/add">Sign up</a>
         </button>
     </body>

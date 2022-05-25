@@ -5,7 +5,7 @@
 </style>
 <html>
     <head>
-        <title>Title</title>
+        <title>Header</title>
     </head>
     <body>
         <header class="main-header">
