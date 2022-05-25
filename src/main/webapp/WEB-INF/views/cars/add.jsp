@@ -5,7 +5,7 @@
 </style>
 <html>
 <head>
-    <title>Add car</title>
+    <title>Add a car</title>
 </head>
 <body>
 <form method="post" id="car" action="${pageContext.request.contextPath}/cars/add"></form>
@@ -24,7 +24,7 @@
             <input type="number" name="manufacturer_id" form="car" required>
         </td>
         <td>
-            <input type="submit" name="add" form="car">
+            <button type="submit" name="add" form="car">
         </td>
     </tr>
 </table>
