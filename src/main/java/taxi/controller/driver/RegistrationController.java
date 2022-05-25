@@ -39,5 +39,6 @@ public class RegistrationController extends HttpServlet {
         driver.setLogin(login);
         driver.setPassword(password);
         driverService.create(driver);
+        resp.sendRedirect("/index");
     }
 }
