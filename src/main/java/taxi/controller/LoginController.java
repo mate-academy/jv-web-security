@@ -1,4 +1,4 @@
-package taxi.controller.driver;
+package taxi.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
