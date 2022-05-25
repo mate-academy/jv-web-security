@@ -10,6 +10,7 @@
 <form method="post" id="redirect"></form>
 <h1 class="table_dark">Hello, mates</h1>
 <table class="table_dark">
+    <%@include file="/WEB-INF/views/header.jsp"%>
     <tr>
         <th>Redirect to</th>
     </tr>
