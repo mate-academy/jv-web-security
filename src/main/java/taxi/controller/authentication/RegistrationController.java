@@ -14,8 +14,8 @@ import taxi.service.registration.RegistrationServiceImpl;
 
 public class RegistrationController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
-    private final DriverService driverService =
-            (DriverService) injector.getInstance(DriverService.class);
+    private static RegistrationService registrationService =
+            (RegistrationService) injector.getInstance(RegistrationService.class);
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -32,10 +32,8 @@ public class RegistrationController extends HttpServlet {
         String login = request.getParameter("login");
         String password = request.getParameter("password");
         Driver driver = new Driver(name, licenseNumber, login, password);
-        RegistrationService registrationService = new RegistrationServiceImpl();
         try {
             registrationService.registration(driver);
-            driverService.create(driver);
             response.sendRedirect("/login");
         } catch (RegistrationException e) {
             request.setAttribute("errorMassage", e.getMessage());

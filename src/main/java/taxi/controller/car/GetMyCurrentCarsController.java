@@ -18,7 +18,7 @@ public class GetMyCurrentCarsController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Long driverId = (Long) request.getSession().getAttribute("driver_id");
+        Long driverId = (Long) request.getSession().getAttribute("driverId");
         List<Car> allCars = carService.getAllByDriver(driverId);
         request.setAttribute("cars", allCars);
         request.getRequestDispatcher("/WEB-INF/views/cars/all.jsp").forward(request, response);
