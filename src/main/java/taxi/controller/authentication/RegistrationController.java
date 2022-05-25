@@ -31,10 +31,10 @@ public class RegistrationController extends HttpServlet {
         String password = request.getParameter("password");
         Driver driver = new Driver(name, licenseNumber, login, password);
         try {
-            registrationService.registration(driver);
-            response.sendRedirect("/login");
+            registrationService.register(driver);
+            response.sendRedirect(request.getContextPath() + "/login");
         } catch (RegistrationException e) {
-            request.setAttribute("errorMassage", e.getMessage());
+            request.setAttribute("errorMessage", e.getMessage());
             request.getRequestDispatcher("/WEB-INF/views/drivers/registration.jsp")
                     .forward(request, response);
         }

@@ -9,13 +9,13 @@
 <body>
 <div class="divMenu">
     <a href="${pageContext.request.contextPath}/drivers">All Drivers</a>
-    <a href="${pageContext.request.contextPath}/cars/drivers/id">All Cars</a>
+    <a href="${pageContext.request.contextPath}/drivers/cars">All Cars</a>
     <a href="${pageContext.request.contextPath}/manufacturers">All Manufacturers</a>
     <a href="${pageContext.request.contextPath}/drivers/add">Add driver</a>
     <a href="${pageContext.request.contextPath}/cars/add">Add car</a>
     <a href="${pageContext.request.contextPath}/manufacturers/add">Add manufacturer</a>
     <a href="${pageContext.request.contextPath}/cars/drivers/add">Add driver to car</a>
-    <a href="${pageContext.request.contextPath}/logout">${logout}</a>
+    <a href="${pageContext.request.contextPath}/logout">Log out</a>
 </div>
 </body>
 </html>

@@ -1,4 +1,4 @@
-package taxi.service.dao;
+package taxi.service.entity;
 
 import java.util.List;
 import taxi.model.Car;

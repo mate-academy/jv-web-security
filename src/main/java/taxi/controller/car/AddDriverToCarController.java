@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 import taxi.lib.Injector;
 import taxi.model.Car;
 import taxi.model.Driver;
-import taxi.service.dao.CarService;
-import taxi.service.dao.DriverService;
+import taxi.service.entity.CarService;
+import taxi.service.entity.DriverService;
 
 public class AddDriverToCarController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");

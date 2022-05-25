@@ -1,4 +1,4 @@
-package taxi.service.dao.impl;
+package taxi.service.entity.impl;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,7 +6,7 @@ import taxi.dao.DriverDao;
 import taxi.lib.Inject;
 import taxi.lib.Service;
 import taxi.model.Driver;
-import taxi.service.dao.DriverService;
+import taxi.service.entity.DriverService;
 
 @Service
 public class DriverServiceImpl implements DriverService {

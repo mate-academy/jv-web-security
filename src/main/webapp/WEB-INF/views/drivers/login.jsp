@@ -19,11 +19,11 @@
             <input type="password" name="password" form="driver" required></br>
         </div>
         <div class="formTitle">
-            <h5 style="color:red">${errorMassage}</h5>
+            <h5 style="color:red">${errorMessage}</h5>
         </div>
         <div class="formTitle">
             <input type="submit" name="add" form="driver" value="log in" class="submit">
-            <a href="${pageContext.request.contextPath}/registration">register</a>
+            <a href="${pageContext.request.contextPath}/register">register</a>
         </div>
     </form>
 </div>

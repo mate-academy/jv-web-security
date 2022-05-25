@@ -9,7 +9,7 @@
 </head>
 <body>
 <div class="formStyle">
-    <form method="post" id="driver" action="${pageContext.request.contextPath}/registration">
+    <form method="post" id="driver" action="${pageContext.request.contextPath}/register">
         <div class="formTitle">Name</div>
         <div class="formTitle">
             <input type="text" name="name" form="driver" required></br>
@@ -27,7 +27,7 @@
             <input type="password" name="password" form="driver" required></br>
         </div>
         <div class="formTitle">
-            <h5 style="color:red">${errorMassage}</h5>
+            <h5 style="color:red">${errorMessage}</h5>
         </div>
         <div class="formTitle">
             <input type="submit" name="add" form="driver" value="add" class="submit">

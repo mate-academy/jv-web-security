@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import taxi.lib.Injector;
-import taxi.service.dao.ManufacturerService;
+import taxi.service.entity.ManufacturerService;
 
 public class DeleteManufacturerController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");

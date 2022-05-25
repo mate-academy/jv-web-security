@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import taxi.lib.Injector;
 import taxi.model.Manufacturer;
-import taxi.service.dao.ManufacturerService;
+import taxi.service.entity.ManufacturerService;
 
 public class GetAllManufacturersController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
