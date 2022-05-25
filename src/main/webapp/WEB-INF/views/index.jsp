@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <style>
     <%@include file='/WEB-INF/views/css/table_dark.css' %>
 </style>
@@ -7,8 +7,9 @@
     <title>My team</title>
 </head>
 <body>
+<jsp:include page="header.jsp"></jsp:include>
 <form method="post" id="redirect"></form>
-<h1 class="table_dark">Hello, mates</h1>
+<h1 class="table_dark">Hello, drivers</h1>
 <table class="table_dark">
     <tr>
         <th>Redirect to</th>
