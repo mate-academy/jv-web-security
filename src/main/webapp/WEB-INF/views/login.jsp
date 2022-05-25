@@ -12,7 +12,7 @@
   <button type="submit">Log in</button>
 </form>
 <button type="submit">
-  <a href="${pageContext.request.contextPath}/drivers/add">Sign in</a>
+  <a href="${pageContext.request.contextPath}/drivers/add">Sign up</a>
 </button>
 </body>
 </html>
