@@ -24,7 +24,7 @@
             <input type="password" name="password" form="login" required>
         </td>
         <td>
-            <input type="submit" name="Register" form="login">
+            <input type="submit" name="login" form="login">
         </td>
     </tr>
     <td><a href="${pageContext.request.contextPath}/drivers/add">Register</a></td>
