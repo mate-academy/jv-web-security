@@ -33,5 +33,8 @@
         </tr>
     </c:forEach>
 </table>
+<button style="margin-top: 20px" >
+    <a href="${pageContext.request.contextPath}/index">На головну</a>
+</button>
 </body>
 </html>

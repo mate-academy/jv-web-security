@@ -21,5 +21,8 @@
     <tr><td><a href="${pageContext.request.contextPath}/manufacturers/add">Create new Manufacturer</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/cars/drivers/add">Add Driver to Car</a></td></tr>
 </table>
+    <button style="margin-top: 20px" >
+        <a href="${pageContext.request.contextPath}/logout">Log out</a>
+    </button>
 </body>
 </html>
