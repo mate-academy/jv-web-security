@@ -10,7 +10,7 @@
 <h1 class="table_dark">Please log in:</h1>
     <h3>${errorMessage}</h3>
         <form method="post" action="${pageContext.request.contextPath}/login">
-            Enter your login: <input type="text" name="model" required>
+            Enter your login: <input type="text" name="login" required>
             Enter your password: <input type="password" name="password" required>
             <button type="submit">Log in</button>
         </form>
