@@ -8,9 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import taxi.exception.RegistrationException;
 import taxi.lib.Injector;
 import taxi.model.Driver;
-import taxi.service.dao.DriverService;
 import taxi.service.registration.RegistrationService;
-import taxi.service.registration.RegistrationServiceImpl;
 
 public class RegistrationController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
