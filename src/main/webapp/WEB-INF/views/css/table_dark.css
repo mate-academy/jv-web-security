@@ -1,32 +1,66 @@
-.table_dark {
-    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+body {
+    margin: 0 auto;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.divMenu {
+    padding: 24px 0;
+    display: flex;
+    justify-content:space-between;
+    border-bottom: 1px solid black;
+    margin: 20px;
+}
+
+table {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif, serif;
+    font-size: 14px;
+    background: white;
+    max-width: 70%;
     width: 70%;
-    color: #7C5FAB;
-    font-size: 40px;
-    text-align: center;
     border-collapse: collapse;
-    background: #FEF4AB;
-    margin: auto;
+    text-align: left;
+    margin: 0 auto 0 auto;
 }
-.table_dark th {
-    color: #7C5FAB;
-    border-bottom: 1px solid #98E2CA;
-    padding: 12px 17px;
-    font-size: 14px;
+th {
+    font-weight: normal;
+    color: black;
+    border-bottom: 2px solid black;
+    padding: 10px 8px;
 }
-.table_dark td {
-    color: #7C5FAB;
-    border-bottom: 1px solid #98E2CA;
-    border-right: 1px solid #98E2CA;
-    padding: 7px 17px;
-    font-size: 14px;
+td {
+    color: black;
+    padding: 9px 8px;
+    transition: .3s linear;
 }
-.table_dark tr:last-child td {
-    border-bottom: none;
+tr:hover td {
+    color: black;
 }
-.table_dark td:last-child {
-    border-right: none;
+header{
+    height: 40px;
 }
-.table_dark tr:hover td {
-    text-decoration: underline;
+
+.formTitle{
+    text-align: center;
+    padding: 5px 0;
+}
+.submit:first-child {
+    padding: 2px;
+    width: 60px;
+    margin-right: 10px;
+}
+.submit:last-child {
+    padding: 2px;
+    width: 60px;
+    margin-left: 10px;
+}
+.formStyle{
+    padding: 15px 0;
+    box-shadow: 0 0 5px 5px #d3d3d3;
+    width: 300px;
+    margin: 50px auto;
+    border-radius: 3%;
+    background-color: #cfcfcf;
 }

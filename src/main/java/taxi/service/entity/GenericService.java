@@ -1,4 +1,4 @@
-package taxi.service;
+package taxi.service.entity;
 
 import java.util.List;
 

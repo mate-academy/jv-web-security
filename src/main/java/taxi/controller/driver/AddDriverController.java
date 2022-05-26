@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import taxi.lib.Injector;
 import taxi.model.Driver;
-import taxi.service.DriverService;
+import taxi.service.entity.DriverService;
 
 public class AddDriverController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
@@ -26,6 +26,7 @@ public class AddDriverController extends HttpServlet {
         String licenseNumber = req.getParameter("license_number");
         Driver driver = new Driver(name, licenseNumber);
         driverService.create(driver);
+
         resp.sendRedirect(req.getContextPath() + "/drivers/add");
     }
 }
