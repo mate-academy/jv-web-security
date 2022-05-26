@@ -17,13 +17,13 @@ public class LoginController extends HttpServlet {
             (AuthenticationService) injector.getInstance(AuthenticationService.class);
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
             throws ServletException, IOException {
         req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
@@ -36,6 +36,5 @@ public class LoginController extends HttpServlet {
             req.setAttribute("errorMsg", e.getMessage());
             req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
         }
-
     }
 }
