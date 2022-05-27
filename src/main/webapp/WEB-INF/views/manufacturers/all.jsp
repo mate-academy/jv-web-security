@@ -33,5 +33,6 @@
         </tr>
     </c:forEach>
 </table>
+<jsp:include page="/WEB-INF/views/footer.jsp"></jsp:include>
 </body>
 </html>
