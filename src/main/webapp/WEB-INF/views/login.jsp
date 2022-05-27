@@ -7,21 +7,21 @@
     <title>Login</title>
 </head>
 <body>
-<div class="registration-cssave">
+<div class="login-form">
     <form method="post" action="${pageContext.request.contextPath}/login">
-        <h3  class="text-center"><div style="text-align: center;"> Форма входа</div></h3>
-        <div class="form-group">
-            <input class="form-control item" type="text" name="login" id="username" placeholder="Логін" required>
+        <h3  class="text-center"><div>Login form</div></h3>
+        <div>
+            <input class="item" type="text" name="login" id="username" placeholder="Login" required>
         </div>
-        <div class="form-group">
-            <input class="form-control item" type="password" name="password" id="password" placeholder="Пароль" required>
+        <div>
+            <input class="item" type="password" name="password" id="password" placeholder="Password" required>
         </div>
-        <div class="form-group">
-            <button class="btn btn-primary btn-block login" type="submit">Вхід в акаунт</button>
+        <div>
+            <button class="login" type="submit">Login</button>
         </div>
-        <div class="form-group">
-            <button  class="btn btn-primary btn-block create-account">
-                <a class="btn btn-primary btn-block create-account" href="${pageContext.request.contextPath}/drivers/add">Реєстрація</a>
+        <div>
+            <button class="login">
+                <a class="login" href="${pageContext.request.contextPath}/drivers/add">Registration</a>
             </button>
         </div>
     </form>
