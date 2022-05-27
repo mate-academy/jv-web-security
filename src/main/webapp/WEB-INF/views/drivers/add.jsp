@@ -5,12 +5,12 @@
 </style>
 <html>
 <head>
-    <title>All drivers</title>
+    <title>Add a new driver</title>
 </head>
 <body>
 <%@include file="/WEB-INF/views/header.jsp"%>
 <form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/add"></form>
-<h1 class="table_dark">Add driver:</h1>
+<h1 class="table_dark">Add a driver:</h1>
 <table border="1" class="table_dark">
     <tr>
         <th>Name</th>
