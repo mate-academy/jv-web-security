@@ -22,11 +22,11 @@ button {
 	margin-top:20px;
 }
 
-.registration-form{
+.login-form{
 	padding:50px 0;
 }
 
-.registration-form form {
+.login-form form {
 	max-width:600px;
 	padding:50px 70px;
 	border-radius:10px;
@@ -34,14 +34,14 @@ button {
 	background-color:#fff;
 }
 
-.registration-form form h3 {
+.login-form form h3 {
 	font-weight:bold;
 	margin-left:auto;
 	margin-right:auto;
 	margin-bottom:30px;
 }
 
-.registration-form .item {
+.login-form .item {
 	margin-bottom:25px;
 	padding:10px 20px;
 }

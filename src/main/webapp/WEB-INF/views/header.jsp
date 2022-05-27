@@ -4,6 +4,8 @@
     <title>Header</title>
 </head>
 <body>
-<a href="${pageContext.request.contextPath}/logout">Log out</a>
+<button style="float: right">
+    <a href="${pageContext.request.contextPath}/logout">Log out</a>
+</button>
 </body>
 </html>
