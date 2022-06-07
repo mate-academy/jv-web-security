@@ -6,10 +6,10 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class ConnectionUtil {
-    private static final String URL = "YOUR DATABASE URL";
-    private static final String USERNAME = "YOUR USERNAME";
-    private static final String PASSWORD = "YOUR PASSWORD";
-    private static final String JDBC_DRIVER = "YOUR DRIVER";
+    private static final String URL = "jdbc:postgresql://localhost/taxi";
+    private static final String USERNAME = "postgres";
+    private static final String PASSWORD = "postgres";
+    private static final String JDBC_DRIVER = "org.postgresql.Driver";
 
     static {
         try {
