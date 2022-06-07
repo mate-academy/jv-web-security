@@ -1,5 +1,7 @@
 package taxi.model;
 
+import java.util.Objects;
+
 public class Driver {
     private Long id;
     private String name;
@@ -69,23 +71,12 @@ public class Driver {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-
         Driver driver = (Driver) o;
-
-        if (id != null ? !id.equals(driver.id) : driver.id != null) {
-            return false;
-        }
-        if (name != null ? !name.equals(driver.name) : driver.name != null) {
-            return false;
-        }
-        if (licenseNumber != null ? !licenseNumber.equals(driver.licenseNumber)
-                : driver.licenseNumber != null) {
-            return false;
-        }
-        if (login != null ? !login.equals(driver.login) : driver.login != null) {
-            return false;
-        }
-        return password != null ? password.equals(driver.password) : driver.password == null;
+        return Objects.equals(id, driver.id)
+                && Objects.equals(name, driver.name)
+                && Objects.equals(licenseNumber, driver.licenseNumber)
+                && Objects.equals(password, driver.password)
+                && Objects.equals(login, driver.login);
     }
 
     @Override
