@@ -5,6 +5,7 @@
 </style>
 <html>
 <head>
+    <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
     <title>Add driver to car</title>
 </head>
 <body>
