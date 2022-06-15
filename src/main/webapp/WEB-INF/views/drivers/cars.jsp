@@ -5,10 +5,10 @@
 </style>
 <html>
 <head>
-    <title>All cars</title>
+    <title>My cars</title>
 </head>
 <body>
-<h1 class="table_dark">All cars:</h1>
+<h1 class="table_dark">My cars:</h1>
 <table border="1" class="table_dark">
     <tr>
         <th>ID</th>

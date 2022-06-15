@@ -33,5 +33,6 @@
         </tr>
     </c:forEach>
 </table>
+<a href="${pageContext.request.contextPath}/logout" class="btn btn-success">Log out</a>
 </body>
 </html>
