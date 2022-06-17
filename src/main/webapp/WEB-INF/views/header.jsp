@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Header</title>
-    <a href="${pageContext.request.contextPath}/logout">Logout</a>
+    <h3 style="color:darkblue; text-align: center; font-family: 'Lucida Sans Unicode', 'Lucida Grande', Sans-Serif"><a href="${pageContext.request.contextPath}/logout">Logout</a></h3>
 </head>
 <body>
 </body>
