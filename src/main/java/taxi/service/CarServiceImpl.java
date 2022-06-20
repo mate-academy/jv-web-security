@@ -53,5 +53,4 @@ public class CarServiceImpl implements CarService {
     public boolean delete(Long id) {
         return carDao.delete(id);
     }
-
 }
