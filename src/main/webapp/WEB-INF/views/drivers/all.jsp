@@ -8,6 +8,7 @@
     <title>All drivers</title>
 </head>
 <body>
+<a href="${pageContext.request.contextPath}/logout">Logout</a>
 <h1 class="table_dark">All drivers:</h1>
 <table border="1" class="table_dark">
     <tr>
