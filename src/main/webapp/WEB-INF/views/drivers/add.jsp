@@ -14,6 +14,9 @@
     <tr>
         <th>Name</th>
         <th>License number</th>
+        <th>Login</th>
+        <th>Password</th>
+        <th>Repeat password</th>
         <th>Add</th>
     </tr>
     <tr>
@@ -24,9 +27,22 @@
             <input type="text" name="license_number" form="driver" required>
         </td>
         <td>
+            <input type="text" name="login" form="driver" required>
+        </td>
+        <td>
+            <input type="password" name="password" form="driver" required>
+        </td>
+        <td>
+            <input type="password" name="repeat_password" form="driver" required>
+        </td>
+        <td>
             <input type="submit" name="add" form="driver">
         </td>
     </tr>
 </table>
+<h4 style="color:red">${errorMsg}</h4>
+<p><form action="${pageContext.request.contextPath}/login" method="get">
+    <input type="submit" value="Login"></form>
+<tr><td><%@include file="/WEB-INF/views/buttons/main.jsp" %></td></tr>
 </body>
 </html>

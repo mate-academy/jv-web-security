@@ -8,6 +8,7 @@
     <title>Add driver to car</title>
 </head>
 <body>
+<tr><td><%@include file="/WEB-INF/views/buttons/logout.jsp" %></td></tr>
 <form method="post" id="car" action="${pageContext.request.contextPath}/cars/drivers/add"></form>
 <h1 class="table_dark">Add driver to car:</h1>
 <table border="1" class="table_dark">
@@ -28,5 +29,6 @@
         </td>
     </tr>
 </table>
+<tr><td><%@include file="/WEB-INF/views/buttons/main.jsp" %></td></tr>
 </body>
 </html>

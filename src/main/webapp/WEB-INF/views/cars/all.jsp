@@ -8,6 +8,7 @@
     <title>All cars</title>
 </head>
 <body>
+<tr><td><%@include file="/WEB-INF/views/buttons/logout.jsp" %></td></tr>
 <h1 class="table_dark">All cars:</h1>
 <table border="1" class="table_dark">
     <tr>
@@ -43,5 +44,6 @@
         </tr>
     </c:forEach>
 </table>
+<tr><td><%@include file="/WEB-INF/views/buttons/main.jsp" %></td></tr>
 </body>
 </html>
