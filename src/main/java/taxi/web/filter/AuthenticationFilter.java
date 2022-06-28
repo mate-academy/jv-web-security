@@ -14,14 +14,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import taxi.lib.Injector;
-import taxi.model.Driver;
 import taxi.service.DriverService;
 
 public class AuthenticationFilter implements Filter {
-    private Set<String> allowedUrls;
     private static final Injector injector = Injector.getInstance("taxi");
     private final DriverService driverService =
             (DriverService) injector.getInstance(DriverService.class);
+    private Set<String> allowedUrls;
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
