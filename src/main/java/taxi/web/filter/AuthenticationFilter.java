@@ -19,7 +19,7 @@ public class AuthenticationFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         allowedUrls.add("/login");
-        allowedUrls.add("/drivers/add");
+        allowedUrls.add("/drivers/create");
     }
 
     @Override
@@ -35,7 +35,7 @@ public class AuthenticationFilter implements Filter {
             return;
         }
         if (driverId == null) {
-            response.sendRedirect("/login");
+            response.sendRedirect(request.getContextPath() + "/login");
             return;
         }
         filterChain.doFilter(request, response);
