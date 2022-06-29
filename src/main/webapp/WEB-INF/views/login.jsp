@@ -19,7 +19,7 @@
         <button type="submit">Login</button>
     </p>
     <p>
-        <a href="${pageContext.request.contextPath}/registration">Register</a>
+        <a href="${pageContext.request.contextPath}/drivers/add">Register</a>
     </p>
 </form>
 </body>

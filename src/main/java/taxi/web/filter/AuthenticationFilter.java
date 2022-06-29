@@ -27,7 +27,7 @@ public class AuthenticationFilter implements Filter {
         Filter.super.init(filterConfig);
         allowedUrls = new HashSet<>();
         allowedUrls.add("/login");
-        allowedUrls.add("/registration");
+        allowedUrls.add("/drivers/add");
     }
 
     @Override
@@ -47,6 +47,7 @@ public class AuthenticationFilter implements Filter {
             }
             driverService.get(userId);
         } catch (NoSuchElementException e) {
+            session.invalidate();
             resp.sendRedirect("/login");
             return;
         }
