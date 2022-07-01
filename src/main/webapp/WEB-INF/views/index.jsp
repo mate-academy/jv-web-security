@@ -7,6 +7,7 @@
     <title>My team</title>
 </head>
 <body>
+<a href="${pageContext.request.contextPath}/logout">Logout</a>
 <form method="post" id="redirect"></form>
 <h1 class="table_dark">Hello, mates</h1>
 <table class="table_dark">

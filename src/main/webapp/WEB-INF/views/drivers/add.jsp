@@ -8,7 +8,12 @@
     <title>All drivers</title>
 </head>
 <body>
-<%@include file="/WEB-INF/views/header.jsp"%>
+<c:if test="${userLoggedIn == 1}">
+    <%@include file="/WEB-INF/views/header.jsp"%>
+</c:if>
+<c:if test="${userLoggedIn == 0}">
+    <a href="${pageContext.request.contextPath}/login">Login</a>
+</c:if>
 <form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/add"></form>
 <h1 class="table_dark">Add driver:</h1>
 <table border="1" class="table_dark">
