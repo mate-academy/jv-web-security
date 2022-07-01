@@ -14,6 +14,8 @@
     <tr>
         <th>Name</th>
         <th>License number</th>
+        <th>Username</th>
+        <th>Password</th>
         <th>Add</th>
     </tr>
     <tr>
@@ -24,9 +26,17 @@
             <input type="text" name="license_number" form="driver" required>
         </td>
         <td>
+            <input type="text" name="username" form="driver" required>
+        </td>
+        <td>
+            <input type="password" name="password" form="driver" required>
+        </td>
+        <td>
             <input type="submit" name="add" form="driver">
         </td>
     </tr>
 </table>
+<a href="${pageContext.request.contextPath}/logout">${logoutMessage}</a>
+<a href="${pageContext.request.contextPath}/login">${backMessage}</a>
 </body>
 </html>
