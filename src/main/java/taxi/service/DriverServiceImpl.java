@@ -1,6 +1,7 @@
 package taxi.service;
 
 import java.util.List;
+import java.util.Optional;
 import taxi.dao.DriverDao;
 import taxi.lib.Inject;
 import taxi.lib.Service;
@@ -13,6 +14,9 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public Driver create(Driver driver) {
+        if (findByLogin(driver.getLogin()).isPresent()) {
+            throw new RuntimeException("This login already exists");
+        }
         return driverDao.create(driver);
     }
 
@@ -37,7 +41,15 @@ public class DriverServiceImpl implements DriverService {
     }
 
     @Override
-    public Driver findByLogin(String login) {
-        return driverDao.findByLogin(login).get();
+    public Optional<Driver> findByLogin(String login) {
+        return driverDao.findByLogin(login);
+    }
+
+    @Override
+    public boolean checkPassword(String password, String repeatedPassword) {
+        if (!password.equals(repeatedPassword)) {
+            throw new RuntimeException("Passwords are not equal");
+        }
+        return true;
     }
 }

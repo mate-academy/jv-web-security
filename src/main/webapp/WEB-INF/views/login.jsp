@@ -30,5 +30,5 @@
   </tr>
 </table>
 </body>
-<h4><a href="${pageContext.request.contextPath}/drivers/create">Registration</a> </h4>
+<h4><a href="${pageContext.request.contextPath}/drivers/add">Create new driver</a> </h4>
 </html>

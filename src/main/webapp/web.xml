@@ -125,15 +125,6 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>createDriver</servlet-name>
-        <servlet-class>taxi.controller.driver.CreateDriverController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>createDriver</servlet-name>
-        <url-pattern>/drivers/create</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>getMyCurrentCars</servlet-name>
         <servlet-class>taxi.controller.driver.GetMyCurrentCarsController</servlet-class>
     </servlet>
