@@ -15,7 +15,7 @@ public class DriverServiceImpl implements DriverService {
     @Override
     public Driver create(Driver driver) {
         if (findByLogin(driver.getLogin()).isPresent()) {
-            throw new RuntimeException("This login already exists");
+            throw new RuntimeException("This login already exists " + driver.getLogin());
         }
         return driverDao.create(driver);
     }
