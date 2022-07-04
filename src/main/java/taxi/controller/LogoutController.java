@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(urlPatterns = "/logout")
 public class LogoutController extends HttpServlet {
-
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
