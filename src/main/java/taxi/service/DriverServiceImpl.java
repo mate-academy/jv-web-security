@@ -1,6 +1,7 @@
 package taxi.service;
 
 import java.util.List;
+import java.util.Optional;
 import taxi.dao.DriverDao;
 import taxi.lib.Inject;
 import taxi.lib.Service;
@@ -12,8 +13,8 @@ public class DriverServiceImpl implements DriverService {
     private DriverDao driverDao;
 
     @Override
-    public Driver findByLogin(String login) {
-        return driverDao.findByLogin(login).get();
+    public Optional<Driver> findByLogin(String login) {
+        return driverDao.findByLogin(login);
     }
 
     @Override
