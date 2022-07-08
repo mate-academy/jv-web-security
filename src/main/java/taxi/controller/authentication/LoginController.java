@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import taxi.exception.AuthenticationException;
 import taxi.lib.Injector;
-import taxi.model.Driver;
 import taxi.service.AuthenticationService;
 
 public class LoginController extends HttpServlet {
@@ -28,14 +27,15 @@ public class LoginController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws IOException {
+            throws ServletException, IOException {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         try {
-            Driver driver = authenticationService.login(login, password);
+            authenticationService.login(login, password);
             resp.sendRedirect("/index");
         } catch (AuthenticationException e) {
-            throw new RuntimeException(e);
+            req.setAttribute("errorMsg", e.getMessage());
+            req.getRequestDispatcher("WEB-INF/views/login.jsp").forward(req, resp);
         }
     }
 }
