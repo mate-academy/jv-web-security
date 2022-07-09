@@ -9,7 +9,7 @@
 <body>
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 <form method="post" id="redirect"></form>
-<h1 class="table_dark">SERVICE MENU</h1>
+<h1 class="table_dark">Service menu</h1>
 <table class="table_dark">
     <tr>
         <th>Redirect to</th>
