@@ -12,5 +12,6 @@
   password: <input type="password" name="password" required>
   <button type="submit">LOGIN</button>
 </form>
+<tr><td><a href="${pageContext.request.contextPath}/registration">REGISTRATION</a></td></tr>
 </body>
 </html>

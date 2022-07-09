@@ -17,6 +17,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>registrationDriver</servlet-name>
+        <servlet-class>taxi.controller.driver.CreateDriverController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>registrationDriver</servlet-name>
+        <url-pattern>/registration</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>allDrivers</servlet-name>
         <servlet-class>taxi.controller.driver.GetAllDriversController</servlet-class>
     </servlet>
@@ -50,6 +59,15 @@
     <servlet-mapping>
         <servlet-name>allCars</servlet-name>
         <url-pattern>/cars</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>currentCar</servlet-name>
+        <servlet-class>taxi.controller.car.GetMyCurrentCarsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>currentCar</servlet-name>
+        <url-pattern>/cars/current</url-pattern>
     </servlet-mapping>
 
     <servlet>
