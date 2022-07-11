@@ -8,10 +8,12 @@
     <title>All drivers</title>
 </head>
 <body>
+<%@include file="/WEB-INF/views/header.jsp"%>
 <h1 class="table_dark">All drivers:</h1>
 <table border="1" class="table_dark">
     <tr>
         <th>ID</th>
+        <th>Login</th>
         <th>Name</th>
         <th>License number</th>
         <th>Delete</th>
@@ -20,6 +22,9 @@
         <tr>
             <td>
                 <c:out value="${driver.id}"/>
+            </td>
+            <td>
+                <c:out value="${driver.login}"/>
             </td>
             <td>
                 <c:out value="${driver.name}"/>
