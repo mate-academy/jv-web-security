@@ -1,6 +1,7 @@
 package taxi.controller.driver;
 
 import java.io.IOException;
+import javax.naming.AuthenticationException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,10 +22,21 @@ public class AddDriverController extends HttpServlet {
     }
 
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    public void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws IOException, ServletException {
+        String password = req.getParameter("password");
+        String repeatPassword = req.getParameter("repeat_password");
+        if (!password.equals(repeatPassword)) {
+            req.setAttribute("errorMsg",
+                    new AuthenticationException("Can't add driver, "
+                            + "check Password and Repeat password."));
+            req.getRequestDispatcher("/WEB-INF/views/drivers/add.jsp").forward(req, resp);
+            return;
+        }
         String name = req.getParameter("name");
         String licenseNumber = req.getParameter("license_number");
-        Driver driver = new Driver(name, licenseNumber);
+        String login = req.getParameter("login");
+        Driver driver = new Driver(name, licenseNumber, login, password);
         driverService.create(driver);
         resp.sendRedirect(req.getContextPath() + "/drivers/add");
     }
