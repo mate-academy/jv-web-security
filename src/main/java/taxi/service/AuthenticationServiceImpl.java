@@ -2,9 +2,11 @@ package taxi.service;
 
 import java.util.Optional;
 import taxi.exception.AuthenticationException;
+import taxi.lib.Dao;
 import taxi.lib.Injector;
 import taxi.model.Driver;
 
+@Dao
 public class AuthenticationServiceImpl implements AuthenticationService {
     private static final Injector injector = Injector.getInstance("taxi");
     private final DriverService driverService =
