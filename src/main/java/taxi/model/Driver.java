@@ -12,9 +12,17 @@ public class Driver {
     public Driver() {
     }
 
-    public Driver(String name, String licenseNumber) {
+    public Driver(String name, String licenseNumber,
+                  String login, String password) {
         this.name = name;
         this.licenseNumber = licenseNumber;
+        this.login = login;
+        this.password = password;
+    }
+
+    public Driver(Long id, String name, String licenseNumber, String login, String password) {
+        this(name, licenseNumber, login, password);
+        this.id = id;
     }
 
     public Long getId() {
@@ -68,11 +76,13 @@ public class Driver {
         Driver driver = (Driver) o;
         return Objects.equals(id, driver.id)
                 && Objects.equals(name, driver.name)
-                && Objects.equals(licenseNumber, driver.licenseNumber);
+                && Objects.equals(licenseNumber, driver.licenseNumber)
+                && Objects.equals(login, driver.login)
+                && Objects.equals(password, driver.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, licenseNumber);
+        return Objects.hash(id, name, licenseNumber, login, password);
     }
 }
