@@ -1,20 +1,15 @@
-CREATE SCHEMA IF NOT EXISTS `taxi` DEFAULT CHARACTER SET utf8;
-USE `taxi`;
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
--- ----------------------------
--- Table structure for drivers
--- ----------------------------
-DROP TABLE IF EXISTS `drivers`;
-CREATE TABLE `drivers`  (
+@@ -11,6 +11,8 @@ CREATE TABLE `drivers`  (
                             `id` bigint(0) UNSIGNED NOT NULL AUTO_INCREMENT,
                             `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
                             `license_number` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                            `login` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
+                            `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
                             `is_deleted` bit(1) NOT NULL DEFAULT b'0',
                             PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
-
 -- ----------------------------
 -- Table structure for manufacturers
 -- ----------------------------
@@ -26,7 +21,6 @@ CREATE TABLE `manufacturers`  (
                                   `is_deleted` bit(1) NOT NULL DEFAULT b'0',
                                   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
-
 -- ----------------------------
 -- Table structure for cars
 -- ----------------------------
@@ -40,7 +34,6 @@ CREATE TABLE `cars`  (
                          INDEX `FK_manufacturer_id`(`manufacturer_id`) USING BTREE,
                          CONSTRAINT `FK_manufacturer_id` FOREIGN KEY (`manufacturer_id`) REFERENCES `manufacturers` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
-
 -- ----------------------------
 -- Table structure for cars_drivers
 -- ----------------------------
@@ -54,5 +47,4 @@ CREATE TABLE `cars_drivers`  (
                                  CONSTRAINT `car_id` FOREIGN KEY (`car_id`) REFERENCES `cars` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
                                  CONSTRAINT `driver_id` FOREIGN KEY (`driver_id`) REFERENCES `drivers` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
-
 SET FOREIGN_KEY_CHECKS = 1;
