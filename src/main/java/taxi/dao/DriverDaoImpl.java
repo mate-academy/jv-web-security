@@ -17,13 +17,15 @@ import taxi.util.ConnectionUtil;
 public class DriverDaoImpl implements DriverDao {
     @Override
     public Driver create(Driver driver) {
-        String query = "INSERT INTO drivers (name, license_number) "
-                + "VALUES (?, ?)";
+        String query = "INSERT INTO drivers (login, password, name, license_number) "
+                + "VALUES (?, ?, ?, ?)";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement createDriverStatement = connection.prepareStatement(query,
                         Statement.RETURN_GENERATED_KEYS)) {
-            createDriverStatement.setString(1, driver.getName());
-            createDriverStatement.setString(2, driver.getLicenseNumber());
+            createDriverStatement.setString(1, driver.getLogin());
+            createDriverStatement.setString(2, driver.getPassword());
+            createDriverStatement.setString(3, driver.getName());
+            createDriverStatement.setString(4, driver.getLicenseNumber());
             createDriverStatement.executeUpdate();
             ResultSet resultSet = createDriverStatement.getGeneratedKeys();
             if (resultSet.next()) {
@@ -38,7 +40,8 @@ public class DriverDaoImpl implements DriverDao {
 
     @Override
     public Optional<Driver> get(Long id) {
-        String query = "SELECT * FROM drivers WHERE id = ? AND is_deleted = FALSE";
+        String query = "SELECT * FROM drivers "
+                + "WHERE id = ? AND is_deleted = FALSE";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement getDriverStatement = connection.prepareStatement(query)) {
             getDriverStatement.setLong(1, id);
@@ -55,7 +58,8 @@ public class DriverDaoImpl implements DriverDao {
 
     @Override
     public List<Driver> getAll() {
-        String query = "SELECT * FROM drivers WHERE is_deleted = FALSE";
+        String query = "SELECT * FROM drivers"
+                + " WHERE is_deleted = FALSE";
         List<Driver> drivers = new ArrayList<>();
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement getAllDriversStatement = connection.prepareStatement(query)) {
@@ -101,11 +105,32 @@ public class DriverDaoImpl implements DriverDao {
         }
     }
 
+    @Override
+    public Optional<Driver> findByLogin(String login) {
+        String query = "SELECT * FROM drivers WHERE is_deleted = FALSE AND login LIKE ?";
+        try (Connection connection = ConnectionUtil.getConnection();
+                PreparedStatement getDriverStatement = connection.prepareStatement(query)) {
+            getDriverStatement.setString(1, login);
+            ResultSet resultSet = getDriverStatement.executeQuery();
+            Driver driver = null;
+            if (resultSet.next()) {
+                driver = parseDriverFromResultSet(resultSet);
+            }
+            return Optional.ofNullable(driver);
+        } catch (SQLException e) {
+            throw new RuntimeException("Can't find driver by login " + login, e);
+        }
+    }
+
     private Driver parseDriverFromResultSet(ResultSet resultSet) throws SQLException {
         Long id = resultSet.getObject("id", Long.class);
         String name = resultSet.getString("name");
         String licenseNumber = resultSet.getString("license_number");
+        String login = resultSet.getString("login");
+        String password = resultSet.getString("password");
         Driver driver = new Driver();
+        driver.setLogin(login);
+        driver.setPassword(password);
         driver.setId(id);
         driver.setName(name);
         driver.setLicenseNumber(licenseNumber);
