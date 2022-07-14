@@ -12,7 +12,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private DriverDao driverDao;
 
     @Override
-    public Driver login(String login, String password) {
+    public Driver login(String login, String password) throws ArithmeticException {
         Optional<Driver> driver = driverDao.findByLogin(login);
         if (driver.get().getPassword().equals(password)) {
             return driver.get();

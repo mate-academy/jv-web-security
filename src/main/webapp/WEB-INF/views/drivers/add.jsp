@@ -29,7 +29,7 @@
             <input type="text" name="username" form="driver" required>
         </td>
         <td>
-            <input type="text" name="password" form="driver" required>
+            <input type="password" name="password" form="driver" required>
         </td>
         <td>
             <input type="submit" name="add" form="driver">
