@@ -1,5 +1,5 @@
-CREATE SCHEMA IF NOT EXISTS `taxi` DEFAULT CHARACTER SET utf8;
-USE `taxi`;
+CREATE SCHEMA IF NOT EXISTS `hw_jdbc` DEFAULT CHARACTER SET utf8;
+USE `hw_jdbc`;
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
@@ -11,9 +11,9 @@ CREATE TABLE `drivers`  (
                             `id` bigint(0) UNSIGNED NOT NULL AUTO_INCREMENT,
                             `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
                             `license_number` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                            `login` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
+                            `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
                             `is_deleted` bit(1) NOT NULL DEFAULT b'0',
-                            `login` VARCHAR(255) NOT NULL AFTER `is_deleted`,
-                            `password` VARCHAR(255) NOT NULL AFTER `login`;
                             PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
