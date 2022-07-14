@@ -14,7 +14,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     @Override
     public Driver login(String login, String password) throws ArithmeticException {
         Optional<Driver> driver = driverDao.findByLogin(login);
-        if (driver.get().getPassword().equals(password)) {
+        if (driver.isPresent() && driver.get().getPassword().equals(password)) {
             return driver.get();
         }
         throw new ArithmeticException("Username or password was incorrect");
