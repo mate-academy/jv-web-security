@@ -21,7 +21,7 @@ public class LoginController extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB_INF/views/login.jsp")
+        req.getRequestDispatcher("/WEB-INF/views/login.jsp")
                 .forward(req, resp);
     }
 
@@ -37,7 +37,7 @@ public class LoginController extends HttpServlet {
             resp.sendRedirect("/index");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMsg", e.getMessage());
-            req.getRequestDispatcher("/WEB_INF/views/login.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
         }
     }
 }

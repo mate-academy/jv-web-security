@@ -9,12 +9,10 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebFilter(urlPatterns = "/*")
 public class AuthenticationFilter implements Filter {
     private final Set<String> allowedUrls = new HashSet<>();
 
@@ -33,7 +31,7 @@ public class AuthenticationFilter implements Filter {
         HttpSession session = req.getSession();
 
         Long driverId = (Long) session.getAttribute("driver_id");
-        if (driverId == null || !allowedUrls.contains(req.getServletPath())) {
+        if (driverId == null && !allowedUrls.contains(req.getServletPath())) {
             resp.sendRedirect("/login");
             return;
         }
