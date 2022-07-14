@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 
 public class AuthenticationFilter implements Filter {
     private final Set<String> allowedUrls = new HashSet<>();
+
     @Override
     public void init(FilterConfig filterConfig) {
         allowedUrls.add("/login");
@@ -28,7 +29,6 @@ public class AuthenticationFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         HttpSession session = req.getSession();
-
         Long driverId = (Long) session.getAttribute("driver_id");
         if (driverId == null && !allowedUrls.contains(req.getServletPath())) {
             resp.sendRedirect("/login");
