@@ -35,7 +35,7 @@ public class DriverDaoImpl implements DriverDao {
                     + driver + ". ", e);
         }
     }
-
+    
     @Override
     public Optional<Driver> get(Long id) {
         String query = "SELECT * FROM drivers WHERE id = ? AND is_deleted = FALSE";
@@ -52,7 +52,7 @@ public class DriverDaoImpl implements DriverDao {
             throw new DataProcessingException("Couldn't get driver by id " + id, e);
         }
     }
-
+    
     @Override
     public List<Driver> getAll() {
         String query = "SELECT * FROM drivers WHERE is_deleted = FALSE";
@@ -69,7 +69,7 @@ public class DriverDaoImpl implements DriverDao {
                     e);
         }
     }
-
+    
     @Override
     public Driver update(Driver driver) {
         String query = "UPDATE drivers "
@@ -88,7 +88,7 @@ public class DriverDaoImpl implements DriverDao {
                     + driver + " in driversDB.", e);
         }
     }
-
+    
     @Override
     public boolean delete(Long id) {
         String query = "UPDATE drivers SET is_deleted = TRUE WHERE id = ?";
@@ -100,7 +100,7 @@ public class DriverDaoImpl implements DriverDao {
             throw new DataProcessingException("Couldn't delete driver with id " + id, e);
         }
     }
-
+    
     private Driver parseDriverFromResultSet(ResultSet resultSet) throws SQLException {
         Long id = resultSet.getObject("id", Long.class);
         String name = resultSet.getString("name");
@@ -110,5 +110,22 @@ public class DriverDaoImpl implements DriverDao {
         driver.setName(name);
         driver.setLicenseNumber(licenseNumber);
         return driver;
+    }
+    
+    @Override
+    public Optional<Driver> findByLogin(String login) {
+        String query = "SELECT * FROM drivers WHERE login = ? AND is_deleted = FALSE";
+        try (Connection connection = ConnectionUtil.getConnection();
+                PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, login);
+            ResultSet resultSet = statement.executeQuery();
+            Driver driver = null;
+            if (resultSet.next()) {
+                driver = parseDriverFromResultSet(resultSet);
+            }
+            return Optional.ofNullable(driver);
+        } catch (SQLException e) {
+            throw new DataProcessingException("Couldn`t find driver by login ", e);
+        }
     }
 }
