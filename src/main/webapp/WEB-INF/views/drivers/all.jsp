@@ -9,11 +9,13 @@
 </head>
 <body>
 <h1 class="table_dark">All drivers:</h1>
+<%@include file="/WEB-INF/views/header.jsp"%>
 <table border="1" class="table_dark">
     <tr>
         <th>ID</th>
         <th>Name</th>
         <th>License number</th>
+        <th>Login</th>
         <th>Delete</th>
     </tr>
     <c:forEach var="driver" items="${drivers}">
