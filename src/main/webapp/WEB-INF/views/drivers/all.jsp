@@ -9,6 +9,7 @@
 </head>
 <body>
 <h1 class="table_dark">All drivers:</h1>
+<%@include file="/WEB-INF/views/header.jsp"%>
 <table border="1" class="table_dark">
     <tr>
         <th>ID</th>
@@ -33,5 +34,6 @@
         </tr>
     </c:forEach>
 </table>
+<p><a href="${pageContext.request.contextPath}/index">Main page</a></p>
 </body>
 </html>
