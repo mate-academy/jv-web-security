@@ -14,7 +14,8 @@
     <tr>
         <th>Name</th>
         <th>License number</th>
-        <th>Add</th>
+        <th>Login</th>
+        <th>Password</th>
     </tr>
     <tr>
         <td>
@@ -24,9 +25,16 @@
             <input type="text" name="license_number" form="driver" required>
         </td>
         <td>
+            <input type="text" name="login" form="driver" required>
+        </td>
+        <td>
+            <input type="password" name="password" form="driver" required>
+        </td>
+        <td>
             <input type="submit" name="add" form="driver">
         </td>
     </tr>
 </table>
+<%@include file="/WEB-INF/views/header.jsp" %>
 </body>
 </html>
