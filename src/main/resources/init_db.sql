@@ -20,6 +20,7 @@ CREATE TABLE `drivers`  (
 -- ----------------------------
 -- Table structure for manufacturers
 -- ----------------------------
+
 DROP TABLE IF EXISTS `manufacturers`;
 CREATE TABLE `manufacturers`  (
                                   `id` bigint(0) UNSIGNED NOT NULL AUTO_INCREMENT,
