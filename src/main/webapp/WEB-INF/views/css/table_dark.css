@@ -30,3 +30,10 @@
 .table_dark tr:hover td {
     text-decoration: underline;
 }
+
+.header {
+    display: flex;
+    justify-content: flex-end;
+    width: 85%;
+    min-width: 400px;
+}
