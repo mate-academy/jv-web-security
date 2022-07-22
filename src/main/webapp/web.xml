@@ -18,7 +18,8 @@
 
     <servlet>
         <servlet-name>allDrivers</servlet-name>
-        <servlet-class>taxi.controller.driver.GetAllDriversController</servlet-class>
+        <servlet-class>taxi.controller.driver.GetAllDriversController
+        </servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>allDrivers</servlet-name>
@@ -27,7 +28,8 @@
 
     <servlet>
         <servlet-name>deleteDriver</servlet-name>
-        <servlet-class>taxi.controller.driver.DeleteDriverController</servlet-class>
+        <servlet-class>taxi.controller.driver.DeleteDriverController
+        </servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>deleteDriver</servlet-name>
@@ -36,7 +38,8 @@
 
     <servlet>
         <servlet-name>addDriver</servlet-name>
-        <servlet-class>taxi.controller.driver.AddDriverController</servlet-class>
+        <servlet-class>taxi.controller.driver.AddDriverController
+        </servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>addDriver</servlet-name>
@@ -63,7 +66,8 @@
 
     <servlet>
         <servlet-name>addDriverToCar</servlet-name>
-        <servlet-class>taxi.controller.car.AddDriverToCarController</servlet-class>
+        <servlet-class>taxi.controller.car.AddDriverToCarController
+        </servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>addDriverToCar</servlet-name>
@@ -81,7 +85,9 @@
 
     <servlet>
         <servlet-name>allManufacturers</servlet-name>
-        <servlet-class>taxi.controller.manufacturer.GetAllManufacturersController</servlet-class>
+        <servlet-class>
+            taxi.controller.manufacturer.GetAllManufacturersController
+        </servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>allManufacturers</servlet-name>
@@ -90,7 +96,8 @@
 
     <servlet>
         <servlet-name>addManufacturer</servlet-name>
-        <servlet-class>taxi.controller.manufacturer.AddManufacturerController</servlet-class>
+        <servlet-class>taxi.controller.manufacturer.AddManufacturerController
+        </servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>addManufacturer</servlet-name>
@@ -99,10 +106,48 @@
 
     <servlet>
         <servlet-name>deleteManufacturer</servlet-name>
-        <servlet-class>taxi.controller.manufacturer.DeleteManufacturerController</servlet-class>
+        <servlet-class>
+            taxi.controller.manufacturer.DeleteManufacturerController
+        </servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>deleteManufacturer</servlet-name>
         <url-pattern>/manufacturers/delete</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>loginController</servlet-name>
+        <servlet-class>taxi.controller.LoginController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>loginController</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>logoutController</servlet-name>
+        <servlet-class>taxi.controller.LogoutController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logoutController</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>getMyCurrentCarsController</servlet-name>
+        <servlet-class>taxi.controller.car.GetMyCurrentCarsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>getMyCurrentCarsController</servlet-name>
+        <url-pattern>/drivers/get</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>authenticationFilter</filter-name>
+        <filter-class>taxi.web.filter.AuthenticationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>authenticationFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>

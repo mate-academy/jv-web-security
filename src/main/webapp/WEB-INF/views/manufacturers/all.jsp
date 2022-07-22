@@ -9,6 +9,7 @@
 </head>
 <body>
 <h1 class="table_dark">All manufacturers:</h1>
+<h2 class="table_dark"><%@ include file="../header.jsp" %></h2>
 <table border="1" class="table_dark">
     <tr>
         <th>ID</th>
@@ -33,5 +34,10 @@
         </tr>
     </c:forEach>
 </table>
+<h2 class="table_dark"><a href="${pageContext.request.contextPath}/index">
+    <button class="GFG">
+        Go to the main page
+    </button>
+</a></h2>
 </body>
 </html>
