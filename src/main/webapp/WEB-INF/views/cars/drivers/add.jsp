@@ -14,7 +14,6 @@
     <tr>
         <th>Car ID</th>
         <th>Driver ID</th>
-        <th>Driver ID</th>
         <th>Add</th>
     </tr>
     <tr>

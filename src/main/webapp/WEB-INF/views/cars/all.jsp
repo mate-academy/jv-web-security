@@ -44,5 +44,10 @@
         </tr>
     </c:forEach>
 </table>
+<h2 class="table_dark"><a href="${pageContext.request.contextPath}/index">
+    <button class="GFG">
+        Go to the main page
+    </button>
+</a></h2>
 </body>
 </html>
