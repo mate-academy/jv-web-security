@@ -3,18 +3,10 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-    <servlet>
-        <servlet-name>index</servlet-name>
-        <servlet-class>taxi.controller.IndexController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>index</servlet-name>
-        <url-pattern>/index</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>index</servlet-name>
-        <url-pattern>/</url-pattern>
-    </servlet-mapping>
+
+    <session-config>
+        <session-timeout>60</session-timeout>
+    </session-config>
 
     <servlet>
         <servlet-name>allDrivers</servlet-name>
@@ -32,24 +24,6 @@
     <servlet-mapping>
         <servlet-name>deleteDriver</servlet-name>
         <url-pattern>/drivers/delete</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>addDriver</servlet-name>
-        <servlet-class>taxi.controller.driver.AddDriverController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>addDriver</servlet-name>
-        <url-pattern>/drivers/add</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>allCars</servlet-name>
-        <servlet-class>taxi.controller.car.GetAllCarsController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>allCars</servlet-name>
-        <url-pattern>/cars</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -105,4 +79,5 @@
         <servlet-name>deleteManufacturer</servlet-name>
         <url-pattern>/manufacturers/delete</url-pattern>
     </servlet-mapping>
+
 </web-app>

@@ -1,25 +1,20 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<link rel="shortcut icon" href="#" />
 <style>
     <%@include file='/WEB-INF/views/css/table_dark.css' %>
 </style>
 <html>
 <head>
-    <title>My team</title>
+    <title>driver login</title>
 </head>
 <body>
-<form method="post" id="redirect"></form>
-<h1 class="table_dark">Hello, mates</h1>
-<table class="table_dark">
-    <tr>
-        <th>Redirect to</th>
-    </tr>
-    <tr><td><a href="${pageContext.request.contextPath}/drivers">Display All Drivers</a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/cars">Display All Cars</a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/manufacturers">Display All Manufacturers</a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/drivers/add">Create new Driver</a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/cars/add">Create new Car</a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/manufacturers/add">Create new Manufacturer</a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/cars/drivers/add">Add Driver to Car</a></td></tr>
-</table>
+<h1 class="table_dark">Please login into system</h1>
+<h4 style="color: #ff0000">${errorMsg}</h4>
+<form method="post" action="${pageContext.request.contextPath}/login">
+    Please enter your login: <input type="text" name="login" required>
+    Please enter your password: <input type="text" name="password" required>
+    <button type="submit">Login</button>
+</form>
+<a href="${pageContext.request.contextPath}/drivers/add">Add new driver</a>
 </body>
 </html>
