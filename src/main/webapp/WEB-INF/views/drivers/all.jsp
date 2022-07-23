@@ -28,10 +28,17 @@
                 <c:out value="${driver.licenseNumber}"/>
             </td>
             <td>
+                <c:out value="${driver.login}"/>
+            </td>
+            <td>
+                <c:out value="${driver.password}"/>
+            </td>
+            <td>
                 <a href="${pageContext.request.contextPath}/drivers/delete?id=${driver.id}">DELETE</a>
             </td>
         </tr>
     </c:forEach>
 </table>
+<%@include file="/WEB-INF/views/footer.jsp"%>
 </body>
 </html>

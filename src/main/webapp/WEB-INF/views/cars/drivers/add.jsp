@@ -28,5 +28,6 @@
         </td>
     </tr>
 </table>
+<%@include file="/WEB-INF/views/footer.jsp"%>
 </body>
 </html>
