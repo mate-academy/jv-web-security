@@ -1,6 +1,8 @@
 package taxi.service;
 
 import java.util.NoSuchElementException;
+import java.util.Optional;
+
 import taxi.exception.AuthenticationException;
 import taxi.lib.Inject;
 import taxi.lib.Service;
