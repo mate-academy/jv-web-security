@@ -13,30 +13,28 @@ import taxi.service.AuthenticationService;
 
 public class LoginController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
-    private static final String TEMPLATE_JSP_FILE = "/WEB-INF/views/login.jsp";
-    private static final String AFTER_AUTHENTICATION_LOCATION = "/index";
     private final AuthenticationService authenticationService =
             (AuthenticationService) injector.getInstance(AuthenticationService.class);
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        req.getRequestDispatcher(TEMPLATE_JSP_FILE).forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
     }
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        String userName = req.getParameter("login");
+        String login = req.getParameter("login");
         String password = req.getParameter("password");
         try {
-            Driver driver = authenticationService.login(userName, password);
+            Driver driver = authenticationService.login(login, password);
             HttpSession session = req.getSession();
-            session.setAttribute("user_id", driver.getId());
-            resp.sendRedirect(req.getContextPath() + AFTER_AUTHENTICATION_LOCATION);
+            session.setAttribute("driver_id", driver.getId());
+            resp.sendRedirect(req.getContextPath() + "/index");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMessage", e.getMessage());
-            req.getRequestDispatcher(TEMPLATE_JSP_FILE).forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
         }
     }
 }

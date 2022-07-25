@@ -2,7 +2,6 @@ package taxi.web.filter;
 
 import java.io.IOException;
 import java.util.HashSet;
-import java.util.NoSuchElementException;
 import java.util.Set;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -24,7 +23,6 @@ public class AuthenticationFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        Filter.super.init(filterConfig);
         allowedUrls = new HashSet<>();
         allowedUrls.add("/login");
         allowedUrls.add("/drivers/add");
@@ -36,18 +34,12 @@ public class AuthenticationFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
         HttpSession session = req.getSession();
-        Long userId = (Long) session.getAttribute("user_id");
-        if (userId == null && allowedUrls.contains(req.getServletPath())) {
+        Long driverId = (Long) session.getAttribute("driver_id");
+        if (driverId == null && allowedUrls.contains(req.getServletPath())) {
             chain.doFilter(req, resp);
             return;
         }
-        try {
-            if (userId == null) {
-                throw new NoSuchElementException();
-            }
-            driverService.get(userId);
-        } catch (NoSuchElementException e) {
-            session.invalidate();
+        if (driverId == null) {
             resp.sendRedirect("/login");
             return;
         }

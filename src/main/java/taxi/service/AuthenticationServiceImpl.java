@@ -14,7 +14,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     @Override
     public Driver login(String login, String password) throws AuthenticationException {
         try {
-            Driver driver = driverService.findByLogin(login);
+            Driver driver = driverService.findByLogin(login).get();
             if (!driver.getPassword().equals(password)) {
                 throw new NoSuchElementException();
             }
