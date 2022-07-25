@@ -16,7 +16,7 @@
     </tr>
     <tr><td><a href="${pageContext.request.contextPath}/drivers">Display All Drivers</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/cars">Display All Cars</a></td></tr>
-    <tr><td><a style="color: #ff0000" href="${pageContext.request.contextPath}/cars/drivers/all">
+    <tr><td><a style="color: #ff0000" href="${pageContext.request.contextPath}/drivers/cars/current">
         Display All My Cars</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/manufacturers">Display All Manufacturers</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/drivers/add">Create new Driver</a></td></tr>
