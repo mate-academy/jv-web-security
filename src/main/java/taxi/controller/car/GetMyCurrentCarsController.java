@@ -7,21 +7,24 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import taxi.lib.Injector;
 import taxi.model.Car;
 import taxi.service.CarService;
 
-@WebServlet(urlPatterns = {"/cars", "/cars/"})
-public class GetAllCarsController extends HttpServlet {
+@WebServlet(urlPatterns = "/drivers/cars/current")
+public class GetMyCurrentCarsController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
-    private final CarService carService = (CarService) injector.getInstance(CarService.class);
+    private final CarService carService = (CarService) injector
+            .getInstance(CarService.class);
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        List<Car> allCars = carService.getAll();
-        req.setAttribute("cars", allCars);
-        req.setAttribute("massage", "Displaying all cars");
+        HttpSession session = req.getSession();
+        List<Car> myCars = carService.getAllByDriver((Long)session.getAttribute("driver_id"));
+        req.setAttribute("cars", myCars);
+        req.setAttribute("massage", "Displaying only my cars");
         req.getRequestDispatcher("/WEB-INF/views/cars/all.jsp").forward(req, resp);
     }
 }
