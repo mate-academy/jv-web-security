@@ -45,7 +45,7 @@
 
     <servlet>
         <servlet-name>allCars</servlet-name>
-        <servlet-class>taxi.controller.car.GetAllCarsController</servlet-class>
+        <servlet-class>taxi.controller.car.GetMyCurrentCarsController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>allCars</servlet-name>
