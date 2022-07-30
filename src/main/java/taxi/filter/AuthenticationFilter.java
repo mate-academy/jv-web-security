@@ -26,7 +26,7 @@ public class AuthenticationFilter implements Filter {
 
         Long driverId = (Long) session.getAttribute("driver_id");
 
-        if (driverId == null && req.getServletPath().equals("/login")){
+        if (driverId == null && allowedUrls.contains(req.getServletPath())){
             filterChain.doFilter(req, resp);
             return;
         }

@@ -5,6 +5,7 @@
 </style>
 <html>
 <head>
+    <%@include file='/WEB-INF/views/header.jsp' %>
     <title>All cars</title>
 </head>
 <body>

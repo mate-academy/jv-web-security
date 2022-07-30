@@ -4,6 +4,7 @@
 </style>
 <html>
 <head>
+    <%@include file='/WEB-INF/views/header.jsp' %>
     <title>My team</title>
 </head>
 <body>
