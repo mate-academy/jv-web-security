@@ -2,12 +2,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <style>
     <%@include file='/WEB-INF/views/css/table_dark.css' %>
+    <%@include file='/WEB-INF/views/css/table_footer.css' %>
 </style>
 <html>
 <head>
     <title>All drivers</title>
 </head>
 <body>
+<%@include file="../header.jsp"%>
 <h1 class="table_dark">All drivers:</h1>
 <table border="1" class="table_dark">
     <tr>
@@ -34,4 +36,7 @@
     </c:forEach>
 </table>
 </body>
+<footer>
+    <%@include file="../footer.jsp"%>
+</footer>
 </html>

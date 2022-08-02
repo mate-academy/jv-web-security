@@ -9,16 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import taxi.lib.Injector;
 import taxi.model.Car;
-import taxi.model.Manufacturer;
 import taxi.service.CarService;
 import taxi.service.DriverService;
-import taxi.service.ManufacturerService;
 
-public class AddCarController extends HttpServlet {
+public class GetMyCurrentCarsController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
     private final CarService carService = (CarService) injector.getInstance(CarService.class);
-    private final ManufacturerService manufacturerService = (ManufacturerService) injector
-            .getInstance(ManufacturerService.class);
     private final DriverService driverService =
             (DriverService) injector.getInstance(DriverService.class);
 
@@ -27,18 +23,10 @@ public class AddCarController extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = req.getSession();
         req.setAttribute("driver_name", session.getAttribute("driver_name"));
-        List<Manufacturer> manufacturers = manufacturerService.getAll();
-        req.setAttribute("manufacturers", manufacturers);
-        req.getRequestDispatcher("/WEB-INF/views/cars/add.jsp").forward(req, resp);
-    }
-
-    @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        String model = req.getParameter("model");
-        long manufacturerId = Long.parseLong(req.getParameter("manufacturer_id"));
-        Manufacturer manufacturer = manufacturerService.get(manufacturerId);
-        Car car = new Car(model, manufacturer);
-        carService.create(car);
-        resp.sendRedirect(req.getContextPath() + "/cars/add");
+        Long driverId = Long.parseLong(String.valueOf(session.getAttribute("driver_id")));
+        List<Car> carsByDriver = carService.getAllByDriver(driverId);
+        req.setAttribute("cars", carsByDriver);
+        req.setAttribute("drivers", driverService.getAll());
+        req.getRequestDispatcher("/WEB-INF/views/cars/all.jsp").forward(req, resp);
     }
 }

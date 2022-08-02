@@ -2,18 +2,20 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <style>
     <%@include file='/WEB-INF/views/css/table_dark.css' %>
+    <%@include file='/WEB-INF/views/css/table_footer.css' %>
 </style>
 <html>
 <head>
     <title>All manufacturers</title>
 </head>
 <body>
+<%@include file="../header.jsp"%>
 <h1 class="table_dark">All manufacturers:</h1>
 <table border="1" class="table_dark">
     <tr>
         <th>ID</th>
         <th>Name</th>
-        <th>License number</th>
+        <th>Country</th>
         <th>Delete</th>
     </tr>
     <c:forEach var="manufacturer" items="${manufacturers}">
@@ -34,4 +36,7 @@
     </c:forEach>
 </table>
 </body>
+<footer>
+    <%@include file="../footer.jsp"%>
+</footer>
 </html>
