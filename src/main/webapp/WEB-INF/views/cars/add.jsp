@@ -14,7 +14,7 @@
 <table border="1" class="table_dark">
     <tr>
         <th>Model</th>
-        <th>Manufacturer ID</th>
+        <th>Manufacturer</th>
         <th>Add</th>
     </tr>
     <tr>
