@@ -26,10 +26,7 @@ public class AddCarController extends HttpServlet {
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         HttpSession session = req.getSession();
-        if (session.getAttribute("driver_id") != null) {
-            Long driverId = Long.parseLong(String.valueOf(session.getAttribute("driver_id")));
-            req.setAttribute("driver_name", driverService.get(driverId).getName());
-        }
+        req.setAttribute("driver_name", session.getAttribute("driver_name"));
         List<Manufacturer> manufacturers = manufacturerService.getAll();
         req.setAttribute("manufacturers", manufacturers);
         req.getRequestDispatcher("/WEB-INF/views/cars/add.jsp").forward(req, resp);
