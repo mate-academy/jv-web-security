@@ -1,0 +1,32 @@
+.table_footer {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    color: #7C5FAB;
+    font-size: 20px;
+    text-align: left;
+    border-collapse: collapse;
+}
+.table_footer th {
+    color: #7C5FAB;
+    border-bottom: none;
+    border-right: 1px solid #7C5FAB;
+    text-align: left;
+    padding: 5px 10px;
+    font-size: 10px;
+}
+.table_footer td {
+    color: #7C5FAB;
+    border-bottom: none;
+    border-right: 1px solid #7C5FAB;
+    text-align: left;
+    padding: 1px 10px;
+    font-size: 10px;
+}
+.table_footer tr:last-child td {
+    border-bottom: none;
+}
+.table_footer td:last-child {
+    border-right: none;
+}
+.table_footer tr:hover td {
+    text-decoration: underline;
+}

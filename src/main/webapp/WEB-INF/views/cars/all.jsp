@@ -2,6 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <style>
     <%@include file='/WEB-INF/views/css/table_dark.css' %>
+    <%@include file='/WEB-INF/views/css/table_footer.css' %>
 </style>
 <html>
 <head>
@@ -52,9 +53,11 @@
                     <button type="submit">Add</button>
                 </form>
             </td>
-
         </tr>
     </c:forEach>
 </table>
 </body>
+<footer>
+    <%@include file="../footer.jsp"%>
+</footer>
 </html>
