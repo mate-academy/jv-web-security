@@ -24,6 +24,4 @@
 </table>
 </form>
 </body>
-</body>
-</body>
 </html>

@@ -18,8 +18,8 @@ public class Driver {
         this.login = login;
     }
 
-    public Driver(String name, String licenseNumber,String login,String password) {
-        this(name,licenseNumber,login);
+    public Driver(String name, String licenseNumber, String login, String password) {
+        this(name, licenseNumber, login);
         this.password = password;
     }
 
