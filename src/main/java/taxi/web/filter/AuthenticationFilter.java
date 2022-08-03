@@ -34,6 +34,7 @@ public class AuthenticationFilter implements Filter {
             return;
         }
         if (driverId == null) {
+            session.invalidate();
             resp.sendRedirect(req.getContextPath() + "/login");
             return;
         }
