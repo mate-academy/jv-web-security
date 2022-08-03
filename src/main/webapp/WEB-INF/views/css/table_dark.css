@@ -8,6 +8,26 @@
     background: #FEF4AB;
     margin: auto;
 }
+.register_link {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    width: 70%;
+    color: #7C5FAB;
+    font-size: 25px;
+    text-align: left;
+    border-collapse: collapse;
+    background: #FEF4AB;
+    margin: auto;
+}
+.logout_link {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    width: 70%;
+    color: #7C5FAB;
+    font-size: 25px;
+    text-align: right;
+    border-collapse: collapse;
+    background: #FEF4AB;
+    margin: auto;
+}
 .table_dark th {
     color: #7C5FAB;
     border-bottom: 1px solid #98E2CA;
