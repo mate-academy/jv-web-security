@@ -19,7 +19,6 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setAttribute("errMessage", "");
         request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
     }
 
@@ -27,13 +26,13 @@ public class LoginController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            Driver user = authenticationService.login(request.getParameter("login"),
+            Driver driver = authenticationService.login(request.getParameter("login"),
                     request.getParameter("password"));
             HttpSession httpSession = request.getSession();
-            httpSession.setAttribute("userId", user.getId());
+            httpSession.setAttribute("driver_id", driver.getId());
             response.sendRedirect("/index");
         } catch (AuthenticationException e) {
-            request.setAttribute("errMessage", e.getMessage());
+            request.setAttribute("errorMessage", e.getMessage());
             request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
         }
     }

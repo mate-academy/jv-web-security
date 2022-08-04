@@ -9,7 +9,7 @@
 <body>
 <%@include file="header.jsp"%>
 <form method="post" id="login" action="${pageContext.request.contextPath}/login"></form>
-<h4 style="color:red">${errMessage}</h4>
+<h4 style="color:red">${errorMessage}</h4>
 <h1 class="table_dark">Login form:</h1>
 <table border="1" class="table_dark">
     <tr>
