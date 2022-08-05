@@ -9,7 +9,6 @@ public class Driver {
     private String login;
     private String password;
 
-
     public Driver() {
     }
 
