@@ -6,6 +6,7 @@
 <html>
 <head>
     <title>Add driver to car</title>
+    <%@include file="/WEB-INF/views/header.jsp"%><br>
 </head>
 <body>
 <form method="post" id="car" action="${pageContext.request.contextPath}/cars/drivers/add"></form>
