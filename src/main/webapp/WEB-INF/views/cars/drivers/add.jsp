@@ -7,7 +7,6 @@
 <head>
     <title>Add driver to car</title>
     <%@include file="/WEB-INF/views/header.jsp"%><br>
-    <a href="${pageContext.request.contextPath}/index">Index page</a>
 </head>
 <body>
 <form method="post" id="car" action="${pageContext.request.contextPath}/cars/drivers/add"></form>

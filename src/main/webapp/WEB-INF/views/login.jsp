@@ -5,7 +5,7 @@
 </head>
 <body>
 <h1>Login Page</h1>
-<h2>Please log in or register new account</h2>
+<h2>Please log in or register a new account</h2>
 <h4 style="color: red">${errorMsg}</h4>
 <form method = "post" action="${pageContext.request.contextPath}/login">
     Please enter your login: <input type="text" name="login" required>
