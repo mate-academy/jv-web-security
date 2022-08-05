@@ -6,7 +6,8 @@
 <html>
 <head>
     <title>All drivers</title>
-    <%@include file="/WEB-INF/views/header.jsp"%>
+    <%@include file="/WEB-INF/views/header.jsp"%><br>
+    <a href="${pageContext.request.contextPath}/index">Index page</a>
 </head>
 <body>
 <form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/add"></form>

@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class AuthenticationFilter implements Filter {
-
     private final Set<String> allowedUrl = new HashSet<>();
 
     @Override
@@ -34,6 +33,5 @@ public class AuthenticationFilter implements Filter {
             return;
         }
         chain.doFilter(req, resp);
-
     }
 }
