@@ -28,8 +28,8 @@ public class AddDriverController extends HttpServlet {
         String name = req.getParameter("name");
         String licenseNumber = req.getParameter("license_number");
         String password = req.getParameter("password");
-        String login = req.getParameter("login");
         String repeatPassword = req.getParameter("repeat_password");
+        String login = req.getParameter("login");
         Driver driver = new Driver(password, login, name, licenseNumber);
         try {
             registrationService.register(driver, repeatPassword);
