@@ -22,12 +22,12 @@ public class DriverDaoImpl implements DriverDao {
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement = connection.prepareStatement(query,
                         Statement.RETURN_GENERATED_KEYS)) {
-            createDriverStatement.setString(1, driver.getName());
-            createDriverStatement.setString(2, driver.getLicenseNumber());
-            createDriverStatement.setString(3, driver.getPassword());
-            createDriverStatement.setString(4, driver.getLogin());
-            createDriverStatement.executeUpdate();
-            ResultSet resultSet = createDriverStatement.getGeneratedKeys();
+            statement.setString(1, driver.getName());
+            statement.setString(2, driver.getLicenseNumber());
+            statement.setString(3, driver.getPassword());
+            statement.setString(4, driver.getLogin());
+            statement.executeUpdate();
+            ResultSet resultSet = statement.getGeneratedKeys();
             if (resultSet.next()) {
                 driver.setId(resultSet.getObject(1, Long.class));
             }
@@ -80,12 +80,12 @@ public class DriverDaoImpl implements DriverDao {
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement
                         = connection.prepareStatement(query)) {
-            updateDriverStatement.setString(1, driver.getName());
-            updateDriverStatement.setString(2, driver.getLicenseNumber());
-            updateDriverStatement.setString(3, driver.getPassword());
-            updateDriverStatement.setString(4, driver.getLogin());
-            updateDriverStatement.setLong(5, driver.getId());
-            updateDriverStatement.executeUpdate();
+            statement.setString(1, driver.getName());
+            statement.setString(2, driver.getLicenseNumber());
+            statement.setString(3, driver.getPassword());
+            statement.setString(4, driver.getLogin());
+            statement.setLong(5, driver.getId());
+            statement.executeUpdate();
             return driver;
         } catch (SQLException e) {
             throw new DataProcessingException("Couldn't update "
