@@ -1,8 +1,8 @@
 package taxi.model;
 
-import java.util.Objects;
-
 public class Driver {
+    private String password;
+    private String login;
     private Long id;
     private String name;
     private String licenseNumber;
@@ -13,6 +13,28 @@ public class Driver {
     public Driver(String name, String licenseNumber) {
         this.name = name;
         this.licenseNumber = licenseNumber;
+    }
+
+    public Driver(String password, String login, String name, String licenseNumber) {
+        this(name, licenseNumber);
+        this.login = login;
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public Long getId() {
@@ -40,21 +62,12 @@ public class Driver {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        Driver driver = (Driver) o;
-        return Objects.equals(id, driver.id)
-                && Objects.equals(name, driver.name)
-                && Objects.equals(licenseNumber, driver.licenseNumber);
+    public int hashCode() {
+        return super.hashCode();
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(id, name, licenseNumber);
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 }

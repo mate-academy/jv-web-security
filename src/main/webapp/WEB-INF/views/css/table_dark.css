@@ -7,7 +7,17 @@
     border-collapse: collapse;
     background: #FEF4AB;
     margin: auto;
-}
+
+}.table_dark_car {
+     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+     width:76%;
+     color: #7C5FAB;
+     font-size: 40px;
+     text-align: center;
+     border-collapse: collapse;
+     background: #FEF4AB;
+     margin: auto;
+ }
 .table_dark th {
     color: #7C5FAB;
     border-bottom: 1px solid #98E2CA;
@@ -29,4 +39,14 @@
 }
 .table_dark tr:hover td {
     text-decoration: underline;
+}
+.table_dark_login {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    width: 70%;
+    color: #7C5FAB;
+    font-size: 15px;
+    text-align: left;
+    border-collapse: collapse;
+    border-left-width: 10px;
+    margin: auto;
 }

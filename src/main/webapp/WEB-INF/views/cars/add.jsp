@@ -5,6 +5,7 @@
 </style>
 <html>
 <head>
+    <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
     <title>Add car</title>
 </head>
 <body>
@@ -17,15 +18,9 @@
         <th>Add</th>
     </tr>
     <tr>
-        <td>
-            <input type="text" name="model" form="car" required>
-        </td>
-        <td>
-            <input type="number" name="manufacturer_id" form="car" required>
-        </td>
-        <td>
-            <input type="submit" name="add" form="car">
-        </td>
+        <td><input type="text" name="model" form="car" required></td>
+        <td><input type="number" name="manufacturer_id" form="car" required></td>
+        <td><input type="submit" name="add" form="car"></td>
     </tr>
 </table>
 </body>
