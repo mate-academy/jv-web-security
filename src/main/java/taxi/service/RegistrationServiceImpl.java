@@ -12,7 +12,7 @@ public class RegistrationServiceImpl implements RegistrationService {
 
     @Override
     public Driver register(Driver driver, String passwordRepeat) throws RegistrationException {
-        if (driver != null || driver.getPassword().equals(passwordRepeat)) {
+        if (driver != null && driver.getPassword().equals(passwordRepeat)) {
             return driverService.create(driver);
         }
         throw new RegistrationException("Password are incorrect, please enter correctly");
