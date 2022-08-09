@@ -5,6 +5,7 @@
 </style>
 <html>
 <head>
+    <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
     <title>All manufacturers</title>
 </head>
 <body>
@@ -18,18 +19,10 @@
     </tr>
     <c:forEach var="manufacturer" items="${manufacturers}">
         <tr>
-            <td>
-                <c:out value="${manufacturer.id}"/>
-            </td>
-            <td>
-                <c:out value="${manufacturer.name}"/>
-            </td>
-            <td>
-                <c:out value="${manufacturer.country}"/>
-            </td>
-            <td>
-                <a href="${pageContext.request.contextPath}/manufacturers/delete?id=${manufacturer.id}">DELETE</a>
-            </td>
+            <td><c:out value="${manufacturer.id}"/></td>
+            <td><c:out value="${manufacturer.name}"/></td>
+            <td><c:out value="${manufacturer.country}"/></td>
+            <td><a href="${pageContext.request.contextPath}/manufacturers/delete?id=${manufacturer.id}">DELETE</a></td>
         </tr>
     </c:forEach>
 </table>

@@ -5,6 +5,7 @@
 </style>
 <html>
 <head>
+    <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
     <title>Manufacturers</title>
 </head>
 <body>
@@ -16,16 +17,9 @@
         <th>Country</th>
         <th>Add</th>
     </tr>
-    <tr>
-        <td>
-            <input type="text" name="name" form="manufacturer" required>
-        </td>
-        <td>
-            <input type="text" name="country" form="manufacturer" required>
-        </td>
-        <td>
-            <input type="submit" name="add" form="manufacturer" required>
-        </td>
+    <tr><td><input type="text" name="name" form="manufacturer" required></td>
+        <td><input type="text" name="country" form="manufacturer" required></td>
+        <td><input type="submit" name="add" form="manufacturer" required></td>
     </tr>
 </table>
 </body>
