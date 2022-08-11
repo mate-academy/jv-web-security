@@ -7,9 +7,9 @@ import taxi.lib.Service;
 import taxi.model.Driver;
 
 @Service
-public class AuthenticationServiceImpl implements AuthenticationService{
+public class AuthenticationServiceImpl implements AuthenticationService {
     @Inject
-    DriverService driverService;
+    private DriverService driverService;
 
     @Override
     public Driver login(String login, String password) throws AuthenticationException {

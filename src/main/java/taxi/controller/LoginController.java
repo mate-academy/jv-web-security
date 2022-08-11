@@ -7,13 +7,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import taxi.exception.AuthenticationException;
-import taxi.lib.Inject;
+import taxi.lib.Injector;
 import taxi.model.Driver;
 import taxi.service.AuthenticationService;
 
 public class LoginController extends HttpServlet {
-    @Inject
-    AuthenticationService authService;
+    private static final Injector injector = Injector.getInstance("taxi");
+    private final AuthenticationService authService = (AuthenticationService) injector
+            .getInstance(AuthenticationService.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
