@@ -124,6 +124,15 @@
         <servlet-name>deleteManufacturer</servlet-name>
         <url-pattern>/manufacturers/delete</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>displayCurrentDriverCarsController</servlet-name>
+        <servlet-class>taxi.controller.GetMyCurrentCarsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>displayCurrentDriverCarsController</servlet-name>
+        <url-pattern>/drivers/current</url-pattern>
+    </servlet-mapping>
     
     <filter>
         <filter-name>authenticationFilter</filter-name>
@@ -133,5 +142,4 @@
         <filter-name>authenticationFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-
 </web-app>

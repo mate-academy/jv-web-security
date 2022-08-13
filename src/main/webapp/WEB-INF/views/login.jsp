@@ -6,10 +6,9 @@
 <head>
     <title>Log in</title>
 </head>
-<form>
 <h4 style="color: red">${errorMsg}</h4>
     <body>
-    <form method="post" id = "login" action=""${pageContext.request.contextPath}/login"></form>
+    <form method="post" id = "login" action="${pageContext.request.contextPath}/login"></form>
     <h1 class="table_dark">Login page</h1>
     <table border="1" class="table_dark">
         <tr>
