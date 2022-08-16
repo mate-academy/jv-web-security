@@ -17,14 +17,14 @@ import taxi.util.ConnectionUtil;
 public class DriverDaoImpl implements DriverDao {
     @Override
     public Driver create(Driver driver) {
-        String query = "INSERT INTO drivers (name, license_number, username, password) "
+        String query = "INSERT INTO drivers (name, license_number, login, password) "
                 + "VALUES (?, ?, ?, ?)";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement = connection.prepareStatement(query,
                         Statement.RETURN_GENERATED_KEYS)) {
             statement.setString(1, driver.getName());
             statement.setString(2, driver.getLicenseNumber());
-            statement.setString(3, driver.getUsername());
+            statement.setString(3, driver.getLogin());
             statement.setString(4, driver.getPassword());
             statement.executeUpdate();
             ResultSet resultSet = statement.getGeneratedKeys();
@@ -76,15 +76,15 @@ public class DriverDaoImpl implements DriverDao {
     public Driver update(Driver driver) {
         String query = "UPDATE drivers "
                 + "SET name = ?, license_number = ?, "
-                + "username = ?, password = ? "
+                + "login = ?, password = ? "
                 + "WHERE id = ? AND is_deleted = FALSE";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement
                         = connection.prepareStatement(query)) {
             statement.setString(1, driver.getName());
             statement.setString(2, driver.getLicenseNumber());
-            statement.setString(3, driver.getUsername());
-            statement.setString(4, driver.getUsername());
+            statement.setString(3, driver.getLogin());
+            statement.setString(4, driver.getLogin());
             statement.setLong(5, driver.getId());
             statement.executeUpdate();
             return driver;
@@ -110,20 +110,20 @@ public class DriverDaoImpl implements DriverDao {
         Long id = resultSet.getObject("id", Long.class);
         String name = resultSet.getString("name");
         String licenseNumber = resultSet.getString("license_number");
-        String username = resultSet.getString("username");
+        String login = resultSet.getString("login");
         String password = resultSet.getString("password");
         Driver driver = new Driver();
         driver.setId(id);
         driver.setName(name);
         driver.setLicenseNumber(licenseNumber);
-        driver.setUsername(username);
+        driver.setLogin(login);
         driver.setPassword(password);
         return driver;
     }
 
     @Override
     public Optional<Driver> findByLogin(String login) {
-        String query = "SELECT * FROM drivers WHERE username = ?";
+        String query = "SELECT * FROM drivers WHERE login = ?";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setString(1, login);

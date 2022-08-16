@@ -26,10 +26,10 @@ public class LoginController extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        String username = req.getParameter("login");
+        String login = req.getParameter("login");
         String password = req.getParameter("password");
         try {
-            Driver driver = authenticationService.login(username, password);
+            Driver driver = authenticationService.login(login, password);
             HttpSession session = req.getSession();
             session.setAttribute("driver_id", driver.getId());
             resp.sendRedirect("/index");

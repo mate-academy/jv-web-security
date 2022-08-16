@@ -6,16 +6,16 @@ public class Driver {
     private Long id;
     private String name;
     private String licenseNumber;
-    private String username;
+    private String login;
     private String password;
 
     public Driver() {
     }
 
-    public Driver(String name, String licenseNumber, String username, String password) {
+    public Driver(String name, String licenseNumber, String login, String password) {
         this.name = name;
         this.licenseNumber = licenseNumber;
-        this.username = username;
+        this.login = login;
         this.password = password;
     }
 
@@ -43,12 +43,12 @@ public class Driver {
         this.licenseNumber = licenseNumber;
     }
 
-    public String getUsername() {
-        return username;
+    public String getLogin() {
+        return login;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public String getPassword() {
