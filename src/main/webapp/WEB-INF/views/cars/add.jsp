@@ -30,25 +30,4 @@
     </tr>
 </table>
 </body>
-<tr>
-
-</tr>
-<h1 class="table_dark">Choose manufacturer's id from list:</h1>
-<table border="1" class="table_dark">
-    <tr>
-        <td>ID</td>
-        <td>NAME</td>
-        <td>COUNTRY</td>
-    </tr>
-
-    <jsp:useBean id="manufacturers" scope="request" type="java.util.List"/>
-    <c:forEach items="${manufacturers}" var="manufacturer">
-        <tr>
-            <td><c:out value="${manufacturer.getId()}" /></td>
-            <td><c:out value="${manufacturer.getName()}" /></td>
-            <td><c:out value="${manufacturer.getCountry()}" /></td>
-        </tr>
-    </c:forEach>
-</table>
-</body>
 </html>

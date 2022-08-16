@@ -229,8 +229,10 @@ public class CarDaoImpl implements CarDao {
         String licenseNumber = resultSet.getNString("license_number");
         String login = resultSet.getNString("login");
         String password = resultSet.getNString("password");
-        Driver driver = new Driver(name, licenseNumber);
+        Driver driver = new Driver();
         driver.setId(driverId);
+        driver.setName(name);
+        driver.setLicenseNumber(licenseNumber);
         driver.setLogin(login);
         driver.setPassword(password);
         return driver;
