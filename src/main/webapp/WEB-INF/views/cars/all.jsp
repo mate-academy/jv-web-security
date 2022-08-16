@@ -44,6 +44,6 @@
         </tr>
     </c:forEach>
 </table>
-<a href="${pageContext.request.contextPath}/cars/my">display only my cars</a>
+<a href="${pageContext.request.contextPath}/drivers/cars">display only my cars</a>
 </body>
 </html>

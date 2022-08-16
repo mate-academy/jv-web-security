@@ -27,8 +27,8 @@ public class LoginController extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        String login = req.getParameter("Login");
-        String password = req.getParameter("Password");
+        String login = req.getParameter("login");
+        String password = req.getParameter("password");
         try {
             Driver driver = authenticationService.login(login, password);
             HttpSession session = req.getSession();

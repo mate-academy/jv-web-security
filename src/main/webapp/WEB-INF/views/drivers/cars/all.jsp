@@ -5,7 +5,7 @@
 </style>
 <html>
 <head>
-    <title>All cars</title>
+    <title>My cars</title>
 </head>
 <body>
 <%@include file="/WEB-INF/views/logout.jsp" %>

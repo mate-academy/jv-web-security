@@ -1,4 +1,4 @@
-package taxi.controller.car;
+package taxi.controller.driver;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 import taxi.lib.Injector;
 import taxi.service.CarService;
 
-@WebServlet(urlPatterns = "/cars/my")
+@WebServlet(urlPatterns = "/drivers/cars")
 public class GetMyCurrentCarsController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
     private final CarService carService = (CarService) injector.getInstance(CarService.class);
@@ -21,6 +21,6 @@ public class GetMyCurrentCarsController extends HttpServlet {
         HttpSession session = req.getSession();
         Long driverId = (Long) session.getAttribute("driver_id");
         req.setAttribute("myCars", carService.getAllByDriver(driverId));
-        req.getRequestDispatcher("/WEB-INF/views/cars/my/myCars.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/views/drivers/cars/all.jsp").forward(req, resp);
     }
 }

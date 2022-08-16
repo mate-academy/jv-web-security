@@ -19,10 +19,10 @@
     </tr>
     <tr>
         <td>
-            <input type="text" name="Login" form="user" required>
+            <input type="text" name="login" form="user" required>
         </td>
         <td>
-            <input type="password" name="Password" form="user" required>
+            <input type="password" name="password" form="user" required>
         </td>
         <td>
             <input type="submit" name="Confirm" form="user">
