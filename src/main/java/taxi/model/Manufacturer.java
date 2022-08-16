@@ -40,6 +40,12 @@ public class Manufacturer {
     }
 
     @Override
+    public String toString() {
+        return "Manufacturer{" + "id=" + id + ", name='" + name + '\''
+                + ", country='" + country + '\'' + '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;

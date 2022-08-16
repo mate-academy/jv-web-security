@@ -45,14 +45,14 @@ public class CarDaoImpl implements CarDao {
 
     @Override
     public Optional<Car> get(Long id) {
-        String query = "SELECT c.id AS id, "
+        String query = "SELECT cars.id AS id, "
                 + "model, "
                 + "manufacturer_id, "
-                + "m.name AS manufacturer_name, "
-                + "m.country AS manufacturer_country "
-                + "FROM cars c "
-                + "JOIN manufacturers m ON c.manufacturer_id = m.id "
-                + "WHERE c.id = ? AND c.is_deleted = FALSE";
+                + "manufacturers.name AS manufacturer_name, "
+                + "manufacturers.country AS manufacturer_country "
+                + "FROM cars "
+                + "JOIN manufacturers m ON cars.manufacturer_id = manufacturers.id "
+                + "WHERE cars.id = ? AND cars.is_deleted = FALSE";
         Car car = null;
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement =
@@ -73,14 +73,14 @@ public class CarDaoImpl implements CarDao {
 
     @Override
     public List<Car> getAll() {
-        String query = "SELECT c.id AS id, "
+        String query = "SELECT cars.id AS id, "
                 + "model, "
                 + "manufacturer_id, "
-                + "m.name AS manufacturer_name, "
-                + "m.country AS manufacturer_country "
-                + "FROM cars c"
-                + " JOIN manufacturers m ON c.manufacturer_id = m.id"
-                + " WHERE c.is_deleted = FALSE";
+                + "manufacturers.name AS manufacturer_name, "
+                + "manufacturers.country AS manufacturer_country "
+                + "FROM cars "
+                + " JOIN manufacturers ON cars.manufacturer_id = manufacturers.id"
+                + " WHERE cars.is_deleted = FALSE";
         List<Car> cars = new ArrayList<>();
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement =
@@ -131,17 +131,17 @@ public class CarDaoImpl implements CarDao {
 
     @Override
     public List<Car> getAllByDriver(Long driverId) {
-        String query = "SELECT c.id AS id, "
+        String query = "SELECT cars.id AS id, "
                 + "model, "
                 + "manufacturer_id, "
-                + "m.name AS manufacturer_name, "
-                + "m.country AS manufacturer_country "
-                + "FROM cars c"
-                + " JOIN manufacturers m ON c.manufacturer_id = m.id"
-                + " JOIN cars_drivers cd ON c.id = cd.car_id"
-                + " JOIN drivers d ON cd.driver_id = d.id"
-                + " WHERE c.is_deleted = FALSE AND driver_id = ?"
-                + " AND d.is_deleted = FALSE";
+                + "manufacturers.name AS manufacturer_name, "
+                + "manufacturers.country AS manufacturer_country "
+                + "FROM cars "
+                + " JOIN manufacturers ON cars.manufacturer_id = manufacturers.id"
+                + " JOIN cars_drivers ON cars.id = cars_drivers.car_id"
+                + " JOIN drivers ON cars_drivers.driver_id = drivers.id"
+                + " WHERE cars.is_deleted = FALSE AND driver_id = ?"
+                + " AND drivers.is_deleted = FALSE";
         List<Car> cars = new ArrayList<>();
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement =
@@ -204,9 +204,9 @@ public class CarDaoImpl implements CarDao {
     }
 
     private List<Driver> getAllDriversByCarId(Long carId) {
-        String query = "SELECT id, name, license_number "
-                + "FROM cars_drivers cd "
-                + "JOIN drivers d ON cd.driver_id = d.id "
+        String query = "SELECT id, name, license_number, login, password "
+                + "FROM cars_drivers "
+                + "JOIN drivers ON cars_drivers.driver_id = drivers.id "
                 + "WHERE car_id = ? AND is_deleted = false";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement =
@@ -227,10 +227,14 @@ public class CarDaoImpl implements CarDao {
         Long driverId = resultSet.getObject("id", Long.class);
         String name = resultSet.getNString("name");
         String licenseNumber = resultSet.getNString("license_number");
+        String login = resultSet.getNString("login");
+        String password = resultSet.getNString("password");
         Driver driver = new Driver();
         driver.setId(driverId);
         driver.setName(name);
         driver.setLicenseNumber(licenseNumber);
+        driver.setLogin(login);
+        driver.setPassword(password);
         return driver;
     }
 

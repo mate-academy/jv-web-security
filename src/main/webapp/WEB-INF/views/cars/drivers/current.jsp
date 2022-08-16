@@ -5,7 +5,7 @@
 </style>
 <html>
 <head>
-    <title>All cars</title>
+    <title>All cars for driver with id value=${driverId}</title>
 </head>
 <body>
 <%@include file="/WEB-INF/views/header.jsp"%>
