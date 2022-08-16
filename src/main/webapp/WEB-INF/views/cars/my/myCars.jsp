@@ -19,7 +19,7 @@
         <th>Drivers</th>
         <th>Delete</th>
     </tr>
-    <c:forEach var="car" items="${cars}">
+    <c:forEach var="car" items="${myCars}">
         <tr>
             <td>
                 <c:out value="${car.id}"/>
@@ -44,6 +44,5 @@
         </tr>
     </c:forEach>
 </table>
-<a href="${pageContext.request.contextPath}/cars/my">display only my cars</a>
 </body>
 </html>
