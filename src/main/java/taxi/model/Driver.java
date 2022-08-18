@@ -6,13 +6,17 @@ public class Driver {
     private Long id;
     private String name;
     private String licenseNumber;
+    private String login;
+    private String password;
 
     public Driver() {
     }
 
-    public Driver(String name, String licenseNumber) {
+    public Driver(String name, String licenseNumber, String login, String password) {
         this.name = name;
         this.licenseNumber = licenseNumber;
+        this.login = login;
+        this.password = password;
     }
 
     public Long getId() {
@@ -39,6 +43,22 @@ public class Driver {
         this.licenseNumber = licenseNumber;
     }
 
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -47,14 +67,31 @@ public class Driver {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
+
         Driver driver = (Driver) o;
-        return Objects.equals(id, driver.id)
-                && Objects.equals(name, driver.name)
-                && Objects.equals(licenseNumber, driver.licenseNumber);
+
+        if (!Objects.equals(id, driver.id)) {
+            return false;
+        }
+        if (!Objects.equals(name, driver.name)) {
+            return false;
+        }
+        if (!Objects.equals(licenseNumber, driver.licenseNumber)) {
+            return false;
+        }
+        if (!Objects.equals(login, driver.login)) {
+            return false;
+        }
+        return Objects.equals(password, driver.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, licenseNumber);
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (licenseNumber != null ? licenseNumber.hashCode() : 0);
+        result = 31 * result + (login != null ? login.hashCode() : 0);
+        result = 31 * result + (password != null ? password.hashCode() : 0);
+        return result;
     }
 }
