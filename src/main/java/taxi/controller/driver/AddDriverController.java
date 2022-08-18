@@ -5,14 +5,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import taxi.exception.RegistrationException;
 import taxi.lib.Injector;
 import taxi.model.Driver;
-import taxi.service.DriverService;
+import taxi.service.RegistrationService;
 
 public class AddDriverController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
-    private final DriverService driverService = (DriverService) injector
-            .getInstance(DriverService.class);
+    private final RegistrationService registrationService = (RegistrationService) injector
+            .getInstance(RegistrationService.class);
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -21,11 +22,23 @@ public class AddDriverController extends HttpServlet {
     }
 
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    public void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws IOException, ServletException {
+        String login = req.getParameter("login");
+        String password = req.getParameter("password");
+        String passwordRepeat = req.getParameter("password_repeat");
         String name = req.getParameter("name");
         String licenseNumber = req.getParameter("license_number");
-        Driver driver = new Driver(name, licenseNumber);
-        driverService.create(driver);
-        resp.sendRedirect(req.getContextPath() + "/drivers/add");
+        try {
+            if (!password.equals(passwordRepeat)) {
+                throw new RegistrationException("Passwords is do not math");
+            }
+            Driver driver = new Driver(name, licenseNumber, login, password);
+            registrationService.register(driver);
+            resp.sendRedirect(req.getContextPath() + "/login");
+        } catch (RegistrationException e) {
+            req.setAttribute("errorMsg", e.getMessage());
+            req.getRequestDispatcher("/WEB-INF/views/drivers/add.jsp").forward(req, resp);
+        }
     }
 }
