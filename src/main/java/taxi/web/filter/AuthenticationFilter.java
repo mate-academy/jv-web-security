@@ -1,7 +1,6 @@
 package taxi.web.filter;
 
 import java.io.IOException;
-import java.util.HashSet;
 import java.util.Set;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -13,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class AuthenticationFilter implements Filter {
-    private final Set<String> allowedUrls;
+    private Set<String> allowedUrls;
 
     @Override
     public void init(FilterConfig filterConfig) {
