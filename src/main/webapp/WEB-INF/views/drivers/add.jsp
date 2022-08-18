@@ -9,15 +9,15 @@
 </head>
 <body>
 <form method="post" id="driver" action="${pageContext.request.contextPath}/register"></form>
-<h1 class="table_dark">Register new driver:</h1>
+<h1 class="table_dark">Register new driver</h1>
 <table class="table_dark">
     <tr>
         <th>Login</th>
         <th>Name</th>
     </tr>
     <tr>
+        <td><input type="text" name="login" form="driver" required></td>
         <td><input type="text" name="name" form="driver" required></td>
-        <td><input type="text" name="license_number" form="driver" required></td>
 
     </tr>
     <tr>

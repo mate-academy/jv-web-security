@@ -30,8 +30,11 @@ public class AddDriverController extends HttpServlet {
         String name = req.getParameter("name");
         String licenseNumber = req.getParameter("license_number");
         try {
+            if (!password.equals(passwordRepeat)) {
+                throw new RegistrationException("Passwords is do not math");
+            }
             Driver driver = new Driver(name, licenseNumber, login, password);
-            registrationService.register(driver, passwordRepeat);
+            registrationService.register(driver);
             resp.sendRedirect(req.getContextPath() + "/login");
         } catch (RegistrationException e) {
             req.setAttribute("errorMsg", e.getMessage());

@@ -11,7 +11,7 @@ public class RegistrationServiceImpl implements RegistrationService {
     private DriverService driverService;
 
     @Override
-    public Driver register(Driver driver, String passwordRepeat) throws RegistrationException {
+    public Driver register(Driver driver) throws RegistrationException {
         if (driverService.findByLogin(driver.getLogin()).isPresent()) {
             throw new RegistrationException("Driver with such login already exists");
         }

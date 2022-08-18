@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import taxi.exception.AuthenticationException;
-import taxi.exception.RegistrationException;
 import taxi.lib.Injector;
 import taxi.model.Driver;
 import taxi.service.AuthenticationService;
@@ -28,20 +27,14 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
-        String passwordRepeat = req.getParameter("passwordRepeat");
         try {
             Driver driver = authenticationService.login(login, password);
-            if (!driver.getPassword().equals(passwordRepeat)) {
-                throw new RegistrationException("Passwords don't match");
-            }
             HttpSession session = req.getSession();
             session.setAttribute("driver_id", driver.getId());
             resp.sendRedirect("/index");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMsg", e.getMessage());
             req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
-        } catch (RegistrationException e) {
-            throw new RuntimeException(e);
         }
     }
 }
