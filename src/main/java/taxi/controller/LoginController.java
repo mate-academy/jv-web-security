@@ -1,7 +1,6 @@
 package taxi.controller;
 
 import java.io.IOException;
-import java.util.Optional;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -29,9 +28,9 @@ public class LoginController extends HttpServlet {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         try {
-            Optional<Driver> driver = service.login(login, password);
+            Driver driver = service.login(login, password);
             HttpSession session = req.getSession();
-            session.setAttribute("driver_id", driver.get().getId());
+            session.setAttribute("driver_id", driver.getId());
             resp.sendRedirect("/index");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMsg", e.getMessage());
