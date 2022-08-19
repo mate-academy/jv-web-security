@@ -26,8 +26,9 @@ public class LoginController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         try {
-            Driver driver = authenticationService
-                    .login(req.getParameter("login"), req.getParameter("password"));
+            String login = req.getParameter("login");
+            String password = req.getParameter("password");
+            Driver driver = authenticationService.login(login, password);
             HttpSession session = req.getSession();
             session.setAttribute("driver_id", driver.getId());
             resp.sendRedirect("/index");
