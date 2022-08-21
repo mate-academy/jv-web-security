@@ -8,6 +8,7 @@
     <title>All cars</title>
 </head>
 <body>
+<%@include file="/WEB-INF/views/header.jsp" %>
 <h1 class="table_dark">All cars:</h1>
 <table border="1" class="table_dark">
     <tr>
@@ -34,11 +35,12 @@
             </td>
             <td>
                 <c:forEach var="driver" items="${car.drivers}">
-                    ${driver.id} ${driver.name} ${driver.licenseNumber} <br>
+                    id=${driver.id} / name: ${driver.name} / license: ${driver.licenseNumber} / login: ${driver.login}
+                    <br>
                 </c:forEach>
             </td>
             <td>
-                <a href="${pageContext.request.contextPath}/cars/delete?id=${car.id}">DELETE</a>
+                <a href="${pageContext.request.contextPath}/cars/delete?id=${car.id}&path=${servletPath}">DELETE</a>
             </td>
         </tr>
     </c:forEach>

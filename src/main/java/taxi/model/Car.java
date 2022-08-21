@@ -19,6 +19,11 @@ public class Car {
         drivers = new ArrayList<>();
     }
 
+    public Car(Long id, String model, Manufacturer manufacturer) {
+        this(model, manufacturer);
+        this.id = id;
+    }
+
     public Long getId() {
         return id;
     }
@@ -52,16 +57,6 @@ public class Car {
     }
 
     @Override
-    public String toString() {
-        return "Car{"
-                + "id=" + id
-                + ", model='" + model + '\''
-                + ", manufacturer=" + manufacturer
-                + ", drivers=" + drivers
-                + '}';
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -78,5 +73,15 @@ public class Car {
     @Override
     public int hashCode() {
         return Objects.hash(id, model, manufacturer, drivers);
+    }
+
+    @Override
+    public String toString() {
+        return "Car{"
+                + "id=" + id
+                + ", model='" + model + '\''
+                + ", manufacturer=" + manufacturer
+                + ", drivers=" + drivers
+                + '}';
     }
 }
