@@ -51,7 +51,7 @@
                 <td><a href="${pageContext.request.contextPath}/cars/drivers/add">Add Driver to Car</a></td>
             </tr>
             <tr>
-                <td><a href="${pageContext.request.contextPath}/cars/current">Display Current Cars</a></td>
+                <td><a href="${pageContext.request.contextPath}/drivers/cars">Display Current Cars</a></td>
             </tr>
             <tr>
         </table>
