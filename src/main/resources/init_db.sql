@@ -10,7 +10,12 @@ DROP TABLE IF EXISTS `drivers`;
 CREATE TABLE `drivers`  (
                             `id` bigint(0) UNSIGNED NOT NULL AUTO_INCREMENT,
                             `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                            `license_number` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                            `license_number` varchar(255) CHARACTER SET utf8 COLLATE
+                                utf8_general_ci UNIQUE NOT NULL,
+                            `login` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci CHECK
+                                (LENGTH(`login`) >= 3) UNIQUE NOT NULL,
+                            `password` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci CHECK
+                                (LENGTH(`password`) >= 3) NOT NULL,
                             `is_deleted` bit(1) NOT NULL DEFAULT b'0',
                             PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
