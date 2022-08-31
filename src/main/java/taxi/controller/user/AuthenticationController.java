@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import taxi.lib.Injector;
-import taxi.model.User;
+import taxi.model.Driver;
 import taxi.service.AuthenticationService;
 
 public class AuthenticationController extends HttpServlet {
@@ -29,11 +29,10 @@ public class AuthenticationController extends HttpServlet {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         try {
-            User user = authenticationService.login(login, password);
+            Driver driver = authenticationService.login(login, password);
             HttpSession session = req.getSession();
-            session.setAttribute("user_id", user.getId());
-            session.setAttribute("driver_id", user.getDriver().getId());
-            resp.sendRedirect("/");
+            session.setAttribute("driver_id", driver.getId());
+            resp.sendRedirect(req.getServletPath() + "/index");
         } catch (AuthenticationException e) {
             req.setAttribute("message", e.getMessage());
             req.getRequestDispatcher("/WEB-INF/views/user/login.jsp").forward(req, resp);

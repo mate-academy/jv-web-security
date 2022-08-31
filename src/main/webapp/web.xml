@@ -26,15 +26,6 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>allUsers</servlet-name>
-        <servlet-class>taxi.controller.user.GetAllUsersController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>allUsers</servlet-name>
-        <url-pattern>/users</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>deleteDriver</servlet-name>
         <servlet-class>taxi.controller.driver.DeleteDriverController</servlet-class>
     </servlet>
@@ -67,7 +58,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>allMyCars</servlet-name>
-        <url-pattern>/cars/my</url-pattern>
+        <url-pattern>/cars/all</url-pattern>
     </servlet-mapping>
 
     <servlet>

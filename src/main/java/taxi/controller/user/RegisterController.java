@@ -7,8 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import taxi.lib.Injector;
-import taxi.model.Driver;
-import taxi.model.User;
 import taxi.service.RegisterService;
 
 public class RegisterController extends HttpServlet {
@@ -30,13 +28,13 @@ public class RegisterController extends HttpServlet {
         String repeatPassword = req.getParameter("repeatPassword");
         String name = req.getParameter("name");
         String licenseNumber = req.getParameter("licenseNumber");
-        Driver driver = new Driver(name, licenseNumber);
         try {
-            User user = registerService.register(login, password, repeatPassword, driver);
+            registerService.register(login, password,
+                    repeatPassword, name, licenseNumber);
         } catch (AuthenticationException e) {
             req.setAttribute("message", e.getMessage());
             req.getRequestDispatcher("/WEB-INF/views/user/register.jsp").forward(req, resp);
         }
-        resp.sendRedirect("/login");
+        resp.sendRedirect(req.getContextPath() + "/login");
     }
 }

@@ -1,8 +1,8 @@
 package taxi.service;
 
 import javax.naming.AuthenticationException;
-import taxi.model.User;
+import taxi.model.Driver;
 
 public interface AuthenticationService {
-    User login(String login, String password) throws AuthenticationException;
+    Driver login(String login, String password) throws AuthenticationException;
 }
