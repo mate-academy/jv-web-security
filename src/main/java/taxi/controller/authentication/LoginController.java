@@ -17,7 +17,7 @@ public class LoginController extends HttpServlet {
     private final DriverService driverService;
 
     {
-        Injector injector = Injector.getInstance("mate");
+        Injector injector = Injector.getInstance("taxi");
         authenticationService =
                 (AuthenticationService) injector.getInstance(AuthenticationService.class);
         driverService =

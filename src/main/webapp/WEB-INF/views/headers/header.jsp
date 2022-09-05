@@ -11,6 +11,6 @@
     <title></title>
 </head>
 <body>
-<a href="${pageContext.request.contextPath}/logout"><input type="submit" name="Logout"/></a>
+<a href="${pageContext.request.contextPath}/logout"><input type="button" value="Logout"/></a>
 </body>
 </html>

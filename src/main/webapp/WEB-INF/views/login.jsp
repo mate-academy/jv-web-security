@@ -11,12 +11,14 @@
     <title>Title</title>
 </head>
 <body>
+<h2 style="color: red">${errorMsg}</h2>
+
 <form method="post" action="${pageContext.request.contextPath}/login">
     Login <input type="text" name="Login"><br>
     Password <input type="password" name="Password"><br>
     <button type="submit">Login</button>
 </form>
 
-<a href="${pageContext.request.contextPath}/register"><input type="submit" name="register"/></a>
+<a href="${pageContext.request.contextPath}/register"><input type="button" value="Register" /></a>
 </body>
 </html>
