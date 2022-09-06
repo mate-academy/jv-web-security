@@ -13,16 +13,9 @@ import taxi.service.AuthenticationService;
 import taxi.service.DriverService;
 
 public class LoginController extends HttpServlet {
-    private final AuthenticationService authenticationService;
-    private final DriverService driverService;
-
-    {
-        Injector injector = Injector.getInstance("taxi");
-        authenticationService =
-                (AuthenticationService) injector.getInstance(AuthenticationService.class);
-        driverService =
-                (DriverService) injector.getInstance(DriverService.class);
-    }
+    private static final Injector injector = Injector.getInstance("taxi");
+    private final AuthenticationService authenticationService =
+            (AuthenticationService) injector.getInstance(AuthenticationService.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -37,8 +30,7 @@ public class LoginController extends HttpServlet {
         String login = req.getParameter("Login");
         String password = req.getParameter("Password");
         try {
-            authenticationService.login(login, password);
-            Driver driver = driverService.findByLogin(login).get();
+            Driver driver = authenticationService.login(login, password);
             session.setAttribute("driver_id", driver.getId());
             resp.sendRedirect("/index");
         } catch (AuthenticatingException e) {
