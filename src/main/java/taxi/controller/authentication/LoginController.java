@@ -10,7 +10,6 @@ import taxi.exception.AuthenticatingException;
 import taxi.lib.Injector;
 import taxi.model.Driver;
 import taxi.service.AuthenticationService;
-import taxi.service.DriverService;
 
 public class LoginController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
