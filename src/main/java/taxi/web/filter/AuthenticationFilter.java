@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class AuthenticationFilter implements Filter {
-    private static final Set<String> ALLOWEDURLS = Set.of("/login", "/register");
+    private static final Set<String> ALLOWED_URLS = Set.of("/login", "/register");
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
@@ -22,7 +22,7 @@ public class AuthenticationFilter implements Filter {
         HttpSession session = req.getSession();
 
         Long userId = (Long) session.getAttribute("driver_id");
-        if (userId == null && ALLOWEDURLS.contains(req.getServletPath())) {
+        if (userId == null && ALLOWED_URLS.contains(req.getServletPath())) {
             chain.doFilter(req, resp);
             return;
         }
