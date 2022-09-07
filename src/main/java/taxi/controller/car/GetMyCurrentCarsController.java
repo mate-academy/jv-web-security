@@ -12,12 +12,8 @@ import taxi.model.Car;
 import taxi.service.CarService;
 
 public class GetMyCurrentCarsController extends HttpServlet {
-    private final CarService carService;
-
-    {
-        Injector injector = Injector.getInstance("taxi");
-        carService = (CarService) injector.getInstance(CarService.class);
-    }
+    private static final Injector injector = Injector.getInstance("taxi");
+    private final CarService carService = (CarService) injector.getInstance(CarService.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
