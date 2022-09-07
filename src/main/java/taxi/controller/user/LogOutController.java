@@ -12,7 +12,7 @@ public class LogOutController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         HttpSession session = req.getSession();
-        session.setAttribute("driver_id", null);
+        session.invalidate();
         resp.sendRedirect(req.getContextPath() + "/login");
     }
 }

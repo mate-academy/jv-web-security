@@ -34,6 +34,7 @@ public class RegisterController extends HttpServlet {
         } catch (AuthenticationException e) {
             req.setAttribute("message", e.getMessage());
             req.getRequestDispatcher("/WEB-INF/views/user/register.jsp").forward(req, resp);
+            return;
         }
         resp.sendRedirect(req.getContextPath() + "/login");
     }

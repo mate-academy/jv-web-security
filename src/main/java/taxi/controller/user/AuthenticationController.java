@@ -19,7 +19,6 @@ public class AuthenticationController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        req.setAttribute("message", "");
         req.getRequestDispatcher("/WEB-INF/views/user/login.jsp").forward(req, resp);
     }
 
