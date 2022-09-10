@@ -19,6 +19,9 @@
     <c:forEach var="driver" items="${drivers}">
         <tr>
             <td>
+                <c:out value="${driver.login}"/>
+            </td>
+            <td>
                 <c:out value="${driver.id}"/>
             </td>
             <td>
