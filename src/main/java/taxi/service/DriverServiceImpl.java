@@ -1,6 +1,7 @@
 package taxi.service;
 
 import java.util.List;
+import java.util.Optional;
 import taxi.dao.DriverDao;
 import taxi.lib.Inject;
 import taxi.lib.Service;
@@ -34,5 +35,20 @@ public class DriverServiceImpl implements DriverService {
     @Override
     public boolean delete(Long id) {
         return driverDao.delete(id);
+    }
+
+    @Override
+    public Optional<Driver> findByLogin(String login) {
+        return driverDao.findByLogin(login);
+    }
+
+    @Override
+    public Driver register(String login, String password, String repeatPassword,
+                           String name, String licenseNnumber) {
+        if (!password.equals(repeatPassword)) {
+            throw new RuntimeException("Your passwords are not equals!");
+        }
+        Driver driver = new Driver(name, licenseNnumber, login, password);
+        return driverDao.create(driver);
     }
 }
