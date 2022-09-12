@@ -12,6 +12,6 @@
         <button type="submit">Login</button>
     </form>
     <br>
-    <h5><a href=""${pageContext.request.contextPath}/drivers/add"">Register as a driver</a> </h5>
+    <h5><a href="${pageContext.request.contextPath}/drivers/add">Register as a driver</a> </h5>
 </body>
 </html>

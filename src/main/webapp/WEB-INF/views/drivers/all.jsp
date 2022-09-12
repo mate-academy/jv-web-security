@@ -8,9 +8,11 @@
     <title>All drivers</title>
 </head>
 <body>
+<%@include file="../header.jsp" %>
 <h1 class="table_dark">All drivers:</h1>
 <table border="1" class="table_dark">
     <tr>
+        <th>Login</th>
         <th>ID</th>
         <th>Name</th>
         <th>License number</th>
