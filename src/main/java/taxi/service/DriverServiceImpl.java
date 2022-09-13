@@ -43,12 +43,10 @@ public class DriverServiceImpl implements DriverService {
     }
 
     @Override
-    public Driver register(String login, String password, String repeatPassword,
-                           String name, String licenseNnumber) {
-        if (!password.equals(repeatPassword)) {
+    public Driver register(Driver driver, String repeatPassword) {
+        if (!driver.getPassword().equals(repeatPassword)) {
             throw new RuntimeException("Your passwords are not equals!");
         }
-        Driver driver = new Driver(name, licenseNnumber, login, password);
         return driverDao.create(driver);
     }
 }

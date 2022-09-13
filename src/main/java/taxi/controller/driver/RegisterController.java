@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import taxi.lib.Injector;
+import taxi.model.Driver;
 import taxi.service.DriverService;
 
 public class RegisterController extends HttpServlet {
@@ -27,7 +28,8 @@ public class RegisterController extends HttpServlet {
         String repeatPassword = req.getParameter("repeat_password");
         String name = req.getParameter("name");
         String licenseNumber = req.getParameter("license_number");
-        driverService.register(login, password, repeatPassword, name, licenseNumber);
+        Driver driver = new Driver(name, licenseNumber, login, password);
+        driverService.register(driver, repeatPassword);
         resp.sendRedirect("/login");
     }
 }

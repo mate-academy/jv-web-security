@@ -152,7 +152,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>cars</servlet-name>
-        <url-pattern>/mycars</url-pattern>
+        <url-pattern>/drivers/cars</url-pattern>
     </servlet-mapping>
 
 </web-app>
