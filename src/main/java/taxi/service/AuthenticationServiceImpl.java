@@ -1,6 +1,6 @@
 package taxi.service;
 
-import java.util.Objects;
+import java.util.Optional;
 import taxi.exception.AuthenticationException;
 import taxi.lib.Inject;
 import taxi.lib.Service;
@@ -13,11 +13,10 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     @Override
     public Driver login(String login, String password) throws AuthenticationException {
-        Driver driver = driverService.findByLogin(login).orElseThrow(() ->
-                new AuthenticationException("Can't find driver with this login and password."));
-        if (!Objects.equals(password, driver.getPassword())) {
+        Optional<Driver> optionalDriver = driverService.findByLogin(login);
+        if (optionalDriver.isEmpty() || !optionalDriver.get().getPassword().equals(password)) {
             throw new AuthenticationException("Can't find driver with this login and password.");
         }
-        return driver;
+        return optionalDriver.get();
     }
 }
