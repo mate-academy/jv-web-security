@@ -17,7 +17,7 @@
         <th>Login</th>
         <th>Password</th>
         <th>Repeat Password</th>
-        <th>Login</th>
+        <th>Register</th>
     </tr>
     <tr>
         <td>
