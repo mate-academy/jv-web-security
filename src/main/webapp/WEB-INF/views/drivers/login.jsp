@@ -10,6 +10,7 @@
 <body>
 <form method="post" id="driver" action="${pageContext.request.contextPath}/login"></form>
 <h1 class="table_dark">Driver Login:</h1>
+<h1 class="table_dark" style="color:red">${errorMsg}</h1>
 <table border="1" class="table_dark">
     <tr>
         <th>Login</th>
