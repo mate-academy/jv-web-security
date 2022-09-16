@@ -18,8 +18,7 @@ public class AuthenticationFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        allowedUrls.add("/login");
-        allowedUrls.add("/drivers/add");
+        allowedUrls = Set.of("/login", "/drivers/add");
         Filter.super.init(filterConfig);
     }
 
