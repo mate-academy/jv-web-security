@@ -90,7 +90,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>currentDriverCars</servlet-name>
-        <url-pattern>/cars/driver</url-pattern>
+        <url-pattern>/drivers/cars</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -127,10 +127,6 @@
     <servlet-mapping>
         <servlet-name>loginController</servlet-name>
         <url-pattern>/login</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>loginController</servlet-name>
-        <url-pattern>/</url-pattern>
     </servlet-mapping>
 
     <servlet>
