@@ -12,6 +12,11 @@ public class Driver {
     public Driver() {
     }
 
+    public Driver(String name, String licenseNumber) {
+        this.name = name;
+        this.licenseNumber = licenseNumber;
+    }
+
     public Driver(String name, String licenseNumber, String login, String password) {
         this.name = name;
         this.licenseNumber = licenseNumber;
