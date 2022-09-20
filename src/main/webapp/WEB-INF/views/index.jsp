@@ -9,7 +9,7 @@
 <body>
 <form method="post" id="redirect"></form>
 <h1 class="table_dark">Welcome to our taxi service</h1>
-<%@include file="header.jsp"%>
+<%@include file='/WEB-INF/views/header.jsp'%>
 <table class="table_dark">
     <tr>
         <th>Redirect to</th>
