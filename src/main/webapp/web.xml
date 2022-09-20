@@ -107,6 +107,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>allCarsForDriver</servlet-name>
+        <servlet-class>taxi.controller.car.GetMyCurrentCarsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>allCarsForDriver</servlet-name>
+        <url-pattern>/drivers/cars</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>login</servlet-name>
         <servlet-class>taxi.controller.authentication.LoginController</servlet-class>
     </servlet>
