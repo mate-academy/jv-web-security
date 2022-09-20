@@ -5,7 +5,7 @@
 </style>
 <html>
 <head>
-    <title>All manufacturers</title>
+    <title>Taxi Service</title>
 </head>
 <body>
 <h1 class="table_dark">All manufacturers:</h1>

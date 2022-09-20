@@ -5,7 +5,7 @@
 </style>
 <html>
 <head>
-    <title>Manufacturers</title>
+    <title>Taxi Service</title>
 </head>
 <body>
 <form method="post" id="manufacturer" action="${pageContext.request.contextPath}/manufacturers/add"></form>

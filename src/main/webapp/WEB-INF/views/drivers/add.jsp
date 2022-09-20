@@ -5,7 +5,7 @@
 </style>
 <html>
 <head>
-    <title>All drivers</title>
+    <title>Taxi Service</title>
 </head>
 <body>
     <form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/add"></form>
