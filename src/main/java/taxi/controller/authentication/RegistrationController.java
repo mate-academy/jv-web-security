@@ -37,6 +37,6 @@ public class RegistrationController extends HttpServlet {
                     .forward(req, resp);
             return;
         }
-        resp.sendRedirect("/login");
+        resp.sendRedirect(req.getContextPath() + "/login");
     }
 }
