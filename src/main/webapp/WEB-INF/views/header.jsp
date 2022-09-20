@@ -3,7 +3,8 @@
 <head>
     <title>Header</title>
 </head>
-<body>
+<body><a href="${pageContext.request.contextPath}/index">Home </a>
+|
 <a href="${pageContext.request.contextPath}/logout">Log out</a>
 </body>
 </html>
