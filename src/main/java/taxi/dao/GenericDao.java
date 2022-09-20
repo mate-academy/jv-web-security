@@ -13,4 +13,5 @@ public interface GenericDao<T> {
     T update(T element);
 
     boolean delete(Long id);
+
 }
