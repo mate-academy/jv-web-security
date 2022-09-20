@@ -1,32 +1,32 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<style>
-    <%@include file='/WEB-INF/views/css/table_dark.css' %>
-</style>
 <html>
 <head>
-    <title>Manufacturers</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+    <title>Taxi | Manufacturers : Add manufacturer</title>
 </head>
+
 <body>
-<form method="post" id="manufacturer" action="${pageContext.request.contextPath}/manufacturers/add"></form>
-<h1 class="table_dark">Add manufacturer:</h1>
-<table border="1" class="table_dark">
-    <tr>
-        <th>Name</th>
-        <th>Country</th>
-        <th>Add</th>
-    </tr>
-    <tr>
-        <td>
-            <input type="text" name="name" form="manufacturer" required>
-        </td>
-        <td>
-            <input type="text" name="country" form="manufacturer" required>
-        </td>
-        <td>
-            <input type="submit" name="add" form="manufacturer" required>
-        </td>
-    </tr>
-</table>
+<%@ include file="../toolbar/header.jsp"%>
+<div class="container">
+    <h3>Create new manufacturer</h3>
+    <form method="post" action="${pageContext.request.contextPath}/manufacturers/add">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="name" name="name"
+                   placeholder="Enter manufacturer name.">
+            <label for="name">Enter manufacturer name.</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="country" name="country"
+                   placeholder="Enter manufacturer's country.">
+            <label for="country">Enter manufacturer's country.</label>
+        </div>
+        <div class="d-md-flex justify-content-md-end">
+            <button type="submit" class="btn btn-outline-primary">Create</button>
+        </div>
+    </form>
+</div>
 </body>
 </html>

@@ -1,32 +1,33 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<style>
-    <%@include file='/WEB-INF/views/css/table_dark.css' %>
-</style>
 <html>
 <head>
-    <title>All drivers</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+    <title>Taxi | Drivers : Add driver</title>
 </head>
+
 <body>
-<form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/add"></form>
-<h1 class="table_dark">Add driver:</h1>
-<table border="1" class="table_dark">
-    <tr>
-        <th>Name</th>
-        <th>License number</th>
-        <th>Add</th>
-    </tr>
-    <tr>
-        <td>
-            <input type="text" name="name" form="driver" required>
-        </td>
-        <td>
-            <input type="text" name="license_number" form="driver" required>
-        </td>
-        <td>
-            <input type="submit" name="add" form="driver">
-        </td>
-    </tr>
-</table>
+<%@ include file="../toolbar/header.jsp"%>
+<div class="container">
+    <h3>Create new driver</h3>
+    <form method="post" action="${pageContext.request.contextPath}/drivers/add">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="name" name="name"
+                   placeholder="Enter driver name.">
+            <label for="name">Enter driver name.</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="license_number" name="license_number"
+                   placeholder="Enter driver's license number.">
+            <label for="license_number">Enter driver's license number.</label>
+        </div>
+        <div class="d-md-flex justify-content-md-end">
+            <button type="submit" class="btn btn-outline-primary">Create</button>
+        </div>
+    </form>
+</div>
 </body>
+
 </html>

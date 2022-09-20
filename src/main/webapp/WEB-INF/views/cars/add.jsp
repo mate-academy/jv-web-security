@@ -1,32 +1,33 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<style>
-    <%@include file='/WEB-INF/views/css/table_dark.css' %>
-</style>
 <html>
 <head>
-    <title>Add car</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+    <title>Taxi | Cars : Add car</title>
 </head>
+
 <body>
-<form method="post" id="car" action="${pageContext.request.contextPath}/cars/add"></form>
-<h1 class="table_dark">Add car:</h1>
-<table border="1" class="table_dark">
-    <tr>
-        <th>Model</th>
-        <th>Manufacturer ID</th>
-        <th>Add</th>
-    </tr>
-    <tr>
-        <td>
-            <input type="text" name="model" form="car" required>
-        </td>
-        <td>
-            <input type="number" name="manufacturer_id" form="car" required>
-        </td>
-        <td>
-            <input type="submit" name="add" form="car">
-        </td>
-    </tr>
-</table>
+<%@ include file="../toolbar/header.jsp"%>
+<div class="container">
+    <h3>Create new car</h3>
+    <form method="post" action="${pageContext.request.contextPath}/cars/add">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="model" name="model"
+                   placeholder="Enter car's model.">
+            <label for="model">Enter car's model.</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="manufacturer_id" name="manufacturer_id"
+                   placeholder="Enter manufacturer id.">
+            <label for="manufacturer_id">Enter manufacturer id.</label>
+        </div>
+        <div class="d-md-flex justify-content-md-end">
+            <button type="submit" class="btn btn-outline-primary">Create</button>
+        </div>
+    </form>
+</div>
 </body>
+
 </html>
