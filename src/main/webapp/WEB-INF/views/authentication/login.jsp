@@ -7,6 +7,7 @@
     <title>Login</title>
 </head>
 <body>
+<h2 style="color: red">${error_message}</h2>
 <form method="post" id="redirect"></form>
 <h1 class="table_dark">Enter login and password</h1>
 <table border="1" class="table_dark">
@@ -15,7 +16,7 @@
         <th>Password</th>
         <th>Login</th>
     </tr>
-    <h2 style="color: red">${error_message}</h2>
+
     <tr>
         <td>
             <input type="text" name="user_name" form="redirect" required>
@@ -29,6 +30,6 @@
     </tr>
 </table>
 <br>
-<h3></h3><a style="color: #7C5FAB" href="${pageContext.request.contextPath}/drivers/add">Register new driver</a></h3>
+<h3></h3><a style="color: #7C5FAB" href="${pageContext.request.contextPath}/register">Register new driver</a></h3>
 </body>
 </html>

@@ -1,4 +1,4 @@
-package taxi.controller.driver;
+package taxi.controller.authentication;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -10,7 +10,7 @@ import taxi.lib.Injector;
 import taxi.model.Driver;
 import taxi.service.DriverService;
 
-public class AddDriverController extends HttpServlet {
+public class RegisterController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
     private final DriverService driverService = (DriverService) injector
             .getInstance(DriverService.class);
@@ -18,7 +18,8 @@ public class AddDriverController extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/views/drivers/add.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/views/authentication/register.jsp")
+                .forward(req, resp);
     }
 
     @Override
@@ -33,8 +34,9 @@ public class AddDriverController extends HttpServlet {
             driverService.create(driver);
         } catch (DataProcessingException e) {
             req.setAttribute("error_message", e.getMessage());
-            req.getRequestDispatcher("/WEB-INF/views/drivers/add.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/views/authentication/register.jsp")
+                    .forward(req, resp);
         }
-        resp.sendRedirect(req.getContextPath() + "/drivers/add");
+        resp.sendRedirect(req.getContextPath() + "/index");
     }
 }
