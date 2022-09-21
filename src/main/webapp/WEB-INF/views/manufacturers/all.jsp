@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1 class="table_dark">All manufacturers:</h1>
-<table border="1" class="table_dark">
+<table> border="1" class="table_dark">
     <tr>
         <th>ID</th>
         <th>Name</th>
@@ -33,5 +33,11 @@
         </tr>
     </c:forEach>
 </table>
+<table class="table_dark">
+    <tr>
+        <td><a href="${pageContext.request.contextPath}/index">Main</a></td>
+    </tr>
+</table>
+<%@include file="../logout.jsp" %>
 </body>
 </html>

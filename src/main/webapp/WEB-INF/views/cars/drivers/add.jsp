@@ -28,5 +28,11 @@
         </td>
     </tr>
 </table>
+<table class="table_dark">
+    <tr>
+        <td><a href="${pageContext.request.contextPath}/index">Main</a></td>
+    </tr>
+</table>
+<%@include file="../../logout.jsp" %>
 </body>
 </html>
