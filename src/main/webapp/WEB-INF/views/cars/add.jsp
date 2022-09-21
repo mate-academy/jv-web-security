@@ -9,6 +9,11 @@
 </head>
 <body>
 <form method="post" id="car" action="${pageContext.request.contextPath}/cars/add"></form>
+<table class="table_dark">
+    <tr>
+        <th><%@include file="/WEB-INF/views/main/header.jsp" %></th>
+    </tr>
+</table>
 <h1 class="table_dark">Add car:</h1>
 <table border="1" class="table_dark">
     <tr>
@@ -27,6 +32,31 @@
             <input type="submit" name="add" form="car">
         </td>
     </tr>
+</table>
+<h1 class="table_dark">Available manufacturers:</h1>
+<table border="1" class="table_dark">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>License number</th>
+        <th>Delete</th>
+    </tr>
+    <c:forEach var="manufacturer" items="${manufacturers}">
+        <tr>
+            <td>
+                <c:out value="${manufacturer.id}"/>
+            </td>
+            <td>
+                <c:out value="${manufacturer.name}"/>
+            </td>
+            <td>
+                <c:out value="${manufacturer.country}"/>
+            </td>
+            <td>
+                <a href="${pageContext.request.contextPath}/manufacturers/delete?id=${manufacturer.id}">DELETE</a>
+            </td>
+        </tr>
+    </c:forEach>
 </table>
 </body>
 </html>

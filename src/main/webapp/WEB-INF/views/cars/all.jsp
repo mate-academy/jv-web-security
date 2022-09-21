@@ -5,10 +5,15 @@
 </style>
 <html>
 <head>
-    <title>All cars</title>
+    <title>${title}</title>
 </head>
 <body>
-<h1 class="table_dark">All cars:</h1>
+<h1 class="table_dark">${title}</h1>
+<table class="table_dark">
+    <tr>
+        <th><%@include file="/WEB-INF/views/main/header.jsp" %></th>
+    </tr>
+</table>
 <table border="1" class="table_dark">
     <tr>
         <th>ID</th>
