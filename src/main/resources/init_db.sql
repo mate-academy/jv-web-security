@@ -9,10 +9,13 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `drivers`;
 CREATE TABLE `drivers`  (
                             `id` bigint(0) UNSIGNED NOT NULL AUTO_INCREMENT,
+                            `login` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                            `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
                             `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
                             `license_number` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
                             `is_deleted` bit(1) NOT NULL DEFAULT b'0',
                             PRIMARY KEY (`id`) USING BTREE
+                            UNIQUE KEY `login_UNIQUE` (`login`)
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------

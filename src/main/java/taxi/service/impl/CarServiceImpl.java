@@ -1,4 +1,4 @@
-package taxi.service;
+package taxi.service.impl;
 
 import java.util.List;
 import taxi.dao.CarDao;
@@ -6,6 +6,7 @@ import taxi.lib.Inject;
 import taxi.lib.Service;
 import taxi.model.Car;
 import taxi.model.Driver;
+import taxi.service.CarService;
 
 @Service
 public class CarServiceImpl implements CarService {
@@ -36,7 +37,8 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public Car get(Long id) {
-        return carDao.get(id).get();
+        return carDao.get(id)
+                .orElseThrow(() -> new RuntimeException("Car with id = " + id + " does not exist"));
     }
 
     @Override
