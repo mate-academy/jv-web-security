@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
 import taxi.dao.CarDao;
 import taxi.exception.DataProcessingException;
 import taxi.lib.Dao;
@@ -193,7 +192,7 @@ public class CarDaoImpl implements CarDao {
                 + ");";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement =
-                     connection.prepareStatement(query)) {
+                        connection.prepareStatement(query)) {
             statement.setLong(1, carId);
             for (int i = 0; i < size; i++) {
                 Driver driver = exceptions.get(i);
