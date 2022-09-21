@@ -13,8 +13,8 @@ import taxi.service.CarService;
 
 public class GetMyCurrentCarsController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
-    private static final CarService carService
-            = (CarService) injector.getInstance(CarService.class);
+    private static final CarService carService =
+            (CarService) injector.getInstance(CarService.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
