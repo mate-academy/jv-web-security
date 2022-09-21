@@ -11,7 +11,7 @@
 <form method="post" id="car" action="${pageContext.request.contextPath}/cars/add"></form>
 <table class="table_dark">
     <tr>
-        <th><%@include file="/WEB-INF/views/header.jsp" %></th>
+        <th><%@include file="/WEB-INF/views/main/header.jsp" %></th>
     </tr>
 </table>
 <h1 class="table_dark">Add car:</h1>

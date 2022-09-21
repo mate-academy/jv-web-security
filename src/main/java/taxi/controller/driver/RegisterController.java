@@ -10,8 +10,8 @@ import taxi.lib.Injector;
 import taxi.model.Driver;
 import taxi.service.DriverService;
 
-@WebServlet(urlPatterns = "/drivers/create")
-public class CreateDriverController extends HttpServlet {
+@WebServlet(urlPatterns = "/drivers/register")
+public class RegisterController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
     private final DriverService driverService = (DriverService)
             injector.getInstance(DriverService.class);
@@ -19,7 +19,7 @@ public class CreateDriverController extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/views/createDriver.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/views/authentication/register.jsp").forward(req, resp);
     }
 
     @Override

@@ -7,11 +7,11 @@
     <title>Registration page</title>
 </head>
 <body>
-<form method="post" id="create" action="${pageContext.request.contextPath}/drivers/create"></form>
+<form method="post" id="create" action="${pageContext.request.contextPath}/drivers/register"></form>
 <h1 class="table_dark">Register driver</h1>
 <table class="table_dark">
     <tr>
-        <th><%@include file="/WEB-INF/views/header.jsp" %></th>
+        <th><%@include file="/WEB-INF/views/main/header.jsp" %></th>
     </tr>
 </table>
 <table class="table_dark">
