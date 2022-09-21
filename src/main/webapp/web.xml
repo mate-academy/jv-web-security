@@ -60,7 +60,7 @@
         <servlet-name>addCar</servlet-name>
         <url-pattern>/cars/add</url-pattern>
     </servlet-mapping>
-
+    
     <servlet>
         <servlet-name>addDriverToCar</servlet-name>
         <servlet-class>taxi.controller.car.AddDriverToCarController</servlet-class>
@@ -105,4 +105,13 @@
         <servlet-name>deleteManufacturer</servlet-name>
         <url-pattern>/manufacturers/delete</url-pattern>
     </servlet-mapping>
+    
+    <filter>
+        <filter-name>authenticationFilter</filter-name>
+        <filter-class>taxi.web.filter.AuthenticationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>authenticationFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>
