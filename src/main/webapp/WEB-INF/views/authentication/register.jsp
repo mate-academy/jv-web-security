@@ -7,7 +7,10 @@
     <title>Registration page</title>
 </head>
 <body>
-<form method="post" id="create" action="${pageContext.request.contextPath}/drivers/register"></form>
+<form method="post" id="create" action="${pageContext.request.contextPath}/register"></form>
+<table class="table_dark">
+    <tr><th style="color: red">${errorMessage}</th></tr>
+</table>
 <h1 class="table_dark">Register driver</h1>
 <table class="table_dark">
     <tr>

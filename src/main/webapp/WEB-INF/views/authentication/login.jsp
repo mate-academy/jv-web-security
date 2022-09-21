@@ -28,7 +28,7 @@
         </td>
     </tr>
     <tr><td>
-            Don`t have account yet ?  <a href="${pageContext.request.contextPath}/drivers/register">Register</a>
+            Don`t have account yet ?  <a href="${pageContext.request.contextPath}/register">Register</a>
     </td></tr>
 </table>
 </body>
