@@ -10,7 +10,7 @@ import taxi.model.Driver;
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
     @Inject
-    DriverDao driverDao;
+    private DriverDao driverDao;
 
     @Override
     public Driver login(String login, String password) throws LoginException {

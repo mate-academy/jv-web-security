@@ -14,6 +14,10 @@
                 <a class="nav-link"
                    href="${pageContext.request.contextPath}/manufacturers">Manufacturers</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link"
+                   href="${pageContext.request.contextPath}/driver/cars">My cars</a>
+            </li>
         </ul>
     </div>
     <div class="col-md-1 d-flex align-items-center">

@@ -1,10 +1,5 @@
 package taxi.controller.auth;
 
-import taxi.exception.LoginException;
-import taxi.lib.Injector;
-import taxi.model.Driver;
-import taxi.service.AuthenticationService;
-
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,6 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import taxi.exception.LoginException;
+import taxi.lib.Injector;
+import taxi.model.Driver;
+import taxi.service.AuthenticationService;
 
 @WebServlet(urlPatterns = "/signin")
 public class SignInController extends HttpServlet {
