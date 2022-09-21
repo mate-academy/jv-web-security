@@ -66,7 +66,7 @@ public class DriverDaoImpl implements DriverDao {
             if (resultSet.next()) {
                 driver = parseDriverFromResultSet(resultSet);
             }
-            return Optional.of(driver);
+            return Optional.ofNullable(driver);
         } catch (SQLException e) {
             throw new DataProcessingException("Couldn't get driver by login " + login, e);
         }
