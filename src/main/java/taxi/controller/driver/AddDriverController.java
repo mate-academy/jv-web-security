@@ -15,17 +15,20 @@ public class AddDriverController extends HttpServlet {
             .getInstance(DriverService.class);
 
     @Override
-    public void doGet(HttpServletRequest req, HttpServletResponse resp)
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/views/drivers/add.jsp").forward(req, resp);
+        request.getRequestDispatcher("/WEB-INF/views/drivers/add.jsp").forward(request, response);
     }
 
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        String name = req.getParameter("name");
-        String licenseNumber = req.getParameter("license_number");
-        Driver driver = new Driver(name, licenseNumber);
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws IOException {
+        String name = request.getParameter("name");
+        String licenseNumber = request.getParameter("license_number");
+        String login = request.getParameter("login");
+        String password = request.getParameter("password");
+        Driver driver = new Driver(name, licenseNumber, login, password);
         driverService.create(driver);
-        resp.sendRedirect(req.getContextPath() + "/drivers/add");
+        response.sendRedirect(request.getContextPath() + "/drivers/add");
     }
 }

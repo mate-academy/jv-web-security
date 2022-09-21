@@ -5,7 +5,10 @@ import java.util.Objects;
 public class Driver {
     private Long id;
     private String name;
+
+    private String login;
     private String licenseNumber;
+    private String password;
 
     public Driver() {
     }
@@ -13,6 +16,29 @@ public class Driver {
     public Driver(String name, String licenseNumber) {
         this.name = name;
         this.licenseNumber = licenseNumber;
+    }
+
+    public Driver(String login, String name, String licenseNumber, String password) {
+        this.login = login;
+        this.name = name;
+        this.licenseNumber = licenseNumber;
+        this.password = password;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Long getId() {
