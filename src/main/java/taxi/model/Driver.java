@@ -87,7 +87,6 @@ public class Driver {
         return "Driver ID = " + id
                 + ", name = " + name
                 + ", license number = " + licenseNumber
-                + ", LOGIN = " + login
-                + ", PASSWORD = " + password;
+                + ", LOGIN = " + login;
     }
 }
