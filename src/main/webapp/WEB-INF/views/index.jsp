@@ -4,7 +4,7 @@
 </style>
 <html>
 <head>
-    <title>My team</title>
+    <title>Taxi service</title>
 </head>
 <body>
 <%@include file="authentication/header.jsp" %>
