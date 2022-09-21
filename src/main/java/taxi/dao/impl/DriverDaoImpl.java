@@ -95,7 +95,7 @@ public class DriverDaoImpl implements DriverDao {
         String query = "UPDATE drivers "
                 + "SET name = ?, license_number = ? "
                 + "login = ?, password = ? "
-                + "WHERE id = ? AND is_deleted = FALSE";
+                + "id = ? AND is_deleted = FALSE";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement
                         = connection.prepareStatement(query)) {

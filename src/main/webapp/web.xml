@@ -130,10 +130,10 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>getMyCurrentCarsController</servlet-name>
-        <url-pattern>/cars/all</url-pattern>
+        <url-pattern>/cars/current</url-pattern>
     </servlet-mapping>
 
-    <filter>GetMyCurrentCarsController
+    <filter>
         <filter-name>authenticationFilter</filter-name>
         <filter-class>taxi.web.filter.AuthenticationFilter</filter-class>
     </filter>
