@@ -10,9 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns = "/logout")
 public class LogoutController extends HttpServlet {
     @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
+    public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        request.getSession().invalidate();
-        response.sendRedirect("/login");
+        req.getSession().invalidate();
+        resp.sendRedirect(req.getContextPath() + "/login");
     }
 }

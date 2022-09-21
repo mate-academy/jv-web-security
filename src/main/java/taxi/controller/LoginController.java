@@ -26,19 +26,19 @@ public class LoginController extends HttpServlet {
     }
 
     @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response)
+    public void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        String login = request.getParameter("login");
-        String password = request.getParameter("password");
+        String login = req.getParameter("login");
+        String password = req.getParameter("password");
         try {
             Driver driver = authenticationService.login(login, password);
-            HttpSession session = request.getSession();
+            HttpSession session = req.getSession();
             session.setAttribute("driver_id", driver.getId());
-            response.sendRedirect(request.getContextPath() + "/index");
+            resp.sendRedirect(req.getContextPath() + "/index");
         } catch (AuthenticationException e) {
-            request.setAttribute("errorMsg", e.getMessage());
-            request.getRequestDispatcher("/WEB-INF/views/login.jsp")
-                    .forward(request, response);
+            req.setAttribute("errorMsg", e.getMessage());
+            req.getRequestDispatcher("/WEB-INF/views/login.jsp")
+                    .forward(req, resp);
         }
     }
 }
