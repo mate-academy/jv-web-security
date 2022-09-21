@@ -14,11 +14,6 @@ public class Driver {
     public Driver() {
     }
 
-    public Driver(String name, String licenseNumber) {
-        this.name = name;
-        this.licenseNumber = licenseNumber;
-    }
-
     public Long getId() {
         return id;
     }
@@ -61,22 +56,19 @@ public class Driver {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
         Driver driver = (Driver) o;
         return Objects.equals(id, driver.id)
                 && Objects.equals(name, driver.name)
                 && Objects.equals(licenseNumber, driver.licenseNumber)
-                && Objects.equals(login, driver.login);
+                && Objects.equals(login, driver.login)
+                && Objects.equals(password, driver.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, licenseNumber, password);
+        return Objects.hash(id, name, licenseNumber,login, password);
     }
 
     @Override
