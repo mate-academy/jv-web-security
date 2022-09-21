@@ -15,7 +15,8 @@ CREATE TABLE `drivers`
     `login`          VARCHAR(45)  CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
     `password`       VARCHAR(45)  CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
     `is_deleted`     bit(1)       NOT NULL DEFAULT b'0',
-    PRIMARY KEY (`id`) USING BTREE
+    PRIMARY KEY (`id`) USING BTREE,
+    UNIQUE INDEX `login_UNIQUE` (`login` ASC) VISIBLE
 ) ENGINE = InnoDB
   CHARACTER SET = utf8
   COLLATE = utf8_general_ci
