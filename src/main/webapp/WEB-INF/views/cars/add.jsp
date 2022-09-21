@@ -27,6 +27,9 @@
             <input type="submit" name="add" form="car">
         </td>
     </tr>
+    <table class="table_dark">
+        <tr><td><a href="${pageContext.request.contextPath}/index">Return to Main Menu</a></td></tr>
+    </table>
 </table>
 </body>
 </html>

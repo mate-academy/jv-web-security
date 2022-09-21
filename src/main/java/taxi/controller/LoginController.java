@@ -19,18 +19,19 @@ public class LoginController extends HttpServlet {
             = (AuthenticationService) injector.getInstance(AuthenticationService.class);
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.getRequestDispatcher("/WEB-INF/views/login.jsp")
                 .forward(request, response);
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String login = request.getParameter("login");
+        String password = request.getParameter("password");
         try {
-            Driver driver = authenticationService.login(request.getParameter("login"),
-                    request.getParameter("password"));
+            Driver driver = authenticationService.login(login, password);
             HttpSession session = request.getSession();
             session.setAttribute("driver_id", driver.getId());
             response.sendRedirect(request.getContextPath() + "/index");
