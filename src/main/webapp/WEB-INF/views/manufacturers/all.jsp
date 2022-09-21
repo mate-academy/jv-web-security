@@ -8,7 +8,7 @@
     <title>All manufacturers</title>
 </head>
 <body>
-<%@include file="../authentication/header.jsp"%>
+<%@include file="../authentication/header.jsp" %>
 <h1 class="table_dark">All manufacturers:</h1>
 <table border="1" class="table_dark">
     <tr>

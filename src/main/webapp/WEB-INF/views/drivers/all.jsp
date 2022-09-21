@@ -8,7 +8,7 @@
     <title>All drivers</title>
 </head>
 <body>
-<%@include file="../authentication/header.jsp"%>
+<%@include file="../authentication/header.jsp" %>
 <h1 class="table_dark">All drivers:</h1>
 <table border="1" class="table_dark">
     <tr>
