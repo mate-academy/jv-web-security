@@ -13,6 +13,6 @@ public class LogoutController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         req.getSession().invalidate();
-        resp.sendRedirect("/WEB-INF/views/index.jsp");
+        resp.sendRedirect(req.getContextPath() + "/index");
     }
 }
