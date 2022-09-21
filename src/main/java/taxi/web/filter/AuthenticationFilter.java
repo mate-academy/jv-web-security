@@ -34,7 +34,7 @@ public class AuthenticationFilter implements Filter {
             return;
         }
         if (driverId == null) {
-            resp.sendRedirect("/drivers/add");
+            resp.sendRedirect("/login");
             return;
         }
         chain.doFilter(req, resp);
