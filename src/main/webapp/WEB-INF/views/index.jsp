@@ -7,6 +7,7 @@
     <title>My team</title>
 </head>
 <body>
+<%@ include file="logout.jsp"%>
 <form method="post" id="redirect"></form>
 <h1 class="table_dark">Hello, mates</h1>
 <table class="table_dark">
