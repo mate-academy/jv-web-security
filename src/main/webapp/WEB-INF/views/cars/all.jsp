@@ -8,6 +8,7 @@
     <title>All cars</title>
 </head>
 <body>
+<%@include file="../users/header.jsp"%>
 <h1 class="table_dark">All cars:</h1>
 <table border="1" class="table_dark">
     <tr>
@@ -34,7 +35,7 @@
             </td>
             <td>
                 <c:forEach var="driver" items="${car.drivers}">
-                    ${driver.id} ${driver.name} ${driver.licenseNumber} <br>
+                    ${driver.id} ${driver.name} ${driver.licenseNumber} ${driver.login} <br>
                 </c:forEach>
             </td>
             <td>
