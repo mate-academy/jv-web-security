@@ -19,7 +19,7 @@ public class AuthenticationFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) {
         allowedUrls.add("/login");
-        allowedUrls.add("/drivers/register");
+        allowedUrls.add("/register");
     }
 
     @Override
