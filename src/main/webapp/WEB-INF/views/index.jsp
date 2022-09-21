@@ -8,8 +8,11 @@
 </head>
 <body>
 <form method="post" id="redirect"></form>
-<h1 class="table_dark">Welcome to our taxi service</h1>
-<%@include file='/WEB-INF/views/header.jsp'%>
+<header>
+    <h1 class="table_dark">Welcome to our taxi service</h1>
+    <%@include file='/WEB-INF/views/header.jsp'%>
+</header>
+
 <table class="table_dark">
     <tr>
         <th>Redirect to</th>

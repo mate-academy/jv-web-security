@@ -4,6 +4,6 @@
     <title>Taxi Service</title>
 </head>
 <body>
-    <a href="${pageContext.request.contextPath}/logout">Logout</a>
+    <h3 id="logoutId"><a href="${pageContext.request.contextPath}/logout">Logout</a></h3>
 </body>
 </html>
