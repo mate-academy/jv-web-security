@@ -8,6 +8,10 @@
     <title>All cars</title>
 </head>
 <body>
+<%@include file="/WEB-INF/views/logout.jsp" %>
+<form action="${pageContext.request.contextPath}/index">
+    <input type="submit" value="Return to Main Menu">
+</form>
 <h1 class="table_dark">All cars:</h1>
 <table border="1" class="table_dark">
     <tr>
