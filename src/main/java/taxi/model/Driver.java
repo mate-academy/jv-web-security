@@ -68,18 +68,21 @@ public class Driver {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (!(o instanceof Driver)) {
             return false;
         }
         Driver driver = (Driver) o;
-        return Objects.equals(id, driver.id)
-                && Objects.equals(name, driver.name)
-                && Objects.equals(licenseNumber, driver.licenseNumber);
+        return Objects.equals(getId(), driver.getId())
+                && Objects.equals(getName(), driver.getName())
+                && Objects.equals(getLicenseNumber(), driver.getLicenseNumber())
+                && Objects.equals(getLogin(), driver.getLogin())
+                && Objects.equals(getPassword(), driver.getPassword());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, licenseNumber);
+        return Objects.hash(getId(), getName(), getLicenseNumber(),
+                getLogin(), getPassword());
     }
 
     @Override
