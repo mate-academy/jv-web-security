@@ -20,6 +20,14 @@
     <tr><td><a href="${pageContext.request.contextPath}/cars/add">Create new Car</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/manufacturers/add">Create new Manufacturer</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/cars/drivers/add">Add Driver to Car</a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/drivers/cars">My Cars</a></td></tr>
+</table>
+<table class="table_dark">
+    <tr>
+        <th>
+            <%@include file="/WEB-INF/views/footer.jsp"%>
+        </th>
+    </tr>
 </table>
 </body>
 </html>
