@@ -19,7 +19,7 @@
             <label for="name">Enter login.</label>
         </div>
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="password" name="password"
+            <input type="password" class="form-control" id="password" name="password"
                    placeholder="Enter password.">
             <label for="name">Enter password.</label>
         </div>
