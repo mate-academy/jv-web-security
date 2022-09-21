@@ -1,6 +1,6 @@
 package taxi.service;
 
-import javax.naming.AuthenticationException;
+import taxi.exception.AuthenticationException;
 import taxi.model.Driver;
 
 public interface AuthenticationService {
