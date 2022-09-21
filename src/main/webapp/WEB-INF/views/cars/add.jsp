@@ -2,10 +2,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <style>
     <%@include file='/WEB-INF/views/css/table_dark.css' %>
+    <%@include file='/WEB-INF/views/css/header_style.css' %>
 </style>
 <html>
 <head>
-    <title>Add car</title>
+    <title>All drivers</title>
+    <%@include file='/WEB-INF/views/sessions/authenticated_header.jsp' %>
 </head>
 <body>
 <form method="post" id="car" action="${pageContext.request.contextPath}/cars/add"></form>
@@ -18,10 +20,14 @@
     </tr>
     <tr>
         <td>
-            <input type="text" name="model" form="car" required>
+            <label>
+                <input type="text" name="model" form="car" required>
+            </label>
         </td>
         <td>
-            <input type="number" name="manufacturer_id" form="car" required>
+            <label>
+                <input type="number" name="manufacturer_id" form="car" required>
+            </label>
         </td>
         <td>
             <input type="submit" name="add" form="car">
