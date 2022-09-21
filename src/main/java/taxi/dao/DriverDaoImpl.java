@@ -127,7 +127,7 @@ public class DriverDaoImpl implements DriverDao {
         String licenseNumber = resultSet.getNString("license_number");
         String login = resultSet.getNString("login");
         String password = resultSet.getNString("password");
-        Long id = (Long) resultSet.getObject("id");
+        Long id = resultSet.getObject("id", Long.class);
         Driver driver = new Driver();
         driver.setName(name);
         driver.setLicenseNumber(licenseNumber);
