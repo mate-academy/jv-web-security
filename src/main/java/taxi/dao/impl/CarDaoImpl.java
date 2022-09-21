@@ -1,4 +1,4 @@
-package taxi.dao;
+package taxi.dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+
+import taxi.dao.CarDao;
 import taxi.exception.DataProcessingException;
 import taxi.lib.Dao;
 import taxi.model.Car;
@@ -187,11 +189,11 @@ public class CarDaoImpl implements CarDao {
         int size = exceptions.size();
         String query = "DELETE FROM cars_drivers WHERE car_id = ? "
                 + "AND NOT driver_id IN ("
-                + ZERO_PLACEHOLDER + ", ?".repeat(size)
+                + ZERO_PLACEHOLDER + "DELIMITER ? ".repeat(size)
                 + ");";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement =
-                        connection.prepareStatement(query)) {
+                     connection.prepareStatement(query)) {
             statement.setLong(1, carId);
             for (int i = 0; i < size; i++) {
                 Driver driver = exceptions.get(i);
@@ -204,7 +206,7 @@ public class CarDaoImpl implements CarDao {
     }
 
     private List<Driver> getAllDriversByCarId(Long carId) {
-        String query = "SELECT id, name, license_number "
+        String query = "SELECT id, name, license_number, login, password "
                 + "FROM cars_drivers cd "
                 + "JOIN drivers d ON cd.driver_id = d.id "
                 + "WHERE car_id = ? AND is_deleted = false";
