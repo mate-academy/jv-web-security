@@ -15,6 +15,25 @@ import taxi.util.ConnectionUtil;
 
 @Dao
 public class DriverDaoImpl implements DriverDao {
+
+    @Override
+    public Optional<Driver> findByLogin(String login) {
+        String selectQuery = "SELECT * FROM drivers WHERE login = ? AND deleted = FALSE";
+        try (Connection connection = ConnectionUtil.getConnection();
+                PreparedStatement preparedStatement =
+                connection.prepareStatement(selectQuery)) {
+            preparedStatement.setString(1, login);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            Driver driver = new Driver();
+            if (resultSet.next()) {
+                driver = parseDriverFromResultSet(resultSet);
+            }
+            return Optional.ofNullable(driver);
+        } catch (SQLException e) {
+            throw new DataProcessingException("Can't find a driver by login: " + login + " ", e);
+        }
+    }
+
     @Override
     public Driver create(Driver driver) {
         String query = "INSERT INTO drivers (name, license_number, login, password) "
@@ -120,4 +139,5 @@ public class DriverDaoImpl implements DriverDao {
 
         return driver;
     }
+
 }
