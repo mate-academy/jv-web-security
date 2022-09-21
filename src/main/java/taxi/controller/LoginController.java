@@ -5,6 +5,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import taxi.exception.AuthenticationException;
 import taxi.lib.Injector;
 import taxi.model.Driver;
 import taxi.service.AuthenticationService;
@@ -25,6 +26,12 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
-        Driver driver = authenticationService.login(login, password);
+        try {
+            authenticationService.login(login, password);
+            resp.sendRedirect("/index");
+        } catch (AuthenticationException e) {
+            req.setAttribute("errorMsg", e.getMessage());
+            req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
+        }
     }
 }
