@@ -7,9 +7,10 @@
     <title>Login</title>
 </head>
 <body>
+<h4 style="color:red">${errorMsg}</h4>
 <form method="post" id="log" action="${pageContext.request.contextPath}/login"></form>
 <h1 class="table_dark">Login</h1>
-<table <%--        border="1" class="table_dark">--%>
+<table <%--border="1" class="table_dark">--%>
   <tr>
     <th>Login</th>
     <th>Password</th>
@@ -26,7 +27,7 @@
       <input type="submit" name="Confirm" form="log">
     </td>
   </tr>
-  <h5><a href="${pageContext.request.contextPath}/login">Register</a> </h5>
+  <h4><a href="${pageContext.request.contextPath}/login">Register</a> </h4>
 </table>
 </body>
 </html>
