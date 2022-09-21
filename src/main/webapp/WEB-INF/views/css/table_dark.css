@@ -1,3 +1,11 @@
+header {
+    background-color: #FEF4AB;
+}
+
+body {
+    background-color: #FEF4AB;
+}
+
 .table_dark {
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
     width: 70%;
@@ -29,4 +37,13 @@
 }
 .table_dark tr:hover td {
     text-decoration: underline;
+}
+
+#logoutId {
+    align-content: center;
+    background-color: silver;
+    border-radius: 4px;
+    text-align: center;
+    border: 1px solid #98E2CA;
+    height: 23px;
 }
