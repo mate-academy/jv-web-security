@@ -6,6 +6,7 @@
 <html>
 <head>
     <title>All cars</title>
+    <%@include file="/WEB-INF/views/header.jsp"%>
 </head>
 <body>
 <h1 class="table_dark">All cars:</h1>
@@ -43,5 +44,11 @@
         </tr>
     </c:forEach>
 </table>
+<form action="${pageContext.request.contextPath}/cars/add">
+    <input type="submit" value="Add new car">
+</form>
+<form action="${pageContext.request.contextPath}/cars/drivers/add">
+    <input type="submit" value="Add new driver to car">
+</form>
 </body>
 </html>
