@@ -14,6 +14,17 @@
     <h3>Create new driver</h3>
     <form method="post" action="${pageContext.request.contextPath}/drivers/add">
         <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="login" name="login"
+                   placeholder="Enter login.">
+            <label for="name">Enter login.</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="password" name="password"
+                   placeholder="Enter password.">
+            <label for="name">Enter password.</label>
+        </div>
+
+        <div class="form-floating mb-3">
             <input type="text" class="form-control" id="name" name="name"
                    placeholder="Enter driver name.">
             <label for="name">Enter driver name.</label>
