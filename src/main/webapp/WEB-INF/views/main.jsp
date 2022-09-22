@@ -6,6 +6,6 @@
 <h1>Welcome</h1>
 <body>
     <a href="${pageContext.request.contextPath}/index">Home page</a>
-    <a href="${pageContext.request.contextPath}/logOut">Log out</a>
+    <a href="${pageContext.request.contextPath}/logout">Log out</a>
 </body>
 </html>

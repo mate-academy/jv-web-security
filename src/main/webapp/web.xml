@@ -121,7 +121,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>logOutController</servlet-name>
-        <url-pattern>/logOut</url-pattern>
+        <url-pattern>/logout</url-pattern>
     </servlet-mapping>
 
     <filter>
