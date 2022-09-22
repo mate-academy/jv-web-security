@@ -41,10 +41,10 @@ public class LoginController extends HttpServlet {
         try {
             Driver driver = authenticationService.login(login, password);
             HttpSession sessia = req.getSession();
-            sessia.setAttribute("driver_id",driver.getId());
+            sessia.setAttribute("driver_id", driver.getId());
             resp.sendRedirect(req.getContextPath() + "/index");
         } catch (AuthenticationException e) {
-            req.setAttribute("wrongCredits",e.getMessage());
+            req.setAttribute("wrongCredits", e.getMessage());
             req.getRequestDispatcher("/WEB-INF/views/authentication/login.jsp")
                     .forward(req,resp);
         }

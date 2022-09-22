@@ -39,6 +39,5 @@ public class AuthenticationFilter implements Filter {
             return;
         }
         chain.doFilter(req, res);
-
     }
 }
