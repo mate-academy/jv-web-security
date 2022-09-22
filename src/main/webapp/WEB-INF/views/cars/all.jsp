@@ -8,6 +8,7 @@
     <title>All cars</title>
 </head>
 <body>
+<%@include file="/WEB-INF/views/header.jsp"%>
 <h1 class="table_dark">All cars:</h1>
 <table border="1" class="table_dark">
     <tr>
@@ -18,27 +19,27 @@
         <th>Drivers</th>
         <th>Delete</th>
     </tr>
-    <c:forEach var="car" items="${cars}">
+    <c:forEach var="login" items="${cars}">
         <tr>
             <td>
-                <c:out value="${car.id}"/>
+                <c:out value="${login.id}"/>
             </td>
             <td>
-                <c:out value="${car.model}"/>
+                <c:out value="${login.model}"/>
             </td>
             <td>
-                <c:out value="${car.manufacturer.name}"/>
+                <c:out value="${login.manufacturer.name}"/>
             </td>
             <td>
-                <c:out value="${car.manufacturer.country}"/>
+                <c:out value="${login.manufacturer.country}"/>
             </td>
             <td>
-                <c:forEach var="driver" items="${car.drivers}">
+                <c:forEach var="driver" items="${login.drivers}">
                     ${driver.id} ${driver.name} ${driver.licenseNumber} <br>
                 </c:forEach>
             </td>
             <td>
-                <a href="${pageContext.request.contextPath}/cars/delete?id=${car.id}">DELETE</a>
+                <a href="${pageContext.request.contextPath}/cars/delete?id=${login.id}">DELETE</a>
             </td>
         </tr>
     </c:forEach>
