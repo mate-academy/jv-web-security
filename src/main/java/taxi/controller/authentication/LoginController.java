@@ -28,8 +28,8 @@ public class LoginController extends HttpServlet {
         String driverLogin = req.getParameter("login");
         String password = req.getParameter("password");
         try {
-            Driver driver = authenticationService.login(driverLogin, password);
             HttpSession session = req.getSession();
+            Driver driver = authenticationService.login(driverLogin, password);
             session.setAttribute("driverId", driver.getId());
             resp.sendRedirect(req.getContextPath() + "/index");
         } catch (AuthenticationException e) {
