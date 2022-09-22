@@ -16,7 +16,7 @@ public class GetMyCurrentCarsController extends HttpServlet {
     private final CarService carService = (CarService) injector.getInstance(CarService.class);
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
         Long driverId = (Long) session.getAttribute("driver_id");
