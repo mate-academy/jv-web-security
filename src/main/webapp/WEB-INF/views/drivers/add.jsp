@@ -2,10 +2,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <style>
     <%@include file='/WEB-INF/views/css/table_dark.css' %>
+    <%@include file='/WEB-INF/views/css/header_style.css' %>
 </style>
 <html>
 <head>
     <title>All drivers</title>
+    <%@include file='/WEB-INF/views/sessions/authenticated_header.jsp' %>
 </head>
 <body>
 <form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/add"></form>
@@ -14,14 +16,30 @@
     <tr>
         <th>Name</th>
         <th>License number</th>
+        <th>Login</th>
+        <th>Password</th>
         <th>Add</th>
     </tr>
     <tr>
         <td>
-            <input type="text" name="name" form="driver" required>
+            <label>
+                <input type="text" name="name" form="driver" required>
+            </label>
         </td>
         <td>
-            <input type="text" name="license_number" form="driver" required>
+            <label>
+                <input type="text" name="license_number" form="driver" required>
+            </label>
+        </td>
+        <td>
+            <label>
+                <input type="text" name="login" form="driver" required>
+            </label>
+        </td>
+        <td>
+            <label>
+                <input type="password" name="password" form="driver" required>
+            </label>
         </td>
         <td>
             <input type="submit" name="add" form="driver">

@@ -1,0 +1,80 @@
+#header {
+    background-color: #d4b814;
+    width: 100%;
+    height: 80px;
+}
+
+#headerText {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif, serif;
+    color: #f7f1f0;
+    text-align: center;
+    line-height: 80px;
+    font-weight: bolder;
+    font-size: 40pt;
+    border-collapse: collapse;
+    margin: auto;
+}
+
+#homepageButton {
+    position: absolute;
+    left: 20px;
+    top: 35px;
+    background-color: #f7f1f0;
+    height: 30px;
+    width: 120px;
+    text-align: center;
+    line-height: 30px;
+    font-weight: bolder;
+    font-size: 15pt;
+}
+
+#logOutButton {
+    position: absolute;
+    right: 20px;
+    top: 35px;
+    background-color: #f7f1f0;
+    height: 30px;
+    width: 80px;
+    text-align: center;
+    line-height: 30px;
+    font-weight: bolder;
+    font-size: 15pt;
+}
+
+#logInButton {
+    position: absolute;
+    right: 120px;
+    top: 35px;
+    background-color: #f7f1f0;
+    height: 30px;
+    width: 80px;
+    text-align: center;
+    line-height: 30px;
+    font-weight: bolder;
+    font-size: 15pt;
+}
+
+#signUpButton {
+    position: absolute;
+    right: 20px;
+    top: 35px;
+    background-color: gray;
+    height: 30px;
+    width: 80px;
+    text-align: center;
+    line-height: 30px;
+    font-weight: bolder;
+    font-size: 15pt;
+}
+
+#homepageButtonColor {
+    color: gray;
+}
+
+#textButton1 {
+    color: gray;
+}
+
+#textButton2 {
+    color: #f7f1f0;
+}

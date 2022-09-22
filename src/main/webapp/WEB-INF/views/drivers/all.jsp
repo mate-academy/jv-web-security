@@ -2,10 +2,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <style>
     <%@include file='/WEB-INF/views/css/table_dark.css' %>
+    <%@include file='/WEB-INF/views/css/header_style.css' %>
 </style>
 <html>
 <head>
     <title>All drivers</title>
+    <%@include file='/WEB-INF/views/sessions/authenticated_header.jsp'%>
 </head>
 <body>
 <h1 class="table_dark">All drivers:</h1>

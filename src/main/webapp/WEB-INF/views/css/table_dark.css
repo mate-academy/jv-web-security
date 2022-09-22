@@ -1,21 +1,25 @@
+body {
+    background-color: #FCF6F5FF;
+}
+
 .table_dark {
-    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif, serif;
     width: 70%;
-    color: #7C5FAB;
-    font-size: 40px;
+    color: #d4b814;
+    font-size: 25px;
     text-align: center;
     border-collapse: collapse;
-    background: #FEF4AB;
+    background: #f7f1f0;
     margin: auto;
 }
 .table_dark th {
-    color: #7C5FAB;
+    color: #d4b814;
     border-bottom: 1px solid #98E2CA;
     padding: 12px 17px;
     font-size: 14px;
 }
 .table_dark td {
-    color: #7C5FAB;
+    color: #d4b814;
     border-bottom: 1px solid #98E2CA;
     border-right: 1px solid #98E2CA;
     padding: 7px 17px;
