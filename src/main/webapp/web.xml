@@ -134,11 +134,11 @@
     </filter-mapping>
 
     <servlet>
-        <servlet-name>logOutController</servlet-name>
-        <servlet-class>taxi.controller.authentication.LogOutController</servlet-class>
+        <servlet-name>logoutController</servlet-name>
+        <servlet-class>taxi.controller.authentication.LogoutController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>logOutController</servlet-name>
+        <servlet-name>logoutController</servlet-name>
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
 </web-app>
