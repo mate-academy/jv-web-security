@@ -30,6 +30,6 @@
     </tr>
 </table>
 <br>
-<h3></h3><a style="color: #7C5FAB" href="${pageContext.request.contextPath}/register">Register new driver</a></h3>
+<h3></h3><a style="color: #7C5FAB" href="${pageContext.request.contextPath}/drivers/add">Register new driver</a></h3>
 </body>
 </html>
