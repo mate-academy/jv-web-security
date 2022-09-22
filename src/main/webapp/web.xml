@@ -107,7 +107,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>loginController</servlet-name>
-        <servlet-class>taxi.controller.users.LoginController</servlet-class>
+        <servlet-class>taxi.controller.authentication.LoginController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>loginController</servlet-name>
@@ -115,7 +115,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>logoutController</servlet-name>
-        <servlet-class>taxi.controller.users.LogoutController</servlet-class>
+        <servlet-class>taxi.controller.authentication.LogoutController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>logoutController</servlet-name>

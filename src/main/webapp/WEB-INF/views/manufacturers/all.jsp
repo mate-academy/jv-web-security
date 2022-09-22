@@ -8,7 +8,7 @@
     <title>All manufacturers</title>
 </head>
 <body>
-<%@include file="../users/logout.jsp"%>
+<%@include file="../authentication/logout.jsp"%>
 <h1 class="table_dark">All manufacturers:</h1>
 <table border="1" class="table_dark">
     <tr>

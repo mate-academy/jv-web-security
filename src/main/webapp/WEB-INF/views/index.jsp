@@ -8,7 +8,7 @@
 </head>
 <body>
 <form method="post" id="redirect"></form>
-<%@include file="users/logout.jsp"%>
+<%@include file="authentication/logout.jsp"%>
 <h1 class="table_dark">Hello, mates</h1>
 <table class="table_dark">
     <tr>
