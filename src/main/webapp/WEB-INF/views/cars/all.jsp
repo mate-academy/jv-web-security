@@ -9,6 +9,13 @@
 </head>
 <body>
 <h1 class="table_dark">All cars:</h1>
+<table class="table_dark">
+    <tr>
+        <th>
+            <%@include file="/WEB-INF/views/header.jsp"%>
+        </th>
+    </tr>
+</table>
 <table border="1" class="table_dark">
     <tr>
         <th>ID</th>
@@ -42,6 +49,13 @@
             </td>
         </tr>
     </c:forEach>
+</table>
+<table class="table_dark">
+    <tr>
+        <th>
+            <%@include file="/WEB-INF/views/footer.jsp"%>
+        </th>
+    </tr>
 </table>
 </body>
 </html>
