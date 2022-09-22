@@ -34,7 +34,7 @@
             </td>
             <td>
                 <c:forEach var="driver" items="${car.drivers}">
-                    ${driver.id} ${driver.name} ${driver.licenseNumber} <br>
+                    ${driver.id} ${driver.name} ${driver.licenseNumber} ${driver.login} <br>
                 </c:forEach>
             </td>
             <td>
@@ -43,5 +43,11 @@
         </tr>
     </c:forEach>
 </table>
+<table class="table_dark">
+    <tr>
+        <td><a href="${pageContext.request.contextPath}/index">Main</a></td>
+    </tr>
+</table>
+<%@include file="../logout.jsp" %>
 </body>
 </html>
