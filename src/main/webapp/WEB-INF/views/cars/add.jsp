@@ -8,7 +8,6 @@
     <title>Add car</title>
 </head>
 <body>
-<h2 style="color: red">${error_message}</h2>
 <%@include file="../authentication/header.jsp" %>
 <form method="post" id="car" action="${pageContext.request.contextPath}/cars/add"></form>
 <h1 class="table_dark">Add car:</h1>
