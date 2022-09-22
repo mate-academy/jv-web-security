@@ -15,6 +15,6 @@ public class SignOutController extends HttpServlet {
             throws ServletException, IOException {
         HttpSession session = req.getSession();
         session.invalidate();
-        resp.sendRedirect("/signin");
+        resp.sendRedirect(req.getContextPath() + "/signin");
     }
 }
