@@ -111,7 +111,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>LogoutController</servlet-name>
-        <url-pattern>/drivers/logout</url-pattern>
+        <url-pattern>/logout</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>LoginController</servlet-name>
@@ -119,7 +119,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
-        <url-pattern>/drivers/login</url-pattern>
+        <url-pattern>/login</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>GetMyCurrentCarsController</servlet-name>
