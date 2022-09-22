@@ -1,23 +1,20 @@
 package taxi.controller.authentication;
 
-import taxi.exception.AuthenticationException;
-import taxi.lib.Injector;
-import taxi.model.Driver;
-import taxi.service.AuthenticationService;
-import taxi.service.impl.AuthenticationServiceImpl;
-
+import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import javax.servlet.http.HttpSession;
+import taxi.exception.AuthenticationException;
+import taxi.lib.Injector;
+import taxi.model.Driver;
+import taxi.service.AuthenticationService;
 
 public class LoginController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
     private static final AuthenticationService authenticationService =
-            (AuthenticationService) injector.getInstance(AuthenticationServiceImpl.class);
-
-
+            (AuthenticationService) injector.getInstance(AuthenticationService.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -32,7 +29,9 @@ public class LoginController extends HttpServlet {
         String password = req.getParameter("password");
         try {
             Driver driver = authenticationService.login(driverLogin, password);
-            resp.sendRedirect("/index");
+            HttpSession session = req.getSession();
+            session.setAttribute("driverId", driver.getId());
+            resp.sendRedirect(req.getContextPath() + "/index");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMsg", e.getMessage());
             req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);

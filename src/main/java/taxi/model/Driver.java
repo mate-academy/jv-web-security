@@ -1,7 +1,5 @@
 package taxi.model;
 
-import taxi.lib.Inject;
-
 import java.util.Objects;
 
 public class Driver {
@@ -10,7 +8,6 @@ public class Driver {
     private String licenseNumber;
     private String login;
     private String password;
-
 
     public Driver() {
     }
