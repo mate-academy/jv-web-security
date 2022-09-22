@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import taxi.lib.Injector;
 import taxi.model.Car;
 import taxi.service.CarService;
-import taxi.service.DriverService;
 
 @WebServlet(urlPatterns = "/drivers/cars")
 public class GetMyCurrentCarsController extends HttpServlet {
