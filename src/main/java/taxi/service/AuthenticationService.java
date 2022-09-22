@@ -1,8 +1,8 @@
 package taxi.service;
 
-import taxi.exception.DataProcessingException;
+import taxi.exception.AuthenticationException;
 import taxi.model.Driver;
 
 public interface AuthenticationService {
-    Driver findDriverByLogin(String username, String password) throws DataProcessingException;
+    Driver login(String login, String password) throws AuthenticationException;
 }

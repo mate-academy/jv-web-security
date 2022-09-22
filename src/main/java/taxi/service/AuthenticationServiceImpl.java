@@ -1,25 +1,22 @@
 package taxi.service;
 
-import taxi.exception.DataProcessingException;
-import taxi.lib.Injector;
+import java.util.Optional;
+import taxi.exception.AuthenticationException;
+import taxi.lib.Inject;
+import taxi.lib.Service;
 import taxi.model.Driver;
 
-import java.util.Optional;
-
+@Service
 public class AuthenticationServiceImpl implements AuthenticationService {
-    private static final Injector injector = Injector.getInstance("mate");
-    private final DriverService driverService = (DriverService) injector
-            .getInstance(DriverService.class);
+    @Inject
+    private DriverService driverService;
 
     @Override
-    public Driver findDriverByLogin(String username, String password) throws DataProcessingException {
-        Optional<Driver> driverByLogin = driverService.findByLogin(username);
-        if (driverByLogin.isEmpty()) {
-            throw new DataProcessingException("Login or password aren't correct!");
+    public Driver login(String login, String password) throws AuthenticationException {
+        Optional<Driver> driver = driverService.findByLogin(login);
+        if (driver.isPresent() && driver.get().getPassword().equals(password)) {
+            return driver.get();
         }
-        if (driverByLogin.get().getPassword().equals(password)) {
-            return driverByLogin.get();
-        }
-        throw new DataProcessingException("Login or password aren't correct!");
+        throw new AuthenticationException("Login or password was incorrect");
     }
 }
