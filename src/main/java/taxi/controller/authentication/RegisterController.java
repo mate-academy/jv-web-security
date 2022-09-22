@@ -27,7 +27,7 @@ public class RegisterController extends HttpServlet {
             throws IOException, ServletException {
         String name = req.getParameter("name");
         String licenseNumber = req.getParameter("license_number");
-        String login = req.getParameter("user_name");
+        String login = req.getParameter("login");
         String password = req.getParameter("password");
         Driver driver = new Driver(name, licenseNumber, login, password);
         try {

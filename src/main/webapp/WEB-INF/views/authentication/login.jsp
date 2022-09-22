@@ -19,7 +19,7 @@
 
     <tr>
         <td>
-            <input type="text" name="user_name" form="redirect" required>
+            <input type="text" name="login" form="redirect" required>
         </td>
         <td>
             <input type="password" name="password" form="redirect" required>

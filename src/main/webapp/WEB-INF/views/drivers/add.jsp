@@ -28,7 +28,7 @@
             <input type="text" name="license_number" form="driver" required>
         </td>
         <td>
-            <input type="text" name="user_name" form="driver" required>
+            <input type="text" name="login" form="driver" required>
         </td>
         <td>
             <input type="password" name="password" form="driver" required>
