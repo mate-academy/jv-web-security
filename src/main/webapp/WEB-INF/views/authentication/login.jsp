@@ -26,6 +26,7 @@
             <button type="submit">Login</button>
         </td>
         </form>
+    <tr><td><a href="${pageContext.request.contextPath}/drivers/add">Registration</a></td></tr>
     </tr>
 </table>
 </body>

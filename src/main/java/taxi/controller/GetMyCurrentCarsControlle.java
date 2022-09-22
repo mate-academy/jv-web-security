@@ -30,7 +30,7 @@ public class GetMyCurrentCarsControlle extends HttpServlet {
         List<Car> driverCars = carService.getAllByDriver(driverId);
         req.setAttribute("cars", driverCars);
         if (driverId == null) {
-            resp.sendRedirect(req.getContextPath() + "login");
+            resp.sendRedirect(req.getContextPath() + "/login");
             return;
         }
         req.getRequestDispatcher("/WEB-INF/views/cars/all.jsp").forward(req, resp);

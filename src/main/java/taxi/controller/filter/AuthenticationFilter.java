@@ -19,6 +19,7 @@ public class AuthenticationFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         avaliblePages.add("/login");
+        avaliblePages.add("/drivers/add");
     }
 
     @Override
