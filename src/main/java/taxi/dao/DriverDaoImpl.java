@@ -17,7 +17,7 @@ import taxi.util.ConnectionUtil;
 public class DriverDaoImpl implements DriverDao {
     @Override
     public Driver create(Driver driver) {
-        String query = "INSERT INTO drivers (name, license_number) "
+        String query = "INSERT INTO drivers (name, license_number, login, password) "
                 + "VALUES (?, ?, ?, ?)";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement = connection.prepareStatement(query,
@@ -76,7 +76,7 @@ public class DriverDaoImpl implements DriverDao {
     public Driver update(Driver driver) {
         String query = "UPDATE drivers "
                 + "SET name = ?, license_number = ? "
-                + "SET login = ?, password = ?"
+                + "SET login = ?, password = ? "
                 + "WHERE id = ? AND is_deleted = FALSE";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement

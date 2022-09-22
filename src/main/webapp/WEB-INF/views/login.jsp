@@ -11,6 +11,6 @@
     Please enter your password: <input type="password" name="password" required>
     <button type="submit">Login</button>
 </form>
-<h4><a href="${pageContext.request.contextPath}/register">Register</a></h4>
+<h4><a href="${pageContext.request.contextPath}/drivers/add">Register</a></h4>
 </body>
 </html>
