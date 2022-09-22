@@ -5,14 +5,14 @@
           rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
           crossorigin="anonymous">
-    <title>Taxi | Drivers : Add driver</title>
+    <title>Taxi | SignUp</title>
 </head>
 
 <body>
-<%@ include file="../toolbar/header.jsp"%>
 <div class="container">
+    <div class="mb-5 mt-5" />
     <h3>Create new driver</h3>
-    <form method="post" action="${pageContext.request.contextPath}/drivers/add">
+    <form method="post" action="${pageContext.request.contextPath}/signup">
         <div class="form-floating mb-3">
             <input type="text" class="form-control" id="login" name="login"
                    placeholder="Enter login.">
