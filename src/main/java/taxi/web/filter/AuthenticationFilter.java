@@ -1,4 +1,4 @@
-package taxi.controller.web;
+package taxi.web.filter;
 
 import java.io.IOException;
 import java.util.Set;
