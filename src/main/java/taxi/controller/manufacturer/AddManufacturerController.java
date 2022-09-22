@@ -13,8 +13,8 @@ import taxi.service.ManufacturerService;
 @WebServlet(urlPatterns = "/manufacturers/add")
 public class AddManufacturerController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
-    private final ManufacturerService manufacturerService = (ManufacturerService) injector
-            .getInstance(ManufacturerService.class);
+    private final ManufacturerService manufacturerService =
+            (ManufacturerService) injector.getInstance(ManufacturerService.class);
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
