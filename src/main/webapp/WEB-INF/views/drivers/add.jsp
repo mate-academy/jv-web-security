@@ -36,7 +36,7 @@
         </td>
     </tr>
     <tr>
-        <td><a href="${pageContext.request.contextPath}/security/login">Got account?: Login</a></td>
+        <td><a href="${pageContext.request.contextPath}/login">Got account?: Login</a></td>
     </tr>
 </table>
 </body>
