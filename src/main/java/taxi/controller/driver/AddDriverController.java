@@ -5,7 +5,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import taxi.exception.DataProcessingException;
 import taxi.lib.Injector;
 import taxi.model.Driver;
 import taxi.service.DriverService;
@@ -29,12 +28,7 @@ public class AddDriverController extends HttpServlet {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         Driver driver = new Driver(name, licenseNumber, login, password);
-        try {
-            driverService.create(driver);
-        } catch (DataProcessingException e) {
-            req.setAttribute("error_message", e.getMessage());
-            req.getRequestDispatcher("/WEB-INF/views/drivers/add.jsp").forward(req, resp);
-        }
+        driverService.create(driver);
         resp.sendRedirect(req.getContextPath() + "/drivers/add");
     }
 }
