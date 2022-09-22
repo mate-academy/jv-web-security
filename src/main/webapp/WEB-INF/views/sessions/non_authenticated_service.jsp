@@ -13,9 +13,8 @@
 <h1 class="table_dark">Welcome to our cab service!</h1>
 <table class="table_dark">
   <tr>
-    <th>Redirect to</th>
+    <th>You are not authorized. Please log in to use the service.</th>
   </tr>
-  <tr><td><a href="${pageContext.request.contextPath}/drivers/add">Create new Driver</a></td></tr>
 </table>
 </body>
 </html>

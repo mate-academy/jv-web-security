@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import taxi.exception.AuthenticationException;
+import taxi.exception.RegistrationException;
 import taxi.lib.Injector;
 import taxi.service.RegisterService;
 
@@ -32,7 +33,7 @@ public class RegisterController extends HttpServlet {
         String repeatPassword = req.getParameter("repeatPassword");
         try {
             registerService.register(name, licenseNumber, login, password, repeatPassword);
-        } catch (AuthenticationException e) {
+        } catch (RegistrationException | AuthenticationException e) {
             req.setAttribute("error", e.getMessage());
             req.getRequestDispatcher("/WEB-INF/views/sessions/register.jsp").forward(req, resp);
             return;

@@ -7,7 +7,7 @@
 <header id="header">
     <div id="headerText">Cab Service</div>
     <div id="homepageButton">
-        <a href="${pageContext.request.contextPath}/service">
+        <a href="${pageContext.request.contextPath}/">
             <div id="homepageButtonColor">Homepage</div>
         </a>
     </div>

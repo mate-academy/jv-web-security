@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 @WebFilter(urlPatterns = "/*")
 public class AuthenticationFilter implements Filter {
     private static final Set<String> ALLOWED_URLS =
-            Set.of("/login", "/register", "/service", "/drivers/add");
+            Set.of("/login", "/register", "/", "/drivers/add");
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
@@ -30,7 +30,7 @@ public class AuthenticationFilter implements Filter {
             return;
         }
         if (userId == null) {
-            resp.sendRedirect(req.getContextPath() + "/service");
+            resp.sendRedirect(req.getContextPath() + "/");
             return;
         }
         chain.doFilter(req, resp);
