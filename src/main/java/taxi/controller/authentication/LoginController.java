@@ -15,8 +15,8 @@ import taxi.service.AuthenticationService;
 @WebServlet(urlPatterns = "/login")
 public class LoginController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
-    private static final AuthenticationService authenticationService
-            = (AuthenticationService) injector.getInstance(AuthenticationService.class);
+    private static final AuthenticationService authenticationService =
+            (AuthenticationService) injector.getInstance(AuthenticationService.class);
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -32,7 +32,7 @@ public class LoginController extends HttpServlet {
         try {
             HttpSession session = req.getSession();
             Driver driver = authenticationService.login(login, password);
-            session.setAttribute("driver-id", driver.getId());
+            session.setAttribute("driver_id", driver.getId());
             resp.sendRedirect(req.getContextPath() + "/index");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMessage", e.getMessage());
