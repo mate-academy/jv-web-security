@@ -7,7 +7,7 @@
     <title>Authentication</title>
 </head>
 <body>
-<form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/login">
+<form method="post" id="driver" action="${pageContext.request.contextPath}/login">
     <table border="1" class="table_dark">
         <h1 class="table_dark">Authentication</h1>
         <tr>

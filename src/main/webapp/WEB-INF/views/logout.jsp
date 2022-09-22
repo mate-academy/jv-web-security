@@ -6,7 +6,7 @@
 <body>
 <table class="table_dark">
     <tr>
-        <td><a href="${pageContext.request.contextPath}/drivers/logout">Logout</a></td>
+        <td><a href="${pageContext.request.contextPath}/logout">Logout</a></td>
     </tr>
 </table>
 </body>
