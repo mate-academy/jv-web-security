@@ -10,6 +10,13 @@
 <body>
 <form method="post" id="manufacturer" action="${pageContext.request.contextPath}/manufacturers/add"></form>
 <h1 class="table_dark">Add manufacturer:</h1>
+<table class="table_dark">
+    <tr>
+        <th>
+            <%@include file="/WEB-INF/views/header.jsp"%>
+        </th>
+    </tr>
+</table>
 <table border="1" class="table_dark">
     <tr>
         <th>Name</th>
@@ -26,6 +33,13 @@
         <td>
             <input type="submit" name="add" form="manufacturer" required>
         </td>
+    </tr>
+</table>
+<table class="table_dark">
+    <tr>
+        <th>
+            <%@include file="/WEB-INF/views/footer.jsp"%>
+        </th>
     </tr>
 </table>
 </body>
