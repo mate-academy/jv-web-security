@@ -15,11 +15,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     @Override
     public Driver login(String login, String password) throws LoginException {
         Optional<Driver> driver = driverDao.findByLogin(login);
-        if (driver.isPresent()) {
-            if (driver.get().getPassword().equals(password)) {
-                return driver.get();
-            }
-            throw new LoginException("Login or password failed!");
+        if (driver.isPresent() && driver.get().getPassword().equals(password)) {
+            return driver.get();
         }
         throw new LoginException("Login or password failed!");
     }
