@@ -18,8 +18,7 @@ public class AuthenticationFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) {
-        allowedUrls.add("/users/login");
-        allowedUrls.add("/users/register");
+        allowedUrls.add("/login");
     }
 
     @Override
@@ -28,13 +27,13 @@ public class AuthenticationFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
         HttpSession session = req.getSession();
-        Long userid = (Long) session.getAttribute("user_id");
+        Long userid = (Long) session.getAttribute("driver_id");
         if (userid == null && allowedUrls.contains(req.getServletPath())) {
             chain.doFilter(req, resp);
             return;
         }
         if (userid == null) {
-            resp.sendRedirect(req.getContextPath() + "/users/login");
+            resp.sendRedirect(req.getContextPath() + "/login");
             return;
         }
         chain.doFilter(req, resp);

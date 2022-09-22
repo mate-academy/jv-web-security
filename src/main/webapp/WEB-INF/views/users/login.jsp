@@ -7,7 +7,7 @@
     <title>Login</title>
 </head>
 <body>
-<form method="post" id="user" action="${pageContext.request.contextPath}/users/login"></form>
+<form method="post" id="user" action="${pageContext.request.contextPath}/login"></form>
 <h1 class="table_dark">Login:</h1>
 <p class="table_dark" style="color:red; font-size: medium">${errorMsg}</p>
 <table border="1" class="table_dark">

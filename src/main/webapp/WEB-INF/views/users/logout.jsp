@@ -5,7 +5,7 @@
 </head>
 <body>
     <button>
-        <a href="${pageContext.request.contextPath}/users/logout">Logout</a>
+        <a href="${pageContext.request.contextPath}/logout">Logout</a>
     </button>
 </body>
 </html>
