@@ -33,7 +33,7 @@ public class AuthenticationFilter implements Filter {
             return;
         }
         if (driverId == null) {
-            response.sendRedirect("/login");
+            response.sendRedirect(request.getContextPath() + "/login");
             return;
         }
         filterChain.doFilter(request, response);
