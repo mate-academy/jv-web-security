@@ -22,9 +22,8 @@
         <tr>
             <th scope="col">id</th>
             <th scope="col">Model</th>
-            <th scope="col">Manufacturer name</th>
-            <th scope="col">Manufacturer country</th>
-            <th scope="col">Drivers (id, Name, License number, Action)</th>
+            <th scope="col">Manufacturer (Name, Country) </th>
+            <th scope="col">Drivers (Id, Login, Name, License number, Action)</th>
             <th scope="col">Action</th>
         </tr>
         </thead>
@@ -38,10 +37,7 @@
                     <c:out value="${car.model}" />
                 </td>
                 <td>
-                    <c:out value="${car.manufacturer.name}" />
-                </td>
-                <td>
-                    <c:out value="${car.manufacturer.country}" />
+                    <c:out value="${car.manufacturer.name}" />, <c:out value="${car.manufacturer.country}" />
                 </td>
                 <td>
                     <table class="table table-striped mb-0">
@@ -51,6 +47,9 @@
                                     <th scope="row">
                                         <c:out value="${driver.id}" />
                                     </th>
+                                    <td>
+                                        <c:out value="${driver.login}" />
+                                    </td>
                                     <td>
                                         <c:out value="${driver.name}" />
                                     </td>
