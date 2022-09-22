@@ -14,14 +14,12 @@ import taxi.service.AuthenticationService;
 
 @WebServlet(urlPatterns = "/login")
 public class LoginController extends HttpServlet {
-    private static final Injector injector
-                = Injector.getInstance("taxi");
-
-    private final AuthenticationService authenticationService
-                = (AuthenticationService) injector.getInstance(AuthenticationService.class);
+    private static final Injector injector = Injector.getInstance("taxi");
+    private final AuthenticationService authenticationService = (AuthenticationService) injector
+            .getInstance(AuthenticationService.class);
 
     @Override
-        public void doGet(HttpServletRequest req, HttpServletResponse resp)
+    public void doGet(HttpServletRequest req, HttpServletResponse resp)
                 throws ServletException, IOException {
         req.getRequestDispatcher("/WEB-INF/views/authentication/login.jsp").forward(req, resp);
     }
