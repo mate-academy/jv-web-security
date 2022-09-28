@@ -28,5 +28,6 @@
         </td>
     </tr>
 </table>
+<a href="${pageContext.request.contextPath}/drivers/add" style="text-align:center; display: block">Register</a>
 </body>
 </html>
