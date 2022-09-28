@@ -5,7 +5,7 @@
 </style>
 <html>
 <head>
-    <title>All drivers</title>
+    <title>Add drivers</title>
 </head>
 <body>
 <%@include file="/WEB-INF/views/header.jsp" %>
@@ -21,13 +21,16 @@
     </tr>
     <tr>
         <td>
-            <input type="text" name="login" form="driver" required>
-        </td>
-        <td>
-            <input type="text" name="password" form="driver" required>
+            <input type="text" name="name" form="driver" required>
         </td>
         <td>
             <input type="text" name="license_number" form="driver" required>
+        </td>
+        <td>
+            <input type="text" name="login" form="driver" required>
+        </td>
+        <td>
+            <input type="password" name="password" form="driver" required>
         </td>
         <td>
             <input type="submit" name="add" form="driver">
