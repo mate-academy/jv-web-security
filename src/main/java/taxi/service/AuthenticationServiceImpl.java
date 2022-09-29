@@ -10,11 +10,11 @@ import java.util.Optional;
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
     @Inject
-    private DriverDao driverDao;
+    private DriverService driverService;
 
     @Override
     public Driver login(String login, String password) throws AuthenticationException {
-        Optional<Driver> driver = driverDao.findByLogin(login);
+        Optional<Driver> driver = driverService.findByLogin(login);
         if (driver.isEmpty()) {
             throw new AuthenticationException("Login or password was incorrect");
         }
