@@ -38,8 +38,7 @@ public class DriverServiceImpl implements DriverService {
     }
 
     @Override
-    public Driver findByLogin(String login) {
-        Optional<Driver> driverOptional = driverDao.findByLogin(login);
-        return driverOptional.get();
+    public Optional<Driver> findByLogin(String login) {
+        return driverDao.findByLogin(login);
     }
 }

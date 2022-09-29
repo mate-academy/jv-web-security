@@ -1,7 +1,5 @@
 package taxi.dao;
 
-import static taxi.dao.DriverDaoImpl.parseDriverFromResultSet;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -240,5 +238,16 @@ public class CarDaoImpl implements CarDao {
         car.setModel(model);
         car.setManufacturer(manufacturer);
         return car;
+    }
+
+    private Driver parseDriverFromResultSet(ResultSet resultSet) throws SQLException {
+        Long id = resultSet.getObject("id", Long.class);
+        String name = resultSet.getString("name");
+        String licenseNumber = resultSet.getString("license_number");
+        Driver driver = new Driver();
+        driver.setId(id);
+        driver.setName(name);
+        driver.setLicenseNumber(licenseNumber);
+        return driver;
     }
 }
