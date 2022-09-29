@@ -1,8 +1,8 @@
 package taxi.service;
 
-import taxi.exception.AuthnticationException;
+import taxi.exception.AuthenticationException;
 import taxi.model.Driver;
 
 public interface AuthenticationService {
-    Driver login(String login, String password) throws AuthnticationException;
+    Driver login(String login, String password) throws AuthenticationException;
 }
