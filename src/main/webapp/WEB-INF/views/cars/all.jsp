@@ -8,6 +8,8 @@
     <title>All cars</title>
 </head>
 <body>
+<%@include file="/WEB-INF/views/header.jsp"%>
+<h4> <a href="${pageContext.request.contextPath}/cars/my">Display my cars only</a> </h4>
 <h1 class="table_dark">All cars:</h1>
 <table border="1" class="table_dark">
     <tr>
