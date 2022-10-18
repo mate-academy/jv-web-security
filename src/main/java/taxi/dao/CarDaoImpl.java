@@ -8,7 +8,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 import taxi.exception.DataProcessingException;
 import taxi.lib.Dao;
 import taxi.model.Car;
@@ -18,9 +17,6 @@ import taxi.util.ConnectionUtil;
 
 @Dao
 public class CarDaoImpl implements CarDao {
-    private static final int ZERO_PLACEHOLDER = 0;
-    private static final int SHIFT = 2;
-
     @Override
     public Car create(Car car) {
         String query = "INSERT INTO cars (model, manufacturer_id)"
@@ -164,18 +160,15 @@ public class CarDaoImpl implements CarDao {
         if (drivers.size() == 0) {
             return;
         }
-        String query = "INSERT INTO cars_drivers (car_id, driver_id) VALUES "
-                + drivers.stream().map(driver -> "(?, ?)").collect(Collectors.joining(", "))
-                + " ON DUPLICATE KEY UPDATE car_id = car_id";
+        String query = "INSERT INTO cars_drivers (car_id, driver_id) VALUES (?, ?)";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement =
                         connection.prepareStatement(query)) {
-            for (int i = 0; i < drivers.size(); i++) {
-                Driver driver = drivers.get(i);
-                statement.setLong((i * SHIFT) + 1, carId);
-                statement.setLong((i * SHIFT) + 2, driver.getId());
+            statement.setLong(1, carId);
+            for (Driver driver : drivers) {
+                statement.setLong(2, driver.getId());
+                statement.executeUpdate();
             }
-            statement.executeUpdate();
         } catch (SQLException e) {
             throw new DataProcessingException("Can't insert drivers " + drivers, e);
         }
@@ -183,23 +176,14 @@ public class CarDaoImpl implements CarDao {
 
     private void deleteAllDriversExceptList(Car car) {
         Long carId = car.getId();
-        List<Driver> exceptions = car.getDrivers();
-        int size = exceptions.size();
-        String query = "DELETE FROM cars_drivers WHERE car_id = ? "
-                + "AND NOT driver_id IN ("
-                + ZERO_PLACEHOLDER + ", ?".repeat(size)
-                + ");";
+        String query = "DELETE FROM cars_drivers WHERE car_id = ?";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement =
                         connection.prepareStatement(query)) {
             statement.setLong(1, carId);
-            for (int i = 0; i < size; i++) {
-                Driver driver = exceptions.get(i);
-                statement.setLong((i) + SHIFT, driver.getId());
-            }
             statement.executeUpdate();
         } catch (SQLException e) {
-            throw new DataProcessingException("Can't delete drivers " + exceptions, e);
+            throw new DataProcessingException("Can't delete drivers " + car.getDrivers(), e);
         }
     }
 
