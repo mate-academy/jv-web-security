@@ -11,13 +11,12 @@ CREATE TABLE `drivers` (
                            `id` bigint unsigned NOT NULL AUTO_INCREMENT,
                            `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
                            `license_number` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
-                           `login` varchar(255) NOT NULL,
+                           `email` varchar(255) NOT NULL,
                            `password` varchar(255) NOT NULL,
                            `is_deleted` bit(1) NOT NULL DEFAULT b'0',
                            PRIMARY KEY (`id`) USING BTREE,
-                           UNIQUE KEY `login_UNIQUE` (`login`)
+                           UNIQUE KEY `login_UNIQUE` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
-
 
 -- ----------------------------
 -- Table structure for manufacturers
