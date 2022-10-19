@@ -6,13 +6,21 @@ public class Driver {
     private Long id;
     private String name;
     private String licenseNumber;
+    private String email;
+    private String password;
 
     public Driver() {
     }
 
-    public Driver(String name, String licenseNumber) {
+    public Driver(String name, String licenseNumber, String email) {
         this.name = name;
         this.licenseNumber = licenseNumber;
+        this.email = email;
+    }
+
+    public Driver(String name, String licenseNumber, String email, String password) {
+        this(name, licenseNumber, email);
+        this.password = password;
     }
 
     public Long getId() {
@@ -37,6 +45,32 @@ public class Driver {
 
     public void setLicenseNumber(String licenseNumber) {
         this.licenseNumber = licenseNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "Driver{"
+                + "id=" + id
+                + ", name='" + name + '\''
+                + ", licenseNumber='" + licenseNumber + '\''
+                + ", email='" + email + '\''
+                + '}';
     }
 
     @Override
