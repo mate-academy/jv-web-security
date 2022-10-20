@@ -8,9 +8,9 @@
     <title>Driver registration</title>
 </head>
 <body>
-<h4 style="color:red">${errorMessage}</h4>
 <form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/add"></form>
 <h1 class="table_dark">Add driver:</h1>
+<h4 style="color:red">${errorMessage}</h4>
 <table border="1" class="table_dark">
     <tr>
         <th>Name</th>

@@ -4,16 +4,15 @@ import taxi.exception.AuthenticationException;
 import taxi.lib.Inject;
 import taxi.lib.Service;
 import taxi.model.Driver;
-import taxi.dao.DriverDao;
 
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
     @Inject
-    private DriverDao driverDao;
+    private DriverService driverService;
     private static final int MIN_LENGTH = 8;
     private static final int MAX_LENGTH = 8;
     private static final String EMAIL_VALIDATOR =
-            "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
+            "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$";
 
     @Override
     public void register(Driver driver, String repeatPassword) throws AuthenticationException {
@@ -31,11 +30,18 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         if(!driver.getPassword().equals(repeatPassword)) {
             throw new AuthenticationException("Passwords do not match");
         }
-        driverDao.create(driver);
+        driverService.create(driver);
     }
 
     @Override
     public Driver login(String email, String password) throws AuthenticationException {
-        return null;
+        Driver driver = driverService.findByLogin(email);
+        if(driver == null) {
+            throw new AuthenticationException("Email or password was incorrect");
+        }
+        if(driver.getPassword().equals(password)) {
+            return driver;
+        }
+        throw new AuthenticationException("Email or password was incorrect");
     }
 }
