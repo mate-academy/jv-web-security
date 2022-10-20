@@ -9,7 +9,7 @@
 </head>
 <body>
 <%@include file="/WEB-INF/views/logout.jsp" %>
-<h1 class="table_dark">All cars:</h1>
+<h1 class="table_dark">${title}${name}</h1>
 <table border="1" class="table_dark">
     <tr>
         <th>ID</th>

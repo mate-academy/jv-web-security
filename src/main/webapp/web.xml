@@ -74,6 +74,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>currentDriverCars</servlet-name>
+        <servlet-class>taxi.controller.car.GetMyCurrentCarsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>currentDriverCars</servlet-name>
+        <url-pattern>/cars/current</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>addCar</servlet-name>
         <servlet-class>taxi.controller.car.AddCarController</servlet-class>
     </servlet>
