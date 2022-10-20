@@ -40,9 +40,7 @@ public class DriverServiceImpl implements DriverService {
     }
 
     @Override
-    public Driver findByLogin(String login) {
-        return driverDao.findByLogin(login)
-                .orElseThrow(() -> new NoSuchElementException("Can't get driver by login "
-                        + login));
+    public Optional<Driver> findByLogin(String login) {
+        return driverDao.findByLogin(login);
     }
 }

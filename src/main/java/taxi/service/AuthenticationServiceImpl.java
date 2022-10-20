@@ -1,5 +1,6 @@
 package taxi.service;
 
+import java.util.Optional;
 import taxi.exception.AuthenticationException;
 import taxi.lib.Inject;
 import taxi.lib.Service;
@@ -17,7 +18,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     @Override
     public void register(Driver driver, String repeatPassword) throws AuthenticationException {
         if(!driver.getEmail().matches(EMAIL_VALIDATOR)) {
-            throw new AuthenticationException("Email is invalid");
+            throw new AuthenticationException("Please enter a valid email");
         }
         if(driver.getPassword().length() < 8) {
             throw new AuthenticationException("Password must be at least "
@@ -35,12 +36,12 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     @Override
     public Driver login(String email, String password) throws AuthenticationException {
-        Driver driver = driverService.findByLogin(email);
-        if(driver == null) {
+        Optional<Driver> driver = driverService.findByLogin(email);
+        if(driver.isEmpty()) {
             throw new AuthenticationException("Email or password was incorrect");
         }
-        if(driver.getPassword().equals(password)) {
-            return driver;
+        if(driver.get().getPassword().equals(password)) {
+            return driver.get();
         }
         throw new AuthenticationException("Email or password was incorrect");
     }

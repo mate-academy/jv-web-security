@@ -1,14 +1,13 @@
 package taxi.controller;
 
-import taxi.exception.AuthenticationException;
-import taxi.lib.Injector;
-import taxi.service.AuthenticationService;
-
+import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import taxi.exception.AuthenticationException;
+import taxi.lib.Injector;
+import taxi.service.AuthenticationService;
 
 public class LoginController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
@@ -18,7 +17,7 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB_INF/views/login.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
     }
 
     @Override
@@ -31,7 +30,7 @@ public class LoginController extends HttpServlet {
             resp.sendRedirect("/index");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMessage", e.getMessage());
-            req.getRequestDispatcher("/WEB_INF/views/login.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
         }
     }
 }

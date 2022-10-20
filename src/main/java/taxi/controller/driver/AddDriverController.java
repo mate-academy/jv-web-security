@@ -35,7 +35,7 @@ public class AddDriverController extends HttpServlet {
             resp.sendRedirect(req.getContextPath() + "/drivers/add");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMessage", e.getMessage());
-            req.getRequestDispatcher("/WEB-INF/views/drivers/add").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/views/drivers/add.jsp").forward(req, resp);
         }
     }
 }
