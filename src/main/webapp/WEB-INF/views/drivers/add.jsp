@@ -5,7 +5,7 @@
 </style>
 <html>
 <head>
-    <title>All drivers</title>
+    <title>Driver registration</title>
 </head>
 <body>
 <form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/add"></form>
@@ -14,6 +14,9 @@
     <tr>
         <th>Name</th>
         <th>License number</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Repeat password</th>
         <th>Add</th>
     </tr>
     <tr>
@@ -24,9 +27,19 @@
             <input type="text" name="license_number" form="driver" required>
         </td>
         <td>
+            <input type="text" name="email" form="driver" required>
+        </td>
+        <td>
+            <input type="password" name="password" form="driver" required>
+        </td>
+        <td>
+            <input type="password" name="repeat_password" form="driver" required>
+        </td>
+        <td>
             <input type="submit" name="add" form="driver">
         </td>
     </tr>
 </table>
+<h1 class="table_dark" style="color:red">${errorMessage}</h1>
 </body>
 </html>
