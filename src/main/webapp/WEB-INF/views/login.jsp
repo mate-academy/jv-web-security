@@ -27,6 +27,11 @@
     </td>
   </tr>
 </table>
+<table class="table_dark">
+  <tr>
+    <th><a href="${pageContext.request.contextPath}/drivers/add">Register</a></th>
+  </tr>
+</table>
 <h1 class="table_dark" style="color:red">${errorMessage}</h1>
 </body>
 </html>

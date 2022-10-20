@@ -32,7 +32,7 @@ public class AddDriverController extends HttpServlet {
         Driver driver = new Driver(name, licenseNumber, email, password);
         try {
             authenticationService.register(driver, repeatPassword);
-            resp.sendRedirect(req.getContextPath() + "/drivers/add");
+            resp.sendRedirect(req.getContextPath() + "/login");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMessage", e.getMessage());
             req.getRequestDispatcher("/WEB-INF/views/drivers/add.jsp").forward(req, resp);
