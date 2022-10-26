@@ -3,12 +3,13 @@
     <%@include file='/WEB-INF/views/css/table_dark.css' %>
 </style>
 <html>
+<%@include file='/WEB-INF/views/header.jsp'  %>
 <head>
     <title>My team</title>
 </head>
 <body>
 <form method="post" id="redirect"></form>
-<h1 class="table_dark">Hello, mates</h1>
+<h1 class="table_dark">Hello, ${driver_name}</h1>
 <table class="table_dark">
     <tr>
         <th>Redirect to</th>
