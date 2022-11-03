@@ -121,7 +121,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>loginDriver</servlet-name>
-        <url-pattern>/drivers/login</url-pattern>
+        <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
     <servlet>

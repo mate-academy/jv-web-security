@@ -1,9 +1,9 @@
 package taxi.service;
 
+import java.util.Optional;
 import taxi.lib.Injector;
 import taxi.lib.Service;
 import taxi.model.Driver;
-import java.util.Optional;
 
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {

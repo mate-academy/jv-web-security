@@ -17,7 +17,7 @@ import taxi.util.ConnectionUtil;
 public class DriverDaoImpl implements DriverDao {
     @Override
     public Driver create(Driver driver) {
-        String query = "INSERT INTO driver (name, license_number, login, password) "
+        String query = "INSERT INTO driver (name, licenseNumber, login, password) "
                 + "VALUES (?, ?, ? ,?)";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement = connection.prepareStatement(query,
@@ -75,7 +75,7 @@ public class DriverDaoImpl implements DriverDao {
     @Override
     public Driver update(Driver driver) {
         String query = "UPDATE driver "
-                + "SET name = ?, license_number = ? "
+                + "SET name = ?, licenseNumber = ? "
                 + "login = ?, password = ?"
                 + "WHERE id = ? AND is_deleted = FALSE";
         try (Connection connection = ConnectionUtil.getConnection();
@@ -123,14 +123,14 @@ public class DriverDaoImpl implements DriverDao {
 
     @Override
     public Optional<Driver> findByLogin(String login) {
-        String query = "SELECT * from driver WHERE login ? AND is_deleted = FALSE";
-        try(Connection connection = ConnectionUtil.getConnection();
-            PreparedStatement statement = connection.prepareStatement(query)) {
+        String query = "SELECT * from driver WHERE login = ? AND is_deleted = FALSE";
+        try (Connection connection = ConnectionUtil.getConnection();
+                PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setString(1, login);
             ResultSet resultSet = statement.executeQuery();
             Driver driver = null;
             if (resultSet.next()) {
-               driver = parseDriverFromResultSet(resultSet);
+                driver = parseDriverFromResultSet(resultSet);
             }
             return Optional.ofNullable(driver);
         } catch (SQLException e) {
