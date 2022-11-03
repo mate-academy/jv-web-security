@@ -37,7 +37,7 @@ public class AuthenticationFilter implements Filter {
     }
 
     @Override
-    public void init(FilterConfig filterConfig){
+    public void init(FilterConfig filterConfig) {
         allowedDraver.add("/login");
         allowedDraver.add("/registration");
     }
