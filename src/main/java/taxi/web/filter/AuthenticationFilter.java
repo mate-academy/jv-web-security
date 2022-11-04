@@ -17,6 +17,12 @@ public class AuthenticationFilter implements Filter {
     private final Set<String> allowedDraver = new HashSet<>();
 
     @Override
+    public void init(FilterConfig filterConfig) {
+        allowedDraver.add("/login");
+        allowedDraver.add("/registration");
+    }
+
+    @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
                          FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
@@ -25,20 +31,14 @@ public class AuthenticationFilter implements Filter {
 
         Long driverId = (Long) session.getAttribute("driver_id");
         if (driverId == null && allowedDraver.contains(req.getServletPath())) {
-            filterChain.doFilter(req, res);
-        }
-        if (driverId == null) {
-            res.sendRedirect("/login");
+            res.sendRedirect(req.getContextPath() + "/login");
             return;
         }
-
         filterChain.doFilter(req, res);
-
     }
 
     @Override
-    public void init(FilterConfig filterConfig) {
-        allowedDraver.add("/login");
-        allowedDraver.add("/registration");
+    public void destroy() {
+        Filter.super.destroy();
     }
 }
