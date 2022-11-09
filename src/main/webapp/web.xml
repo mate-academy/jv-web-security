@@ -15,6 +15,7 @@
         <servlet-name>index</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
     <servlet>
         <servlet-name>login</servlet-name>
         <servlet-class>taxi.controller.LoginController</servlet-class>
@@ -23,6 +24,7 @@
         <servlet-name>login</servlet-name>
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
+
     <servlet>
         <servlet-name>logout</servlet-name>
         <servlet-class>taxi.controller.LogoutController</servlet-class>
@@ -31,6 +33,7 @@
         <servlet-name>logout</servlet-name>
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
+
     <servlet>
         <servlet-name>allDrivers</servlet-name>
         <servlet-class>taxi.controller.driver.GetAllDriversController</servlet-class>
@@ -56,6 +59,15 @@
     <servlet-mapping>
         <servlet-name>addDriver</servlet-name>
         <url-pattern>/drivers/add</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>allCarsByDriver</servlet-name>
+        <servlet-class>taxi.controller.driver.GetMyCurrentCarsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>allCarsByDriver</servlet-name>
+        <url-pattern>/drivers/cars</url-pattern>
     </servlet-mapping>
 
     <servlet>
