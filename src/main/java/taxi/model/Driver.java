@@ -7,10 +7,15 @@ public class Driver {
     private String name;
     private String licenseNumber;
 
+    private String login;
+    private String password;
+
     public Driver() {
     }
 
-    public Driver(String name, String licenseNumber) {
+    public Driver(String login, String password, String name, String licenseNumber) {
+        this.login = login;
+        this.password = password;
         this.name = name;
         this.licenseNumber = licenseNumber;
     }
@@ -39,6 +44,22 @@ public class Driver {
         this.licenseNumber = licenseNumber;
     }
 
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -56,5 +77,15 @@ public class Driver {
     @Override
     public int hashCode() {
         return Objects.hash(id, name, licenseNumber);
+    }
+
+    @Override
+    public String toString() {
+        return "Driver{"
+                + "id=" + id
+                + ", name='" + name + '\''
+                + ", licenseNumber='" + licenseNumber + '\''
+                + ", login='" + login + '\''
+                + '}';
     }
 }
