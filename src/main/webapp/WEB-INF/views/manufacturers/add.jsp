@@ -9,6 +9,7 @@
 </head>
 <body>
 <form method="post" id="manufacturer" action="${pageContext.request.contextPath}/manufacturers/add"></form>
+<a href="${pageContext.request.contextPath}/index">Get me back to Index page</a>
 <h1 class="table_dark">Add manufacturer:</h1>
 <table border="1" class="table_dark">
     <tr>
