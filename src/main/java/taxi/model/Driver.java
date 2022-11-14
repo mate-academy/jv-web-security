@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import lombok.ToString;
 
 @Data
 @NoArgsConstructor
@@ -17,5 +18,6 @@ public class Driver {
     @NonNull
     private String login;
     @NonNull
-    private String password;
+    @ToString.Exclude
+    private transient String password;
 }
