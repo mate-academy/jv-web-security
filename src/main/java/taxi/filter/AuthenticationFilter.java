@@ -29,7 +29,6 @@ public class AuthenticationFilter extends HttpFilter {
             chain.doFilter(req, resp);
             return;
         }
-
         Long userId = (Long) req.getSession().getAttribute("userId");
         if (userId == null) {
             resp.sendRedirect("/login");
