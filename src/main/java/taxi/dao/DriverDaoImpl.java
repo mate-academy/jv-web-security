@@ -109,4 +109,21 @@ public class DriverDaoImpl implements DriverDao {
             throw new DataProcessingException("Couldn't delete driver with id " + id, e);
         }
     }
+
+    @Override
+    public Optional<Driver> findDriverByLogin(String login) {
+        String query = "SELECT * FROM drivers WHERE login = ?;";
+        try (Connection connection = ConnectionUtil.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, login);
+            ResultSet resultSet = statement.executeQuery();
+            Driver driver = null;
+            if (resultSet.next()) {
+                driver = driverParser.parse(resultSet);
+            }
+            return Optional.ofNullable(driver);
+        } catch (SQLException e) {
+            throw new DataProcessingException("Couldn't get driver by login " + login, e);
+        }
+    }
 }
