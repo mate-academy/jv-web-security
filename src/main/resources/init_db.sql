@@ -56,27 +56,3 @@ CREATE TABLE `cars_drivers`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 SET FOREIGN_KEY_CHECKS = 1;
-
--- ----------
--- Table with accounts of drivers
--- ----------
-DROP TABLE IF EXISTS `accounts`;
-CREATE TABLE `accounts` (
-    `id` BIGINT(0) UNSIGNED NOT NULL AUTO_INCREMENT,
-    `login` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-    `password` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-    PRIMARY KEY (`id`) using BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
-
-
-DROP TABLE IF EXISTS `drivers_accounts`;
-CREATE TABLE `drivers_accounts`
-(
-    `account_id` BIGINT(0) UNSIGNED NOT NULL,
-    `driver_id` BIGINT(0) UNSIGNED NOT NULL,
-    PRIMARY KEY (`account_id`, `driver_id`) USING BTREE,
-    INDEX `account_id`(`account_id`) USING BTREE,
-    INDEX `driver_id`(`driver_id`) USING BTREE,
-    CONSTRAINT `account_id` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-    CONSTRAINT `driver_id_login` FOREIGN KEY (`driver_id`) REFERENCES `drivers` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
