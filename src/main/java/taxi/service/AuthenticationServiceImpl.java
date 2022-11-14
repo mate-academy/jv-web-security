@@ -10,10 +10,10 @@ import taxi.model.Driver;
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
     @Inject
-    DriverService driverService;
+    private DriverService driverService;
 
     @Override
-    public Driver login (String login, String password) throws AuthenticationException {
+    public Driver login(String login, String password) throws AuthenticationException {
         Optional<Driver> optionalDriver = driverService.findDriverByLogin(login);
         if (optionalDriver.isEmpty()
                 || !Objects.equals(optionalDriver.get().getPassword(),

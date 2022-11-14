@@ -18,7 +18,7 @@ import taxi.util.ConnectionUtil;
 @Dao
 public class DriverDaoImpl implements DriverDao {
     @Inject
-    ResultSetParser<Driver> driverParser;
+    private ResultSetParser<Driver> driverParser;
 
     @Override
     public Driver create(Driver driver) {
@@ -114,7 +114,7 @@ public class DriverDaoImpl implements DriverDao {
     public Optional<Driver> findDriverByLogin(String login) {
         String query = "SELECT * FROM drivers WHERE login = ?;";
         try (Connection connection = ConnectionUtil.getConnection();
-             PreparedStatement statement = connection.prepareStatement(query)) {
+                 PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setString(1, login);
             ResultSet resultSet = statement.executeQuery();
             Driver driver = null;
