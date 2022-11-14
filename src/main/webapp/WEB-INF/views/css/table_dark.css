@@ -30,3 +30,12 @@
 .table_dark tr:hover td {
     text-decoration: underline;
 }
+.error-message {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    color: #ba3939;
+    background: #ffe0e0;
+    border: 1px solid #a33a3a;
+    padding: 7px 17px;
+    width: 67.5%;
+    margin: auto;
+}
