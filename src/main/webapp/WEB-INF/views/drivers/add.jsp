@@ -36,5 +36,10 @@
         </td>
     </tr>
 </table>
+<c:choose>
+    <c:when test="${sessionIsValidate=='true'}">
+        <%@include file="/WEB-INF/views/bottom.jsp"%>
+    </c:when>
+</c:choose>
 </body>
 </html>

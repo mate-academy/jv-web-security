@@ -27,8 +27,6 @@
       <input type="submit" name="add" form="login">
     </td>
   </tr>
-
-
 </table>
 </body>
 </html>
