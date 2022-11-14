@@ -1,5 +1,6 @@
 package taxi.controller;
 
+import taxi.exception.AuthenticationException;
 import taxi.lib.Injector;
 import taxi.model.Driver;
 import taxi.service.AuthenticationService;
@@ -31,16 +32,13 @@ public class LoginController extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         String login = req.getParameter("login");
-        System.out.println(login);
         String password = req.getParameter("password");
-        System.out.println(password);
 
         try {
             Driver loggedDriver = authenticationService.login(login, password);
-            System.out.println(loggedDriver.getId());
-        } catch (LoginException e) {
-            System.out.println("Email or password is wrong");
-            e.printStackTrace();
+        } catch (AuthenticationException e) {
+            req.setAttribute("message", e.getMessage());
+            req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
         }
     }
 }

@@ -7,6 +7,7 @@
     <title>Login</title>
 </head>
 <body>
+<h4 style="color:red;">${message}</h4>
 <form method="post" id="login" action="${pageContext.request.contextPath}/login"></form>
 <table border="1" class="table_dark">
   <tr>
