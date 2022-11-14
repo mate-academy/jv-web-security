@@ -28,9 +28,11 @@ public class Driver {
         this.password = password;
     }
 
-    public Driver(String name, String licenseNumber) {
+    public Driver(String name, String licenseNumber, String login, String password) {
         this.name = name;
         this.licenseNumber = licenseNumber;
+        this.login = login;
+        this.password = password;
     }
 
     public Long getId() {
