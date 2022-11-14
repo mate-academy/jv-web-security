@@ -1,6 +1,7 @@
 package taxi.controller.car;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -28,7 +29,7 @@ public class AddCarController extends HttpServlet {
         String model = req.getParameter("model");
         long manufacturerId = Long.parseLong(req.getParameter("manufacturer_id"));
         Manufacturer manufacturer = manufacturerService.get(manufacturerId);
-        Car car = new Car(model, manufacturer);
+        Car car = new Car(model, manufacturer, new ArrayList<>());
         carService.create(car);
         resp.sendRedirect(req.getContextPath() + "/cars/add");
     }

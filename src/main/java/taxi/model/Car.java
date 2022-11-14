@@ -15,5 +15,6 @@ public class Car {
     private String model;
     @NonNull
     private Manufacturer manufacturer;
+    @NonNull
     private List<Driver> drivers;
 }
