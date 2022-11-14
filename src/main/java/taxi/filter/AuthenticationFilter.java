@@ -17,7 +17,7 @@ public class AuthenticationFilter extends HttpFilter {
 
     @Override
     public void init() {
-        permitList = Set.of("/login");
+        permitList = Set.of("/login", "/drivers/add");
     }
 
     @Override
