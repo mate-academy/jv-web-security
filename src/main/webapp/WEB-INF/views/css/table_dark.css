@@ -39,3 +39,9 @@
     width: 67.5%;
     margin: auto;
 }
+.header {
+    width: 67.5%;
+    border: 3px solid #FEF4AB;
+    padding: 10px;
+    margin: auto;
+}
