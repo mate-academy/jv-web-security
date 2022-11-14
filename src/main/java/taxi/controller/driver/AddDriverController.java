@@ -17,8 +17,8 @@ public class AddDriverController extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        Long user_id = (Long) req.getSession().getAttribute("user_id");
-        if (user_id != null) {
+        Long userId = (Long) req.getSession().getAttribute("user_id");
+        if (userId != null) {
             req.setAttribute("sessionIsValidate", "true");
         } else {
             req.setAttribute("sessionIsValidate", "false");

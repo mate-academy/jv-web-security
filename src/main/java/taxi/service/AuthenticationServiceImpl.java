@@ -5,13 +5,11 @@ import taxi.lib.Inject;
 import taxi.lib.Service;
 import taxi.model.Driver;
 
-import javax.security.auth.login.LoginException;
-
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
     private static final String ERROR_MESSAGE = "Email or password was incorrect";
     @Inject
-    DriverService driverService;
+    private DriverService driverService;
 
     @Override
     public Driver login(String login, String password)

@@ -1,28 +1,27 @@
 package taxi.controller.authentification;
 
-import taxi.exception.AuthenticationException;
-import taxi.lib.Injector;
-import taxi.model.Driver;
-import taxi.service.AuthenticationService;
-
-import javax.security.auth.login.LoginException;
+import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
+import taxi.exception.AuthenticationException;
+import taxi.lib.Injector;
+import taxi.model.Driver;
+import taxi.service.AuthenticationService;
 
 @WebServlet("/login")
 public class LoginController extends HttpServlet {
-    Injector injector = Injector.getInstance("taxi");
-    AuthenticationService authenticationService;
+    private static final Injector injector = Injector.getInstance("taxi");
+    private final AuthenticationService authenticationService;
 
     public LoginController() {
         authenticationService = (AuthenticationService)
                 injector.getInstance(AuthenticationService.class);
     }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
