@@ -12,6 +12,13 @@ public class Driver {
     public Driver() {
     }
 
+    public Driver(String name, String licenseNumber, String login, String password) {
+        this.name = name;
+        this.licenseNumber = licenseNumber;
+        this.login = login;
+        this.password = password;
+    }
+
     public String getLogin() {
         return login;
     }
@@ -25,13 +32,6 @@ public class Driver {
     }
 
     public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Driver(String name, String licenseNumber, String login, String password) {
-        this.name = name;
-        this.licenseNumber = licenseNumber;
-        this.login = login;
         this.password = password;
     }
 
