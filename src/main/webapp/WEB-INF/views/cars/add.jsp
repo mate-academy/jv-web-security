@@ -8,7 +8,9 @@
     <title>Add car</title>
 </head>
 <body>
+
 <form method="post" id="car" action="${pageContext.request.contextPath}/cars/add"></form>
+<%@include file="../header.jsp" %><br>
 <a href="${pageContext.request.contextPath}/index">Get me back to Index page</a>
 <h1 class="table_dark">Add car:</h1>
 <table border="1" class="table_dark">

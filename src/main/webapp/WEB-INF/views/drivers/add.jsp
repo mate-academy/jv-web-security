@@ -9,7 +9,7 @@
 </head>
 <body>
 <form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/add"></form>
-<a href="${pageContext.request.contextPath}/index">Get me back to Index page</a>
+<a href="${pageContext.request.contextPath}/login">Get me back to Login page</a>
 <h1 class="table_dark">Add driver:</h1>
 <table border="1" class="table_dark">
     <tr>
