@@ -1,17 +1,15 @@
 package taxi.service;
 
-import taxi.lib.Injector;
+import taxi.lib.Inject;
+import taxi.lib.Service;
 import taxi.model.Driver;
 
 import javax.security.auth.login.LoginException;
 
+@Service
 public class AuthenticationServiceImpl implements AuthenticationService {
-    Injector injector = Injector.getInstance("mate");
+    @Inject
     DriverService driverService;
-
-    public AuthenticationServiceImpl() {
-        driverService = (DriverService) injector.getInstance(DriverService.class);
-    }
 
     @Override
     public Driver login(String login, String password) throws LoginException {
