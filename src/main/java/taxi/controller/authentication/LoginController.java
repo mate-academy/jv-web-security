@@ -31,12 +31,10 @@ public class LoginController extends HttpServlet {
             Driver driver = authenticationService.login(username, password);
             HttpSession session = req.getSession();
             session.setAttribute("driver_id", driver.getId());
-            //req.getRequestDispatcher("/WEB-INF/views/cars/all.jsp").forward(req, resp);
             resp.sendRedirect(req.getContextPath() + "/drivers/cars");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMsg", e.getMessage());
             req.getRequestDispatcher("/WEB-INF/views/authentication/login.jsp").forward(req,resp);
-
         }
     }
 }
