@@ -13,7 +13,7 @@ import taxi.lib.Injector;
 import taxi.model.Car;
 
 @WebServlet(urlPatterns = "/drivers/cars")
-public class GetDriversCurrentCarsController extends HttpServlet {
+public class GetCurrentCarsController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
     private final CarDao carDao = (CarDao) injector.getInstance(CarDao.class);
 
