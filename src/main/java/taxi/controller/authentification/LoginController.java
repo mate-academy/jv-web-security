@@ -15,12 +15,8 @@ import taxi.service.AuthenticationService;
 @WebServlet("/login")
 public class LoginController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
-    private final AuthenticationService authenticationService;
-
-    public LoginController() {
-        authenticationService = (AuthenticationService)
-                injector.getInstance(AuthenticationService.class);
-    }
+    private final AuthenticationService authenticationService = (AuthenticationService)
+            injector.getInstance(AuthenticationService.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
