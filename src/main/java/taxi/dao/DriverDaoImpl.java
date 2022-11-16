@@ -112,7 +112,7 @@ public class DriverDaoImpl implements DriverDao {
 
     @Override
     public Optional<Driver> findDriverByLogin(String login) {
-        String query = "SELECT * FROM drivers WHERE login = ?;";
+        String query = "SELECT * FROM drivers WHERE login = ?";
         try (Connection connection = ConnectionUtil.getConnection();
                  PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setString(1, login);
