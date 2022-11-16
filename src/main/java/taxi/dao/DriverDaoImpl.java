@@ -8,22 +8,29 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import taxi.dao.parsing.ResultSetParser;
 import taxi.exception.DataProcessingException;
 import taxi.lib.Dao;
+import taxi.lib.Inject;
 import taxi.model.Driver;
 import taxi.util.ConnectionUtil;
 
 @Dao
 public class DriverDaoImpl implements DriverDao {
+    @Inject
+    private ResultSetParser<Driver> driverParser;
+
     @Override
     public Driver create(Driver driver) {
-        String query = "INSERT INTO drivers (name, license_number) "
-                + "VALUES (?, ?)";
+        String query = "INSERT INTO drivers (name, license_number, login, password) "
+                + "VALUES (?, ?, ?, ?)";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement = connection.prepareStatement(query,
                         Statement.RETURN_GENERATED_KEYS)) {
             statement.setString(1, driver.getName());
             statement.setString(2, driver.getLicenseNumber());
+            statement.setString(3, driver.getLogin());
+            statement.setString(4, driver.getPassword());
             statement.executeUpdate();
             ResultSet resultSet = statement.getGeneratedKeys();
             if (resultSet.next()) {
@@ -45,7 +52,7 @@ public class DriverDaoImpl implements DriverDao {
             ResultSet resultSet = statement.executeQuery();
             Driver driver = null;
             if (resultSet.next()) {
-                driver = parseDriverFromResultSet(resultSet);
+                driver = driverParser.parse(resultSet);
             }
             return Optional.ofNullable(driver);
         } catch (SQLException e) {
@@ -61,7 +68,7 @@ public class DriverDaoImpl implements DriverDao {
                 PreparedStatement statement = connection.prepareStatement(query)) {
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
-                drivers.add(parseDriverFromResultSet(resultSet));
+                drivers.add(driverParser.parse(resultSet));
             }
             return drivers;
         } catch (SQLException e) {
@@ -73,14 +80,16 @@ public class DriverDaoImpl implements DriverDao {
     @Override
     public Driver update(Driver driver) {
         String query = "UPDATE drivers "
-                + "SET name = ?, license_number = ? "
+                + "SET name = ?, license_number = ?, login = ?, password = ? "
                 + "WHERE id = ? AND is_deleted = FALSE";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement
                         = connection.prepareStatement(query)) {
             statement.setString(1, driver.getName());
             statement.setString(2, driver.getLicenseNumber());
-            statement.setLong(3, driver.getId());
+            statement.setString(3, driver.getLogin());
+            statement.setString(3, driver.getPassword());
+            statement.setLong(5, driver.getId());
             statement.executeUpdate();
             return driver;
         } catch (SQLException e) {
@@ -101,14 +110,20 @@ public class DriverDaoImpl implements DriverDao {
         }
     }
 
-    private Driver parseDriverFromResultSet(ResultSet resultSet) throws SQLException {
-        Long id = resultSet.getObject("id", Long.class);
-        String name = resultSet.getString("name");
-        String licenseNumber = resultSet.getString("license_number");
-        Driver driver = new Driver();
-        driver.setId(id);
-        driver.setName(name);
-        driver.setLicenseNumber(licenseNumber);
-        return driver;
+    @Override
+    public Optional<Driver> findDriverByLogin(String login) {
+        String query = "SELECT * FROM drivers WHERE login = ?";
+        try (Connection connection = ConnectionUtil.getConnection();
+                 PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, login);
+            ResultSet resultSet = statement.executeQuery();
+            Driver driver = null;
+            if (resultSet.next()) {
+                driver = driverParser.parse(resultSet);
+            }
+            return Optional.ofNullable(driver);
+        } catch (SQLException e) {
+            throw new DataProcessingException("Couldn't get driver by login " + login, e);
+        }
     }
 }
