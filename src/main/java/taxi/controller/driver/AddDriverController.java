@@ -18,11 +18,7 @@ public class AddDriverController extends HttpServlet {
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         Long userId = (Long) req.getSession().getAttribute("user_id");
-        if (userId != null) {
-            req.setAttribute("sessionIsValidate", "true");
-        } else {
-            req.setAttribute("sessionIsValidate", "false");
-        }
+        req.setAttribute("sessionIsValid", userId != null);
         req.getRequestDispatcher("/WEB-INF/views/drivers/add.jsp").forward(req, resp);
     }
 
