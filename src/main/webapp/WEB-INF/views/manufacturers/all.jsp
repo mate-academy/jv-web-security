@@ -8,6 +8,8 @@
     <title>All manufacturers</title>
 </head>
 <body>
+<%@include file="../header.jsp" %><br>
+<a href="${pageContext.request.contextPath}/index">Get me back to Index page</a>
 <h1 class="table_dark">All manufacturers:</h1>
 <table border="1" class="table_dark">
     <tr>
