@@ -26,6 +26,24 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>loginDriver</servlet-name>
+        <servlet-class>taxi.controller.driver.LogInDriverController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>loginDriver</servlet-name>
+        <url-pattern>/drivers/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>logOutDriver</servlet-name>
+        <servlet-class>taxi.controller.driver.LogOutDriverController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logOutDriver</servlet-name>
+        <url-pattern>/drivers/logout</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>deleteDriver</servlet-name>
         <servlet-class>taxi.controller.driver.DeleteDriverController</servlet-class>
     </servlet>
@@ -105,4 +123,13 @@
         <servlet-name>deleteManufacturer</servlet-name>
         <url-pattern>/manufacturers/delete</url-pattern>
     </servlet-mapping>
+
+    <filter>
+        <filter-name>authenticationFilter</filter-name>
+        <filter-class>taxi.filter.AuthenticationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>authenticationFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>
