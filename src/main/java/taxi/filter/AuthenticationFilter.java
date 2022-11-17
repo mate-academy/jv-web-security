@@ -40,4 +40,5 @@ public class AuthenticationFilter implements Filter {
     public void destroy() {
         Filter.super.destroy();
     }
+
 }
