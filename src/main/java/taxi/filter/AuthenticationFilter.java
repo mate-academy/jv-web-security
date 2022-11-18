@@ -28,15 +28,11 @@ public class AuthenticationFilter implements Filter {
             throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
-        if (allowedUrls.contains(req.getServletPath())) {
-            chain.doFilter(req, resp);
-            return;
-        }
-        Long userId = (Long) req.getSession().getAttribute("driver_id");
-        if (userId == null) {
+        Long driverId = (Long) req.getSession().getAttribute("driver_id");
+        if (driverId == null && !allowedUrls.contains(req.getServletPath())) {
             resp.sendRedirect("/login");
             return;
         }
-        chain.doFilter(req, resp);
+        chain.doFilter(request, response);
     }
 }
