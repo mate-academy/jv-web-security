@@ -15,7 +15,7 @@ public class LoginController extends HttpServlet {
     private static final String adminPass = "admin";
     private static final String adminLogin = "admin";
     private static final Injector injector = Injector.getInstance("taxi");
-    private AuthenticationService authenticationService
+    private final AuthenticationService authenticationService
             = (AuthenticationService) injector.getInstance(AuthenticationService.class);
 
     @Override
@@ -46,7 +46,7 @@ public class LoginController extends HttpServlet {
         }
     }
 
-    private boolean isAdmin (Driver driver) {
+    private boolean isAdmin(Driver driver) {
         return driver.getPassword().equals(adminPass)
                 && driver.getLogin().equals(adminLogin);
     }
