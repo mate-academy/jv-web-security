@@ -12,6 +12,8 @@ import taxi.model.Driver;
 import taxi.service.AuthenticationService;
 
 public class LoginController extends HttpServlet {
+    private static final String adminPass = "admin";
+    private static final String adminLogin = "admin";
     private static final Injector injector = Injector.getInstance("taxi");
     private AuthenticationService authenticationService
             = (AuthenticationService) injector.getInstance(AuthenticationService.class);
@@ -29,6 +31,12 @@ public class LoginController extends HttpServlet {
         String password = req.getParameter("password");
         try {
             Driver driver = authenticationService.login(username, password);
+            if (isAdmin(driver)) {
+                HttpSession session = req.getSession();
+                session.setAttribute("driver_id", driver.getId());
+                resp.sendRedirect(req.getContextPath() + "/");
+                return;
+            }
             HttpSession session = req.getSession();
             session.setAttribute("driver_id", driver.getId());
             resp.sendRedirect(req.getContextPath() + "/drivers/cars");
@@ -36,5 +44,10 @@ public class LoginController extends HttpServlet {
             req.setAttribute("errorMsg", e.getMessage());
             req.getRequestDispatcher("/WEB-INF/views/authentication/login.jsp").forward(req,resp);
         }
+    }
+
+    private boolean isAdmin (Driver driver) {
+        return driver.getPassword().equals(adminPass)
+                && driver.getLogin().equals(adminLogin);
     }
 }
