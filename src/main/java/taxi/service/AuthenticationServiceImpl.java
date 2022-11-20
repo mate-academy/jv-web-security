@@ -9,19 +9,15 @@ import taxi.model.Driver;
 
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
-    private static final String INCORRECT_INPUT_DATA_MSG = "Login or password are incorrect";
     @Inject
     private DriverDao driverDao;
 
     @Override
     public Driver login(String login, String password) throws AuthenticationException {
         Optional<Driver> driver = driverDao.findByLogin(login);
-        if (driver.isEmpty()) {
-            throw new AuthenticationException(INCORRECT_INPUT_DATA_MSG);
-        }
-        if (password.equals(driver.get().getPassword())) {
+        if (driver.isPresent() && password.equals(driver.get().getPassword())) {
             return driver.get();
         }
-        throw new AuthenticationException(INCORRECT_INPUT_DATA_MSG);
+        throw new AuthenticationException("Login or password are incorrect");
     }
 }
