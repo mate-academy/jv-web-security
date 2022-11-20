@@ -138,7 +138,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>GetMyCurrentCarsController</servlet-name>
-        <url-pattern>/drivers/desplay</url-pattern>
+        <url-pattern>/drivers/display</url-pattern>
     </servlet-mapping>
 
 </web-app>
