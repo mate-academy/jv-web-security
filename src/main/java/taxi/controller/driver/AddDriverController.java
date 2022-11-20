@@ -33,7 +33,8 @@ public class AddDriverController extends HttpServlet {
             req.setAttribute("errorMsg", "Driver with this login already exists");
             req.getRequestDispatcher("/WEB-INF/views/drivers/add.jsp").forward(req, resp);
         } catch (NoSuchElementException e) {
-            Driver driver = new Driver(name, licenseNumber, login, String.valueOf(password.hashCode()));
+            Driver driver =
+                    new Driver(name, licenseNumber, login, String.valueOf(password.hashCode()));
             driverService.create(driver);
             resp.sendRedirect(req.getContextPath() + "/login");
         }
