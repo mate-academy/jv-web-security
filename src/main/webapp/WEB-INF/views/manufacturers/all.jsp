@@ -8,6 +8,9 @@
     <title>All manufacturers</title>
 </head>
 <body>
+<header>
+    <jsp:include page="../header.jsp"/>
+</header>
 <h1 class="table_dark">All manufacturers:</h1>
 <table border="1" class="table_dark">
     <tr>
