@@ -22,11 +22,11 @@
     </servlet-mapping>
     
     <servlet>
-        <servlet-name>startPage</servlet-name>
-        <servlet-class>taxi.controller.StartPageController</servlet-class>
+        <servlet-name>promoController</servlet-name>
+        <servlet-class>taxi.controller.PromoController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>startPage</servlet-name>
+        <servlet-name>promoController</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 

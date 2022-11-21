@@ -39,7 +39,7 @@ public class LoginController extends HttpServlet {
         try {
             Driver driver = authenticationService.login(login, password);
             HttpSession session = req.getSession();
-            session.setAttribute("driverID", driver.getId());
+            session.setAttribute("driver_id", driver.getId());
             resp.sendRedirect("/index");
         } catch (AuthenticationException | RuntimeException e) {
             req.setAttribute("errorMessage", e.getMessage());

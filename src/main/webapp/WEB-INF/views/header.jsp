@@ -3,7 +3,7 @@
   <%@include file='/WEB-INF/views/css/header.css' %>
 </style>
 <html>
-<div class="appLogout">
+<div class="app-logout">
   You are logged in
   <a href="${pageContext.request.contextPath}/logout">Logout</a>
 </div>

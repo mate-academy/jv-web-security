@@ -22,7 +22,7 @@ public class IndexController extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        Long driverID = (Long) req.getSession().getAttribute("driverID");
+        Long driverID = (Long) req.getSession().getAttribute("driver_id");
         Driver driver = driverService.get(driverID);
         req.setAttribute("driver", driver);
         req.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(req, resp);
