@@ -31,8 +31,12 @@ public class AddDriverController extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws IOException, ServletException {
-        String name = req.getParameter("name");
-        String licenseNumber = req.getParameter("license_number");
+        validateData(req, resp);
+        createDriver(req, resp);
+    }
+
+    private void validateData(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         String confirmPassword = req.getParameter("confirm_password");
@@ -42,8 +46,15 @@ public class AddDriverController extends HttpServlet {
         } catch (ValidationException e) {
             req.setAttribute("errorMsg", e.getMessage());
             req.getRequestDispatcher("/WEB-INF/views/drivers/add.jsp").forward(req, resp);
-            return;
         }
+    }
+
+    private void createDriver(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        String name = req.getParameter("name");
+        String licenseNumber = req.getParameter("license_number");
+        String login = req.getParameter("login");
+        String password = req.getParameter("password");
         try {
             driverService.findByLogin(login);
             req.setAttribute("errorMsg", "Driver with the same name or login already exists");
