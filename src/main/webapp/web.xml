@@ -5,16 +5,13 @@
          version="4.0">
     <servlet>
         <servlet-name>index</servlet-name>
-        <servlet-class>taxi.controller.IndexController</servlet-class>
+        <servlet-class>taxi.controller.login.IndexController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>index</servlet-name>
         <url-pattern>/index</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>index</servlet-name>
-        <url-pattern>/</url-pattern>
-    </servlet-mapping>
+
 
     <servlet>
         <servlet-name>allDrivers</servlet-name>
@@ -105,4 +102,43 @@
         <servlet-name>deleteManufacturer</servlet-name>
         <url-pattern>/manufacturers/delete</url-pattern>
     </servlet-mapping>
+
+
+
+    <filter>
+        <filter-name>AuthenticationFilter</filter-name>
+        <filter-class>taxi.filter.AuthenticationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthenticationFilter</filter-name>
+        <url-pattern>/logins/login</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>LoginController</servlet-name>
+        <servlet-class>taxi.controller.login.LoginController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginController</servlet-name>
+        <url-pattern>/logins/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LogoutController</servlet-name>
+        <servlet-class>taxi.controller.login.LogoutController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutController</servlet-name>
+        <url-pattern>/logins/logout</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetMyCurrentCarsController</servlet-name>
+        <servlet-class>taxi.controller.login.GetMyCurrentCarsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetMyCurrentCarsController</servlet-name>
+        <url-pattern>/drivers/display</url-pattern>
+    </servlet-mapping>
+
 </web-app>
