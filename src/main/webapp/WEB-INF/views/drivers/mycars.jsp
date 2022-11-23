@@ -16,19 +16,19 @@
     <th>Manufacturer name</th>
     <th>Manufacturer country</th>
   </tr>
-  <c:forEach var="car" items="${cars}">
+  <c:forEach var="driver" items="${cars}">
     <tr>
       <td>
-        <c:out value="${car.id}"/>
+        <c:out value="${driver.id}"/>
       </td>
       <td>
-        <c:out value="${car.model}"/>
+        <c:out value="${driver.model}"/>
       </td>
       <td>
-        <c:out value="${car.manufacturer.name}"/>
+        <c:out value="${driver.manufacturer.name}"/>
       </td>
       <td>
-        <c:out value="${car.manufacturer.country}"/>
+        <c:out value="${driver.manufacturer.country}"/>
       </td>
     </tr>
   </c:forEach>

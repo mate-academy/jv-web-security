@@ -18,27 +18,27 @@
         <th>Drivers</th>
         <th>Delete</th>
     </tr>
-    <c:forEach var="car" items="${cars}">
+    <c:forEach var="driver" items="${cars}">
         <tr>
             <td>
-                <c:out value="${car.id}"/>
+                <c:out value="${driver.id}"/>
             </td>
             <td>
-                <c:out value="${car.model}"/>
+                <c:out value="${driver.model}"/>
             </td>
             <td>
-                <c:out value="${car.manufacturer.name}"/>
+                <c:out value="${driver.manufacturer.name}"/>
             </td>
             <td>
-                <c:out value="${car.manufacturer.country}"/>
+                <c:out value="${driver.manufacturer.country}"/>
             </td>
             <td>
-                <c:forEach var="car" items="${car.drivers}">
-                    ${car.id} ${car.name} ${car.licenseNumber} ${car.login}<br>
+                <c:forEach var="car" items="${driver.drivers}">
+                    ${driver.id} ${driver.name} ${driver.licenseNumber} ${driver.login}<br>
                 </c:forEach>
             </td>
             <td>
-                <a href="${pageContext.request.contextPath}/cars/delete?id=${car.id}">DELETE</a>
+                <a href="${pageContext.request.contextPath}/cars/delete?id=${driver.id}">DELETE</a>
             </td>
         </tr>
     </c:forEach>

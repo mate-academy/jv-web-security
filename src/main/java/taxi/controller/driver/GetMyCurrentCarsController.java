@@ -12,10 +12,11 @@ import taxi.lib.Injector;
 import taxi.model.Car;
 import taxi.service.CarService;
 
-@WebServlet("/drivers/my")
+@WebServlet("/drivers/myCars")
 public class GetMyCurrentCarsController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
-    private CarService carService = (CarService) injector.getInstance(CarService.class);
+    private final CarService carService
+            = (CarService) injector.getInstance(CarService.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)

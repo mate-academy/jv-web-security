@@ -25,7 +25,7 @@ public class RoleFilter implements Filter {
         allowedUrlsDriver.add("/login");
         allowedUrlsDriver.add("/register");
         allowedUrlsDriver.add("/index");
-        allowedUrlsDriver.add("/drivers/my");
+        allowedUrlsDriver.add("/drivers/myCars");
         allowedUrlsDriver.add("/drivers/add");
         allowedUrlsDriver.add("/logout");
         map.put("driver", allowedUrlsDriver);

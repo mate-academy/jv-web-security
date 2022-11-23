@@ -10,11 +10,16 @@ import java.util.List;
 import java.util.Optional;
 import taxi.exception.DataProcessingException;
 import taxi.lib.Dao;
+import taxi.lib.Inject;
 import taxi.model.Driver;
+import taxi.service.DriverParserService;
 import taxi.util.ConnectionUtil;
 
 @Dao
 public class DriverDaoImpl implements DriverDao {
+    @Inject
+    private DriverParserService driverParserService;
+
     @Override
     public Driver create(Driver driver) {
         String query = "UPDATE drivers SET name = ?, license_number = ? WHERE login = ?";
@@ -102,25 +107,12 @@ public class DriverDaoImpl implements DriverDao {
     }
 
     private Driver parseDriverFromResultSet(ResultSet resultSet) throws SQLException {
-        Long id = resultSet.getObject("id", Long.class);
-        String name = resultSet.getString("name");
-        String licenseNumber = resultSet.getString("license_number");
-        String login = resultSet.getString("login");
-        String password = resultSet.getString("password");
-        String role = resultSet.getString("role");
-        Driver driver = new Driver();
-        driver.setId(id);
-        driver.setName(name);
-        driver.setLicenseNumber(licenseNumber);
-        driver.setLogin(login);
-        driver.setPassword(password);
-        driver.setRole(role);
-        return driver;
+        return driverParserService.parseDriver(resultSet);
     }
 
     @Override
     public Optional<Driver> findByLogin(String login) {
-        String query = "SELECT * FROM drivers WHERE login = ?";
+        String query = "SELECT * FROM drivers WHERE login = ? AND is_deleted = FALSE";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setString(1, login);

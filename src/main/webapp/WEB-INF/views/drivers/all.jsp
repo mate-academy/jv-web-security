@@ -17,22 +17,22 @@
         <th>Login</th>
         <th>Delete</th>
     </tr>
-    <c:forEach var="car" items="${drivers}">
+    <c:forEach var="driver" items="${drivers}">
         <tr>
             <td>
-                <c:out value="${car.id}"/>
+                <c:out value="${driver.id}"/>
             </td>
             <td>
-                <c:out value="${car.name}"/>
+                <c:out value="${driver.name}"/>
             </td>
             <td>
-                <c:out value="${car.licenseNumber}"/>
+                <c:out value="${driver.licenseNumber}"/>
             </td>
             <td>
-                <c:out value="${car.login}"/>
+                <c:out value="${driver.login}"/>
             </td>
             <td>
-                <a href="${pageContext.request.contextPath}/drivers/delete?id=${car.id}">DELETE</a>
+                <a href="${pageContext.request.contextPath}/drivers/delete?id=${driver.id}">DELETE</a>
             </td>
         </tr>
     </c:forEach>
