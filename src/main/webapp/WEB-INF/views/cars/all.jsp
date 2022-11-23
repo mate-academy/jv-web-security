@@ -33,8 +33,8 @@
                 <c:out value="${car.manufacturer.country}"/>
             </td>
             <td>
-                <c:forEach var="driver" items="${car.drivers}">
-                    ${driver.id} ${driver.name} ${driver.licenseNumber} <br>
+                <c:forEach var="car" items="${car.drivers}">
+                    ${car.id} ${car.name} ${car.licenseNumber} ${car.login}<br>
                 </c:forEach>
             </td>
             <td>
