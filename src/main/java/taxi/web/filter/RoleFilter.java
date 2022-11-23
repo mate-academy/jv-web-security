@@ -16,18 +16,20 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class RoleFilter implements Filter {
-    private Set<String> allowedUrls = new HashSet<>();
+    private Set<String> allowedUrlsDriver = new HashSet<>();
+    private Set<String> allowedUrlsAdmin = new HashSet<>();
     private Map<String,Set<String>> map = new HashMap<>();
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        allowedUrls.add("/login");
-        allowedUrls.add("/register");
-        allowedUrls.add("/index");
-        allowedUrls.add("/drivers/my");
-        allowedUrls.add("/drivers/add");
-        allowedUrls.add("/logout");
-        map.put("driver", allowedUrls);
+        allowedUrlsDriver.add("/login");
+        allowedUrlsDriver.add("/register");
+        allowedUrlsDriver.add("/index");
+        allowedUrlsDriver.add("/drivers/my");
+        allowedUrlsDriver.add("/drivers/add");
+        allowedUrlsDriver.add("/logout");
+        map.put("driver", allowedUrlsDriver);
+
     }
 
     @Override
@@ -36,13 +38,12 @@ public class RoleFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         HttpSession session = req.getSession();
-
         String role = (String) session.getAttribute("role");
         if (role == null) {
             filterChain.doFilter(req, resp);
             return;
         }
-        if (!map.get(role).contains(req.getServletPath())) {
+        if (map.get(role) != null && !map.get(role).contains(req.getServletPath())) {
             resp.sendRedirect("/index");
             return;
         }
