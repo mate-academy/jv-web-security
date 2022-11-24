@@ -1,7 +1,6 @@
 package taxi.web.filter;
 
 import java.io.IOException;
-import java.util.HashSet;
 import java.util.Set;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -15,9 +14,7 @@ public class AuthenticationFilter extends HttpFilter {
 
     @Override
     public void init() throws ServletException {
-        allowedUrls = new HashSet<>();
-        allowedUrls.add("/login");
-        allowedUrls.add("/drivers/add");
+        allowedUrls = Set.of("/login", "/drivers/add");
     }
 
     @Override
@@ -25,7 +22,7 @@ public class AuthenticationFilter extends HttpFilter {
             throws IOException, ServletException {
         HttpSession session = req.getSession();
         Long id = (Long) session.getAttribute("driver_id");
-        if (id == null && allowedUrls.contains(req.getServletPath())) {
+        if (allowedUrls.contains(req.getServletPath())) {
             chain.doFilter(req, res);
             return;
         }
