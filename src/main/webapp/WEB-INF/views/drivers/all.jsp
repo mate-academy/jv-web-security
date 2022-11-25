@@ -5,6 +5,7 @@
 </style>
 <html>
 <head>
+    <%@include file="/WEB-INF/views/header.jsp"%>
     <title>All drivers</title>
 </head>
 <body>
@@ -12,6 +13,7 @@
 <table border="1" class="table_dark">
     <tr>
         <th>ID</th>
+        <th>Login</th>
         <th>Name</th>
         <th>License number</th>
         <th>Delete</th>
@@ -26,6 +28,9 @@
             </td>
             <td>
                 <c:out value="${driver.licenseNumber}"/>
+            </td>
+            <td>
+                <c:out value="${driver.login}"/>
             </td>
             <td>
                 <a href="${pageContext.request.contextPath}/drivers/delete?id=${driver.id}">DELETE</a>
