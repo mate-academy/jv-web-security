@@ -36,5 +36,6 @@
         </td>
     </tr>
 </table>
+<h1 class="table_dark" style="color:red">${errorMsg}</h1>
 </body>
 </html>
