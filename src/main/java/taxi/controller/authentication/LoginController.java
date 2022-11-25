@@ -1,4 +1,4 @@
-package taxi.controller;
+package taxi.controller.authentication;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -6,8 +6,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.swing.*;
+
 import taxi.exception.AuthenticationException;
 import taxi.lib.Injector;
+import taxi.model.Driver;
 import taxi.service.AuthenticationService;
 
 @WebServlet(urlPatterns = "/login")
@@ -15,6 +19,7 @@ public class LoginController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
     private static final AuthenticationService authentication =
             (AuthenticationService) injector.getInstance(AuthenticationService.class);
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -27,7 +32,9 @@ public class LoginController extends HttpServlet {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         try {
-            authentication.login(login, password);
+            Driver driver = authentication.login(login, password);
+            HttpSession httpSession = req.getSession();
+            httpSession.setAttribute("driver_id", driver.getId());
             resp.sendRedirect("/index");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMsg", e.getMessage());
