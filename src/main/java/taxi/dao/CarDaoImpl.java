@@ -10,13 +10,18 @@ import java.util.List;
 import java.util.Optional;
 import taxi.exception.DataProcessingException;
 import taxi.lib.Dao;
+import taxi.lib.Inject;
 import taxi.model.Car;
 import taxi.model.Driver;
 import taxi.model.Manufacturer;
+import taxi.service.DriverParserService;
 import taxi.util.ConnectionUtil;
 
 @Dao
 public class CarDaoImpl implements CarDao {
+    @Inject
+    private DriverParserService driverParserService;
+
     @Override
     public Car create(Car car) {
         String query = "INSERT INTO cars (model, manufacturer_id)"
@@ -188,7 +193,7 @@ public class CarDaoImpl implements CarDao {
     }
 
     private List<Driver> getAllDriversByCarId(Long carId) {
-        String query = "SELECT id, name, license_number "
+        String query = "SELECT *"
                 + "FROM cars_drivers cd "
                 + "JOIN drivers d ON cd.driver_id = d.id "
                 + "WHERE car_id = ? AND is_deleted = false";
@@ -208,14 +213,7 @@ public class CarDaoImpl implements CarDao {
     }
 
     private Driver parseDriverFromResultSet(ResultSet resultSet) throws SQLException {
-        Long driverId = resultSet.getObject("id", Long.class);
-        String name = resultSet.getNString("name");
-        String licenseNumber = resultSet.getNString("license_number");
-        Driver driver = new Driver();
-        driver.setId(driverId);
-        driver.setName(name);
-        driver.setLicenseNumber(licenseNumber);
-        return driver;
+        return driverParserService.parseDriver(resultSet);
     }
 
     private Car parseCarFromResultSet(ResultSet resultSet) throws SQLException {
