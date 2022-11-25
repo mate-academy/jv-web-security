@@ -8,13 +8,13 @@ import taxi.lib.Injector;
 import taxi.service.DriverService;
 
 public class DeleteDriverController extends HttpServlet {
-    private static final Injector injector = Injector.getInstance("taxi");
-    private final DriverService driverService = (DriverService) injector
+    private static final Injector INJECTOR = Injector.getInstance("taxi");
+    private final DriverService driverService = (DriverService) INJECTOR
             .getInstance(DriverService.class);
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         driverService.delete(Long.parseLong(req.getParameter("id")));
-        resp.sendRedirect(req.getContextPath() + "/drivers");
+        resp.sendRedirect(req.getContextPath().concat("/drivers"));
     }
 }
