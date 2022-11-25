@@ -5,7 +5,12 @@
     <title>Title</title>
 </head>
 <body>
-<h4><c:out value="${login}"/></h4>
-<a href="${pageContext.request.contextPath}/logout">Logout</a>
+<table>
+    <tr>
+        <th> <c:out value="${login}"/></th>
+        <th><a href="${pageContext.request.contextPath}/logout">Logout</a></th>
+        <th><a href="${pageContext.request.contextPath}/index">Menu</a></th>
+    </tr>
+</table>
 </body>
 </html>
