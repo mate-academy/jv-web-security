@@ -17,7 +17,6 @@ import javax.servlet.http.HttpSession;
 
 public class RoleFilter implements Filter {
     private Set<String> allowedUrlsDriver = new HashSet<>();
-    private Set<String> allowedUrlsAdmin = new HashSet<>();
     private Map<String,Set<String>> map = new HashMap<>();
 
     @Override

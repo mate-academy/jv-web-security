@@ -25,11 +25,13 @@ public class RegisterController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+        String name = req.getParameter("name");
+        String license = req.getParameter("license");
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         String repeatPassword = req.getParameter("repeat_password");;
         try {
-            registerService.register(login, password, repeatPassword);
+            registerService.register(name, license, login, password, repeatPassword);
         } catch (RegistrationException e) {
             req.setAttribute("errorMessage", e.getMessage());
             req.getRequestDispatcher("/WEB-INF/views/register.jsp").forward(req,resp);

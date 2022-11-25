@@ -123,8 +123,4 @@
         <filter-name>filterRole</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-
-    <security-role>
-        <role-name>driver</role-name>
-    </security-role>
 </web-app>

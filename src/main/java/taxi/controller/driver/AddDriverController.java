@@ -17,6 +17,8 @@ public class AddDriverController extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+        String role = (String) req.getSession().getAttribute("role");
+        req.setAttribute("is_admin", role.equals("admin"));
         req.getRequestDispatcher("/WEB-INF/views/drivers/add.jsp").forward(req, resp);
     }
 
@@ -24,8 +26,14 @@ public class AddDriverController extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String name = req.getParameter("name");
         String licenseNumber = req.getParameter("license_number");
+        Long driverId = (Long) req.getSession().getAttribute("driver_id");
         Driver driver = new Driver(name, licenseNumber);
-        driverService.create(driver);
+        driver.setId(driverId);
+        if (req.getSession().getAttribute("role").equals("admin")) {
+            driverService.create(driver);
+        } else {
+            driverService.update(driver);
+        }
         resp.sendRedirect(req.getContextPath() + "/drivers/add");
     }
 }

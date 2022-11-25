@@ -14,6 +14,10 @@
     <tr>
         <th>Name</th>
         <th>License number</th>
+        <c:if test="${is_admin}">
+            <th>Login</th>
+            <th>Password</th>
+        </c:if>
         <th>Add</th>
     </tr>
     <tr>
@@ -23,6 +27,14 @@
         <td>
             <input type="text" name="license_number" form="driver" required>
         </td>
+        <c:if test="${is_admin}">
+        <td>
+            <input type="text" name="login" form="driver" required>
+        </td>
+        <td>
+            <input type="text" name="password" form="driver" required>
+        </td>
+        </c:if>
         <td>
             <input type="submit" name="add" form="driver">
         </td>

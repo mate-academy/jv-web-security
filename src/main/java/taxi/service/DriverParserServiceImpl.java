@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import taxi.lib.Service;
 import taxi.model.Driver;
+import taxi.model.Role;
 
 @Service
 public class DriverParserServiceImpl implements DriverParserService {
@@ -15,7 +16,7 @@ public class DriverParserServiceImpl implements DriverParserService {
         String licenseNumber = resultSet.getNString("license_number");
         String login = resultSet.getNString("login");
         String password = resultSet.getNString("password");
-        String role = resultSet.getNString("role");
+        Role role = Role.valueOf(resultSet.getNString("role"));
         Driver driver = new Driver();
         driver.setId(driverId);
         driver.setName(name);
