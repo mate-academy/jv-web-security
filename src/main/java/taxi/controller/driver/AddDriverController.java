@@ -10,8 +10,8 @@ import taxi.model.Driver;
 import taxi.service.DriverService;
 
 public class AddDriverController extends HttpServlet {
-    private static final Injector injector = Injector.getInstance("taxi");
-    private final DriverService driverService = (DriverService) injector
+    private static final Injector INJECTOR = Injector.getInstance("taxi");
+    private final DriverService driverService = (DriverService) INJECTOR
             .getInstance(DriverService.class);
 
     @Override
@@ -24,8 +24,10 @@ public class AddDriverController extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String name = req.getParameter("name");
         String licenseNumber = req.getParameter("license_number");
-        Driver driver = new Driver(name, licenseNumber);
+        String login = req.getParameter("login");
+        String password = req.getParameter("password");
+        Driver driver = new Driver(name, licenseNumber, login, password);
         driverService.create(driver);
-        resp.sendRedirect(req.getContextPath() + "/drivers/add");
+        resp.sendRedirect(req.getContextPath().concat("/drivers/add"));
     }
 }
