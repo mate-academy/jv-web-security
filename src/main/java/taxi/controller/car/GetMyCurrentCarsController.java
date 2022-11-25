@@ -10,12 +10,14 @@ import javax.servlet.http.HttpSession;
 import taxi.lib.Injector;
 import taxi.service.CarService;
 
-@WebServlet(urlPatterns = "/driver/cars")
+@WebServlet(urlPatterns = "/drivers/cars")
 public class GetMyCurrentCarsController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
-    private static final CarService carService = (CarService) injector.getInstance(CarService.class);
+    private final CarService carService = (CarService) injector.getInstance(CarService.class);
+
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
         HttpSession session = req.getSession();
         Long driverId = (Long) session.getAttribute("driver_id");
         req.setAttribute("cars", carService.getAllByDriver(driverId));
