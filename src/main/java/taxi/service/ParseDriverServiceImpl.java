@@ -1,13 +1,12 @@
 package taxi.service;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import taxi.lib.Service;
 import taxi.model.Driver;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 @Service
-public class ParseDriverServiceImpl implements ParsDriverService {
+public class ParseDriverServiceImpl implements ParseDriverService {
     @Override
     public Driver parseDriverFromResultSet(ResultSet resultSet) throws SQLException {
         Long driverId = resultSet.getObject("id", Long.class);
