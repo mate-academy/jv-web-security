@@ -10,7 +10,6 @@
 - Implement `LoginController` with corresponding JSP page
 - Implement `LogoutController` and add a corresponding button on all pages where it should be
 - Implement user authentication based on HttpSession and filters. Only `LoginController` and `CreateDriverController` should be available for non authenticated users.
-- 
 - Having information about currently logged-in user (e.g. driver), please implement the following controller `GetMyCurrentCarsController`.
   This controller is responsible for displaying the list of cars for currently logged driver (get info about the driver from the HttpSession).
   Hint: Use existed JSP page for displaying all cars.
