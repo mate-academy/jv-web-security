@@ -120,4 +120,14 @@ public class DriverDaoImpl implements DriverDao {
         driver.setPassword(password);
         return driver;
     }
+
+    @Override
+    public Optional<Driver> findByLogin(String login) {
+        for (Driver driver : getAll()) {
+            if (driver.getLogin().equals(login)) {
+                return Optional.of(driver);
+            }
+        }
+        return Optional.empty();
+    }
 }
