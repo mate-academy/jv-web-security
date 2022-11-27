@@ -31,10 +31,6 @@ public class AuthenticationFilter implements Filter {
         Long id = (Long) session.getAttribute("id");
 
         if (id == null && allowedUrls.contains(req.getServletPath())) {
-            filterChain.doFilter(req, resp);
-            return;
-        }
-        if (id == null) {
             resp.sendRedirect(req.getContextPath() + "/login");
             return;
         }
