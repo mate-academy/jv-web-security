@@ -1,4 +1,4 @@
-package taxi.controller.car;
+package taxi.controller.driver;
 
 import java.io.IOException;
 import java.util.List;
@@ -11,9 +11,6 @@ import taxi.lib.Injector;
 import taxi.model.Car;
 import taxi.service.CarService;
 
-//display the list of cars for currently logged driver
-// (get info about the driver from the HttpSession).
-// Hint: Use existed JSP page for displaying all cars.
 public class GetMyCurrentCarsController extends HttpServlet {
     private static final Injector INJECTOR = Injector.getInstance("taxi");
     private final CarService carService = (CarService) INJECTOR.getInstance(CarService.class);
