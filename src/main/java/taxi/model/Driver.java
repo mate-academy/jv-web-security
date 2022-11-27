@@ -12,16 +12,15 @@ public class Driver {
     public Driver() {
     }
 
-    public Driver(String name, String licenseNumber, String login, String password) {
+    public Driver(String name, String licenseNumber, String login) {
         this.name = name;
         this.licenseNumber = licenseNumber;
         this.login = login;
-        this.password = password;
     }
 
-    public Driver(String name, String licenseNumber) {
-        this.name = name;
-        this.licenseNumber = licenseNumber;
+    public Driver(String name, String licenseNumber, String login, String password) {
+        this(name, licenseNumber, login);
+        this.password = password;
     }
 
     public Long getId() {
@@ -73,11 +72,9 @@ public class Driver {
             return false;
         }
         Driver driver = (Driver) o;
-        return Objects.equals(id, driver.id)
-                && Objects.equals(name, driver.name)
+        return Objects.equals(id, driver.id) && Objects.equals(name, driver.name)
                 && Objects.equals(licenseNumber, driver.licenseNumber)
-                && Objects.equals(login, driver.login)
-                && Objects.equals(password, driver.password);
+                && Objects.equals(login, driver.login) && Objects.equals(password, driver.password);
     }
 
     @Override
