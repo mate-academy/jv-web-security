@@ -4,6 +4,14 @@
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
     <servlet>
+        <servlet-name>logout</servlet-name>
+        <servlet-class>taxi.controller.LogoutController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logout</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet>
         <servlet-name>index</servlet-name>
         <servlet-class>taxi.controller.IndexController</servlet-class>
     </servlet>

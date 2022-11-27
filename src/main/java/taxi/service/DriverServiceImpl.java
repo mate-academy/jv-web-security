@@ -35,4 +35,10 @@ public class DriverServiceImpl implements DriverService {
     public boolean delete(Long id) {
         return driverDao.delete(id);
     }
+
+    @Override
+    public Driver findByLogin(String login) {
+        return driverDao.findByUsername(login).orElseThrow(() ->
+                new RuntimeException("Can't get driver with login " + login));
+    }
 }
