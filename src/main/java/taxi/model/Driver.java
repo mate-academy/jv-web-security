@@ -18,10 +18,9 @@ public class Driver {
     }
 
     public Driver(String login, String password, String name, String licenseNumber) {
+        this(name, licenseNumber);
         this.login = login;
         this.password = password;
-        this.name = name;
-        this.licenseNumber = licenseNumber;
     }
 
     public String getLogin() {
