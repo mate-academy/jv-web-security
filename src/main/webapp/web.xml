@@ -3,6 +3,22 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <filter>
+        <filter-name>authenticationFilter</filter-name>
+        <filter-class>taxi.filter.AuthenticationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>authenticationFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <servlet>
+        <servlet-name>loginController</servlet-name>
+        <servlet-class>taxi.controller.LoginController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>loginController</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>logout</servlet-name>
         <servlet-class>taxi.controller.LogoutController</servlet-class>
@@ -112,5 +128,13 @@
     <servlet-mapping>
         <servlet-name>deleteManufacturer</servlet-name>
         <url-pattern>/manufacturers/delete</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>currentDriverCars</servlet-name>
+        <servlet-class>taxi.controller.car.GetMyCurrentCarsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>currentDriverCars</servlet-name>
+        <url-pattern>/user/cars</url-pattern>
     </servlet-mapping>
 </web-app>
