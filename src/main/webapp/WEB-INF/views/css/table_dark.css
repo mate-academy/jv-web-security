@@ -30,3 +30,18 @@
 .table_dark tr:hover td {
     text-decoration: underline;
 }
+.login_button {
+    background-color: #98E2CA;
+    border: none;
+    color: black;
+    text-align: center;
+    font-size: 20px;
+    display: inline-block;
+}
+.logout_button {
+    background-color: #7C5FAB;
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 20px;
+}
