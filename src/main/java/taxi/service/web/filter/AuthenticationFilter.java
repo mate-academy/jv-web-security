@@ -31,11 +31,12 @@ public class AuthenticationFilter implements Filter {
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         HttpSession session = req.getSession();
         Long driverId = (Long) session.getAttribute("driver_id");
-        if (allowedUrls.contains(req.getServletPath())) {
-            filterChain.doFilter(req,resp);
-            return;
-        } else if (driverId == null) {
-            resp.sendRedirect("/login");
+        if (driverId == null) {
+            String allowedUrl = allowedUrls.stream()
+                    .filter(i -> i.equals(req.getServletPath()))
+                    .findFirst()
+                    .orElse("/login");
+            req.getRequestDispatcher(allowedUrl).forward(req,resp);
             return;
         }
         filterChain.doFilter(req,resp);
