@@ -91,7 +91,7 @@ public class DriverDaoImpl implements DriverDao {
     @Override
     public Driver update(Driver driver) {
         String query = "UPDATE drivers "
-                + "SET name = ?, license_number = ? "
+                + "SET name = ?, license_number = ?, login = ?, password = ?"
                 + "WHERE id = ? AND is_deleted = FALSE";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement
@@ -99,6 +99,8 @@ public class DriverDaoImpl implements DriverDao {
             statement.setString(1, driver.getName());
             statement.setString(2, driver.getLicenseNumber());
             statement.setLong(3, driver.getId());
+            statement.setString(4, driver.getLogin());
+            statement.setString(5, driver.getPassword());
             statement.executeUpdate();
             return driver;
         } catch (SQLException e) {
