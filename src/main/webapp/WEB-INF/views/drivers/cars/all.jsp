@@ -5,7 +5,7 @@
 </style>
 <html>
 <head>
-    <title>All cars</title>
+    <title>All my cars</title>
 </head>
 <body>
 <%@include file="/WEB-INF/views/header.jsp"%>
@@ -17,7 +17,6 @@
         <th>Manufacturer name</th>
         <th>Manufacturer country</th>
         <th>Drivers</th>
-        <th>Delete</th>
     </tr>
     <c:forEach var="car" items="${cars}">
         <tr>
@@ -37,9 +36,6 @@
                 <c:forEach var="driver" items="${car.drivers}">
                     ${driver.id} ${driver.name} ${driver.licenseNumber} <br>
                 </c:forEach>
-            </td>
-            <td>
-                <a href="${pageContext.request.contextPath}/cars/delete?id=${car.id}">DELETE</a>
             </td>
         </tr>
     </c:forEach>
