@@ -25,20 +25,29 @@ public class AddDriverController extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        String name = req.getParameter("name");
-        String licenseNumber = req.getParameter("license_number");
-        final String login = req.getParameter("login");
-        String password = req.getParameter("password");
-        String repeatPassword = req.getParameter("repeat_password");
-        if (!password.equals(repeatPassword)) {
-            throw new AuthenticationException("Passwords not equals, please try again");
+        try {
+            String name = req.getParameter("name");
+            String licenseNumber = req.getParameter("license_number");
+            final String login = req.getParameter("login");
+            String password = req.getParameter("password");
+            String repeatPassword = req.getParameter("repeat_password");
+            if (!password.equals(repeatPassword)) {
+                throw new AuthenticationException("Passwords not equals, please try again");
+            }
+            Driver driver = new Driver();
+            driver.setName(name);
+            driver.setLicenseNumber(licenseNumber);
+            driver.setLogin(login);
+            driver.setPassword(password);
+            driverService.create(driver);
+            resp.sendRedirect(req.getContextPath() + "/index");
+        } catch (AuthenticationException e) {
+            req.setAttribute("errorMsg", e.getMessage());
+            try {
+                req.getRequestDispatcher("/WEB-INF/views/drivers/add.jsp").forward(req, resp);
+            } catch (ServletException ex) {
+                throw new RuntimeException("Can't refresh page", ex);
+            }
         }
-        Driver driver = new Driver();
-        driver.setName(name);
-        driver.setLicenseNumber(licenseNumber);
-        driver.setLogin(login);
-        driver.setPassword(password);
-        driverService.create(driver);
-        resp.sendRedirect(req.getContextPath() + "/index");
     }
 }

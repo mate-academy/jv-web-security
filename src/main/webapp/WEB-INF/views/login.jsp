@@ -7,8 +7,8 @@
     <title>Login</title>
 </head>
 <body>
+<h4 style="color:red">${errorMsg}</h4>
 <h1 class="table_dark">Login page</h1>
-<h4 style="color:red">${errorMsg} </h4>
 <form class="table_dark" method="post" action="${pageContext.request.contextPath}/login">
     Please enter your login: <input type="text" name="login" required><br>
     Please enter your password: <input type="password" name="password" required><br>
