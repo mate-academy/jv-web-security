@@ -8,12 +8,13 @@
     <title>All manufacturers</title>
 </head>
 <body>
+<%@include file="../header.jsp"%>
 <h1 class="table_dark">All manufacturers:</h1>
 <table border="1" class="table_dark">
     <tr>
         <th>ID</th>
         <th>Name</th>
-        <th>License number</th>
+        <th>Country</th>
         <th>Delete</th>
     </tr>
     <c:forEach var="manufacturer" items="${manufacturers}">
