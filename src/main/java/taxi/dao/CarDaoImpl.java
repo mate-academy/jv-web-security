@@ -188,7 +188,7 @@ public class CarDaoImpl implements CarDao {
     }
 
     private List<Driver> getAllDriversByCarId(Long carId) {
-        String query = "SELECT id, name, license_number "
+        String query = "SELECT id, name, license_number , login, password "
                 + "FROM cars_drivers cd "
                 + "JOIN drivers d ON cd.driver_id = d.id "
                 + "WHERE car_id = ? AND is_deleted = false";
@@ -210,10 +210,14 @@ public class CarDaoImpl implements CarDao {
     private Driver parseDriverFromResultSet(ResultSet resultSet) throws SQLException {
         Long driverId = resultSet.getObject("id", Long.class);
         String name = resultSet.getNString("name");
+        String login = resultSet.getNString("login");
+        String password = resultSet.getNString("password");
         String licenseNumber = resultSet.getNString("license_number");
         Driver driver = new Driver();
         driver.setId(driverId);
         driver.setName(name);
+        driver.setLogin(login);
+        driver.setPassword(password);
         driver.setLicenseNumber(licenseNumber);
         return driver;
     }
