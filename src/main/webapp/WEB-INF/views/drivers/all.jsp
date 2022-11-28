@@ -14,8 +14,8 @@
     <tr>
         <th>ID</th>
         <th>Name</th>
-        <th>License number</th>
         <th>Login</th>
+        <th>License number</th>
         <th>Delete</th>
     </tr>
     <c:forEach var="driver" items="${drivers}">
