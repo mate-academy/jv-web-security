@@ -8,12 +8,17 @@
     <title>All drivers</title>
 </head>
 <body>
+<c:if test="pageContext.request.session != null">
+    <%@include file="/WEB-INF/views/header.jsp"%>
+</c:if>
 <form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/add"></form>
 <h1 class="table_dark">Add driver:</h1>
 <table border="1" class="table_dark">
     <tr>
         <th>Name</th>
         <th>License number</th>
+        <th>Login</th>
+        <th>Password</th>
         <th>Add</th>
     </tr>
     <tr>
@@ -24,7 +29,13 @@
             <input type="text" name="license_number" form="driver" required>
         </td>
         <td>
-            <input type="submit" name="add" form="driver">
+            <input type="text" name="login" form="driver" required>
+        </td>
+        <td>
+            <input type="password" name="password" form="driver" required>
+        </td>
+        <td>
+            <button type="submit" name="add" form="driver">Send</button>
         </td>
     </tr>
 </table>
