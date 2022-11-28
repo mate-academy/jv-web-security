@@ -6,6 +6,7 @@
 <html>
 <head>
     <title>All manufacturers</title>
+    <%@include file="/WEB-INF/views/header.jsp"%>
 </head>
 <body>
 <h1 class="table_dark">All manufacturers:</h1>
@@ -33,5 +34,8 @@
         </tr>
     </c:forEach>
 </table>
+<form action="${pageContext.request.contextPath}/manufacturers/add">
+    <input type="submit" value="Add new manufacturer">
+</form>
 </body>
 </html>
