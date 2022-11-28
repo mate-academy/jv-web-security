@@ -14,8 +14,10 @@ CREATE TABLE `drivers` (
                            `is_deleted` bit(1) NOT NULL DEFAULT b'0',
                            `login` varchar(255) NOT NULL,
                            `password` varchar(255) NOT NULL,
-                           PRIMARY KEY (`id`) USING BTREE
+                            PRIMARY KEY (`id`) USING BTREE
+                            UNIQUE KEY `login_UNIQUE` (`login`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
+
 -- ----------------------------
 -- Table structure for manufacturers
 -- ----------------------------
