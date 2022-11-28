@@ -2,6 +2,7 @@ package taxi.service;
 
 import java.util.List;
 import taxi.dao.DriverDao;
+import taxi.exception.DataProcessingException;
 import taxi.lib.Inject;
 import taxi.lib.Service;
 import taxi.model.Driver;
@@ -38,6 +39,7 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public Driver findByLogin(String login) {
-        return driverDao.findByLogin(login).get();
+        return driverDao.findByLogin(login)
+                .orElseThrow(() -> new DataProcessingException("No such login " + login));
     }
 }

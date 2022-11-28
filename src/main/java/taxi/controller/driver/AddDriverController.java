@@ -33,7 +33,7 @@ public class AddDriverController extends HttpServlet {
         if (!password.equals(repeatPassword)) {
             throw new AuthenticationException("Passwords not equals, please try again");
         }
-        Driver driver = new Driver(name, licenseNumber);
+        Driver driver = new Driver();
         driver.setName(name);
         driver.setLicenseNumber(licenseNumber);
         driver.setLogin(login);
