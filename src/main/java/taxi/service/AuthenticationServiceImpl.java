@@ -8,7 +8,7 @@ import taxi.model.Driver;
 
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
-    private static final String USERNAME_OR_PASSWORD_INCORRECT
+    private static final String EXCEPTION_MESSAGE
             = "Username or password are incorrect";
     @Inject
     private DriverService driverService;
@@ -19,7 +19,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         if (optionalDriver.isPresent() && optionalDriver.get().getPassword().equals(password)) {
             return optionalDriver.get();
         } else {
-            throw new AuthenticationException(USERNAME_OR_PASSWORD_INCORRECT);
+            throw new AuthenticationException(EXCEPTION_MESSAGE);
         }
     }
 }
