@@ -18,6 +18,7 @@ public class Driver {
         this.name = name;
         this.licenseNumber = licenseNumber;
     }
+
     public String getPassword() {
         return password;
     }
