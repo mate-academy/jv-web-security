@@ -8,15 +8,16 @@
     <title>All cars</title>
 </head>
 <body>
+<%@include file='../header.jsp'%>
 <h1 class="table_dark">All cars:</h1>
 <table border="1" class="table_dark">
     <tr>
-        <th>ID</th>
+        <th style="width: 4%">ID</th>
         <th>Model</th>
         <th>Manufacturer name</th>
         <th>Manufacturer country</th>
         <th>Drivers</th>
-        <th>Delete</th>
+        <th style="width: 4%">Delete</th>
     </tr>
     <c:forEach var="car" items="${cars}">
         <tr>
