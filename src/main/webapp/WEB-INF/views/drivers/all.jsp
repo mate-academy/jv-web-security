@@ -8,13 +8,14 @@
     <title>All drivers</title>
 </head>
 <body>
+<%@include file='../header.jsp'%>
 <h1 class="table_dark">All drivers:</h1>
 <table border="1" class="table_dark">
     <tr>
-        <th>ID</th>
+        <th style="width: 4%">ID</th>
         <th>Name</th>
         <th>License number</th>
-        <th>Delete</th>
+        <th style="width: 4%">Delete</th>
     </tr>
     <c:forEach var="driver" items="${drivers}">
         <tr>
