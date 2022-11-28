@@ -5,6 +5,7 @@
 </style>
 <html>
 <head>
+    <%@include file="../header.jsp"%>
     <title>All manufacturers</title>
 </head>
 <body>
