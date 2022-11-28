@@ -1,58 +1,100 @@
-CREATE SCHEMA IF NOT EXISTS `taxi` DEFAULT CHARACTER SET utf8;
-USE `taxi`;
-SET NAMES utf8mb4;
-SET FOREIGN_KEY_CHECKS = 0;
+-- Database: postgres
 
--- ----------------------------
--- Table structure for drivers
--- ----------------------------
-DROP TABLE IF EXISTS `drivers`;
-CREATE TABLE `drivers`  (
-                            `id` BIGINT(0) UNSIGNED NOT NULL AUTO_INCREMENT,
-                            `name` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                            `license_number` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                            `is_deleted` BIT(1) NOT NULL DEFAULT b'0',
-                            PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+-- DROP DATABASE IF EXISTS postgres;
 
--- ----------------------------
--- Table structure for manufacturers
--- ----------------------------
-DROP TABLE IF EXISTS `manufacturers`;
-CREATE TABLE `manufacturers`  (
-                                  `id` BIGINT(0) UNSIGNED NOT NULL AUTO_INCREMENT,
-                                  `name` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                                  `country` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                                  `is_deleted` BIT(1) NOT NULL DEFAULT b'0',
-                                  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+CREATE DATABASE postgres
+    WITH
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'English_United States.1252'
+    LC_CTYPE = 'English_United States.1252'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1
+    IS_TEMPLATE = False;
 
--- ----------------------------
--- Table structure for cars
--- ----------------------------
-DROP TABLE IF EXISTS `cars`;
-CREATE TABLE `cars`  (
-                         `id` BIGINT(0) UNSIGNED NOT NULL AUTO_INCREMENT,
-                         `model` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                         `manufacturer_id` BIGINT(0) UNSIGNED NOT NULL,
-                         `is_deleted` BIT(1) NOT NULL DEFAULT b'0',
-                         PRIMARY KEY (`id`) USING BTREE,
-                         INDEX `FK_manufacturer_id`(`manufacturer_id`) USING BTREE,
-                         CONSTRAINT `FK_manufacturer_id` FOREIGN KEY (`manufacturer_id`) REFERENCES `manufacturers` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+COMMENT ON DATABASE postgres
+    IS 'default administrative connection database';
 
--- ----------------------------
--- Table structure for cars_drivers
--- ----------------------------
-DROP TABLE IF EXISTS `cars_drivers`;
-CREATE TABLE `cars_drivers`  (
-                                 `car_id` BIGINT(0) UNSIGNED NOT NULL,
-                                 `driver_id` BIGINT(0) UNSIGNED NOT NULL,
-                                 PRIMARY KEY (`car_id`, `driver_id`) USING BTREE,
-                                 INDEX `driver_id`(`driver_id`) USING BTREE,
-                                 INDEX `car_id`(`car_id`) USING BTREE,
-                                 CONSTRAINT `car_id` FOREIGN KEY (`car_id`) REFERENCES `cars` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-                                 CONSTRAINT `driver_id` FOREIGN KEY (`driver_id`) REFERENCES `drivers` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+-- Table: public.manufacturers
 
-SET FOREIGN_KEY_CHECKS = 1;
+-- DROP TABLE IF EXISTS public.manufacturers;
+
+CREATE TABLE IF NOT EXISTS public.manufacturers
+(
+    id bigint NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 9223372036854775807 CACHE 1 ),
+    name character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    country character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    is_deleted boolean NOT NULL DEFAULT false,
+    CONSTRAINT "manufacturers _pkey" PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.manufacturers
+    OWNER to postgres;
+
+-- Table: public.drivers
+
+-- DROP TABLE IF EXISTS public.drivers;
+
+CREATE TABLE IF NOT EXISTS public.drivers
+(
+    id bigint NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 9223372036854775807 CACHE 1 ),
+    name character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    license_number character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    is_deleted boolean NOT NULL DEFAULT false,
+    login character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    password character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT drivers_pkey PRIMARY KEY (id),
+    CONSTRAINT drivers_login_key UNIQUE (login)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.drivers
+    OWNER to postgres;
+
+-- Table: public.cars
+
+-- DROP TABLE IF EXISTS public.cars;
+
+CREATE TABLE IF NOT EXISTS public.cars
+(
+    id bigint NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 9223372036854775807 CACHE 1 ),
+    manufacturer_id bigint NOT NULL,
+    model character varying(255) COLLATE pg_catalog."default" NOT NULL,
+    is_deleted boolean NOT NULL DEFAULT false,
+    CONSTRAINT cars_pkey PRIMARY KEY (id),
+    CONSTRAINT manufacturer_id FOREIGN KEY (manufacturer_id)
+        REFERENCES public.manufacturers (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.cars
+    OWNER to postgres;
+
+-- Table: public.cars_drivers
+
+-- DROP TABLE IF EXISTS public.cars_drivers;
+
+CREATE TABLE IF NOT EXISTS public.cars_drivers
+(
+    driver_id bigint NOT NULL,
+    car_id bigint NOT NULL,
+    CONSTRAINT car_id FOREIGN KEY (car_id)
+        REFERENCES public.cars (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION,
+    CONSTRAINT driver_id FOREIGN KEY (driver_id)
+        REFERENCES public.drivers (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.cars_drivers
+    OWNER to postgres;
