@@ -2,8 +2,10 @@ package taxi.service;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import taxi.lib.Service;
 import taxi.model.Driver;
 
+@Service
 public class ParseDriverServiceImpl implements ParseDriverService {
     @Override
     public Driver parseDriverFromResultSet(ResultSet resultSet) throws SQLException {

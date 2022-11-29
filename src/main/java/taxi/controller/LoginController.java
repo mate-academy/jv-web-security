@@ -2,7 +2,6 @@ package taxi.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,10 +10,9 @@ import taxi.lib.Injector;
 import taxi.model.Driver;
 import taxi.service.AuthenticationService;
 
-@WebServlet(urlPatterns = "/login")
 public class LoginController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
-    private final AuthenticationService authenticationService
+    private static final AuthenticationService authenticationService
             = (AuthenticationService) injector.getInstance(AuthenticationService.class);
 
     @Override
@@ -33,7 +31,7 @@ public class LoginController extends HttpServlet {
             req.getSession().setAttribute("driver_id", driver.getId());
             resp.sendRedirect("/index");
         } catch (AuthenticationException exception) {
-            req.setAttribute("errorMsg", "Login or password was incorrect");
+            req.setAttribute("errorMsg", exception.getMessage());
             req.getRequestDispatcher("WEB-INF/views/login.jsp").forward(req, resp);
         }
 
