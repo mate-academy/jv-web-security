@@ -15,5 +15,6 @@
     <input type="password" name="password" form="login" required><br>
     <button type="submit" name="go" form="login">Go</button>
 </form>
+<h4><a href="${pageContext.request.contextPath}/drivers/add">Register new driver.</a></h4>
 </body>
 </html>
