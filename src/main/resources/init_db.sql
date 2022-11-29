@@ -9,7 +9,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `drivers`;
 CREATE TABLE `drivers`  (
                             `id` BIGINT(0) UNSIGNED NOT NULL AUTO_INCREMENT,
-                            `login` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                            `login` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL UNIQUE,
                             `password` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
                             `name` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
                             `license_number` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
