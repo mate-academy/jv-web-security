@@ -1,7 +1,7 @@
 .table_dark {
-    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif, emoji;
     width: 70%;
-    color: #7C5FAB;
+    color: cornflowerblue;
     font-size: 40px;
     text-align: center;
     border-collapse: collapse;
@@ -9,15 +9,15 @@
     margin: auto;
 }
 .table_dark th {
-    color: #7C5FAB;
-    border-bottom: 1px solid #98E2CA;
+    color: darkblue;
+    border-bottom: 1px solid cornflowerblue;
     padding: 12px 17px;
     font-size: 14px;
 }
 .table_dark td {
-    color: #7C5FAB;
-    border-bottom: 1px solid #98E2CA;
-    border-right: 1px solid #98E2CA;
+    color: darkblue;
+    border-bottom: 1px solid cornflowerblue;
+    border-right: 1px solid cornflowerblue;
     padding: 7px 17px;
     font-size: 14px;
 }
@@ -29,4 +29,7 @@
 }
 .table_dark tr:hover td {
     text-decoration: underline;
+}
+.header {
+    text-align: right;
 }
