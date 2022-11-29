@@ -70,11 +70,23 @@ public class Driver {
         Driver driver = (Driver) o;
         return Objects.equals(id, driver.id)
                 && Objects.equals(name, driver.name)
-                && Objects.equals(licenseNumber, driver.licenseNumber);
+                && Objects.equals(licenseNumber, driver.licenseNumber)
+                && Objects.equals(login, driver.login)
+                && Objects.equals(password, driver.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, licenseNumber);
+        return Objects.hash(id, name, licenseNumber, login, password);
+    }
+
+    @Override
+    public String toString() {
+        return "Driver{"
+                + "id=" + id
+                + ", name='" + name + '\''
+                + ", licenseNumber='" + licenseNumber + '\''
+                + ", login='" + login + '\''
+                + '}';
     }
 }

@@ -40,7 +40,7 @@ public class RegisterController extends HttpServlet {
             driver = driverService.create(driver);
             HttpSession session = req.getSession();
             session.setAttribute("id", driver.getId());
-            resp.sendRedirect("/main");
+            resp.sendRedirect(req.getContextPath() + "/main");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMessage", e.getMessage());
             req.getRequestDispatcher("/WEB-INF/views/drivers/register.jsp").forward(req, resp);
