@@ -11,10 +11,10 @@ import taxi.lib.Injector;
 import taxi.model.Car;
 import taxi.service.CarService;
 
-@WebServlet(urlPatterns = "/my_cars")
+@WebServlet(urlPatterns = "/drivers/cars")
 public class GetCarsForCurrentDriver extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
-    private static final String GET_DRIVERS_CARS = "/WEB-INF/views/my_cars.jsp";
+    private static final String GET_DRIVERS_CARS = "/WEB-INF/views/drivers/cars.jsp";
     private CarService carService =
             (CarService) injector.getInstance(CarService.class);
 

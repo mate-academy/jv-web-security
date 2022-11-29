@@ -5,7 +5,7 @@
     <title>Current driver's cars</title>
 </head>
 <body>
-<%@include file="header.jsp"%>
+<%@include file="../header.jsp"%>
 
 <h1>Your cars</h1>
 <table border="1" class="table_dark">

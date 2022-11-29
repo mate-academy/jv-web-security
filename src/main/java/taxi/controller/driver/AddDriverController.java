@@ -31,6 +31,6 @@ public class AddDriverController extends HttpServlet {
         driverService.create(driver);
         HttpSession session = req.getSession();
         session.setAttribute("driver_id", driver.getId());
-        resp.sendRedirect(req.getContextPath() + "/my_cars");
+        resp.sendRedirect(req.getContextPath() + "/drivers/cars");
     }
 }
