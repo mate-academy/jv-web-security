@@ -26,15 +26,6 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>register</servlet-name>
-        <servlet-class>taxi.controller.RegisterController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>register</servlet-name>
-        <url-pattern>/register</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>logout</servlet-name>
         <servlet-class>taxi.controller.LogoutController</servlet-class>
     </servlet>

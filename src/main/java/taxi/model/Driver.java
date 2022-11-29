@@ -5,8 +5,8 @@ import java.util.Objects;
 public class Driver {
     private Long id;
     private String login;
-    private String name;
     private String password;
+    private String name;
     private String licenseNumber;
 
     public Driver() {

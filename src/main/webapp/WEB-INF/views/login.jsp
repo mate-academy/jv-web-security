@@ -21,9 +21,9 @@
 </form>
 <table class="table_dark">
     <tr>
-        <th>A new one here? Visit our registration page then!</th>
+        <th>A new one here? Welcome to our Taxi family!</th>
     </tr>
-    <tr><td><a href="${pageContext.request.contextPath}/register">Register</a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/drivers/add">Click here to register</a></td></tr>
 </table>
 </body>
 </html>
