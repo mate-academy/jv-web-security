@@ -140,7 +140,7 @@ public class Injector {
         return classes;
     }
     /**
-     * Recursive method used to find all classes in a given directory and subdirs.
+     * Recursive method used to find all classes in a given directory and sub-dirs.
      *
      * @param directory   The base directory
      * @param packageName The package name for classes found inside the base directory
