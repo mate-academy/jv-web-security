@@ -40,6 +40,6 @@ public class DriverServiceImpl implements DriverService {
     @Override
     public Driver findByLogin(String login) {
         return driverDao.findByLogin(login)
-                .orElseThrow(() -> new NoSuchElementException("Login or password was incorrect"));
+                .orElseThrow(() -> new NoSuchElementException("Driver with this login is not exist."));
     }
 }
