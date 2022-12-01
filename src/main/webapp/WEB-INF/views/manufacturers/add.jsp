@@ -8,8 +8,10 @@
     <title>Manufacturers</title>
 </head>
 <body>
+<%@include file="/WEB-INF/views/header.jsp"%>
 <form method="post" id="manufacturer" action="${pageContext.request.contextPath}/manufacturers/add"></form>
 <h1 class="table_dark">Add manufacturer:</h1>
+<center><h2 style="color: green">${message}</h2></center>
 <table border="1" class="table_dark">
     <tr>
         <th>Name</th>
