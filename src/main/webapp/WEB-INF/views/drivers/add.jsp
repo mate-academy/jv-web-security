@@ -38,5 +38,7 @@
         </td>
     </tr>
 </table>
+<br>
+<center><a href="${pageContext.request.contextPath}/index">Back to main page</a></center>
 </body>
 </html>

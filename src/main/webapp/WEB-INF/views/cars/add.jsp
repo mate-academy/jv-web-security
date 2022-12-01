@@ -30,5 +30,11 @@
         </td>
     </tr>
 </table>
+<br>
+<center><a href="${pageContext.request.contextPath}/manufacturers/add">Create new Manufacturer</a></center>
+<br>
+<center><a href="${pageContext.request.contextPath}/manufacturers">Display All Manufacturers</a></center>
+<br>
+<center><a href="${pageContext.request.contextPath}/index">Back to main page</a></center>
 </body>
 </html>

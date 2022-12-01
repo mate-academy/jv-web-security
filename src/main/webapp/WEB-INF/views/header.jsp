@@ -16,8 +16,8 @@
 </style>
 <body>
 <ul>
-    <li><a href="${pageContext.request.contextPath}/index"><h2>Home</h2></a></li>
-    <li><a href="${pageContext.request.contextPath}/logout"><h2>Logout</h2></a></li>
+    <li><a href="${pageContext.request.contextPath}/index">Home</a></li>
+    <li><a href="${pageContext.request.contextPath}/logout">Logout</a></li>
 </ul>
 </body>
 </html>

@@ -30,5 +30,11 @@
         </td>
     </tr>
 </table>
+<br>
+<center><a href="${pageContext.request.contextPath}/cars">Display All Cars</a></center>
+<br>
+<center><a href="${pageContext.request.contextPath}/drivers">Display All Drivers</a></center>
+<br>
+<center><a href="${pageContext.request.contextPath}/index">Back to main page</a></center>
 </body>
 </html>
