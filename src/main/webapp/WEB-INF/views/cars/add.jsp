@@ -8,8 +8,10 @@
     <title>Add car</title>
 </head>
 <body>
+<%@include file="/WEB-INF/views/header.jsp"%>
 <form method="post" id="car" action="${pageContext.request.contextPath}/cars/add"></form>
 <h1 class="table_dark">Add car:</h1>
+<center><h2 style="color: green">${message}</h2></center>
 <table border="1" class="table_dark">
     <tr>
         <th>Model</th>
@@ -28,5 +30,11 @@
         </td>
     </tr>
 </table>
+<br>
+<center><a href="${pageContext.request.contextPath}/manufacturers/add">Create new Manufacturer</a></center>
+<br>
+<center><a href="${pageContext.request.contextPath}/manufacturers">Display All Manufacturers</a></center>
+<br>
+<center><a href="${pageContext.request.contextPath}/index">Back to main page</a></center>
 </body>
 </html>
