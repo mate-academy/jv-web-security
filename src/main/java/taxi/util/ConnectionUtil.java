@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class ConnectionUtil {
-    private static final String URL = "mysql://kp6nwg7gfi45xc8n"
+    private static final String URL = "jdbc:mysql://kp6nwg7gfi45xc8n"
             + ":p7ys0m2lpfe2tg6a@clwxydcjair55xn0.chr7pe7iynqr.eu-west-1.rds.amazonaws.com"
             + ":3306/vqjb8k4o4gba8kwo";
     private static final String USERNAME = "kp6nwg7gfi45xc8n";
