@@ -5,6 +5,7 @@
 <html>
 <head>
     <title>My team</title>
+    <%@include file="logout.jsp"%>
 </head>
 <body>
 <form method="post" id="redirect"></form>
@@ -14,6 +15,7 @@
         <th>Redirect to</th>
     </tr>
     <tr><td><a href="${pageContext.request.contextPath}/drivers">Display All Drivers</a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/driver/cars">Display My Cars</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/cars">Display All Cars</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/manufacturers">Display All Manufacturers</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/drivers/add">Create new Driver</a></td></tr>

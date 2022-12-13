@@ -6,9 +6,11 @@
 <html>
 <head>
     <title>All manufacturers</title>
+    <%@include file="logout.jsp"%>
 </head>
 <body>
 <h1 class="table_dark">All manufacturers:</h1>
+
 <table border="1" class="table_dark">
     <tr>
         <th>ID</th>
