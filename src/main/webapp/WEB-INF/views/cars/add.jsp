@@ -5,11 +5,12 @@
 </style>
 <html>
 <head>
-    <title>Add car</title>
+    <title>Creating a car</title>
+    <%@include file="/WEB-INF/views/header.jsp" %>
 </head>
 <body>
 <form method="post" id="car" action="${pageContext.request.contextPath}/cars/add"></form>
-<h1 class="table_dark">Add car:</h1>
+<h1 class="table_dark">Add a new car:</h1>
 <table border="1" class="table_dark">
     <tr>
         <th>Model</th>
