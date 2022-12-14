@@ -5,27 +5,27 @@
 </style>
 <html>
 <head>
-    <title>Creating a manufacturers</title>
+    <title>Remove driver from car</title>
     <%@include file="/WEB-INF/views/header.jsp" %>
 </head>
 <body>
-<form method="post" id="manufacturer" action="${pageContext.request.contextPath}/manufacturers/add"></form>
-<h1 class="table_dark">Add a new manufacturer:</h1>
+<form method="post" id="car" action="${pageContext.request.contextPath}/cars/drivers/remove"></form>
+<h1 class="table_dark">Remove driver from car:</h1>
 <table border="1" class="table_dark">
     <tr>
-        <th>Name</th>
-        <th>Country</th>
+        <th>Car ID</th>
+        <th>Driver ID</th>
         <th>Add</th>
     </tr>
     <tr>
         <td>
-            <input type="text" name="name" form="manufacturer" required>
+            <input type="number" name="car_id" form="car" required>
         </td>
         <td>
-            <input type="text" name="country" form="manufacturer" required>
+            <input type="number" name="driver_id" form="car" required>
         </td>
         <td>
-            <input type="submit" name="add" form="manufacturer" required>
+            <input type="submit" name="add" form="car">
         </td>
     </tr>
 </table>
