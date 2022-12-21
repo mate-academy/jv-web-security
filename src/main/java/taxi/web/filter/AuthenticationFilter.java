@@ -21,6 +21,7 @@ public class AuthenticationFilter implements Filter {
         allowedUrl = new TreeSet<>();
         allowedUrl.add("/login");
         allowedUrl.add("/register");
+        allowedUrl.add("/drivers/add");
     }
 
     @Override
@@ -28,7 +29,7 @@ public class AuthenticationFilter implements Filter {
             throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
-        Integer hashUser = (Integer) req.getSession().getAttribute("hashUser");
+        Long hashUser = (Long) req.getSession().getAttribute("id");
         if (hashUser != null || allowedUrl.contains(req.getServletPath())) {
             chain.doFilter(request, response);
         } else {

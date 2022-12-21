@@ -80,6 +80,15 @@
     </servlet-mapping>
 
     <servlet>
+        <servlet-name>allCarsByDriver</servlet-name>
+        <servlet-class>taxi.controller.GetMyCurrentCarsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>allCarsByDriver</servlet-name>
+        <url-pattern>/cars/my</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>addCar</servlet-name>
         <servlet-class>taxi.controller.car.AddCarController</servlet-class>
     </servlet>
