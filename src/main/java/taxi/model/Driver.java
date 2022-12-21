@@ -74,6 +74,6 @@ public class Driver {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, licenseNumber);
+        return Objects.hash(id, name, licenseNumber, login, password);
     }
 }

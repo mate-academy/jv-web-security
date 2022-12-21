@@ -16,6 +16,6 @@
 	Password <label> <input type="password" name="password"/> </label>
 	<button type="submit">Login</button>
 </form>
-If not registered ? Register
+If not registered ? <a href="${pageContext.request.contextPath}/register">Register</a>
 </body>
 </html>
