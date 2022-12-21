@@ -31,7 +31,7 @@ public class LoginController extends HttpServlet {
             req.getSession().setAttribute("hashUser", driver.hashCode());
             resp.sendRedirect("/index");
         } else {
-            req.getRequestDispatcher("/WEB-INF/views/register.jsp").forward(req, resp);
+            resp.sendRedirect("/login");
         }
     }
 }
