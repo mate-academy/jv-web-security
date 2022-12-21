@@ -27,15 +27,15 @@ public class RegisterController extends HttpServlet {
         String license = req.getParameter("license");
         String login = req.getParameter("login");
         String password = req.getParameter("password");
-        String password2 = req.getParameter("password2");
-        if (password.equals(password2)) {
+        String password_repeat = req.getParameter("password_repeat");
+        if (password.equals(password_repeat)) {
             Driver driver = new Driver();
             driver.setName(name);
             driver.setLicenseNumber(license);
             driver.setLogin(login);
             driver.setPassword(password);
             driverService.create(driver);
-            resp.sendRedirect("/login");
+            resp.sendRedirect("/");
         } else {
             req.setAttribute("errorRegister", "Wrong data. Try again");
             req.getRequestDispatcher("/WEB-INF/views/register.jsp").forward(req, resp);

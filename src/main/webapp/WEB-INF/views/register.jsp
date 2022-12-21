@@ -10,7 +10,7 @@
 		License <label> <input type="text" name="license"> </label> <br>
 		Login <label> <input type="text" name="login"> </label> <br>
 		Password <label> <input type="password" name="password"></label> <br>
-		Repeat password <label> <input type="password" name="password2"></label> <br>
+		Repeat password <label> <input type="password" name="password_repeat"></label> <br>
 		<button type="submit">Register</button>
 	</form>
 </body>

@@ -31,7 +31,7 @@ public class LoginController extends HttpServlet {
             req.getSession().setAttribute("id", driver.getId());
             resp.sendRedirect("/index");
         } else {
-            resp.sendRedirect("/login");
+            resp.sendRedirect("/");
         }
     }
 }
