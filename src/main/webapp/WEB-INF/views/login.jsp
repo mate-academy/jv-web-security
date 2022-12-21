@@ -12,10 +12,10 @@
 </head>
 <body>
 <form method="post" action="${pageContext.request.contextPath}/login">
-	Login <label> <input type="text" name="login"/> </label> <br>
-	Password <label> <input type="password" name="password"/> </label> <br>
+	Login <label> <input type="text" name="login"/> </label>
+	Password <label> <input type="password" name="password"/> </label>
 	<button type="submit">Login</button>
 </form>
-If not registered ??
+If not registered ? Register
 </body>
 </html>
