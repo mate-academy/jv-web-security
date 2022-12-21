@@ -27,6 +27,11 @@ public class DriverServiceImpl implements DriverService {
     }
 
     @Override
+    public Optional<Driver> findByLogin(String login) {
+        return driverDao.findByLogin(login);
+    }
+
+    @Override
     public List<Driver> getAll() {
         return driverDao.getAll();
     }
@@ -39,10 +44,5 @@ public class DriverServiceImpl implements DriverService {
     @Override
     public boolean delete(Long id) {
         return driverDao.delete(id);
-    }
-
-    @Override
-    public Optional<Driver> findByLogin(String login) {
-        return driverDao.findByLogin(login);
     }
 }
