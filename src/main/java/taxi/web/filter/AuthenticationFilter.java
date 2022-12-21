@@ -33,7 +33,7 @@ public class AuthenticationFilter implements Filter {
         if (hashUser != null || allowedUrl.contains(req.getServletPath())) {
             chain.doFilter(request, response);
         } else {
-            resp.sendRedirect("/");
+            resp.sendRedirect("/login");
         }
     }
 
