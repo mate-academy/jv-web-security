@@ -4,9 +4,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
+import java.util.TimeZone;
 
 public class ConnectionUtil {
-    private static final String URL = "jdbc:mysql://localhost:3306/taxi?useUnicode=true&serverTimezone=Europe/Kyiv";
+    private static final String URL =
+            "jdbc:mysql://localhost:3306/taxi?useUnicode=true&serverTimezone="
+                    + TimeZone.getDefault().getID();
     private static final String USERNAME = "root";
     private static final String PASSWORD = "matedb";
     private static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
