@@ -11,6 +11,8 @@ CREATE TABLE `drivers`  (
                             `id` BIGINT(0) UNSIGNED NOT NULL AUTO_INCREMENT,
                             `name` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
                             `license_number` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                            `login` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                            `password` 	VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
                             `is_deleted` BIT(1) NOT NULL DEFAULT b'0',
                             PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
@@ -38,7 +40,10 @@ CREATE TABLE `cars`  (
                          `is_deleted` BIT(1) NOT NULL DEFAULT b'0',
                          PRIMARY KEY (`id`) USING BTREE,
                          INDEX `FK_manufacturer_id`(`manufacturer_id`) USING BTREE,
-                         CONSTRAINT `FK_manufacturer_id` FOREIGN KEY (`manufacturer_id`) REFERENCES `manufacturers` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+                         CONSTRAINT `FK_manufacturer_id`
+                             FOREIGN KEY (`manufacturer_id`)
+                                 REFERENCES `manufacturers` (`id`)
+                                 ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
@@ -51,8 +56,14 @@ CREATE TABLE `cars_drivers`  (
                                  PRIMARY KEY (`car_id`, `driver_id`) USING BTREE,
                                  INDEX `driver_id`(`driver_id`) USING BTREE,
                                  INDEX `car_id`(`car_id`) USING BTREE,
-                                 CONSTRAINT `car_id` FOREIGN KEY (`car_id`) REFERENCES `cars` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-                                 CONSTRAINT `driver_id` FOREIGN KEY (`driver_id`) REFERENCES `drivers` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+                                 CONSTRAINT `car_id`
+                                     FOREIGN KEY (`car_id`)
+                                         REFERENCES `cars` (`id`)
+                                         ON DELETE RESTRICT ON UPDATE RESTRICT,
+                                 CONSTRAINT `driver_id`
+                                     FOREIGN KEY (`driver_id`)
+                                         REFERENCES `drivers` (`id`)
+                                         ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 SET FOREIGN_KEY_CHECKS = 1;
