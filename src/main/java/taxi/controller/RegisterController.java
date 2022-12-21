@@ -37,7 +37,7 @@ public class RegisterController extends HttpServlet {
             driverService.create(driver);
             resp.sendRedirect("/");
         } else {
-            req.setAttribute("errorRegister", "Wrong data. Try again");
+            req.setAttribute("msg", "Wrong data. Try again");
             req.getRequestDispatcher("/WEB-INF/views/register.jsp").forward(req, resp);
         }
     }
