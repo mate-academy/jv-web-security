@@ -11,10 +11,15 @@ CREATE TABLE `drivers`  (
                             `id` BIGINT(0) UNSIGNED NOT NULL AUTO_INCREMENT,
                             `name` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
                             `license_number` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                            `login` varchar(255) NOT NULL,
+                            `password` varchar(255) NOT NULL,
                             `is_deleted` BIT(1) NOT NULL DEFAULT b'0',
                             PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+alter table drivers
+    add constraint key_name
+        unique (login);
 -- ----------------------------
 -- Table structure for manufacturers
 -- ----------------------------
