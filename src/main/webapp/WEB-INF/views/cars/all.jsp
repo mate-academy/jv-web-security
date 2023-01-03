@@ -5,7 +5,7 @@
 </style>
 <html>
 <head>
-    <title>${h1}</title></head>
+    <title>My all cars</title></head>
 <body>
 <%@include file="../header.jsp" %>
 <h1 class="table_dark">All cars:</h1>
