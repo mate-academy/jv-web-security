@@ -17,19 +17,19 @@
         <th>License number</th>
         <th>Delete</th>
     </tr>
-    <c:forEach var="password" items="${manufacturers}">
+    <c:forEach var="manufacturer" items="${manufacturers}">
         <tr>
             <td>
-                <c:out value="${password.id}"/>
+                <c:out value="${manufacturer.id}"/>
             </td>
             <td>
-                <c:out value="${password.name}"/>
+                <c:out value="${manufacturer.name}"/>
             </td>
             <td>
-                <c:out value="${password.country}"/>
+                <c:out value="${manufacturer.country}"/>
             </td>
             <td>
-                <a href="${pageContext.request.contextPath}/manufacturers/delete?id=${password.id}">DELETE</a>
+                <a href="${pageContext.request.contextPath}/manufacturers/delete?id=${manufacturer.id}">DELETE</a>
             </td>
         </tr>
     </c:forEach>
