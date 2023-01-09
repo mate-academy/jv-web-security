@@ -5,9 +5,10 @@
 </style>
 <html>
 <head>
-    <title>All manufacturers</title>
+    <title>Taxi service</title>
 </head>
 <body>
+<%@include file="../header.jsp"%>
 <h1 class="table_dark">All manufacturers:</h1>
 <table border="1" class="table_dark">
     <tr>
@@ -16,19 +17,19 @@
         <th>License number</th>
         <th>Delete</th>
     </tr>
-    <c:forEach var="manufacturer" items="${manufacturers}">
+    <c:forEach var="password" items="${manufacturers}">
         <tr>
             <td>
-                <c:out value="${manufacturer.id}"/>
+                <c:out value="${password.id}"/>
             </td>
             <td>
-                <c:out value="${manufacturer.name}"/>
+                <c:out value="${password.name}"/>
             </td>
             <td>
-                <c:out value="${manufacturer.country}"/>
+                <c:out value="${password.country}"/>
             </td>
             <td>
-                <a href="${pageContext.request.contextPath}/manufacturers/delete?id=${manufacturer.id}">DELETE</a>
+                <a href="${pageContext.request.contextPath}/manufacturers/delete?id=${password.id}">DELETE</a>
             </td>
         </tr>
     </c:forEach>
