@@ -1,25 +1,26 @@
 .table_dark {
-    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif, serif;
     width: 70%;
-    color: #7C5FAB;
+    color: #231d31;
+    text-decoration: none;
     font-size: 40px;
     text-align: center;
     border-collapse: collapse;
-    background: #FEF4AB;
+    background: #9fbfda linear-gradient(135deg, #4ca1af 0%, #9fbfda 100%);
     margin: auto;
 }
 .table_dark th {
-    color: #7C5FAB;
+    color: #231d31;
     border-bottom: 1px solid #98E2CA;
     padding: 12px 17px;
-    font-size: 14px;
+    font-size: 20px;
 }
 .table_dark td {
-    color: #7C5FAB;
+    color: #231d31;
     border-bottom: 1px solid #98E2CA;
     border-right: 1px solid #98E2CA;
     padding: 7px 17px;
-    font-size: 14px;
+    font-size: 20px;
 }
 .table_dark tr:last-child td {
     border-bottom: none;
@@ -29,4 +30,14 @@
 }
 .table_dark tr:hover td {
     text-decoration: underline;
+}
+
+body {
+    min-height: 110vh;
+    background-color: #4ca1af;
+    background-image: linear-gradient(135deg, #4ca1af 0%, #c4e0e5 100%);
+}
+
+a {
+    text-decoration: none;
 }
