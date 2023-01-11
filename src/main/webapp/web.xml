@@ -24,7 +24,6 @@
         <servlet-name>allDrivers</servlet-name>
         <url-pattern>/drivers</url-pattern>
     </servlet-mapping>
-
     <servlet>
         <servlet-name>deleteDriver</servlet-name>
         <servlet-class>taxi.controller.driver.DeleteDriverController</servlet-class>

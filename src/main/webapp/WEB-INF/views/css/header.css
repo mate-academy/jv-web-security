@@ -1,0 +1,18 @@
+.app-logout {
+    height: 20px;
+    display: flex;
+    width: 85%;
+    display: flex;
+    justify-content: right;
+}
+
+.app-logout a {
+    font: bold 14px Arial;
+    background-color: #7C5FAB;
+    color: #fff;
+    padding: 14px 24px 14px 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+}
