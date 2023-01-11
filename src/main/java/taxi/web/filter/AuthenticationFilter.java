@@ -27,17 +27,16 @@ public class AuthenticationFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
                          FilterChain filterChain) throws IOException, ServletException {
-
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         HttpSession session = req.getSession();
         Long driverId = (Long) session.getAttribute("driver_id");
         if (driverId == null && !allowedUrls.contains(req.getServletPath())) {
-            resp.sendRedirect("/drivers/login");
+            resp.sendRedirect(req.getContextPath() + "/drivers/login");
             return;
         }
         if (driverId != null && req.getServletPath().equals("/drivers/login")) {
-            resp.sendRedirect("/index");
+            resp.sendRedirect(req.getContextPath() + "/index");
             return;
         }
         filterChain.doFilter(req, resp);
