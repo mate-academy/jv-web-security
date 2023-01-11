@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 
 @WebFilter(filterName = "authenticationFilter")
 public class AuthenticationFilter implements Filter {
-    private Set<String> allowedUrls = new HashSet<>();
+    private final Set<String> allowedUrls = new HashSet<>();
 
     @Override
     public void init(FilterConfig filterConfig) {
@@ -32,16 +32,12 @@ public class AuthenticationFilter implements Filter {
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         HttpSession session = req.getSession();
         Long driverId = (Long) session.getAttribute("driver_id");
-        if (driverId != null && req.getServletPath().equals("/drivers/login")) {
-            resp.sendRedirect("/");
-            return;
-        }
-        if (allowedUrls.contains(req.getServletPath())) {
-            filterChain.doFilter(req, resp);
-            return;
-        }
-        if (driverId == null) {
+        if (driverId == null && !allowedUrls.contains(req.getServletPath())) {
             resp.sendRedirect("/drivers/login");
+            return;
+        }
+        if (driverId != null && req.getServletPath().equals("/drivers/login")) {
+            resp.sendRedirect("/index");
             return;
         }
         filterChain.doFilter(req, resp);
