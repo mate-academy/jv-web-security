@@ -2,6 +2,8 @@ package taxi.service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import taxi.dao.DriverDao;
 import taxi.exception.AuthenticationException;
 import taxi.exception.RegistrationException;
@@ -11,12 +13,14 @@ import taxi.model.Driver;
 
 @Service
 public class DriverServiceImpl implements DriverService {
+    private static final Logger LOGGER = LogManager.getLogger(DriverServiceImpl.class);
     @Inject
     private DriverDao driverDao;
 
     @Override
     public Driver create(Driver driver) {
-        if (driverDao.findByLogin(driver.getLogin()).isPresent()) {
+        LOGGER.info("Method create was called. Params: login = {}", driver.getLogin());
+        if (driverDao.checkLoginIfExists(driver.getLogin()).isPresent()) {
             throw new RegistrationException("Such login already exists. Please try another");
         }
         return driverDao.create(driver);

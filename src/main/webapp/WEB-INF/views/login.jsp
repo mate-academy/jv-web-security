@@ -28,6 +28,6 @@
             </td>
         </tr>
     </table>
-<h4><a href="${pageContext.request.contextPath}/drivers/add">Add driver</a> </h4>
+<h4><a href="${pageContext.request.contextPath}/drivers/add">Registration</a> </h4>
 </body>
 </html>
