@@ -6,6 +6,7 @@
 <head>
     <title>My team</title>
 </head>
+<%@include file="/WEB-INF/views/header.jsp"%>
 <body>
 <form method="post" id="redirect"></form>
 <h1 class="table_dark">Hello, mates</h1>
@@ -21,6 +22,5 @@
     <tr><td><a href="${pageContext.request.contextPath}/manufacturers/add">Create new Manufacturer</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/cars/drivers/add">Add Driver to Car</a></td></tr>
 </table>
-<h2><%@include file="/WEB-INF/views/header.jsp"%></h2>
 </body>
 </html>

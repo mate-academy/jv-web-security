@@ -7,6 +7,7 @@
 <head>
     <title>All drivers</title>
 </head>
+<%@include file="/WEB-INF/views/header.jsp"%>
 <body>
 <h1 class="table_dark">All drivers:</h1>
 <table border="1" class="table_dark">
@@ -33,6 +34,5 @@
         </tr>
     </c:forEach>
 </table>
-<h2><%@include file="/WEB-INF/views/header.jsp"%></h2>
 </body>
 </html>
