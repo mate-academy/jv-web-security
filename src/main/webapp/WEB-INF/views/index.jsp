@@ -21,5 +21,6 @@
     <tr><td><a href="${pageContext.request.contextPath}/manufacturers/add">Create new Manufacturer</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/cars/drivers/add">Add Driver to Car</a></td></tr>
 </table>
+<h2><%@include file="/WEB-INF/views/header.jsp"%></h2>
 </body>
 </html>

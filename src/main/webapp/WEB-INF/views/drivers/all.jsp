@@ -33,5 +33,6 @@
         </tr>
     </c:forEach>
 </table>
+<h2><%@include file="/WEB-INF/views/header.jsp"%></h2>
 </body>
 </html>
