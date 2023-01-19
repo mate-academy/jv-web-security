@@ -1,4 +1,4 @@
-package taxi.controller.driver;
+package taxi.controller.security;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -13,13 +13,14 @@ import taxi.service.AuthenticationService;
 
 public class LoginController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
+    private static final String PATH = "/WEB-INF/views/drivers/login.jsp";
     private final AuthenticationService authenticationService =
             (AuthenticationService) injector.getInstance(AuthenticationService.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/views/drivers/login.jsp").forward(req,resp);
+        req.getRequestDispatcher(PATH).forward(req,resp);
     }
 
     @Override
@@ -31,10 +32,10 @@ public class LoginController extends HttpServlet {
             Driver driver = authenticationService.login(login, password);
             HttpSession session = req.getSession();
             session.setAttribute("driver_id", driver.getId());
-            resp.sendRedirect("/index");
+            resp.sendRedirect(req.getContextPath() + "/index");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMsg",e.getMessage());
-            req.getRequestDispatcher("/WEB-INF/views/drivers/login.jsp").forward(req,resp);
+            req.getRequestDispatcher(PATH).forward(req,resp);
         }
 
     }

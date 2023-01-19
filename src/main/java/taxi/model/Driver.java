@@ -86,6 +86,6 @@ public class Driver {
     public String toString() {
         return "Driver{"
                 + "id=" + id + ", name='" + name + '\'' + ", licenseNumber='" + licenseNumber + '\''
-                + ", login='" + login + '\'' + ", password='" + password + '\'' + '}';
+                + ", login='" + login + '}';
     }
 }
