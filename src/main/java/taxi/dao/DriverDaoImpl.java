@@ -81,7 +81,7 @@ public class DriverDaoImpl implements DriverDao {
             statement.setString(1, driver.getName());
             statement.setString(2, driver.getLicenseNumber());
             statement.setString(3, driver.getLogin());
-            statement.setString(4, driver.getLogin());
+            statement.setString(4, driver.getPassword());
             statement.setLong(5, driver.getId());
             statement.executeUpdate();
             return driver;
