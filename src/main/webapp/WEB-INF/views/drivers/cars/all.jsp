@@ -5,33 +5,37 @@
 </style>
 <html>
 <head>
-    <title>All manufacturers</title>
+    <title>Title</title>
 </head>
 <body bgcolor="#5f9ea0">
 <header>
     <%@include file="/WEB-INF/views/header.jsp"%>
 </header>
-<h1 class="table_dark">All manufacturers:</h1>
+<h1 class="table_dark">All cars:</h1>
 <table border="1" class="table_dark">
     <tr>
         <th>ID</th>
-        <th>Name</th>
-        <th>License number</th>
-        <th>Delete</th>
+        <th>Model</th>
+        <th>Manufacturer Id</th>
+        <th>Manufacturer name</th>
+        <th>Country</th>
     </tr>
-    <c:forEach var="manufacturer" items="${manufacturers}">
+    <c:forEach var="car" items="${cars}">
         <tr>
             <td>
-                <c:out value="${manufacturer.id}"/>
+                <c:out value="${car.id}"/>
             </td>
             <td>
-                <c:out value="${manufacturer.name}"/>
+                <c:out value="${car.model}"/>
             </td>
             <td>
-                <c:out value="${manufacturer.country}"/>
+                <c:out value="${car.manufacturer.id}"/>
             </td>
             <td>
-                <a href="${pageContext.request.contextPath}/manufacturers/delete?id=${manufacturer.id}">DELETE</a>
+                <c:out value="${car.manufacturer.name}"/>
+            </td>
+            <td>
+                <c:out value="${car.manufacturer.country}"/>
             </td>
         </tr>
     </c:forEach>

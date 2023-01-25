@@ -5,20 +5,22 @@
 </style>
 <html>
 <head>
-    <title>All drivers</title>
+    <title>Title</title>
 </head>
 <body bgcolor="#5f9ea0">
-<header class="table_dark">
-    <%@include file="/WEB-INF/views/header.jsp"%>
-</header>
-<form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/add"></form>
-<h1 class="table_dark">Add driver:</h1>
+<form action="<c:url value="/login"/>">
+    <input type="submit" value=" Login " />
+</form>
+<h4 style="color: red">${errorMessage}</h4>
+<form method="post" id="driver" action="${pageContext.request.contextPath}/register"></form>
+<h1 class="table_dark">Register:</h1>
 <table border="1" class="table_dark">
     <tr>
         <th>Name</th>
         <th>License number</th>
         <th>Login</th>
         <th>Password</th>
+        <th>Repeat password</th>
         <th>Add</th>
     </tr>
     <tr>
@@ -33,6 +35,9 @@
         </td>
         <td>
             <input type="password" name="password" form="driver" required>
+        </td>
+        <td>
+            <input type="password" name="repeated_password" form="driver" required>
         </td>
         <td>
             <input type="submit" name="add" form="driver">
