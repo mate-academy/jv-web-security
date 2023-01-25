@@ -1,4 +1,4 @@
-package taxi.controller.user;
+package taxi.controller.authentication;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -21,7 +21,7 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/views/user/login.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/views/authentication/login.jsp").forward(req, resp);
     }
 
     @Override
@@ -35,7 +35,7 @@ public class LoginController extends HttpServlet {
             req.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(req, resp);
         } catch (AuthenticationException e) {
             req.setAttribute("errorMessage", e.getMessage());
-            req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/views/authentication/login.jsp").forward(req, resp);
         }
     }
 }

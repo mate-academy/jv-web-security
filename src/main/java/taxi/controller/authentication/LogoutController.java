@@ -1,4 +1,4 @@
-package taxi.controller.user;
+package taxi.controller.authentication;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -13,6 +13,6 @@ public class LogoutController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         req.getSession().invalidate();
-        resp.sendRedirect("/index");
+        resp.sendRedirect("/login");
     }
 }
