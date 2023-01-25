@@ -7,7 +7,10 @@
 <head>
     <title>Add driver to car</title>
 </head>
-<body>
+<body bgcolor="#5f9ea0">
+<header>
+    <%@include file="/WEB-INF/views/header.jsp"%>
+</header>
 <form method="post" id="car" action="${pageContext.request.contextPath}/cars/drivers/add"></form>
 <h1 class="table_dark">Add driver to car:</h1>
 <table border="1" class="table_dark">
