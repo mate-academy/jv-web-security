@@ -8,7 +8,7 @@
     <title>Title</title>
 </head>
 <body bgcolor="#5f9ea0">
-<form action="<c:url value="/register"/>">
+<form action="<c:url value="/drivers/add"/>">
     <input type="submit" value=" I don't have account " />
 </form>
 <h4 style="color: red">${errorMessage}</h4>

@@ -8,9 +8,9 @@
     <title>All drivers</title>
 </head>
 <body bgcolor="#5f9ea0">
-<header class="table_dark">
-    <%@include file="/WEB-INF/views/header.jsp"%>
-</header>
+<form action="<c:url value="/login"/>">
+    <input type="submit" value=" Login " />
+</form>
 <form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/add"></form>
 <h1 class="table_dark">Add driver:</h1>
 <table border="1" class="table_dark">

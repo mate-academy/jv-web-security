@@ -21,7 +21,7 @@ public class AuthenticationFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         allowedUrls.add("/login");
-        allowedUrls.add("/driver/add");
+        allowedUrls.add("/drivers/add");
     }
 
     @Override
@@ -30,12 +30,13 @@ public class AuthenticationFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) resp;
         HttpSession session = request.getSession();
-        if (session.getAttribute("driverId") == null
+        Long driverId = (Long) session.getAttribute("driverId");
+        if (driverId == null
                 && allowedUrls.contains(request.getServletPath())) {
             filterChain.doFilter(request, response);
             return;
         }
-        if (session.getAttribute("driverId") == null) {
+        if (driverId == null) {
             response.sendRedirect(request.getContextPath() + "/login");
             return;
         }
