@@ -7,6 +7,7 @@
 <head>
     <title>Add car</title>
 </head>
+<header></header>
 <body>
 <form method="post" id="car" action="${pageContext.request.contextPath}/cars/add"></form>
 <h1 class="table_dark">Add car:</h1>
