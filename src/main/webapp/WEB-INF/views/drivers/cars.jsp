@@ -10,6 +10,7 @@
 </head>
 <body>
 <h1 class="steelBlueCols">
+    <br>
     Main info
     <br>
     <br>
