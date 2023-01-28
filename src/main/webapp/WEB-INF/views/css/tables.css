@@ -1,0 +1,63 @@
+table.steelBlueCols {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    border: 3px solid #555555;
+    background-color: #555555;
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+table.steelBlueCols tbody td a{
+    color: #c22828;
+    text-decoration: none;
+}
+table.steelBlueCols td, table.steelBlueCols th {
+    border: 1px solid #555555;
+    padding: 10px 10px;
+}
+table.steelBlueCols tbody td {
+    font-size: 14px;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+table.steelBlueCols tr:nth-child(even) {
+    background: #398AA4;
+}
+table.steelBlueCols td:nth-child(even) {
+    background: #398AA4;
+}
+table.steelBlueCols thead {
+    background: #398AA4;
+    border-bottom: 1px solid #555555;
+}
+table.steelBlueCols thead th {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    border-left: 2px solid #555555;
+    color: #FFFFFF;
+}
+table.steelBlueCols thead th:first-child {
+    border-left: none;
+}
+
+table.steelBlueCols tfoot td {
+    font-size: 16px;
+}
+table.steelBlueCols tfoot .links {
+    text-align: right;
+}
+table.steelBlueCols tfoot .links a{
+    display: inline-block;
+    background: #FFFFFF;
+    padding: 2px 8px;
+    border-radius: 5px;
+}
+h1.steelBlueCols {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    background: #398AA4;
+    border: 3px solid #555555;
+    color: #FFFFFF;
+    font-size: 40px;
+    text-align: center;
+    font-weight: bold;
+}
