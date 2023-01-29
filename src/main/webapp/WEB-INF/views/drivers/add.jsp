@@ -17,7 +17,7 @@
 <%@include file="/WEB-INF/views/header.jsp"%>
 <form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/add"></form>
 <h1>ADD DRIVER</h1>
-<table align="center" border="1" class="table_dark">
+<table align="center" border="1">
     <tr>
         <th>Login</th>
         <th>Password</th>
