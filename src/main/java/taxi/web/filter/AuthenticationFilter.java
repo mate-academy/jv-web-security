@@ -35,11 +35,7 @@ public class AuthenticationFilter implements Filter {
             resp.sendRedirect("/drivers/cars");
             return;
         }
-        if (driverId == null && allowedUrls.contains(req.getServletPath())) {
-            filterChain.doFilter(req, resp);
-            return;
-        }
-        if (driverId == null) {
+        if (driverId == null && !allowedUrls.contains(req.getServletPath())) {
             resp.sendRedirect("/login");
             return;
         }

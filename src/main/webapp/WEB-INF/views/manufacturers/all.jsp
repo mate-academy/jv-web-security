@@ -15,7 +15,7 @@
 <tr>
     <th>ID</th>
     <th>Name</th>
-    <th>License number</th>
+    <th>Country</th>
     <th>Delete</th>
 </tr>
 </thead>

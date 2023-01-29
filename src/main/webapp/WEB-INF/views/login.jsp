@@ -19,9 +19,9 @@
 </label>
 <br>
 <h1 class="text-error">${errorMsg}</h1>
-<button class="button" type="submit" name="add" form="login">SignIn</button>
+<button class="button" type="submit" name="add" form="login">Sign In</button>
 <br>
 <br>
-<a href="/registration" class="text-button">SignUp</a>
+<a href="/registration" class="text-button">Sign Up</a>
 </body>
 </html>

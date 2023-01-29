@@ -37,7 +37,7 @@
   <li><a href="${pageContext.request.contextPath}/cars/add">Add car</a></li>
   <li><a href="${pageContext.request.contextPath}/manufacturers/add">Add manufacturer</a></li>
   <li><a href="${pageContext.request.contextPath}/cars/drivers/add">Set new car</a></li>
-  <li style="float:right"><a class="active" href="${pageContext.request.contextPath}/logout">LogOut</a></li>
+  <li style="float:right"><a class="active" href="${pageContext.request.contextPath}/logout">Log Out</a></li>
 </ul>
 </body>
 </html>

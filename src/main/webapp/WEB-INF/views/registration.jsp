@@ -31,9 +31,9 @@
 </label>
 <br>
 <h1 class="text-error">${errorMsg}</h1>
-<button class="button" type="submit" name="add" form="registration">SignUp</button>
+<button class="button" type="submit" name="add" form="registration">Sign Up</button>
 <br>
 <br>
-<a href="${pageContext.request.contextPath}/login" class="text-button">SignIn</a>
+<a href="${pageContext.request.contextPath}/login" class="text-button">Sign In</a>
 </body>
 </html>

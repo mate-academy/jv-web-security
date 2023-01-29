@@ -14,13 +14,10 @@ public class RegistrationServiceImpl implements RegistrationService {
 
     @Override
     public Driver register(Driver driver, String repeatedPassword) throws RegistrationException {
-        if (driverDao.findByLogin(driver.getLogin()).isPresent()) {
+        if (driverDao.findByLogin(driver.getLogin()).isPresent()
+                || !driver.getPassword().equals(repeatedPassword)) {
             throw new RegistrationException("Driver is already exists");
         }
-        if (!driver.getPassword().equals(repeatedPassword)) {
-            throw new RegistrationException("Passwords are different");
-        }
-        driverDao.create(driver);
-        return driver;
+        return driverDao.create(driver);
     }
 }
