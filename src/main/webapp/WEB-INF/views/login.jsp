@@ -1,21 +1,28 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<style>
-    <%@include file='/WEB-INF/views/css/table_dark.css' %>
-</style>
 <html>
 <head>
-    <title>Login</title>
+<title>Login</title>
+<style>
+    html * {
+        font-size: 16px;
+        line-height: 1.625;
+        color: #000000;
+        font-family: Nunito, sans-serif;
+    }
+</style>
 </head>
-<body>
+<body bgcolor="#ffd700">
+<div align="center ">
 <form method="post" action="${pageContext.request.contextPath}/login">
-    <h1 class="table_dark">Please the form below</h1>
-    <table class="table_dark">
-        <td>Please enter your login <input type="text" name="login" required></td>
-        <td>Please enter your password <input type="password" name="password" required></td>
+    <h1>TAXI SERVICE APP</h1>
+    <h3>Please enter the form below</h3>
+        <td>Login <input type="text" name="login" required></td>
+        <td>Password <input type="password" name="password" required></td>
         <td><button type="submit">Confirm</button></td>
         <td><button type="button"><a href="${pageContext.request.contextPath}/drivers/add">Register</a></button> </td>
         <td><h4 style="color: red">${errorMsg}</h4></td>
-    </table>
+
 </form>
+</div>
 </body>
 </html>
