@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class AuthenticationFilter implements Filter {
-    public static final Set<String> SET_OF_URLS ;
+    public static final Set<String> SET_OF_URLS;
 
     static {
         SET_OF_URLS = Set.of("/login", "/drivers/add");
