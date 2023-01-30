@@ -14,9 +14,11 @@ public class RegistrationServiceImpl implements RegistrationService {
 
     @Override
     public Driver register(Driver driver, String repeatedPassword) throws RegistrationException {
-        if (driverDao.findByLogin(driver.getLogin()).isPresent()
-                || !driver.getPassword().equals(repeatedPassword)) {
+        if (driverDao.findByLogin(driver.getLogin()).isPresent()) {
             throw new RegistrationException("Driver is already exists");
+        }
+        if (!driver.getPassword().equals(repeatedPassword)) {
+            throw new RegistrationException("Password and confirm password don't match");
         }
         return driverDao.create(driver);
     }
