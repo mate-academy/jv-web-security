@@ -3,7 +3,6 @@ package taxi.service.impl;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
-
 import taxi.dao.DriverDao;
 import taxi.lib.Inject;
 import taxi.lib.Service;
