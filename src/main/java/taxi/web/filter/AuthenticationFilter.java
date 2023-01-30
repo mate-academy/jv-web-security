@@ -1,11 +1,9 @@
 package taxi.web.filter;
 
 import java.io.IOException;
-import java.util.HashSet;
 import java.util.Set;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -16,13 +14,7 @@ import javax.servlet.http.HttpSession;
 
 @WebFilter ("/*")
 public class AuthenticationFilter implements Filter {
-    private Set<String> allowedUrls = new HashSet<>();
-
-    @Override
-    public void init(FilterConfig filterConfig) {
-        allowedUrls.add("/login");
-        allowedUrls.add("/registration");
-    }
+    private static final Set<String> allowedUrls = Set.of("/login", "/registration");
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
@@ -30,7 +22,7 @@ public class AuthenticationFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         HttpSession session = req.getSession();
-        Object driverId = session.getAttribute("driver_id");
+        Long driverId = (Long) session.getAttribute("driver_id");
         if (driverId != null && allowedUrls.contains(req.getServletPath())) {
             resp.sendRedirect("/drivers/cars");
             return;

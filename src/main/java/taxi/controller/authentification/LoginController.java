@@ -7,40 +7,36 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import taxi.exception.RegistrationException;
+import taxi.exception.AuthenticationException;
 import taxi.lib.Injector;
 import taxi.model.Driver;
-import taxi.service.RegistrationService;
+import taxi.service.AuthenticationService;
 
-@WebServlet ("/registration")
-public class RegisterDriverController extends HttpServlet {
+@WebServlet("/login")
+public class LoginController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
-    private final RegistrationService registrationService
-            = (RegistrationService) injector.getInstance(RegistrationService.class);
+    private final AuthenticationService authenticationService
+            = (AuthenticationService) injector.getInstance(AuthenticationService.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/views/registration.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws IOException, ServletException {
+            throws ServletException, IOException {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
-        String name = req.getParameter("name");
-        String license = req.getParameter("license");
-        String repeatPassword = req.getParameter("repeatPassword");
-        Driver driver = new Driver(name, license, login, password);
         try {
-            Driver registeredDriver = registrationService.register(driver, repeatPassword);
+            Driver driver = authenticationService.login(login, password);
             HttpSession session = req.getSession();
-            session.setAttribute("driver_id", registeredDriver.getId());
+            session.setAttribute("driver_id", driver.getId());
             resp.sendRedirect(req.getContextPath() + "/drivers/cars");
-        } catch (RegistrationException e) {
+        } catch (AuthenticationException e) {
             req.setAttribute("errorMsg", e.getMessage());
-            req.getRequestDispatcher("/WEB-INF/views/registration.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
         }
     }
 }
