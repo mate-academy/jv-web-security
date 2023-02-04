@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 import taxi.dao.DriverDao;
-import taxi.exception.RegistrationException;
 import taxi.lib.Inject;
 import taxi.lib.Service;
 import taxi.model.Driver;
@@ -16,9 +15,6 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public Driver create(Driver driver) {
-        if (driverDao.findByLogin(driver.getLogin()).isPresent()) {
-            throw new RegistrationException("Such login already exists. Please try another");
-        }
         return driverDao.create(driver);
     }
 

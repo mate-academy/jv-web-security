@@ -5,7 +5,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import taxi.exception.RegistrationException;
 import taxi.lib.Injector;
 import taxi.model.Driver;
 import taxi.service.DriverService;
@@ -24,16 +23,16 @@ public class AddDriverController extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws IOException, ServletException {
-        String name = req.getParameter("name");
-        String licenseNumber = req.getParameter("license_number");
         String login = req.getParameter("login");
-        String password = req.getParameter("password");
-        Driver driver = new Driver(name, licenseNumber, login, password);
-        try {
-            driverService.create(driver);
-        } catch (RegistrationException e) {
-            req.setAttribute("errorMsg", e.getMessage());
+        if (driverService.findByLogin(login).isPresent()) {
+            req.setAttribute("errorMsg", "Such login already exists. Please try another");
             req.getRequestDispatcher("/WEB-INF/views/drivers/add.jsp").forward(req, resp);
+        } else {
+            String name = req.getParameter("name");
+            String licenseNumber = req.getParameter("license_number");
+            String password = req.getParameter("password");
+            Driver driver = new Driver(name, licenseNumber, login, password);
+            driverService.create(driver);
         }
         resp.sendRedirect(req.getContextPath() + "/index");
     }
