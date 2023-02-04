@@ -23,15 +23,15 @@ public class AuthenticationFilter implements Filter {
     }
 
     @Override
-    public void doFilter(ServletRequest servletRequest,
-                         ServletResponse servletResponse, FilterChain filterChain)
+    public void doFilter(ServletRequest request,
+                         ServletResponse response, FilterChain filterChain)
             throws IOException, ServletException {
-        HttpServletRequest request = (HttpServletRequest) servletRequest;
-        HttpServletResponse response = (HttpServletResponse) servletResponse;
-        HttpSession session = request.getSession();
+        HttpServletRequest req = (HttpServletRequest) request;
+        HttpServletResponse resp = (HttpServletResponse) response;
+        HttpSession session = req.getSession();
         Long driverId = (Long) session.getAttribute("driver_id");
-        if (driverId == null && !(allowedUrls.contains(request.getServletPath()))) {
-            response.sendRedirect(request.getContextPath() + "/login");
+        if (driverId == null && !(allowedUrls.contains(req.getServletPath()))) {
+            resp.sendRedirect(req.getContextPath() + "/login");
             return;
         }
         filterChain.doFilter(request, response);
