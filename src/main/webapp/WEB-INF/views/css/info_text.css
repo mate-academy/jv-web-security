@@ -1,0 +1,10 @@
+p {
+    font-size: 14px;
+    text-align: center;
+}
+
+.error_message {
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+}

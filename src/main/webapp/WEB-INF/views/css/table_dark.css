@@ -8,12 +8,14 @@
     background: #FEF4AB;
     margin: auto;
 }
+
 .table_dark th {
     color: #7C5FAB;
     border-bottom: 1px solid #98E2CA;
     padding: 12px 17px;
     font-size: 14px;
 }
+
 .table_dark td {
     color: #7C5FAB;
     border-bottom: 1px solid #98E2CA;
@@ -21,12 +23,31 @@
     padding: 7px 17px;
     font-size: 14px;
 }
+
+#header_table {
+    background: #7C5FAB;
+}
+
+#header_table td a {
+    color: #FEF4AB;
+    font-size: 12px;
+}
+
 .table_dark tr:last-child td {
     border-bottom: none;
 }
+
 .table_dark td:last-child {
     border-right: none;
 }
+
 .table_dark tr:hover td {
     text-decoration: underline;
+}
+
+.table_dark .driver_name {
+    color: greenyellow;
+    font-size: 16px;
+    font-weight: bolder;
+    margin-bottom: 0;
 }
