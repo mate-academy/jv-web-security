@@ -39,5 +39,7 @@
         </tr>
     </c:forEach>
 </table>
+<a href="${pageContext.request.contextPath}/drivers/add">Add new driver</a>
+<a href="${pageContext.request.contextPath}/index">Home page</a>
 </body>
 </html>

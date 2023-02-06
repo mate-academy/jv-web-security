@@ -122,7 +122,7 @@ public class DriverDaoImpl implements DriverDao {
     }
 
     private Driver parseDriverFromResultSet(ResultSet resultSet) throws SQLException {
-        Long id = resultSet.getObject("id", Long.class);
+        Long id = resultSet.getLong(1);
         String name = resultSet.getString("name");
         String licenseNumber = resultSet.getString("license_number");
         String login = resultSet.getString("login");

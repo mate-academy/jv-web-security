@@ -9,8 +9,9 @@
 </head>
 <body>
 <%@include file="/WEB-INF/views/logout.jsp" %>
+<form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/add"></form>
 <h1 class="table_dark">Add driver:</h1>
-<table border="1" class="table_dark">
+0<table border="1" class="table_dark">
     <tr>
         <th>Name</th>
         <th>License number</th>
@@ -36,5 +37,6 @@
         </td>
     </tr>
 </table>
+<a href="${pageContext.request.contextPath}/index">Home page</a>
 </body>
 </html>

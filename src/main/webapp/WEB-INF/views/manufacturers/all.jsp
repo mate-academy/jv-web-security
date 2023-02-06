@@ -34,5 +34,7 @@
         </tr>
     </c:forEach>
 </table>
+<a href="${pageContext.request.contextPath}/manufacturers/add">Add new manufacturer</a>
+<a href="${pageContext.request.contextPath}/index">Home page</a>
 </body>
 </html>
