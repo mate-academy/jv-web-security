@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Optional;
 import taxi.exception.DataProcessingException;
 import taxi.lib.Dao;
-import taxi.lib.Inject;
 import taxi.model.Driver;
 import taxi.util.ConnectionUtil;
 
