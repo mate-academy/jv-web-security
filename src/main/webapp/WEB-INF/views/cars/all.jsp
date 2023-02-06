@@ -43,5 +43,7 @@
         </tr>
     </c:forEach>
 </table>
+<a href="${pageContext.request.contextPath}/index">Back</a><br>
+<%@include file="../logout.jsp"%>
 </body>
 </html>
