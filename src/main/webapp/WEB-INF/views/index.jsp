@@ -9,11 +9,13 @@
 <body>
 <form method="post" id="redirect"></form>
 <h1 class="table_dark">Hello, mates</h1>
+<%@include file="header.jsp" %>
 <table class="table_dark">
     <tr>
         <th>Redirect to</th>
     </tr>
     <tr><td><a href="${pageContext.request.contextPath}/drivers">Display All Drivers</a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/drivers/cars">Display My Current Cars</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/cars">Display All Cars</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/manufacturers">Display All Manufacturers</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/drivers/add">Create new Driver</a></td></tr>
