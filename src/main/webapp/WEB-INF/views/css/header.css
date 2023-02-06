@@ -1,0 +1,25 @@
+nav {
+    float: right;
+    margin-right: 15%;
+}
+div {
+    padding: 10px;
+    background-color: #e5ea65;
+    height: 40px;
+}
+#logo {
+     margin-left: 20%;
+     font-weight: 600;
+     display: inline;
+     padding: 0;
+     font-size: inherit;
+ }
+#link {
+    text-decoration: none;
+    color: black;
+    width: 10px;
+    height: 80%;
+    background-color: coral;
+    border-radius: 5px;
+    padding: 5px;
+}
