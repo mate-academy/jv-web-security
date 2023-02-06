@@ -19,7 +19,7 @@ public class AuthenticationFilter implements Filter {
     private static final Set<String> allowedUrls = new HashSet<>();
 
     @Override
-    public void init(FilterConfig filterConfig) throws ServletException{
+    public void init(FilterConfig filterConfig) throws ServletException {
         allowedUrls.add("/login");
         allowedUrls.add("/drivers/add");
     }
