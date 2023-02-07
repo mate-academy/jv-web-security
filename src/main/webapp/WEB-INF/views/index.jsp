@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <style>
     <%@include file='/WEB-INF/views/css/table_dark.css' %>
 </style>
@@ -7,12 +7,15 @@
     <title>My team</title>
 </head>
 <body>
+<%@include file="/WEB-INF/views/header.jsp" %>
 <form method="post" id="redirect"></form>
 <h1 class="table_dark">Hello, mates</h1>
 <table class="table_dark">
     <tr>
         <th>Redirect to</th>
     </tr>
+    <tr><td><a href="${pageContext.request.contextPath}/login">Log In</a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/drivers/cars">Display All My Current Cars</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/drivers">Display All Drivers</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/cars">Display All Cars</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/manufacturers">Display All Manufacturers</a></td></tr>
