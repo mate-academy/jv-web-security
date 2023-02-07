@@ -15,6 +15,6 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         if (driver.isEmpty() || !driver.get().getPassword().equals(password)) {
             throw new AuthenticationException("Login or password was incorrect");
         }
-            return driver.get();
+        return driver.get();
     }
 }
