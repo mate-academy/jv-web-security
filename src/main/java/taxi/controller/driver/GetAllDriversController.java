@@ -11,7 +11,7 @@ import taxi.lib.Injector;
 import taxi.model.Driver;
 import taxi.service.DriverService;
 
-@WebServlet(urlPatterns = "/drivers")
+@WebServlet("/drivers")
 public class GetAllDriversController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
     private final DriverService driverService = (DriverService) injector
