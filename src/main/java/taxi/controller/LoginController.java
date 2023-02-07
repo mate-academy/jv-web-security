@@ -12,14 +12,9 @@ import taxi.model.Driver;
 import taxi.service.AuthenticationService;
 
 public class LoginController extends HttpServlet {
-    private AuthenticationService authenticationService;
-
-    @Override
-    public void init() throws ServletException {
-        Injector injector = Injector.getInstance("taxi");
-        authenticationService = (AuthenticationService) injector
-                .getInstance(AuthenticationService.class);
-    }
+    private static final Injector injector = Injector.getInstance("taxi");
+    private final AuthenticationService authenticationService = (AuthenticationService)
+            injector.getInstance(AuthenticationService.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
