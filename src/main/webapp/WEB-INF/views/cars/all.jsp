@@ -43,6 +43,14 @@
         </tr>
     </c:forEach>
 </table>
+<td>
+    <form method="get"
+          action="${pageContext.request.contextPath}/drivers/add">
+        <button type="submit">
+            Create driver
+        </button>
+    </form>
+</td>
 <form method="get"
       action="${pageContext.request.contextPath}/index">
     <button type="submit">

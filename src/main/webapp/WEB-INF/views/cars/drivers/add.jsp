@@ -25,6 +25,12 @@
         </td>
         <td>
             <input type="submit" name="add" form="car">
+            <form method="get"
+                  action="${pageContext.request.contextPath}/index">
+                <button type="submit">
+                    back to service
+                </button>
+            </form>
         </td>
     </tr>
 </table>
