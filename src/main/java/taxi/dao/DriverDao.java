@@ -7,5 +7,6 @@ import taxi.model.Driver;
 
 public interface DriverDao extends GenericDao<Driver> {
     Driver parseDriverFromResultSet(ResultSet resultSet) throws SQLException;
+    
     Optional<Driver> findByLogin(String login);
 }
