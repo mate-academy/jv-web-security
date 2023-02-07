@@ -28,5 +28,6 @@
         </td>
     </tr>
 </table>
+<%@include file="../header.jsp" %>
 </body>
 </html>
