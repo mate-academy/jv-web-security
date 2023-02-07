@@ -1,23 +1,23 @@
 .table_dark {
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
     width: 70%;
-    color: #7C5FAB;
+    color: #ffffff;
     font-size: 40px;
     text-align: center;
     border-collapse: collapse;
-    background: #FEF4AB;
+    background: #000000;
     margin: auto;
 }
 .table_dark th {
-    color: #7C5FAB;
-    border-bottom: 1px solid #98E2CA;
+    color: #ffffff;
+    border-bottom: 1px solid #ffffff;
     padding: 12px 17px;
     font-size: 14px;
 }
 .table_dark td {
-    color: #7C5FAB;
-    border-bottom: 1px solid #98E2CA;
-    border-right: 1px solid #98E2CA;
+    color: #ffffff;
+    border-bottom: 1px solid #ffffff;
+    border-right: 1px solid #ffffff;
     padding: 7px 17px;
     font-size: 14px;
 }
