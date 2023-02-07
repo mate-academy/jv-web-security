@@ -23,6 +23,13 @@ public class Driver {
         this.licenseNumber = licenseNumber;
     }
 
+    public Driver(String name, String licenseNumber, String login, String password) {
+        this.name = name;
+        this.licenseNumber = licenseNumber;
+        this.login = login;
+        this.password = password;
+    }
+
     public Long getId() {
         return id;
     }
@@ -80,5 +87,10 @@ public class Driver {
     @Override
     public int hashCode() {
         return Objects.hash(id, name, licenseNumber);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }
