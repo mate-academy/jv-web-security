@@ -7,9 +7,9 @@
     <title>Title</title>
 </head>
 <body>
-<div>
-    <h1 id="logo">Practice MateAcademy</h1>
-    <nav>
+<div class="header">
+    <h1 class="logo">Practice MateAcademy</h1>
+    <nav class="menu">
         <a href="${pageContext.request.contextPath}/logout" id="link">LogOut</a>
     </nav>
 </div>
