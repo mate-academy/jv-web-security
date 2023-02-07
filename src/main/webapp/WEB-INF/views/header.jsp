@@ -8,7 +8,9 @@
 </head>
 <body>
 <table class="table_dark">
-    <tr><td><a href="${pageContext.request.contextPath}/logout">Logout</a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/logout">Logout</a>
+        | <a href="${pageContext.request.contextPath}/index">Main</a>
+        | <a href="${pageContext.request.contextPath}/drivers/cars">My Cars</a></td></tr>
 </table>
 </body>
 </html>

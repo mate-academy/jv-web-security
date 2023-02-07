@@ -12,7 +12,7 @@
 <h1 class="table_dark">Log In</h1>
 <table class="table_dark">
     <tr><td>Please enter your login: <input type="text" name="login" form="driver" required></td></tr>
-    <tr><td>Please enter your password: <input type="text" name="password" form="driver" required></td></tr>
+    <tr><td>Please enter your password: <input type="password" name="password" form="driver" required></td></tr>
 </table>
 <table class="table_dark">
 <tr><td><a style="color:red">${errorMsg}</a></td></tr>
