@@ -130,7 +130,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>GetMyCurrentCarsController</servlet-name>
-        <url-pattern>/mycars</url-pattern>
+        <url-pattern>/drivers/cars</url-pattern>
     </servlet-mapping>
 
     <filter>
