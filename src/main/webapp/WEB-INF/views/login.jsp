@@ -19,7 +19,7 @@
 </table>
 <table class="table_dark">
     <tr><td><input type="submit" name="log in" form="driver"></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/drivers/add">Sign up</a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/register">Sign up</a></td></tr>
 </table>
 </body>
 </html>
