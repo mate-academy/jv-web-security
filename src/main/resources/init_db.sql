@@ -4,13 +4,15 @@ SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
 DROP TABLE IF EXISTS `drivers`;
-CREATE TABLE `drivers`  (
-                            `id` BIGINT(0) UNSIGNED NOT NULL AUTO_INCREMENT,
-                            `name` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                            `license_number` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                            `is_deleted` BIT(1) NOT NULL DEFAULT b'0',
-                            PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+CREATE TABLE `drivers` (
+                           `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+                           `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+                           `license_number` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+                           `login` varchar(255) NOT NULL,
+                           `password` varchar(255) NOT NULL,
+                           `is_deleted` bit(1) NOT NULL DEFAULT b'0',
+                           PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
 
 DROP TABLE IF EXISTS `manufacturers`;
 CREATE TABLE `manufacturers`  (
@@ -44,11 +46,3 @@ CREATE TABLE `cars_drivers`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 SET FOREIGN_KEY_CHECKS = 1;
-
-ALTER TABLE `taxi`.`drivers`
-    ADD COLUMN `login` VARCHAR(255) NOT NULL AFTER `is_deleted`,
-ADD COLUMN `password` VARCHAR(255) NOT NULL AFTER `login`;
-
-ALTER TABLE `taxi`.`drivers`
-    CHANGE COLUMN `is_deleted` `is_deleted` BIT(1) NOT NULL DEFAULT b'0' AFTER `password`;
-
