@@ -15,8 +15,7 @@ public class GetMyCurrentCarsController extends HttpServlet {
     private final CarService carService = (CarService) injector.getInstance(CarService.class);
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Long driverId = (Long) req.getSession().getAttribute("driver_id");
         List<Car> allByDriver = carService.getAllByDriver(driverId);
         req.setAttribute("cars", allByDriver);
