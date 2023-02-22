@@ -1,5 +1,6 @@
 package taxi.service;
 
+import java.util.NoSuchElementException;
 import taxi.lib.Inject;
 import taxi.lib.Service;
 import taxi.model.Driver;
@@ -13,7 +14,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     public Driver login(String login, String password) {
         Driver driver = driverService.findByLogin(login)
                 .orElseThrow(() ->
-                        new RuntimeException("Login or password was incorrect"));
+                        new NoSuchElementException("Login or password was incorrect"));
         if (password.equals(driver.getPassword())) {
             return driver;
         }

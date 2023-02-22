@@ -1,6 +1,7 @@
 package taxi.controller.driver;
 
 import java.io.IOException;
+import javax.security.sasl.AuthenticationException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,7 +35,7 @@ public class LoginController extends HttpServlet {
             HttpSession session = req.getSession();
             session.setAttribute("driver_id", driver.getId());
             resp.sendRedirect("/cars");
-        } catch (RuntimeException e) {
+        } catch (AuthenticationException e) {
             req.setAttribute("errorMessage", e.getMessage());
             req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
         }
