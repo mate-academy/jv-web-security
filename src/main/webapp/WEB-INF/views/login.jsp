@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body>
+<h4 style="color:red">${errorMsq}</h4>
 <form method="post" action="${pageContext.request.contextPath}/login">
     Please enter your login: <input type="text" name="login"><br>
     Please enter your password: <input type="password" name="password"><br>
