@@ -22,14 +22,14 @@ public class AddDriverController extends HttpServlet {
 
     @Override
         public void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws IOException, ServletException {
-            String name = req.getParameter("name");
-            String licenseNumber = req.getParameter("license_number");
-            String login = req.getParameter("login");
-            String password = req.getParameter("password");
-            Driver driver = new Driver(name, licenseNumber, login, password);
-            driverService.create(driver);
-            req.setAttribute("message", "Driver was created!");
-            req.getRequestDispatcher("/WEB-INF/views/drivers/add.jsp").forward(req, resp);
-        }
+                throws IOException, ServletException {
+        String name = req.getParameter("name");
+        String licenseNumber = req.getParameter("license_number");
+        String login = req.getParameter("login");
+        String password = req.getParameter("password");
+        Driver driver = new Driver(name, licenseNumber, login, password);
+        driverService.create(driver);
+        req.setAttribute("message", "Driver was created!");
+        req.getRequestDispatcher("/WEB-INF/views/drivers/add.jsp").forward(req, resp);
     }
+}
