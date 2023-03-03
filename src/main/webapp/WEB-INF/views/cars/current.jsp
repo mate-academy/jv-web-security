@@ -5,11 +5,11 @@
 </style>
 <html>
 <head>
-    <title>All cars</title>
+    <title>My cars</title>
 </head>
 <body>
 <%@include file="/WEB-INF/views/header.jsp"%>
-<h1 class="table_dark">All cars:</h1>
+<h1 class="table_dark">My cars:</h1>
 <table border="1" class="table_dark">
     <tr>
         <th>ID</th>
@@ -39,7 +39,7 @@
                 </c:forEach>
             </td>
             <td>
-                <a href="${pageContext.request.contextPath}/cars/delete?id=${car.id}">DELETE</a>
+                <a href="${pageContext.request.contextPath}/cars/current?id=${car.id}">DELETE</a>
             </td>
         </tr>
     </c:forEach>
