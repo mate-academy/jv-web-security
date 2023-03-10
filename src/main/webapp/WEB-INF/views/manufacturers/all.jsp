@@ -5,6 +5,7 @@
 </style>
 <html>
 <head>
+    <%@include file='/WEB-INF/views/header.jsp'%>
     <title>All manufacturers</title>
 </head>
 <body>
@@ -13,7 +14,7 @@
     <tr>
         <th>ID</th>
         <th>Name</th>
-        <th>License number</th>
+        <th>Country</th>
         <th>Delete</th>
     </tr>
     <c:forEach var="manufacturer" items="${manufacturers}">

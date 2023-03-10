@@ -1,3 +1,21 @@
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/*main {*/
+/*    flex: 1;*/
+/*}*/
+
+footer {
+    margin-top: auto;
+}
+
 .table_dark {
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
     width: 70%;
@@ -29,4 +47,12 @@
 }
 .table_dark tr:hover td {
     text-decoration: underline;
+}
+.button {
+    background-color: #bb0f14;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
 }
