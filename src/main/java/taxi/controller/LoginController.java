@@ -6,7 +6,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import taxi.lib.Injector;
+import taxi.model.Driver;
 import taxi.service.AuthenticationService;
 
 public class LoginController extends HttpServlet {
@@ -26,7 +28,9 @@ public class LoginController extends HttpServlet {
         String username = req.getParameter("login");
         String pass = req.getParameter("password");
         try {
-            authenticationService.login(username, pass);
+            Driver logedDriver = authenticationService.login(username, pass);
+            HttpSession session = req.getSession();
+            session.setAttribute("driver_id", logedDriver.getId());
             resp.sendRedirect(req.getContextPath() + "/index");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMsg", e.getMessage());
