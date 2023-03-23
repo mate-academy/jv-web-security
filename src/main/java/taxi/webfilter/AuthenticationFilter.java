@@ -14,11 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class AuthenticationFilter implements Filter {
-    private Set<String> allowedUrls;
+    private Set<String> allowedUrls = new HashSet<>();
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        allowedUrls = new HashSet<>();
         allowedUrls.add("/login");
         allowedUrls.add("/drivers/add");
     }
