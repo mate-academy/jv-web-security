@@ -17,6 +17,12 @@ public class Driver {
         this.licenseNumber = licenseNumber;
     }
 
+    public Driver(String name, String licenseNumber, String login, String password) {
+        this(name, licenseNumber);
+        this.login = login;
+        this.password = password;
+    }
+
     public Long getId() {
         return id;
     }
@@ -39,6 +45,22 @@ public class Driver {
 
     public void setLicenseNumber(String licenseNumber) {
         this.licenseNumber = licenseNumber;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override

@@ -37,34 +37,39 @@
     <h1 class="visually-hidden">Sidebars examples</h1>
     <div class="b-example-divider"></div>
     <div class="d-flex flex-column flex-shrink-0 p-3 bg-light" style="width: 280px;">
-        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+        <a href="${pageContext.request.contextPath}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
             <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
             <span class="fs-4">Taxi service</span>
         </a>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
-                <a href="/index" class="nav-link" aria-current="page">
+                <a href="${pageContext.request.contextPath}/index" class="nav-link" aria-current="page">
                     <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
                     Home
                 </a>
             </li>
             <li>
-                <a href="/drivers" class="nav-link link-dark">
+                <a href="${pageContext.request.contextPath}/drivers" class="nav-link link-dark">
                     <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
                     Drivers
                 </a>
             </li>
             <li>
-                <a href="/manufacturers" class="nav-link link-dark">
+                <a href="${pageContext.request.contextPath}/manufacturers" class="nav-link link-dark">
                     <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
                     Manufacturers
                 </a>
             </li>
             <li>
-                <a href="/cars" class="nav-link link-dark active">
+                <a href="${pageContext.request.contextPath}/cars" class="nav-link link-dark active">
                     <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
                     Cars
+                </a>
+            </li>
+            <li>
+                <a href="${pageContext.request.contextPath}/logout" class="nav-link link-dark">
+                    Logout
                 </a>
             </li>
         </ul>

@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!doctype html>
-<html lang="en">
+<html>
 <head>
     <style>
         <%@include file='/WEB-INF/views/css/bootstrap.min.css' %>
@@ -9,7 +9,6 @@
     </style>
 </head>
 <body>
-
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <symbol id="bootstrap" viewBox="0 0 118 94">
         <title>Bootstrap</title>
@@ -32,7 +31,6 @@
     <symbol id="grid" viewBox="0 0 16 16">
         <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"/>
     </symbol>
-
 </svg>
 
 <main>
@@ -46,7 +44,7 @@
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item">
-                <a href="${pageContext.request.contextPath}/index" class="nav-link" aria-current="page">
+                <a href="${pageContext.request.contextPath}/index" class="nav-link active" aria-current="page">
                     <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
                     Home
                 </a>
@@ -64,14 +62,9 @@
                 </a>
             </li>
             <li>
-                <a href="${pageContext.request.contextPath}/cars" class="nav-link link-dark active">
+                <a href="${pageContext.request.contextPath}/cars" class="nav-link link-dark">
                     <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
                     Cars
-                </a>
-            </li>
-            <li>
-                <a href="${pageContext.request.contextPath}/logout" class="nav-link link-dark">
-                    Logout
                 </a>
             </li>
         </ul>
@@ -81,7 +74,6 @@
                 <img src="https://avatars.githubusercontent.com/u/121030403?v=4" alt="" width="32" height="32" class="rounded-circle me-2">
                 <strong>Sergiy Golubchenko</strong>
             </a>
-
         </div>
 
     </div>
@@ -89,59 +81,28 @@
 
     <table style="height: 100px">
         <tr>
-            <td><h1>All cars:</h1></td>
+            <td><h1>Please login or register a new driver</h1></td>
         </tr>
         <tr>
             <td>
-                <table class="table table-bordered border-primary" style="height: 100px; width: 100%">
-                    <tr>
-                        <th>ID</th>
-                        <th>Model</th>
-                        <th>Manufacturer name</th>
-                        <th>Manufacturer country</th>
-                        <th>Drivers</th>
-                        <th>Delete</th>
-                    </tr>
-                    <c:forEach var="car" items="${cars}">
-                        <tr>
-                            <td>
-                                <c:out value="${car.id}"/>
-                            </td>
-                            <td>
-                                <c:out value="${car.model}"/>
-                            </td>
-                            <td>
-                                <c:out value="${car.manufacturer.name}"/>
-                            </td>
-                            <td>
-                                <c:out value="${car.manufacturer.country}"/>
-                            </td>
-                            <td>
-                                <table class="table table-bordered border-primary" style="width: 100%">
-
-                                <c:forEach var="driver" items="${car.drivers}">
-                                    <tr>
-                                    <td>${driver.id}</td>
-                                    <td>${driver.name}</td>
-                                    <td>${driver.licenseNumber}</td>
-                                        <td>${driver.login}</td>
-                                    </tr>
-                                </c:forEach>
-
-                                </table>
-                            </td>
-                            <td>
-                                <a href="${pageContext.request.contextPath}/cars/delete?id=${car.id}">DELETE</a>
-                            </td>
-                        </tr>
-                    </c:forEach>
-                </table><br>
-                <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/cars/add">Create car</a>
-                <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/cars/drivers/add">Add driver to car</a>
-                <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/drivers/cars">Show my car</a>
+                <h4 style="color: red">${errorMsg}</h4>
+                <form method="post" action="${pageContext.request.contextPath}/login">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Login</span>
+                        <input type="text"  name="login" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-default1">Password</span>
+                        <input type="password"  name="password" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                    <button class="btn btn-primary btn-lg" type="submit">Login</button>
+                    <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/drivers/add">Register new driver</a>
+                </form>
             </td>
         </tr>
     </table>
+
+
 </main>
 
 </body>
