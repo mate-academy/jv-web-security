@@ -67,6 +67,23 @@
                     Cars
                 </a>
             </li>
+            <ul class="nav nav-pills flex-column mb-auto" style="font-size: 12px">
+                <li>
+                    <a href="${pageContext.request.contextPath}/cars/add" class="nav-link link-dark">
+                        - Create car
+                    </a>
+                </li>
+                <li>
+                    <a href="${pageContext.request.contextPath}/cars/drivers/add" class="nav-link link-dark">
+                        - Add driver to car
+                    </a>
+                </li>
+                <li>
+                    <a href="${pageContext.request.contextPath}/drivers/cars" class="nav-link link-dark">
+                        - Show my car
+                    </a>
+                </li>
+            </ul>
             <li>
                 <a href="${pageContext.request.contextPath}/logout" class="nav-link link-dark">
                     Logout

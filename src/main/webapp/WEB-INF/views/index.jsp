@@ -111,6 +111,11 @@
                         <td>-</td>
                         <td><a href="${pageContext.request.contextPath}/cars/drivers/add">Add driver to car</a></td>
                     </tr>
+                    <tr>
+                        <td>-</td>
+                        <td>-</td>
+                        <td><a href="${pageContext.request.contextPath}/drivers/cars">Show my car</a></td>
+                    </tr>
                 </table>
             </td>
         </tr>

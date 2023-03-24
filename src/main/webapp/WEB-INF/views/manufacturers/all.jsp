@@ -63,6 +63,13 @@
                     Manufacturers
                 </a>
             </li>
+            <ul class="nav nav-pills flex-column mb-auto" style="font-size: 12px">
+                <li>
+                    <a href="${pageContext.request.contextPath}/manufacturers/add" class="nav-link link-dark">
+                        - Create manufacturer
+                    </a>
+                </li>
+            </ul>
             <li>
                 <a href="${pageContext.request.contextPath}/cars" class="nav-link link-dark">
                     <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
