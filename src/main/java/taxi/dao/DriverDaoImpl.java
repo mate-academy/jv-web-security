@@ -17,13 +17,15 @@ import taxi.util.ConnectionUtil;
 public class DriverDaoImpl implements DriverDao {
     @Override
     public Driver create(Driver driver) {
-        String query = "INSERT INTO drivers (name, license_number) "
-                + "VALUES (?, ?)";
+        String query = "INSERT INTO drivers (name, license_number,password,login) "
+                + "VALUES (?, ?, ?, ?)";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement = connection.prepareStatement(query,
                         Statement.RETURN_GENERATED_KEYS)) {
             statement.setString(1, driver.getName());
             statement.setString(2, driver.getLicenseNumber());
+            statement.setString(3,driver.getPassword());
+            statement.setString(4,driver.getLogin());
             statement.executeUpdate();
             ResultSet resultSet = statement.getGeneratedKeys();
             if (resultSet.next()) {
@@ -107,5 +109,24 @@ public class DriverDaoImpl implements DriverDao {
         driver.setName(name);
         driver.setLicenseNumber(licenseNumber);
         return driver;
+    }
+
+    @Override
+    public Optional<Driver> findByLogin(String login) {
+        String query = "SELECT drivers.login, drivers.password FROM drivers WHERE login = ? "
+                + "AND is_deleted = FALSE ";
+        try (Connection connection = ConnectionUtil.getConnection();PreparedStatement
+                preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, login);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            Driver driver = new Driver();
+            while (resultSet.next()) {
+                driver.setLogin(resultSet.getString("login"));
+                driver.setPassword(resultSet.getString("password"));
+            }
+            return Optional.ofNullable(driver);
+        } catch (SQLException e) {
+            throw new RuntimeException("Can't find driver by id " + login, e);
+        }
     }
 }

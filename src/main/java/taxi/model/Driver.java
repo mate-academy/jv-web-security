@@ -6,13 +6,38 @@ public class Driver {
     private Long id;
     private String name;
     private String licenseNumber;
+    private String password;
+    private String login;
 
     public Driver() {
+    }
+
+    public Driver(String name, String licenseNumber, String password, String login) {
+        this.name = name;
+        this.licenseNumber = licenseNumber;
+        this.password = password;
+        this.login = login;
     }
 
     public Driver(String name, String licenseNumber) {
         this.name = name;
         this.licenseNumber = licenseNumber;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
     }
 
     public Long getId() {
