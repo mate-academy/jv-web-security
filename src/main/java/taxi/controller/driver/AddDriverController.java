@@ -5,9 +5,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import taxi.lib.Injector;
 import taxi.model.Driver;
 import taxi.service.DriverService;
+import taxi.util.Injector;
 
 public class AddDriverController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
