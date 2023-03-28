@@ -1,7 +1,6 @@
 package taxi.service;
 
 import java.util.Optional;
-import taxi.dao.DriverDao;
 import taxi.exception.AuthenticationException;
 import taxi.lib.Inject;
 import taxi.lib.Service;
@@ -10,7 +9,7 @@ import taxi.model.Driver;
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
     @Inject
-    DriverService driverService;
+    private DriverService driverService;
 
     @Override
     public Driver login(String login, String password) throws AuthenticationException {

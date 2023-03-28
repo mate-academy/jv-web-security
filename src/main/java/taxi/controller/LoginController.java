@@ -15,6 +15,7 @@ public class LoginController extends HttpServlet {
     private static final Injector INJECTOR = Injector.getInstance("taxi");
     private AuthenticationService authenticationService =
             (AuthenticationService) INJECTOR.getInstance(AuthenticationService.class);
+
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {

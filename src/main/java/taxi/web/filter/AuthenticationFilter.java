@@ -17,7 +17,7 @@ public class AuthenticationFilter implements Filter {
     private Set<String> allowedUrls = new HashSet<>();
 
     @Override
-    public void init(FilterConfig filterConfig){
+    public void init(FilterConfig filterConfig) {
         allowedUrls.add("/login");
         allowedUrls.add("/drivers/add");
     }
