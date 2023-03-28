@@ -1,14 +1,12 @@
 package taxi.controller.car;
 
 import java.io.IOException;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import taxi.lib.Injector;
 import taxi.model.Car;
-import taxi.model.Manufacturer;
 import taxi.service.CarService;
 import taxi.service.ManufacturerService;
 
@@ -21,18 +19,15 @@ public class AddCarController extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        List<Manufacturer> allManufacturers = manufacturerService.getAll();
-        req.setAttribute("manufacturers", allManufacturers);
+        req.setAttribute("manufacturers", manufacturerService.getAll());
         req.getRequestDispatcher("/WEB-INF/views/cars/add.jsp").forward(req, resp);
     }
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         String model = req.getParameter("model");
-        long manufacturerId = Long.parseLong(req.getParameter("manufacturer_id"));
-        Manufacturer manufacturer = manufacturerService.get(manufacturerId);
-        Car car = new Car(model, manufacturer);
-        carService.create(car);
+        carService.create(new Car(model,
+                manufacturerService.get(Long.parseLong(req.getParameter("manufacturer_id")))));
         resp.sendRedirect(req.getContextPath() + "/cars");
     }
 }
