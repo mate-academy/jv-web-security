@@ -9,6 +9,7 @@
 </head>
 <body>
 <h1 class="table_dark">All manufacturers:</h1>
+<%@include file ="/WEB-INF/views/access/header.jsp" %>
 <table border="1" class="table_dark">
     <tr>
         <th>ID</th>
@@ -32,6 +33,9 @@
             </td>
         </tr>
     </c:forEach>
+    <tr>
+        <td><%@include file ="/WEB-INF/views/access/header.jsp" %></td>
+    </tr>
 </table>
 </body>
 </html>
