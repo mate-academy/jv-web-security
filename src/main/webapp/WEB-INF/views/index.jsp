@@ -6,8 +6,10 @@
 <head>
     <title>My team</title>
 </head>
+<header>
+    <%@include file="header.jsp"%>
+</header>
 <body>
-<%@include file="header.jsp"%>
 <form method="post" id="redirect"></form>
 <h1 class="table_dark">Hello, mates</h1>
 <table class="table_dark">

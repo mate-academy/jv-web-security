@@ -7,6 +7,9 @@
 <head>
     <title>All drivers</title>
 </head>
+<header>
+    <%@include file="../header.jsp"%>
+</header>
 <body>
 <form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/add"></form>
 <h1 class="table_dark">Add driver:</h1>
@@ -37,4 +40,7 @@
     </tr>
 </table>
 </body>
+<footer>
+    <%@include file="../footer.jsp"%>
+</footer>
 </html>
