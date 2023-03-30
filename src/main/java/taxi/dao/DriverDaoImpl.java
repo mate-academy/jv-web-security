@@ -103,7 +103,7 @@ public class DriverDaoImpl implements DriverDao {
     private Driver parseDriverFromResultSet(ResultSet resultSet) throws SQLException {
         Long id = resultSet.getObject("id", Long.class);
         String name = resultSet.getString("name");
-        String licenseNumber = resultSet.getString("license_numbers");
+        String licenseNumber = resultSet.getString("license_number");
         Driver driver = new Driver();
         driver.setId(id);
         driver.setName(name);
@@ -113,7 +113,7 @@ public class DriverDaoImpl implements DriverDao {
 
     @Override
     public Optional<Driver> findByLogin(String login) {
-        String query = "SELECT drivers.login, drivers.password FROM drivers WHERE login = ? "
+        String query = "SELECT login, password FROM drivers WHERE login = ? "
                 + "AND is_deleted = FALSE ";
         try (Connection connection = ConnectionUtil.getConnection();PreparedStatement
                 preparedStatement = connection.prepareStatement(query)) {

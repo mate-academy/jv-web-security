@@ -1,6 +1,8 @@
 package taxi.service;
 
 import java.util.Optional;
+
+import taxi.exception.AuthenticationException;
 import taxi.lib.Injector;
 import taxi.lib.Service;
 import taxi.model.Driver;
@@ -13,14 +15,14 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     @Override
     public Driver login(String login, String password)
-            throws taxi.exception.AuthenticationService {
+            throws AuthenticationException {
         Optional<Driver> byLogin = driverService.findByLogin(login);
         if (byLogin.isEmpty()) {
-            throw new taxi.exception.AuthenticationService("login or password was incorrect");
+            throw new AuthenticationException("login or password was incorrect");
         }
         if (byLogin.get().getPassword().equals(password)) {
             return byLogin.get();
         }
-        throw new taxi.exception.AuthenticationService("login or password was incorrect");
+        throw new AuthenticationException("login or password was incorrect");
     }
 }
