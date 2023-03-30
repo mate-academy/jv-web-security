@@ -81,7 +81,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>allCarsByDriver</servlet-name>
-        <url-pattern>/cars/byDriver</url-pattern>
+        <url-pattern>/cars/all/driver</url-pattern>
     </servlet-mapping>
 
     <servlet>
