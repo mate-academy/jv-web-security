@@ -11,7 +11,7 @@
 <h1>Please write the form below</h1>
 <form method="post" action="${pageContext.request.contextPath}/login">
     Login <input type="text" name="login"><br>
-    Password <input type="text" name="password"><br>
+    Password <input type="password" name="password"><br>
     <button type="submit">Enter</button>
 </form>
 <tr>
