@@ -29,10 +29,10 @@ public class AuthenticationFilter implements Filter {
         HttpServletResponse resp = (HttpServletResponse)servletResponse;
         HttpSession session = req.getSession();
         Long userId = (Long) session.getAttribute("user_id");
-        if (userId == null || allowedUrls.contains(req.getServletPath())) {
+        if (userId != null || allowedUrls.contains(req.getServletPath())) {
             filterChain.doFilter(req, resp);
             return;
         }
-        filterChain.doFilter(req, resp);
+        resp.sendRedirect(req.getContextPath() + "/login");
     }
 }
