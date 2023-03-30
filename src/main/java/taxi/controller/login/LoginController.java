@@ -1,6 +1,7 @@
 package taxi.controller.login;
 
 import java.io.IOException;
+import java.util.NoSuchElementException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,12 +14,8 @@ import taxi.service.AuthenticationService;
 
 public class LoginController extends HttpServlet {
     private static final Injector INJECTOR = Injector.getInstance("taxi");
-    private final AuthenticationService authenticationService;
-
-    {
-        authenticationService
-            = (AuthenticationService) INJECTOR.getInstance(AuthenticationService.class);
-    }
+    private final AuthenticationService authenticationService =
+            (AuthenticationService) INJECTOR.getInstance(AuthenticationService.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws
@@ -37,8 +34,8 @@ public class LoginController extends HttpServlet {
             HttpSession session = req.getSession();
             session.setAttribute("driver_id", driver.getId());
             resp.sendRedirect(req.getContextPath() + "/index");
-        } catch (AuthenticationException e) {
-            req.setAttribute("errorMsg", e.getMessage());
+        } catch (AuthenticationException | NoSuchElementException e) {
+            req.setAttribute("errorMsg", "Username or password was incorrect");
             req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
         }
     }
