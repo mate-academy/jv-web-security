@@ -8,7 +8,7 @@
   <title>Create</title>
 </head>
 <body>
-<form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/create"></form>
+<form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/create">
 <h1 class="table_dark" style="color:red">${error_msg}</h1>
 <h1 class="table_dark">Create account</h1>
 <table border="1" class="table_dark">
@@ -17,7 +17,6 @@
     <th>License number</th>
     <th>Login</th>
     <th>Password</th>
-    <th>Add</th>
   </tr>
   <tr>
     <td>
@@ -32,15 +31,18 @@
     <td>
       <input type="text" name="password" form="driver" required>
     </td>
-    <td>
-      <input type="submit" name="add" form="driver">
-    </td>
   </tr>
   <tr>
     <td>
-      <a href="${pageContext.request.contextPath}/login">Login</a>
+      <input type="button" value="Return" onclick="history.back()">
+    </td>
+    <td></td>
+    <td></td>
+    <td>
+      <input type="submit" value="Save">
     </td>
   </tr>
 </table>
+</form>
 </body>
 </html>
