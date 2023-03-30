@@ -1,4 +1,4 @@
-package taxi.lib;
+package taxi.util;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,6 +10,9 @@ import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import taxi.lib.Dao;
+import taxi.lib.Inject;
+import taxi.lib.Service;
 
 public class Injector {
     private static final Map<String, Injector> injectors = new HashMap<>();

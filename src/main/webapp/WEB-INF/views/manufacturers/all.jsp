@@ -7,6 +7,9 @@
 <head>
     <title>All manufacturers</title>
 </head>
+<header>
+    <%@include file="../header.jsp"%>
+</header>
 <body>
 <h1 class="table_dark">All manufacturers:</h1>
 <table border="1" class="table_dark">
@@ -34,4 +37,7 @@
     </c:forEach>
 </table>
 </body>
+<footer>
+    <%@include file="../footer.jsp"%>
+</footer>
 </html>
