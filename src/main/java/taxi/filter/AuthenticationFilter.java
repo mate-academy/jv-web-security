@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class AuthenticationFilter implements Filter {
-    private static Set<String> links = new HashSet<>();
+    private static final Set<String> links = new HashSet<>();
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -29,14 +29,10 @@ public class AuthenticationFilter implements Filter {
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         HttpSession session = req.getSession();
         Long id = (Long) session.getAttribute("driver_id");
-        if (id == null && links.contains(req.getServletPath())) {
+        if (id != null || links.contains(req.getServletPath())) {
             filterChain.doFilter(req, resp);
             return;
         }
-        if (id == null) {
-            resp.sendRedirect("login");
-            return;
-        }
-        filterChain.doFilter(req, resp);
+        resp.sendRedirect("/login");
     }
 }
