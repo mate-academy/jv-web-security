@@ -19,13 +19,7 @@ public class AuthenticationFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         allowedDriver.add("/login");
-        allowedDriver.add("/drivers");
-        allowedDriver.add("/cars");
-        allowedDriver.add("/manufacturers");
         allowedDriver.add("/drivers/add");
-        allowedDriver.add("/cars/add");
-        allowedDriver.add("/manufacturers/add");
-        allowedDriver.add("/cars/drivers/add");
     }
 
     @Override
