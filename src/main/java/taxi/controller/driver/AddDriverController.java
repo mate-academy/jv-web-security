@@ -21,13 +21,22 @@ public class AddDriverController extends HttpServlet {
     }
 
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    public void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws IOException, ServletException {
         String name = req.getParameter("name");
         String licenseNumber = req.getParameter("license_number");
         String login = req.getParameter("login");
         String password = req.getParameter("password");
+        if (name == null || name.length() == 0
+                || licenseNumber == null || licenseNumber.length() == 0
+                || login == null || login.length() == 0
+                || password == null || password.length() == 0) {
+            req.setAttribute("errorMsg", "Invalid name or country!");
+            req.getRequestDispatcher("/WEB-INF/views/manufacturers/add.jsp").forward(req, resp);
+        }
         Driver driver = new Driver(name, licenseNumber, login, password);
         driverService.create(driver);
-        resp.sendRedirect(req.getContextPath() + "/drivers");
+        resp.sendRedirect(req.getContextPath()
+                + "/drivers?successMessage=Driver+successfully+added");
     }
 }

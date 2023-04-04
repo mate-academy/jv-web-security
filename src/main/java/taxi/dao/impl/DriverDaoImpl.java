@@ -26,7 +26,7 @@ public class DriverDaoImpl implements DriverDao {
             statement.setString(1, driver.getName());
             statement.setString(2, driver.getLicenseNumber());
             statement.setString(3, driver.getLogin());
-            statement.setString(4, driver.getPassword());
+            statement.setString(4, passwordHash(driver));
             statement.executeUpdate();
             ResultSet resultSet = statement.getGeneratedKeys();
             if (resultSet.next()) {
@@ -83,7 +83,7 @@ public class DriverDaoImpl implements DriverDao {
             statement.setString(1, driver.getName());
             statement.setString(2, driver.getLicenseNumber());
             statement.setString(3, driver.getLogin());
-            statement.setString(4, driver.getPassword());
+            statement.setString(4, passwordHash(driver));
             statement.setLong(5, driver.getId());
             statement.executeUpdate();
             return driver;
@@ -119,6 +119,11 @@ public class DriverDaoImpl implements DriverDao {
         } catch (SQLException e) {
             throw new DataProcessingException("Can't get driver by login " + login, e);
         }
+    }
+
+    private String passwordHash(Driver driver) {
+        return String.valueOf(driver.getPassword().hashCode()
+                + driver.getLicenseNumber().hashCode());
     }
 
     private Driver parseDriverFromResultSet(ResultSet resultSet) throws SQLException {

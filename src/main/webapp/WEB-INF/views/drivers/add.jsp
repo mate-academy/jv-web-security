@@ -11,6 +11,7 @@
 <form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/add"></form>
 <h1 class="table_dark">Add driver:</h1>
 <%@include file="/WEB-INF/views/header.jsp"%>
+<h4 style="color: red">${errorMsg}</h4>
 <table border="1" class="table_dark">
     <tr>
         <th>Name</th>

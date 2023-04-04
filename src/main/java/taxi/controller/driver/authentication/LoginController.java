@@ -29,7 +29,7 @@ public class LoginController extends HttpServlet {
         final String login = req.getParameter("login");
         final String password = req.getParameter("password");
         try {
-            final Driver driver = authenticationService.login(login, password);
+            final Driver driver = authenticationService.authenticateDriver(login, password);
             final HttpSession session = req.getSession();
             session.setAttribute("id", driver.getId());
             resp.sendRedirect(req.getContextPath() + "/index");

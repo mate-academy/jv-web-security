@@ -21,11 +21,17 @@ public class AddManufacturerController extends HttpServlet {
     }
 
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    public void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws IOException, ServletException {
         String name = req.getParameter("name");
         String country = req.getParameter("country");
+        if (name == null || name.length() == 0 || country == null || country.length() == 0) {
+            req.setAttribute("errorMsg", "Invalid name or country!");
+            req.getRequestDispatcher("/WEB-INF/views/manufacturers/add.jsp").forward(req, resp);
+        }
         Manufacturer manufacturer = new Manufacturer(name, country);
         manufacturerService.create(manufacturer);
-        resp.sendRedirect(req.getContextPath() + "/manufacturers");
+        resp.sendRedirect(req.getContextPath()
+                + "/manufacturers?successMessage=Manufacturer+successfully+added");
     }
 }

@@ -44,5 +44,10 @@
         </tr>
     </c:forEach>
 </table>
+<c:if test="${not empty param.successMessage}">
+    <div class="alert alert-success">
+        <c:out value="${param.successMessage}"/>
+    </div>
+</c:if>
 </body>
 </html>
