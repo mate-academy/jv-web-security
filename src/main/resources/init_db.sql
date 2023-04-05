@@ -1,5 +1,5 @@
-CREATE SCHEMA IF NOT EXISTS `taxi` DEFAULT CHARACTER SET utf8;
-USE `taxi`;
+CREATE SCHEMA IF NOT EXISTS taxi_service /*!40100 DEFAULT CHARACTER SET utf8mb3 */ ;
+USE taxi_service;
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
@@ -8,11 +8,14 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `drivers`;
 CREATE TABLE `drivers`  (
-                            `id` BIGINT(0) UNSIGNED NOT NULL AUTO_INCREMENT,
-                            `name` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                            `license_number` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                            `is_deleted` BIT(1) NOT NULL DEFAULT b'0',
-                            PRIMARY KEY (`id`) USING BTREE
+                        `id` BIGINT(0) UNSIGNED NOT NULL AUTO_INCREMENT,
+                        `name` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                        `license_number` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                        `username` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                        `password` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                        `is_deleted` BIT(1) NOT NULL DEFAULT b'0',
+                        PRIMARY KEY (`id`) USING BTREE,
+                        UNIQUE KEY `username_UNIQUE` (`username`)
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
@@ -20,11 +23,11 @@ CREATE TABLE `drivers`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `manufacturers`;
 CREATE TABLE `manufacturers`  (
-                                  `id` BIGINT(0) UNSIGNED NOT NULL AUTO_INCREMENT,
-                                  `name` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                                  `country` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                                  `is_deleted` BIT(1) NOT NULL DEFAULT b'0',
-                                  PRIMARY KEY (`id`) USING BTREE
+                          `id` BIGINT(0) UNSIGNED NOT NULL AUTO_INCREMENT,
+                          `name` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                          `country` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                          `is_deleted` BIT(1) NOT NULL DEFAULT b'0',
+                          PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
@@ -46,13 +49,13 @@ CREATE TABLE `cars`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `cars_drivers`;
 CREATE TABLE `cars_drivers`  (
-                                 `car_id` BIGINT(0) UNSIGNED NOT NULL,
-                                 `driver_id` BIGINT(0) UNSIGNED NOT NULL,
-                                 PRIMARY KEY (`car_id`, `driver_id`) USING BTREE,
-                                 INDEX `driver_id`(`driver_id`) USING BTREE,
-                                 INDEX `car_id`(`car_id`) USING BTREE,
-                                 CONSTRAINT `car_id` FOREIGN KEY (`car_id`) REFERENCES `cars` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-                                 CONSTRAINT `driver_id` FOREIGN KEY (`driver_id`) REFERENCES `drivers` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+                         `car_id` BIGINT(0) UNSIGNED NOT NULL,
+                         `driver_id` BIGINT(0) UNSIGNED NOT NULL,
+                         PRIMARY KEY (`car_id`, `driver_id`) USING BTREE,
+                         INDEX `driver_id`(`driver_id`) USING BTREE,
+                         INDEX `car_id`(`car_id`) USING BTREE,
+                         CONSTRAINT `car_id` FOREIGN KEY (`car_id`) REFERENCES `cars` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+                         CONSTRAINT `driver_id` FOREIGN KEY (`driver_id`) REFERENCES `drivers` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 SET FOREIGN_KEY_CHECKS = 1;

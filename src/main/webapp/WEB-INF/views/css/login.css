@@ -1,0 +1,72 @@
+#Login
+{
+   background-color: #FFFFFF;
+   border: 1px solid #4F4F4F;
+   border-radius: 4px;
+   color: #000000;
+   font-family: Arial;
+   font-weight: normal;
+   font-size: 19px;
+   font-style: normal;
+   text-align: left;
+   border-spacing: 6px;
+   width: 399px;
+   height: 258px;
+   z-index:8000;
+   /*display: none;*/
+}
+#Login td
+{
+   padding: 0;
+}
+#Login .header
+{
+   background-color: #878787;
+   color: #FFFFFF;
+   height: 22px;
+   padding: 4px 4px 4px 4px;
+   text-align: center;
+}
+#Login .label
+{
+   height: 22px;
+}
+#Login .row
+{
+   height: 36px;
+   text-align: left;
+}
+#Login .input
+{
+   background-color: #FFFFFF;
+   border: 1px solid #CCCCCC;
+   border-radius: 2px;
+   color: #000000;
+   font-family: Arial;
+   font-weight: normal;
+   font-size: 19px;
+   font-style: normal;
+   width: 100%;
+   height: 36px;
+   box-sizing: border-box;
+   padding: 6px 4px 6px 4px;
+}
+#Login .input:focus
+{
+   border-color: #66AFE9;
+   outline: 0;
+   box-shadow: inset 0px 1px 1px rgba(0,0,0,0.075), 0px 0px 8px rgba(102,175,233,0.60);
+}
+#Login .button
+{
+   background-color: #008080;
+   border: 1px solid #0000CD;
+   border-radius: 3px;
+   color: #FFFFFF;
+   font-family: Arial;
+   font-weight: normal;
+   font-size: 19px;
+   font-style: normal;
+   padding: 4px 14px 4px 14px;
+   -webkit-appearance: none;
+}
