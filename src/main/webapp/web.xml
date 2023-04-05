@@ -3,4 +3,8 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <!--The session lifetime is 1 month-->
+    <session-config>
+        <session-timeout>43800</session-timeout>
+    </session-config>
 </web-app>
