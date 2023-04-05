@@ -1,4 +1,4 @@
-package taxi.controller.car;
+package taxi.controller.driver;
 
 import java.io.IOException;
 import java.util.List;
@@ -23,6 +23,6 @@ public class GetMyCurrentCarsController extends HttpServlet {
         req.setAttribute("driver_id", driverID);
         List<Car> cars = carService.getAllByDriver(driverID);
         req.setAttribute("cars", cars);
-        req.getRequestDispatcher("/WEB-INF/views/cars/drivers/current.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/views/drivers/cars/current.jsp").forward(req, resp);
     }
 }
