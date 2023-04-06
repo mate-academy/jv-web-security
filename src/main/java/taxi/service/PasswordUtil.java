@@ -1,7 +1,7 @@
 package taxi.service;
 
 public interface PasswordUtil {
-    String generateHash(String password);
+    String hashPassword(String password);
 
-    boolean checkPassword(String password, String password1);
+    boolean checkPassword(String dbPassword, String loginPassword);
 }
