@@ -17,7 +17,7 @@
     <a href="${pageContext.request.contextPath}/drivers">
         <button>Manage drivers</button>
     </a>
-    <a href="${pageContext.request.contextPath}/cars">
+    <a href="${pageContext.request.contextPath}/cars/my">
         <button>Manage cars</button>
     </a>
     <a href="${pageContext.request.contextPath}/logout">
