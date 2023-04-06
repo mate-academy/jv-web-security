@@ -7,6 +7,7 @@
 <body>
 <h2 align="center" style="flex-grow:0;font-size:40px; font-family: Calibri,serif;">
     Taxi Service</h2>
+<h3 style="color: red">${errorMsg}</h3>
 <form method="post" action="${pageContext.request.contextPath}/login">
     <h2>Login</h2>
     <input type="text" name="login"><br>

@@ -2,24 +2,27 @@
 <html>
 <head>
     <title>Buttons</title>
+    <style>div>a{
+        text-decoration: none;
+    }</style>
 </head>
 <body>
-<h4>
+<div>
     <a href="${pageContext.request.contextPath}/taxiservice">
-        <input type="button" value="Home" />
+        <button>Home</button>
     </a>
     <a href="${pageContext.request.contextPath}/manufacturers">
-        <input type="button" value="Manage manufacturers" />
+        <button>Manage manufacturers</button>
     </a>
     <a href="${pageContext.request.contextPath}/drivers">
-        <input type="button" value="Manage drivers" />
+        <button>Manage drivers</button>
     </a>
     <a href="${pageContext.request.contextPath}/cars">
-        <input type="button" value="Manage cars" />
+        <button>Manage cars</button>
     </a>
     <a href="${pageContext.request.contextPath}/logout">
-        <input type="button" value="Logout" />
+        <button>Logout</button>
     </a>
-</h4>
+</div>
 </body>
 </html>

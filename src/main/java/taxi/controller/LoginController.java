@@ -39,7 +39,7 @@ public class LoginController extends HttpServlet {
             session.setAttribute("driverId", driver.getId());
             resp.sendRedirect("/taxiservice");
         } catch (AuthenticationException e) {
-            req.setAttribute("isError", true);
+            req.setAttribute("errorMsg", e.getMessage());
             req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
         }
     }
