@@ -21,11 +21,28 @@ public class AddDriverController extends HttpServlet {
     }
 
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    public void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws IOException, ServletException {
         String name = req.getParameter("name");
         String licenseNumber = req.getParameter("license_number");
-        Driver driver = new Driver(name, licenseNumber);
-        driverService.create(driver);
-        resp.sendRedirect(req.getContextPath() + "/drivers/add");
+        String login = req.getParameter("login");
+        String password = req.getParameter("password");
+        String repeatPassword = req.getParameter("repeat_password");
+        if (password.equals(repeatPassword)) {
+            Driver driver = new Driver(name, licenseNumber, login, password);
+            driverService.create(driver);
+            sendMessage("sucMsg", "Driver: " + name + ", created successfully!"
+                    + " Driver with login: " + login + " can login.", req, resp);
+        } else {
+            sendMessage("errMsg", "Passwords don't match, please try again.", req, resp);
+        }
+    }
+
+    private void sendMessage(String name,
+                             Object o,
+                             HttpServletRequest req,
+                             HttpServletResponse resp) throws ServletException, IOException {
+        req.setAttribute(name, o);
+        req.getRequestDispatcher("/WEB-INF/views/drivers/add.jsp").forward(req, resp);
     }
 }
