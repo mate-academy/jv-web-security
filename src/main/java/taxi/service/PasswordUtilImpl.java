@@ -15,7 +15,7 @@ public class PasswordUtilImpl implements PasswordUtil {
     private static final String ALGORITHM = "PBKDF2WithHmacSHA1";
 
     @Override
-    public String generateHash(String password) {
+    public String hashPassword(String password) {
         try {
             byte[] salt = generateSalt();
             byte[] hash = getHash(password, salt);
@@ -26,14 +26,12 @@ public class PasswordUtilImpl implements PasswordUtil {
     }
 
     @Override
-    public boolean checkPassword(String hashFromDb, String password) {
+    public boolean checkPassword(String dbPassword, String loginPassword) {
         try {
-            byte[] salt = extractSalt(hashFromDb);
-            byte[] hash = getHash(password, salt);
-            String hex = toHex(salt) + ":" + toHex(hash);
-            return hex.equals(hashFromDb);
+            String loginHash = hashLoginPassword(dbPassword, loginPassword);
+            return loginHash.equals(dbPassword);
         } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Can't check passwords, ", e);
         }
     }
 
@@ -42,11 +40,6 @@ public class PasswordUtilImpl implements PasswordUtil {
         byte[] salt = new byte[16];
         random.nextBytes(salt);
         return salt;
-    }
-
-    private byte[] extractSalt(String hash) {
-        String[] parts = hash.split(":");
-        return fromHex(parts[0]);
     }
 
     private byte[] getHash(String password, byte[] salt)
@@ -62,6 +55,18 @@ public class PasswordUtilImpl implements PasswordUtil {
             sb.append(String.format("%02x", b));
         }
         return sb.toString();
+    }
+
+    private String hashLoginPassword(String dbPassword, String loginPassword)
+            throws NoSuchAlgorithmException, InvalidKeySpecException {
+        byte[] salt = extractSalt(dbPassword);
+        byte[] hash = getHash(loginPassword, salt);
+        return toHex(salt) + ":" + toHex(hash);
+    }
+
+    private byte[] extractSalt(String hash) {
+        String[] parts = hash.split(":");
+        return fromHex(parts[0]);
     }
 
     private byte[] fromHex(String hex) {
