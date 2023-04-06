@@ -10,7 +10,6 @@ public interface AuthenticationService {
 
     boolean isValidPassword(String password, String repeatPassword) throws AuthenticationException;
 
-    boolean isValidData(String username, String password,
-                        String repeatPassword, String name, String licenseNumber)
-            throws AuthenticationException;
+    void saveNewDriverToDb(String username, String password, String repeatPassword,
+                           String name, String licenseNumber) throws AuthenticationException;
 }

@@ -43,8 +43,21 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     }
 
     @Override
-    public boolean isValidData(String username, String password, String repeatPassword,
-                               String name, String licenseNumber) throws AuthenticationException {
+    public void saveNewDriverToDb(String username, String password, String repeatPassword,
+                                  String name, String licenseNumber)
+            throws AuthenticationException {
+        if (isValidData(username, password, repeatPassword, name, licenseNumber)) {
+            Driver driver = new Driver();
+            driver.setName(name);
+            driver.setLicenseNumber(licenseNumber);
+            driver.setLogin(username);
+            driver.setPassword("" + (SALT + password).hashCode());
+            driverService.create(driver);
+        }
+    }
+
+    private boolean isValidData(String username, String password, String repeatPassword,
+                                String name, String licenseNumber) throws AuthenticationException {
         if (isValidLogin(username) && isValidPassword(password, repeatPassword)) {
             return name.length() > 0 && !name.matches("[0-9]") && licenseNumber.length() == 6;
         }

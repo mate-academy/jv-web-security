@@ -1,4 +1,4 @@
-package taxi.controller.page;
+package taxi.controller.car.driver.authentication;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,18 +7,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import taxi.exception.AuthenticationException;
 import taxi.lib.Injector;
-import taxi.model.Driver;
 import taxi.service.AuthenticationService;
-import taxi.service.DriverService;
 
 public class CreateDriverController extends HttpServlet {
     private static final String LOGIN_PAGE = "/login";
-    private static final String SALT = "salt";
     private static final Injector injector = Injector.getInstance("taxi");
     private final AuthenticationService authenticationService = (AuthenticationService) injector
             .getInstance(AuthenticationService.class);
-    private final DriverService driverService = (DriverService) injector
-            .getInstance(DriverService.class);
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -35,16 +30,9 @@ public class CreateDriverController extends HttpServlet {
         String password = req.getParameter("password");
         String repeatPassword = req.getParameter("repeatPassword");
         try {
-            if (authenticationService.isValidData(login, password, repeatPassword,
-                    name, licenseNumber)) {
-                Driver driver = new Driver();
-                driver.setName(name);
-                driver.setLicenseNumber(licenseNumber);
-                driver.setLogin(login);
-                driver.setPassword("" + (SALT + password).hashCode());
-                driverService.create(driver);
-                resp.sendRedirect(LOGIN_PAGE);
-            }
+            authenticationService.saveNewDriverToDb(login, password, repeatPassword,
+                    name, licenseNumber);
+            resp.sendRedirect(LOGIN_PAGE);
         } catch (AuthenticationException e) {
             req.setAttribute("errorMsg", e.getMessage());
             req.getRequestDispatcher("/WEB-INF/views/register.jsp").forward(req, resp);

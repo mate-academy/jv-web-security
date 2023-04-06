@@ -111,7 +111,7 @@
 
     <servlet>
         <servlet-name>login</servlet-name>
-        <servlet-class>taxi.controller.page.LoginController</servlet-class>
+        <servlet-class>taxi.controller.car.driver.authentication.LoginController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>login</servlet-name>
@@ -120,7 +120,7 @@
 
     <servlet>
         <servlet-name>register</servlet-name>
-        <servlet-class>taxi.controller.page.CreateDriverController</servlet-class>
+        <servlet-class>taxi.controller.car.driver.authentication.CreateDriverController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>register</servlet-name>
@@ -129,7 +129,7 @@
 
     <servlet>
         <servlet-name>logout</servlet-name>
-        <servlet-class>taxi.controller.page.LogoutController</servlet-class>
+        <servlet-class>taxi.controller.car.driver.authentication.LogoutController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>logout</servlet-name>
