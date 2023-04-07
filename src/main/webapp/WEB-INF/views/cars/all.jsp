@@ -39,7 +39,9 @@
                 </c:forEach>
             </td>
             <td>
+                <div class="container ">
                 <a href="${pageContext.request.contextPath}/cars/delete?id=${car.id}">DELETE</a>
+                </div>
             </td>
         </tr>
     </c:forEach>

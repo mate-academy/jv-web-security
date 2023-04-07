@@ -1,23 +1,20 @@
 .table_dark {
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
     width: 70%;
-    color: #7C5FAB;
     font-size: 40px;
     text-align: center;
     border-collapse: collapse;
-    background: #FEF4AB;
+    background: #2b2b23;
     margin: auto;
 }
 .table_dark th {
-    color: #7C5FAB;
-    border-bottom: 1px solid #98E2CA;
+    border-bottom: 1px solid;
     padding: 12px 17px;
     font-size: 14px;
 }
 .table_dark td {
-    color: #7C5FAB;
-    border-bottom: 1px solid #98E2CA;
-    border-right: 1px solid #98E2CA;
+    border-bottom: 1px solid;
+    border-right: 1px solid;
     padding: 7px 17px;
     font-size: 14px;
 }
@@ -30,3 +27,4 @@
 .table_dark tr:hover td {
     text-decoration: underline;
 }
+

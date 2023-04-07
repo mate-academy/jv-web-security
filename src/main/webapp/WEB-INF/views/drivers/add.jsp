@@ -9,7 +9,9 @@
 </head>
 <body>
 <%@include file="../header.jsp" %><br>
-<a href="${pageContext.request.contextPath}/login">Login</a>
+<div class="container " style="display: inline-block";>
+<a href="${pageContext.request.contextPath}/login" style="color: olivedrab;">Login</a>
+</div>
 <form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/add"></form>
 <h1 class="table_dark">Add driver:</h1>
 <table border="1" class="table_dark">

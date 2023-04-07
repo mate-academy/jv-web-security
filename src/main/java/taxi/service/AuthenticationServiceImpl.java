@@ -19,4 +19,17 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         }
         throw new AuthenticationException("Login or password was incorrect, try again.");
     }
+
+    @Override
+    public Driver register(String login, String password, String repeatPassword)
+            throws AuthenticationException {
+        if (password.equals(repeatPassword)) {
+            Driver driver = new Driver();
+            driver.setLogin(login);
+            driver.setPassword(password);
+            return driver;
+        } else {
+            throw new AuthenticationException("Passwords don't match, please try again.");
+        }
+    }
 }

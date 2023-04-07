@@ -33,7 +33,9 @@
                 <c:out value="${driver.login}"/>
             </td>
             <td>
+                <div class="container ">
                 <a href="${pageContext.request.contextPath}/drivers/delete?id=${driver.id}">DELETE</a>
+                </div>
             </td>
         </tr>
     </c:forEach>
