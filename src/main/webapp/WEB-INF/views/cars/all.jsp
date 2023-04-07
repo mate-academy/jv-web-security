@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <style>
     <%@include file='/WEB-INF/views/css/table_dark.css' %>
 </style>
@@ -19,6 +19,7 @@
         <th>Drivers</th>
         <th>Delete</th>
     </tr>
+    <jsp:useBean id="cars" scope="request" type="java.util.List"/>
     <c:forEach var="car" items="${cars}">
         <tr>
             <td>
