@@ -13,6 +13,12 @@ public class DriverServiceImpl implements DriverService {
     private DriverDao driverDao;
 
     @Override
+    public Driver findByUsername(String username) {
+        return driverDao.findByUsername(username).orElseThrow(() ->
+                new NoSuchElementException("Can't get driver by username: " + username));
+    }
+
+    @Override
     public Driver create(Driver driver) {
         return driverDao.create(driver);
     }
