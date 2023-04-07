@@ -8,7 +8,7 @@
 </head>
 <body>
 <div>
-    <a href="${pageContext.request.contextPath}/taxiservice">
+    <a href="${pageContext.request.contextPath}/taxi-service">
         <button>Home</button>
     </a>
     <a href="${pageContext.request.contextPath}/manufacturers">
