@@ -2,6 +2,7 @@ package taxi.service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 import taxi.dao.DriverDao;
 import taxi.lib.Inject;
 import taxi.lib.Service;
@@ -13,9 +14,8 @@ public class DriverServiceImpl implements DriverService {
     private DriverDao driverDao;
 
     @Override
-    public Driver findByUsername(String username) {
-        return driverDao.findByUsername(username).orElseThrow(() ->
-                new NoSuchElementException("Can't get driver by username: " + username));
+    public Optional<Driver> findByUsername(String username) {
+        return driverDao.findByUsername(username);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package taxi.controller.driver;
 
+import taxi.exception.AuthenticationException;
 import taxi.lib.Injector;
 import taxi.model.Driver;
 import taxi.service.AuthenticationService;
@@ -25,6 +26,11 @@ public class DriverLoginController extends HttpServlet {
         String username = req.getParameter("login");
         String password = req.getParameter("password");
 
-        Driver driver = authenticationService.login(username, password);
+        try {
+            Driver driver = authenticationService.login(username, password);
+            resp.sendRedirect("/index");
+        } catch (AuthenticationException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
