@@ -1,0 +1,7 @@
+.body_center {
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+    color: #00001a;
+    background-color: #f2f2f2;
+}
