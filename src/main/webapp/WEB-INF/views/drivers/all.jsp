@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <style>
     <%@include file='/WEB-INF/views/css/body_center.css' %>
 </style>
@@ -9,29 +9,38 @@
 </head>
 <body class="body_center">
 <%@ include file="/WEB-INF/views/commons/buttonHeader.jsp"%><br>
-<a href="${pageContext.request.contextPath}/index">
-    <input type="button" value="My Data Manager"></a>
-<%--<h3>To add new driver please fill the form:</h3><br>--%>
+<h3>Adding and deleting drivers here suspended</h3>
+<h4>(to prevent multi-user interference)</h4>
 <%--<form method="post" action="${pageContext.request.contextPath}/drivers/create">--%>
-<%--    Login <input type="text" name="login" required><br>--%>
-<%--    Login <input type="password" name="password" required><br>--%>
-<%--    <button type="submit">Add driver</button>--%>
 <%--</form><br>--%>
+<form method="get" action="${pageContext.request.contextPath}/drivers">
+    <table>
+        <tr><td class="id_px">Driver name <input type="text" name="name" required></td></tr>
+        <tr><td class="id_px">License number <input type="text" name="license_number" required></td></tr>
+        <tr><td class="id_px">Driver login <input type="text" name="login" required></td></tr>
+        <tr><td class="id_px">Driver password <input type="text" name="password" required></td></tr>
+        <tr><td><button type="submit" disabled>Add driver</button></td></tr>
+    </table>
+</form>
 <h3>List of drivers</h3>
+<h4 style="color: darkgreen">Please use Cabinet to manage your account</h4>
 <table>
     <tr>
-        <td>ID</td>
-        <td>Name</td>
-        <td>License number</td>
-    </tr>
+        <td class="id_px">ID</td>
+        <td class="value_px">Name</td>
+        <td class="value_px">License number</td>
+        <td class="value_px">Login</td>
+    </tr><tr></tr>
     <c:forEach items="${drivers}" var="driver">
         <tr>
-            <td><c:out value="${driver.id}" /></td>
-            <td><c:out value="${driver.name}" /></td>
-            <td><c:out value="${driver.licenseNumber}" /></td>
-            <td><c:out value="${driver.login}" /></td>
-            <td><a href="${pageContext.request.contextPath}/drivers/delete?id=${driver.id}">
-                <input type="button" value="DELETE"></a></td>
+            <td class="id_px"><c:out value="${driver.id}" /></td>
+            <td class="value_px"><c:out value="${driver.name}" /></td>
+            <td class="value_px"><c:out value="${driver.licenseNumber}" /></td>
+            <td class="value_px"><c:out value="${driver.login}" /></td>
+<%--            <td><a href="${pageContext.request.contextPath}/drivers/delete?id=${driver.id}">--%>
+<%--                <input type="button" disabled value="DELETE"></a></td>--%>
+            <td><a href="${pageContext.request.contextPath}/drivers">
+                <input type="button" disabled value="DELETE"></a></td>
         </tr>
     </c:forEach>
 </table>

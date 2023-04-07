@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <style>
     <%@include file='/WEB-INF/views/css/body_center.css' %>
 </style>
@@ -16,10 +16,10 @@
 </a><br><br>
 <a href="${pageContext.request.contextPath}/cars">
     <input type="button" value="Manage cars" />
-</a><br>
-<a href="${pageContext.request.contextPath}/login">
-    <input type="button" value="Login" />
-</a><br>
+</a><br><br>
+<a href="${pageContext.request.contextPath}/cabinet">
+    <input type="button" value="Manage me" />
+</a><br><br>
 <a href="${pageContext.request.contextPath}/logout">
     <input type="button" value="Logout" />
 </a><br>

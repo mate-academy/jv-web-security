@@ -1,6 +1,7 @@
 package taxi.controller.driver;
 
 import java.io.IOException;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,11 +15,15 @@ public class AddDriverController extends HttpServlet {
             .getInstance(DriverService.class);
 
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    public void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws IOException, ServletException {
         Driver driver = new Driver();
         driver.setLogin(req.getParameter("login"));
-        driver.setPassword("password");
+        driver.setPassword(req.getParameter("password"));
+        driver.setName(req.getParameter("name"));
+        driver.setLicenseNumber("CHANGE" + req.getParameter("login"));
         driverService.create(driver);
-        resp.sendRedirect(req.getContextPath() + "/drivers");
+        req.setAttribute("successMsg", "Added successfully!");
+        req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
     }
 }

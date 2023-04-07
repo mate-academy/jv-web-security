@@ -20,12 +20,12 @@
         <url-pattern>/drivers</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>drivers/create</servlet-name>
+        <servlet-name>drivers/add</servlet-name>
         <servlet-class>taxi.controller.driver.AddDriverController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>drivers/create</servlet-name>
-        <url-pattern>/drivers/create</url-pattern>
+        <servlet-name>drivers/add</servlet-name>
+        <url-pattern>/drivers/add</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>manufacturers</servlet-name>
@@ -114,6 +114,22 @@
     <servlet-mapping>
         <servlet-name>logout</servlet-name>
         <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>cabinet</servlet-name>
+        <servlet-class>taxi.controller.user.GetInformationController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>cabinet</servlet-name>
+        <url-pattern>/cabinet</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>driver/update</servlet-name>
+        <servlet-class>taxi.controller.user.UpdateInformationController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>driver/update</servlet-name>
+        <url-pattern>/driver/update</url-pattern>
     </servlet-mapping>
 
     <filter>
