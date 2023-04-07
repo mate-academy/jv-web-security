@@ -9,21 +9,19 @@
 </head>
 <body class="body_center">
 <%@ include file="/WEB-INF/views/commons/buttonHeader.jsp"%><br>
-<h3>Adding and deleting drivers here suspended</h3>
-<h4>(to prevent multi-user interference)</h4>
-<%--<form method="post" action="${pageContext.request.contextPath}/drivers/create">--%>
-<%--</form><br>--%>
-<form method="get" action="${pageContext.request.contextPath}/drivers">
+<h3>Please fill the form to add new driver</h3>
+<form method="post" action="${pageContext.request.contextPath}/drivers/add">
     <table>
         <tr><td class="id_px">Driver name <input type="text" name="name" required></td></tr>
         <tr><td class="id_px">License number <input type="text" name="license_number" required></td></tr>
         <tr><td class="id_px">Driver login <input type="text" name="login" required></td></tr>
         <tr><td class="id_px">Driver password <input type="text" name="password" required></td></tr>
-        <tr><td><button type="submit" disabled>Add driver</button></td></tr>
+        <tr><td><button type="submit">Add driver</button></td></tr>
     </table>
 </form>
 <h3>List of drivers</h3>
 <h4 style="color: darkgreen">Please use Cabinet to manage your account</h4>
+<h3 style="color: red">${errorMsg}</h3>
 <table>
     <tr>
         <td class="id_px">ID</td>
@@ -37,10 +35,8 @@
             <td class="value_px"><c:out value="${driver.name}" /></td>
             <td class="value_px"><c:out value="${driver.licenseNumber}" /></td>
             <td class="value_px"><c:out value="${driver.login}" /></td>
-<%--            <td><a href="${pageContext.request.contextPath}/drivers/delete?id=${driver.id}">--%>
-<%--                <input type="button" disabled value="DELETE"></a></td>--%>
-            <td><a href="${pageContext.request.contextPath}/drivers">
-                <input type="button" disabled value="DELETE"></a></td>
+            <td><a href="${pageContext.request.contextPath}/drivers/delete?id=${driver.id}">
+                <input type="button" value="DELETE"></a></td>
         </tr>
     </c:forEach>
 </table>

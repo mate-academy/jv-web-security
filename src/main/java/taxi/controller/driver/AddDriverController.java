@@ -21,9 +21,15 @@ public class AddDriverController extends HttpServlet {
         driver.setLogin(req.getParameter("login"));
         driver.setPassword(req.getParameter("password"));
         driver.setName(req.getParameter("name"));
-        driver.setLicenseNumber("CHANGE" + req.getParameter("login"));
+        String licenseNumber = req.getParameter("license_number");
+        driver.setLicenseNumber(
+                licenseNumber != null ? licenseNumber : "CHANGE" + req.getParameter("login"));
         driverService.create(driver);
-        req.setAttribute("successMsg", "Added successfully!");
-        req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
+        if (licenseNumber == null) {
+            req.setAttribute("successMsg", "Added successfully! Use login form");
+            req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
+        } else {
+            resp.sendRedirect(req.getContextPath() + "/drivers");
+        }
     }
 }
