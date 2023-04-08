@@ -1,7 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<style>
-    <%@include file='/WEB-INF/views/css/table_dark.css' %>
-</style>
 <html>
 <head>
     <title>My team</title>
@@ -14,6 +11,6 @@
     Please enter your password: <input type="password" name="password" required>
     <button type="submit">Login</button>
 </form>
-<h4><a href="${pageContext.request.contextPath}/register">Register</a> </h4>
+<h4><a href="${pageContext.request.contextPath}/drivers/add">Register</a> </h4>
 </body>
 </html>
