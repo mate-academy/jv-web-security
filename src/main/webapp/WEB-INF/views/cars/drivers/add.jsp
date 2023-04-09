@@ -8,6 +8,11 @@
     <title>Add driver to car</title>
 </head>
 <body>
+<%@ include file="/WEB-INF/views/navigationBar.jsp"%>
+<div style="font-family: arial,serif;
+float: left; display: inline-block;
+background: url('https://i2.paste.pics/N2F82.png')
+no-repeat; width: 1466px; height: 674px">
 <form method="post" id="car" action="${pageContext.request.contextPath}/cars/drivers/add"></form>
 <h1 class="table_dark">Add driver to car:</h1>
 <table border="1" class="table_dark">
@@ -28,5 +33,9 @@
         </td>
     </tr>
 </table>
+    <div class="footer">
+        <p>java web application with jsp and jdbc <a href="https://github.com/EliSoll">GitHub: Elvira Solnyshkina</a><br>
+            Image from <a href="https://billionphotos.com">Billionphotos</a></p></div>
+</div>
 </body>
 </html>
