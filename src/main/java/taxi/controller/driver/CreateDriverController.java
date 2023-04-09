@@ -7,10 +7,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import taxi.lib.Injector;
+import taxi.model.Driver;
 import taxi.service.DriverService;
 
-@WebServlet(urlPatterns = "/drivers")
-public class GetAllDriversController extends HttpServlet {
+@WebServlet(urlPatterns = "/drivers/create")
+public class CreateDriverController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
     private final DriverService driverService
             = (DriverService) injector.getInstance(DriverService.class);
@@ -18,7 +19,15 @@ public class GetAllDriversController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        req.setAttribute("drivers", driverService.getAll());
-        req.getRequestDispatcher("/WEB-INF/views/drivers/all.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/views/drivers/create.jsp").forward(req, resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        driverService.create(
+                new Driver(req.getParameter("name"), req.getParameter("license_number"),
+                        req.getParameter("login"), req.getParameter("password")));
+        resp.sendRedirect(req.getContextPath() + "/drivers");
     }
 }
