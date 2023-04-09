@@ -17,13 +17,15 @@ import taxi.util.ConnectionUtil;
 public class DriverDaoImpl implements DriverDao {
     @Override
     public Driver create(Driver driver) {
-        String query = "INSERT INTO drivers (name, license_number) "
-                + "VALUES (?, ?)";
+        String query = "INSERT INTO drivers (name, license_number, login, password) "
+                + "VALUES (?, ?, ?, ?)";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement = connection.prepareStatement(query,
                         Statement.RETURN_GENERATED_KEYS)) {
             statement.setString(1, driver.getName());
             statement.setString(2, driver.getLicenseNumber());
+            statement.setString(3, driver.getLogin());
+            statement.setString(4, driver.getPassword());
             statement.executeUpdate();
             ResultSet resultSet = statement.getGeneratedKeys();
             if (resultSet.next()) {
@@ -102,10 +104,31 @@ public class DriverDaoImpl implements DriverDao {
         Long id = resultSet.getObject("id", Long.class);
         String name = resultSet.getString("name");
         String licenseNumber = resultSet.getString("license_number");
+        String username = resultSet.getString("login");
+        String password = resultSet.getString("password");
         Driver driver = new Driver();
         driver.setId(id);
         driver.setName(name);
         driver.setLicenseNumber(licenseNumber);
+        driver.setLogin(username);
+        driver.setPassword(password);
         return driver;
+    }
+
+    @Override
+    public Optional<Driver> findByUsername(String username) {
+        String query = "SELECT * FROM drivers WHERE login = ? AND is_deleted = FALSE;";
+        try (Connection connection = ConnectionUtil.getConnection();
+                 PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, username);
+            ResultSet set = statement.executeQuery();
+            Driver driver = null;
+            if (set.next()) {
+                driver = parseDriverFromResultSet(set);
+            }
+            return Optional.ofNullable(driver);
+        } catch (SQLException e) {
+            throw new RuntimeException("Can't find driver by username: " + username, e);
+        }
     }
 }
