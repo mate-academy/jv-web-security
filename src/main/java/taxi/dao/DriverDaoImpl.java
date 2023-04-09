@@ -32,7 +32,7 @@ public class DriverDaoImpl implements DriverDao {
             try {
                 hash = PasswordHashing.hashPassword(driver.getPassword(), salt);
             } catch (NoSuchAlgorithmException e) {
-                throw new RuntimeException("Can't create hash to password "
+                throw new DataProcessingException("Can't create hash to password "
                         + driver.getPassword(), e);
             }
             statement.setBytes(4, hash);
