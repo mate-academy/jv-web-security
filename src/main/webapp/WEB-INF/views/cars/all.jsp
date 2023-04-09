@@ -8,39 +8,75 @@
     <title>All cars</title>
 </head>
 <body>
-<h1 class="table_dark">All cars:</h1>
-<table border="1" class="table_dark">
+<%@include file="/WEB-INF/views/header.jsp"%>
+<%--<h1 class="table_dark">All cars:</h1>--%>
+<%--<table border="1" class="table_dark">--%>
+<%--    <tr>--%>
+<%--        <th>ID</th>--%>
+<%--        <th>Model</th>--%>
+<%--        <th>Manufacturer name</th>--%>
+<%--        <th>Manufacturer country</th>--%>
+<%--        <th>Drivers</th>--%>
+<%--        <th>Delete</th>--%>
+<%--    </tr>--%>
+<%--    <c:forEach var="car" items="${cars}">--%>
+<%--        <tr>--%>
+<%--            <td>--%>
+<%--                <c:out value="${car.id}"/>--%>
+<%--            </td>--%>
+<%--            <td>--%>
+<%--                <c:out value="${car.model}"/>--%>
+<%--            </td>--%>
+<%--            <td>--%>
+<%--                <c:out value="${car.manufacturer.name}"/>--%>
+<%--            </td>--%>
+<%--            <td>--%>
+<%--                <c:out value="${car.manufacturer.country}"/>--%>
+<%--            </td>--%>
+<%--            <td>--%>
+<%--                <c:forEach var="driver" items="${car.drivers}">--%>
+<%--                    ${driver.id} ${driver.name} ${driver.licenseNumber} <br>--%>
+<%--                </c:forEach>--%>
+<%--            </td>--%>
+<%--            <td>--%>
+<%--                <a href="${pageContext.request.contextPath}/cars/delete?id=${car.id}">DELETE</a>--%>
+<%--            </td>--%>
+<%--        </tr>--%>
+<%--    </c:forEach>--%>
+<%--</table>--%>
+<table class="styled-table">
+    <caption>
+        <h2>All cars</h2>
+    </caption>
+    <thead>
     <tr>
-        <th>ID</th>
-        <th>Model</th>
-        <th>Manufacturer name</th>
-        <th>Manufacturer country</th>
-        <th>Drivers</th>
-        <th>Delete</th>
+        <td>ID</td>
+        <td>MODEL</td>
+        <td>MANUFACTURER</td>
+        <td>DRIVERS</td>
+        <td>DELETE</td>
     </tr>
-    <c:forEach var="car" items="${cars}">
+    </thead>
+    <c:forEach items="${cars}" var="car">
+        <tbody>
         <tr>
-            <td>
-                <c:out value="${car.id}"/>
-            </td>
-            <td>
-                <c:out value="${car.model}"/>
-            </td>
-            <td>
-                <c:out value="${car.manufacturer.name}"/>
-            </td>
-            <td>
-                <c:out value="${car.manufacturer.country}"/>
-            </td>
-            <td>
-                <c:forEach var="driver" items="${car.drivers}">
-                    ${driver.id} ${driver.name} ${driver.licenseNumber} <br>
-                </c:forEach>
-            </td>
-            <td>
-                <a href="${pageContext.request.contextPath}/cars/delete?id=${car.id}">DELETE</a>
-            </td>
+            <td><c:out value="${car.id}"/></td>
+            <td><c:out value="${car.model}"/></td>
+            <td><c:out value="${car.manufacturer.name}"/></td>
+            <c:if test="${car.drivers.size() == 0}">
+                <td>No drivers</td>
+            </c:if>
+            <c:if test="${car.drivers.size() > 0}">
+                <td>
+                    <c:forEach items="${car.drivers}" var="driver">
+                        <c:out value="${driver.name}" />
+                        <a href="${pageContext.request.contextPath}/cars/drivers/delete?driver_id=${driver.id}&car_id=${car.id}">delete</a><br>
+                    </c:forEach>
+                </td>
+            </c:if>
+            <td><a href="${pageContext.request.contextPath}/cars/delete?id=${car.id}">delete</a></td>
         </tr>
+        </tbody>
     </c:forEach>
 </table>
 </body>
