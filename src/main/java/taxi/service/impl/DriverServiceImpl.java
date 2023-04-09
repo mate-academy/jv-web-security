@@ -1,4 +1,4 @@
-package taxi.service;
+package taxi.service.impl;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -6,6 +6,7 @@ import taxi.dao.DriverDao;
 import taxi.lib.Inject;
 import taxi.lib.Service;
 import taxi.model.Driver;
+import taxi.service.DriverService;
 
 @Service
 public class DriverServiceImpl implements DriverService {
@@ -22,6 +23,12 @@ public class DriverServiceImpl implements DriverService {
         return driverDao.get(id).orElseThrow(() ->
             new NoSuchElementException("Can't get driver by id: " + id)
         );
+    }
+
+    @Override
+    public Driver findByLogin(String login) {
+        return driverDao.findByLogin(login).orElseThrow(() ->
+                new NoSuchElementException("Can't find driver by login: " + login));
     }
 
     @Override
