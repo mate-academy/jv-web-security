@@ -1,4 +1,4 @@
-    <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
@@ -49,7 +49,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>allCarsByDriver</servlet-name>
-        <url-pattern>/cars/all/driver</url-pattern>
+        <url-pattern>/drivers/cars</url-pattern>
     </servlet-mapping>
 
     <servlet>
