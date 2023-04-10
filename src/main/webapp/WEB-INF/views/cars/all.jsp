@@ -3,9 +3,8 @@
 <html>
 <head>
     <title>Get all cars</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <style>
+        <%@include file='/WEB-INF/views/css/bootstrap.min.css' %>
         <%@include file='/WEB-INF/views/css/style.css' %>
     </style>
 </head>
@@ -40,6 +39,10 @@
                 </c:forEach>
             </td>
             <td>
+                <a class="btn btn-warning"
+                   href="${pageContext.request.contextPath}/cars/edit?id=${car.id}">
+                    Edit
+                </a>
                 <a class="btn btn-success"
                    href="${pageContext.request.contextPath}/cars/drivers/add?carId=${car.id}">
                     Add driver
