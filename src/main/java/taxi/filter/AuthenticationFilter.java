@@ -29,11 +29,7 @@ public class AuthenticationFilter extends HttpFilter {
         HttpServletResponse response = (HttpServletResponse) res;
         HttpSession session = request.getSession();
         Long userId = (Long) session.getAttribute("user_id");
-        if (userId == null && allowedUrls.contains(request.getServletPath())) {
-            chain.doFilter(request, response);
-            return;
-        }
-        if (userId == null) {
+        if (userId == null && !allowedUrls.contains(request.getServletPath())) {
             response.sendRedirect("/login");
             return;
         }
