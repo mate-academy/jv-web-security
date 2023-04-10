@@ -23,9 +23,7 @@ no-repeat; width: 1466px; height: 674px">
     <tr><td><a href="${pageContext.request.contextPath}/manufacturers/add">Create new Manufacturer</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/cars/drivers/add">Add Driver to Car</a></td></tr>
 </table>
-    <div class="footer">
-        <p>java web application with jsp and jdbc <a href="https://github.com/EliSoll">GitHub: Elvira Solnyshkina</a><br>
-            Image from <a href=" https://billionphotos.com">Billionphotos</a></p></div>
+    <%@include file='/WEB-INF/views/footer.jsp' %>
 </div>
 </body>
 </html>

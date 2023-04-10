@@ -22,9 +22,7 @@ no-repeat; width: 1466px; height: 674px">
   </form>
     <a href="${pageContext.request.contextPath}/drivers/add"><button type="submit">Create an Account</button></a>
 </table>
-  <div class="footer">
-    <p>java web application with jsp and jdbc <a href="https://github.com/EliSoll">GitHub: Elvira Solnyshkina</a><br>
-      Image from <a href=" https://billionphotos.com">Billionphotos</a></p></div>
+    <%@include file='/WEB-INF/views/footer.jsp' %>
 </div>
 </body>
 </html>

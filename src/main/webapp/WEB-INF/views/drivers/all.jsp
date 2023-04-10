@@ -18,6 +18,7 @@ no-repeat; width: 1466px; height: 674px">
     <tr>
         <th>ID</th>
         <th>Name</th>
+        <th>Login</th>
         <th>License number</th>
         <th>Delete</th>
     </tr>
@@ -30,6 +31,9 @@ no-repeat; width: 1466px; height: 674px">
                 <c:out value="${driver.name}"/>
             </td>
             <td>
+                <c:out value="${driver.login}"/>
+            </td>
+            <td>
                 <c:out value="${driver.licenseNumber}"/>
             </td>
             <td>
@@ -38,9 +42,7 @@ no-repeat; width: 1466px; height: 674px">
         </tr>
     </c:forEach>
 </table>
-    <div class="footer">
-        <p>java web application with jsp and jdbc <a href="https://github.com/EliSoll">GitHub: Elvira Solnyshkina</a><br>
-            Image from <a href=" https://billionphotos.com">Billionphotos</a></p></div>
+    <%@include file='/WEB-INF/views/footer.jsp' %>
 </div>
 </body>
 </html>
