@@ -9,6 +9,14 @@
               crossorigin="anonymous">
     </head>
     <body>
-        <%@include file="components/header.jsp"%>
+        <div class="container-md">
+            <%@include file="components/header.jsp"%>
+            <div class="text-center my-2">
+                <h1>Welcome to our Taxi Service</h1>
+                <p class="lead">We is the premier taxi service in the city, offering convenient and reliable
+                    transportation for all your needs. Whether you need a ride to the airport, a business meeting,
+                    or just a night out on the town, our experienced drivers will get you there safely and on time.</p>
+            </div>
+        </div>
     </body>
 </html>
