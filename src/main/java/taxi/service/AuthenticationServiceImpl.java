@@ -21,10 +21,12 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     }
 
     @Override
-    public Driver register(String username, String password, String repeatPassword)
+    public Driver register(String name, String licenseNumber, String username, String password, String repeatPassword)
             throws AuthenticationException {
         if (password.equals(repeatPassword)) {
             Driver driver = new Driver();
+            driver.setName(name);
+            driver.setLicenseNumber(licenseNumber);
             driver.setLogin(username);
             driver.setPassword(password);
             return driver;

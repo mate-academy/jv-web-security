@@ -29,11 +29,11 @@ public class AddDriverController extends HttpServlet {
             throws IOException, ServletException {
         try {
             Driver driver = authenticationService.register(
+                    req.getParameter("name"),
+                    req.getParameter("license_number"),
                     req.getParameter("login"),
                     req.getParameter("password"),
                     req.getParameter("repeat_password"));
-            driver.setName(req.getParameter("name"));
-            driver.setLicenseNumber(req.getParameter("license_number"));
             driverService.create(driver);
             req.setAttribute("sucMsg", "Driver: " + driver.getName()
                     + ", created successfully!");
