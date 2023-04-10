@@ -10,10 +10,6 @@
 </head>
 <body>
 <div class="container">
-<button style="background-color: #808080; color: #fff;"
-        onclick="window.location.href='${pageContext.request.contextPath}/cars'">
-    Back to list of all cars
-</button>
 <h1>List of drivers by car with id ${id}</h1>
 <table>
     <thead>
