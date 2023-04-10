@@ -8,8 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import taxi.lib.Injector;
 
 public class LogoutController extends HttpServlet {
-    private static final Injector injector = Injector.getInstance("taxi");
-
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
