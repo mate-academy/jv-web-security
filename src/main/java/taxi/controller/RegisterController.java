@@ -14,6 +14,7 @@ public class RegisterController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
     private final DriverService driverService = (DriverService) injector
             .getInstance(DriverService.class);
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
@@ -21,7 +22,8 @@ public class RegisterController extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
         String name = req.getParameter("name");
         String licenseNumber = req.getParameter("license_number");
         String login = req.getParameter("login");
@@ -33,6 +35,6 @@ public class RegisterController extends HttpServlet {
         }
         Driver driver = new Driver(name, licenseNumber, login, password);
         driverService.create(driver);
-        resp.sendRedirect("/login");
+        resp.sendRedirect(req.getContextPath() + "/login");
     }
 }

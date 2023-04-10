@@ -17,7 +17,8 @@ public class DriverServiceImpl implements DriverService {
     @Override
     public Driver create(Driver driver) {
         String hashedPassword = PasswordUtil.hashPassword(driver.getPassword());
-        Driver hashedDriver = new Driver(driver.getName(), driver.getLicenseNumber(), driver.getLogin(), hashedPassword);
+        Driver hashedDriver = new Driver(driver.getName(), driver.getLicenseNumber(),
+                driver.getLogin(), hashedPassword);
         return driverDao.create(hashedDriver);
     }
 
