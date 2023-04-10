@@ -29,6 +29,6 @@ public class RegistrationController extends HttpServlet {
         String password = req.getParameter("password");
         Driver driver = new Driver(name, licenceNumber, username, password);
         driverService.create(driver);
-        resp.sendRedirect("/");
+        resp.sendRedirect(req.getContextPath() + "/");
     }
 }
