@@ -33,7 +33,7 @@ public class AuthenticationFilter implements Filter {
         HttpSession httpSession = request.getSession();
         Long driverId = (Long) httpSession.getAttribute("id");
         if (driverId == null && !allowedUrls.contains(request.getServletPath())) {
-            response.sendRedirect("/login");
+            response.sendRedirect(request.getContextPath() + "/login");
             return;
         }
         filterChain.doFilter(request, response);

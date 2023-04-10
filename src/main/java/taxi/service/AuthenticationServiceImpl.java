@@ -28,6 +28,9 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     @Override
     public Driver register(String name, String password, String repeatPassword)
             throws AuthenticationException {
+        if (name == null || password == null || repeatPassword == null) {
+            throw new AuthenticationException("Fields can not be null ");
+        }
         if (password.equals(repeatPassword)) {
             Driver driver = new Driver();
             driver.setLogin(name);
