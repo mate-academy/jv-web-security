@@ -5,6 +5,7 @@
 </style>
 <html>
 <head>
+    <%@ include file="/WEB-INF/views/buttons.jsp" %>
     <title>All drivers</title>
 </head>
 <body>
@@ -14,6 +15,8 @@
     <tr>
         <th>Name</th>
         <th>License number</th>
+        <th>username</th>
+        <th>password</th>
         <th>Add</th>
     </tr>
     <tr>
@@ -24,7 +27,13 @@
             <input type="text" name="license_number" form="driver" required>
         </td>
         <td>
-            <input type="submit" name="add" form="driver">
+            <input type="text" name="username" form="driver" required>
+        </td>
+        <td>
+            <input type="text" name="password" form="driver" required>
+        </td>
+        <td>
+            <input class="btn btn-primary" type="submit" name="add" form="driver">
         </td>
     </tr>
 </table>

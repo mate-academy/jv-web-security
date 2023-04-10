@@ -5,13 +5,14 @@
 <html>
 <head>
     <title>My team</title>
+    <%@ include file="/WEB-INF/views/buttons.jsp" %>
 </head>
 <body>
 <form method="post" id="redirect"></form>
-<h1 class="table_dark">Hello, mates</h1>
-<table class="table_dark">
+<h1>Hello, ${name}</h1>
+<table>
     <tr>
-        <th>Redirect to</th>
+        <th>Choose action</th>
     </tr>
     <tr><td><a href="${pageContext.request.contextPath}/drivers">Display All Drivers</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/cars">Display All Cars</a></td></tr>
