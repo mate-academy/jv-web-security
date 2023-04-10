@@ -25,7 +25,7 @@ public class AuthenticationFilter implements Filter {
         Long id = (Long) session.getAttribute("id");
         if (id == null
                 && !allowedPages.contains(httpRequest.getServletPath())) {
-            httpResponse.sendRedirect("/login");
+            httpResponse.sendRedirect(httpRequest.getContextPath() + "/login");
             return;
         }
         filterChain.doFilter(servletRequest, servletResponse);

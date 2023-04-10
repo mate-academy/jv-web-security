@@ -36,7 +36,7 @@ public class LoginController extends HttpServlet {
                 if (driver != null) {
                     HttpSession session = req.getSession();
                     session.setAttribute("id", driver.getId());
-                    resp.sendRedirect("/index");
+                    resp.sendRedirect(req.getContextPath() + "/index");
                 }
             } catch (AuthenticationException e) {
                 req.setAttribute("errorMsg", "Invalid credentials!");
