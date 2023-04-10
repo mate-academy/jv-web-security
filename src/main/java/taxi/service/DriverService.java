@@ -4,6 +4,5 @@ import java.util.Optional;
 import taxi.model.Driver;
 
 public interface DriverService extends GenericService<Driver> {
-    public Optional<Driver> findByUsername(String username);
-
+    Optional<Driver> findByUsername(String username);
 }
