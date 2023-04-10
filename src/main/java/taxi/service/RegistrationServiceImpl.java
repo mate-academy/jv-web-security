@@ -18,12 +18,11 @@ public class RegistrationServiceImpl implements RegistrationService {
         if (!password.equals(passwordRepeat)) {
             throw new RegistrationException("Passwords don't match, please try again.");
         }
-        Driver driver = driverService.findByLogin(login).orElse(new Driver());
-        if (driver.getId() != null) {
+        if (driverService.findByLogin(login).isPresent()) {
             throw new RegistrationException("User with such login "
                     + login + " already exists");
         }
-        driver = new Driver(name, licenseNumber, login, password);
+        Driver driver = new Driver(name, licenseNumber, login, password);
         driver = driverService.create(driver);
         return driver;
     }
