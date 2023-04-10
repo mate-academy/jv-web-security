@@ -58,7 +58,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>addDriver</servlet-name>
-        <url-pattern>/drivers/register</url-pattern>
+        <url-pattern>/drivers/add</url-pattern>
     </servlet-mapping>
 
     <servlet>
