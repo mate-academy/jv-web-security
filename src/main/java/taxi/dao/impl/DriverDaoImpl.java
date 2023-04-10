@@ -8,7 +8,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
 import taxi.dao.DriverDao;
 import taxi.exception.DataProcessingException;
 import taxi.lib.Dao;
@@ -121,7 +120,7 @@ public class DriverDaoImpl implements DriverDao {
     public Optional<Driver> findByLogin(String login) {
         String query = "SELECT * FROM drivers WHERE login = ? AND is_deleted = FALSE";
         try (Connection connection = ConnectionUtil.getConnection();
-             PreparedStatement statement = connection.prepareStatement(query)) {
+                PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setString(1, login);
             ResultSet resultSet = statement.executeQuery();
             Driver driver = null;
