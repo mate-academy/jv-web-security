@@ -3,20 +3,37 @@
 <style>
     <%@include file='/WEB-INF/views/css/add.css' %>
 </style>
-<jsp:include page="/WEB-INF/views/index.jsp" />
+<jsp:include page="/WEB-INF/views/index.jsp"/>
 <html>
 <head>
-    <title>All drivers</title>
+    <title>Add driver</title>
 </head>
 <body>
 <div class="container">
-<h1 class="table_dark">Add driver:</h1>
-    <form method="post" action="${pageContext.request.contextPath}/drivers/add">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name">
-        <label for="name">License number</label>
-        <input type="text" id="license_number" name="license_number">
-        <button type="submit">Create</button>
+    <h1>Add driver</h1>
+    <h4 style="color:red">${errorMsg}</h4>
+    <form method="POST" action="${pageContext.request.contextPath}/drivers/add">
+        <label for="login">Input login:</label>
+        <br>
+        <input type="text" name="login" id="login">
+        <br><br>
+        <label for="password">Input password:</label>
+        <br>
+        <input type="password" name="password" id="password">
+        <br><br>
+        <label for="password_repeat">Repeat password:</label>
+        <br>
+        <input type="password" name="password_repeat" id="password_repeat">
+        <br><br>
+        <label for="name">Input name:</label>
+        <br>
+        <input type="text" name="name" id="name">
+        <br><br>
+        <label for="license_number">Input license number:</label>
+        <br>
+        <input type="text" name="license_number" id="license_number">
+        <br><br>
+        <button type="submit">Register</button>
     </form>
 </div>
 </body>

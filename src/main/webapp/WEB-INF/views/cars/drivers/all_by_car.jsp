@@ -30,8 +30,9 @@
                 <td><c:out value="${driver.id}"/></td>
                 <td><c:out value="${driver.name}"/></td>
                 <td><c:out value="${driver.licenseNumber}"/></td>
+                <td><c:out value="${driver.login}"/></td>
                 <td>
-                    <form action="/cars/drivers/remove" method="POST">
+                    <form action="${pageContext.request.contextPath}/cars/drivers/remove" method="POST">
                         <input type="hidden" name="driver_id" value="${driver.id}"/>
                         <input type="hidden" name="car_id" value="${id}"/>
                         <button type="submit">Remove</button>
@@ -41,11 +42,11 @@
         </c:forEach>
         </tbody>
     </table>
-    <form action="/cars/drivers/search" method="POST">
+    <form action="${pageContext.request.contextPath}/cars/drivers/add" method="POST">
         <input type="hidden" name="car_id" value="${id}"/>
-        <button style="background-color: #808080; color: #fff; width: 500px;">
-            Add new driver
-        </button>
+        <label for="driver_id">Input driver id</label>
+        <input type="text" id="driver_id" name="driver_id">
+        <button type="submit">Add</button>
     </form>
 </div>
 </body>

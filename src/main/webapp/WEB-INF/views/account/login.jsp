@@ -2,14 +2,15 @@
 <style>
     <%@include file='/WEB-INF/views/css/account.css' %>
 </style>
+<jsp:include page="/WEB-INF/views/index.jsp" />
 <html>
 <head>
     <title>Login</title>
 </head>
 <body>
-<h1>Taxi <span style="color: #ffdb58">Service</span></h1>
+<div class="container">
 <h4 style="color:red">${errorMsg}</h4>
-<form method="POST" action="/login">
+<form method="POST" action="${pageContext.request.contextPath}/login">
     <label for="login">Input login:</label>
     <br>
     <input type="text" name="login" id="login">
@@ -21,7 +22,8 @@
     <button type="submit">Login</button>
 </form>
 <p class="link">
-    <a href="${pageContext.request.contextPath}/registration">Don't have an account?</a>
+    <a href="${pageContext.request.contextPath}/drivers/add">Don't have an account?</a>
 </p>
+</div>
 </body>
 </html>

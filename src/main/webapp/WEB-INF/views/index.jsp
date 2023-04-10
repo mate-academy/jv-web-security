@@ -69,7 +69,7 @@
         <li><a href="${pageContext.request.contextPath}/cars">Display All Cars</a></li>
         <li><a href="${pageContext.request.contextPath}/drivers">Display All Drivers</a></li>
         <li><a href="${pageContext.request.contextPath}/manufacturers">Display All Manufacturers</a></li>
-        <li><a href="${pageContext.request.contextPath}/cars/my">My cars</a></li>
+        <li><a href="${pageContext.request.contextPath}/drivers/cars">My cars</a></li>
     </ul>
     <ul>
         <li><a href="${pageContext.request.contextPath}/cars/add">Create new Car</a></li>

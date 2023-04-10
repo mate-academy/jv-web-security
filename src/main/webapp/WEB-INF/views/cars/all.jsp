@@ -28,7 +28,7 @@
             <td><c:out value="${car.model}"/></td>
             <td><c:out value="${car.manufacturer.name}"/></td>
             <td>
-                <form action="cars/drivers" method="POST">
+                <form action="${pageContext.request.contextPath}cars/drivers" method="POST">
                     <input type="hidden" name="car_id" value="${car.id}" />
                     <button style="background-color: #808080; color: #fff;" type="submit" class="btn">Show drivers</button>
                 </form>
