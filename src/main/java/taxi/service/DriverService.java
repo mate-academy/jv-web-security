@@ -1,8 +1,8 @@
 package taxi.service;
 
-import taxi.exception.AuthenticationException;
+import java.util.Optional;
 import taxi.model.Driver;
 
 public interface DriverService extends GenericService<Driver> {
-    Driver findByLogin(String login) throws AuthenticationException;
+    Optional<Driver> findByLogin(String login);
 }

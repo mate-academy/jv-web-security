@@ -17,8 +17,8 @@ public class AuthenticationFilter implements Filter {
     private Set<String> allowedUrls = new HashSet<>();
 
     @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
-        allowedUrls.add("/authentication/login");
+    public void init(FilterConfig filterConfig) {
+        allowedUrls.add("/login");
         allowedUrls.add("/drivers/add");
     }
 
@@ -33,6 +33,6 @@ public class AuthenticationFilter implements Filter {
             filterChain.doFilter(request, response);
             return;
         }
-        response.sendRedirect(request.getContextPath() + "/authentication/login");
+        response.sendRedirect(request.getContextPath() + "/login");
     }
 }

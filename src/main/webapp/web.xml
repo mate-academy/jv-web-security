@@ -22,7 +22,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>loginDriver</servlet-name>
-        <url-pattern>/authentication/login</url-pattern>
+        <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -31,7 +31,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>logoutDriver</servlet-name>
-        <url-pattern>/authentication/logout</url-pattern>
+        <url-pattern>/logout</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -76,7 +76,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>allMyOwnCars</servlet-name>
-        <url-pattern>/cars/my</url-pattern>
+        <url-pattern>/drivers/cars</url-pattern>
     </servlet-mapping>
 
     <servlet>

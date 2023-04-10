@@ -5,7 +5,7 @@
 </style>
 <html>
 <head>
-    <title>All drivers</title>
+    <title>All logins</title>
 </head>
 <body>
 <%@include file="/WEB-INF/views/headers/logoutHeader.jsp" %>

@@ -4,6 +4,8 @@
     <title>Title</title>
 </head>
 <body>
-    <a style="margin: 3px" href="${pageContext.request.contextPath}/index">Main menu</a>
+    <a style="margin: 3px" href="${pageContext.request.contextPath}/index">
+        <input type="button" value="Main menu"/>
+    </a>
 </body>
 </html>
