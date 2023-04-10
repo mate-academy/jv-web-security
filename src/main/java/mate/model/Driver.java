@@ -12,15 +12,14 @@ public class Driver {
     public Driver() {
     }
 
-    public Driver(Long id, String name, String licenceNumber) {
-        this.id = id;
+    public Driver(String name, String licenceNumber) {
         this.name = name;
         this.licenceNumber = licenceNumber;
     }
 
-    public Driver(String name, String licenceNumber) {
-        this.name = name;
-        this.licenceNumber = licenceNumber;
+    public Driver(Long id, String name, String licenceNumber) {
+        this(name, licenceNumber);
+        this.id = id;
     }
 
     public Driver(String name, String licenceNumber, String login, String password) {
