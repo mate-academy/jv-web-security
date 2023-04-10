@@ -22,7 +22,7 @@ public class LoginController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         if (req.getSession().getAttribute("driverId") != null) {
-            resp.sendRedirect("/home");
+            resp.sendRedirect(req.getContextPath() + "/home");
             return;
         }
         req.getRequestDispatcher("/WEB-INF/views/login/login.jsp").forward(req, resp);
@@ -37,7 +37,7 @@ public class LoginController extends HttpServlet {
             Driver driver = authenticationService.login(username, password);
             HttpSession session = req.getSession();
             session.setAttribute("driver_id", driver.getId());
-            resp.sendRedirect("/home");
+            resp.sendRedirect(req.getContextPath() + "/home");
         } catch (AuthenticationException e) {
             req.setAttribute("error", e.getMessage());
             req.getRequestDispatcher("/WEB-INF/views/login/login.jsp").forward(req, resp);
