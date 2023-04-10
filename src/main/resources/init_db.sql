@@ -13,8 +13,8 @@ CREATE TABLE `drivers`  (
                             `license_number` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
                             `is_deleted` BIT(1) NOT NULL DEFAULT b'0',
                             `login` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL UNIQUE,
-                            `hash_password` BLOB NOT NULL,
-                            `salt_password` BLOB NOT NULL,
+                            `hash_password` VARBINARY(64) NOT NULL,
+                            `salt_password` VARBINARY(16) NOT NULL,
                             PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
