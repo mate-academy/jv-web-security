@@ -1,4 +1,4 @@
-package taxi.controller.ucp;
+package taxi.controller.cabinet;
 
 import java.io.IOException;
 import java.util.List;
@@ -12,7 +12,7 @@ import taxi.model.Driver;
 import taxi.service.CarService;
 import taxi.service.DriverService;
 
-public class UcpController extends HttpServlet {
+public class GetMyCurrentCarsController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
     private final DriverService driverService =
             (DriverService) injector.getInstance(DriverService.class);
@@ -28,6 +28,6 @@ public class UcpController extends HttpServlet {
         req.setAttribute("driver", driver);
         req.setAttribute("cars", cars);
         req.setAttribute("driverCars", driverCars);
-        req.getRequestDispatcher("WEB-INF/views/ucp/all.jsp").forward(req, resp);
+        req.getRequestDispatcher("WEB-INF/views/cabinet/all.jsp").forward(req, resp);
     }
 }

@@ -1,4 +1,4 @@
-package taxi.controller.ucp;
+package taxi.controller.car;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -11,7 +11,7 @@ import taxi.model.Driver;
 import taxi.service.CarService;
 import taxi.service.DriverService;
 
-public class RemoveCarController extends HttpServlet {
+public class RemoveDriverFromCarController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
     private final CarService carService = (CarService) injector.getInstance(CarService.class);
     private final DriverService driverService =

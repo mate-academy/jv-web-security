@@ -9,7 +9,7 @@
 </head>
 <body>
 <%@ include file="/WEB-INF/views/commons/header.jsp"%><br>
-<form method="post" id="car" action="${pageContext.request.contextPath}/ucp/add"></form>
+<form method="post" id="car" action="${pageContext.request.contextPath}/cars/drivers/add"></form>
 <h1 class="table_dark">Current driver:</h1>
 <table border="1" class="table_dark">
   <tr>

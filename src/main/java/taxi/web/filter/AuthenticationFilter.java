@@ -17,26 +17,23 @@ public class AuthenticationFilter implements Filter {
     private Set<String> allowedUrls = new HashSet<>();
 
     @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
+    public void init(FilterConfig filterConfig) {
         allowedUrls.add("/login");
         allowedUrls.add("/register");
+        allowedUrls.add("/drivers/add");
     }
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
                          FilterChain filterChain) throws IOException, ServletException {
-        HttpServletRequest req = (HttpServletRequest) servletRequest;
-        HttpServletResponse resp = (HttpServletResponse) servletResponse;
-        HttpSession sessions = req.getSession();
+        HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
+        HttpServletResponse httpServletResponse = (HttpServletResponse) servletResponse;
+        HttpSession sessions = httpServletRequest.getSession();
         Long userId = (Long) sessions.getAttribute("driver_id");
-        if (userId == null && allowedUrls.contains(req.getServletPath())) {
-            filterChain.doFilter(req, resp);
+        if (userId != null || allowedUrls.contains(httpServletRequest.getServletPath())) {
+            filterChain.doFilter(httpServletRequest, httpServletResponse);
             return;
         }
-        if (userId == null) {
-            resp.sendRedirect("/login");
-            return;
-        }
-        filterChain.doFilter(req, resp);
+        httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/login");
     }
 }
