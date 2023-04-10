@@ -17,7 +17,7 @@
     <tr>
         <th>ID</th>
         <th>Name</th>
-        <th>Login</th>
+        <th>Username</th>
         <th>License number</th>
         <th>Delete</th>
     </tr>
@@ -30,7 +30,7 @@
                 <c:out value="${driver.name}"/>
             </td>
             <td>
-                <c:out value="${driver.login}"/>
+                <c:out value="${driver.username}"/>
             </td>
             <td>
                 <c:out value="${driver.licenseNumber}"/>

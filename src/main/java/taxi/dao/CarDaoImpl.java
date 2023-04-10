@@ -217,7 +217,7 @@ public class CarDaoImpl implements CarDao {
         driver.setId(driverId);
         driver.setName(name);
         driver.setLicenseNumber(licenseNumber);
-        driver.setLogin(username);
+        driver.setUsername(username);
         driver.setPassword(password);
         return driver;
     }

@@ -6,7 +6,7 @@ public class Driver {
     private Long id;
     private String name;
     private String licenseNumber;
-    private String login;
+    private String username;
     private String password;
 
     public Driver() {
@@ -17,10 +17,10 @@ public class Driver {
         this.licenseNumber = licenseNumber;
     }
 
-    public Driver(String name, String licenseNumber, String login, String password) {
+    public Driver(String name, String licenseNumber, String username, String password) {
         this.name = name;
         this.licenseNumber = licenseNumber;
-        this.login = login;
+        this.username = username;
         this.password = password;
     }
 
@@ -48,12 +48,12 @@ public class Driver {
         this.licenseNumber = licenseNumber;
     }
 
-    public String getLogin() {
-        return login;
+    public String getUsername() {
+        return username;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -76,12 +76,12 @@ public class Driver {
         return Objects.equals(id, driver.id)
                 && Objects.equals(name, driver.name)
                 && Objects.equals(licenseNumber, driver.licenseNumber)
-                && Objects.equals(login, driver.login)
+                && Objects.equals(username, driver.username)
                 && Objects.equals(password, driver.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, licenseNumber, login, password);
+        return Objects.hash(id, name, licenseNumber, username, password);
     }
 }
