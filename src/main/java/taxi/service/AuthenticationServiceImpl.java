@@ -1,6 +1,7 @@
 package taxi.service;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.Optional;
 import taxi.exception.AuthenticationException;
 import taxi.lib.Injector;
 import taxi.lib.Service;
@@ -15,11 +16,12 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     @Override
     public Driver login(String login, String password) throws AuthenticationException {
-        Driver driver = driverService.findByLogin(login);
+        Optional<Driver> driver = driverService.findByLogin(login);
         try {
-            if (PasswordHashing.checkPassword(password, driver.getHashPassword(),
-                    driver.getSaltPassword())) {
-                return driver;
+            if (driver.isPresent() && PasswordHashing.checkPassword(
+                    password, driver.get().getHashPassword(),
+                    driver.get().getSaltPassword())) {
+                return driver.get();
             }
             throw new AuthenticationException("Login or password was incorrect");
         } catch (NoSuchAlgorithmException e) {
