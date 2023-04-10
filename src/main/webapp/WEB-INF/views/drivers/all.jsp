@@ -1,15 +1,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <style>
-    <%@include file='/WEB-INF/views/css/table_dark.css' %>
+    <%@include file='/WEB-INF/views/css/all.css' %>
 </style>
+<jsp:include page="/WEB-INF/views/index.jsp" />
 <html>
 <head>
     <title>All drivers</title>
 </head>
 <body>
-<h1 class="table_dark">All drivers:</h1>
-<table border="1" class="table_dark">
+<div class="container">
+    <h1>All drivers</h1>
+<table>
     <tr>
         <th>ID</th>
         <th>Name</th>
@@ -28,10 +30,12 @@
                 <c:out value="${driver.licenseNumber}"/>
             </td>
             <td>
-                <a href="${pageContext.request.contextPath}/drivers/delete?id=${driver.id}">DELETE</a>
+                <a href="${pageContext.request.contextPath}/drivers/delete?id=${driver.id}"
+                   class="delete-button">Delete</a>
             </td>
         </tr>
     </c:forEach>
 </table>
+</div>
 </body>
 </html>
