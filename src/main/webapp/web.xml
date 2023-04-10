@@ -126,7 +126,7 @@
 
     <servlet>
         <servlet-name>getMyCurrentCarController</servlet-name>
-        <servlet-class>taxi.controller.car.GetMyCurrentCarsController</servlet-class>
+        <servlet-class>taxi.controller.driver.GetMyCurrentCarsController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>getMyCurrentCarController</servlet-name>
