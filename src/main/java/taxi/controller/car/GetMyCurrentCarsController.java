@@ -2,8 +2,6 @@ package taxi.controller.car;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,11 +21,7 @@ public class GetMyCurrentCarsController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         Long driverId = (Long) req.getSession().getAttribute("user_id");
-        List<Car> cars = carService.getAll().stream()
-                .filter(car -> car.getDrivers().stream()
-                        .anyMatch(driver -> Objects.equals(driver.getId(), driverId)))
-                .collect(Collectors.toList());
-        req.setAttribute("cars", cars);
+        List<Car> cars = carService.getAllByDriver(driverId);
         req.getRequestDispatcher("/WEB-INF/views/cars/all_car_by_driver.jsp").forward(req, resp);
     }
 }

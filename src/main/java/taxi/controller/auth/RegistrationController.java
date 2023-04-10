@@ -33,7 +33,7 @@ public class RegistrationController extends HttpServlet {
         Driver driver = new Driver(name, licenseNumber, username, password);
         try {
             registerService.register(driver);
-            req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
+            resp.sendRedirect(req.getContextPath() + "/login.jsp");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMsg", e.getMessage());
             req.getRequestDispatcher("/WEB-INF/views/register.jsp").forward(req, resp);

@@ -102,7 +102,7 @@ public class DriverDaoImpl implements DriverDao {
 
     @Override
     public Optional<Driver> findByUsername(String username) {
-        String query = "SELECT * FROM drivers WHERE username = ?;";
+        String query = "SELECT * FROM drivers WHERE username = ?AND is_deleted = FALSE;";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement preparedStatement
                         = connection.prepareStatement(query)) {
