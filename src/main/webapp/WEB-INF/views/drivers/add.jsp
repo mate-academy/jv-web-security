@@ -17,7 +17,7 @@
         <th>License number</th>
         <th>Login</th>
         <th>Password</th>
-        <th>Repeat password</th>>
+        <th>Repeat password</th>
         <th>Add</th>
     </tr>
     <tr>
