@@ -30,21 +30,15 @@ public class LoginController extends HttpServlet {
 
         String login = req.getParameter("login");
         String password = req.getParameter("password");
-        if (login != null && password != null) {
-            try {
-                Driver driver = authenticationService.login(login, password);
-                if (driver != null) {
-                    HttpSession session = req.getSession();
-                    session.setAttribute("id", driver.getId());
-                    resp.sendRedirect(req.getContextPath() + "/index");
-                }
-            } catch (AuthenticationException e) {
-                req.setAttribute("errorMsg", "Invalid credentials!");
-                req.getRequestDispatcher("/WEB-INF/views/authentication/login.jsp")
-                        .forward(req, resp);
-            }
-        } else {
-            req.setAttribute("errorMsg", "Fill all fields!");
+        try {
+            Driver driver = authenticationService.login(login, password);
+            HttpSession session = req.getSession();
+            session.setAttribute("id", driver.getId());
+            resp.sendRedirect(req.getContextPath() + "/index");
+        } catch (AuthenticationException e) {
+            req.setAttribute("errorMsg", "Invalid credentials!");
+            req.getRequestDispatcher("/WEB-INF/views/authentication/login.jsp")
+                    .forward(req, resp);
         }
     }
 }
