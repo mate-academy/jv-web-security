@@ -1,9 +1,11 @@
-package taxi.service;
+package taxi.service.impl;
 
 import taxi.exception.AuthenticationException;
 import taxi.lib.Injector;
 import taxi.lib.Service;
 import taxi.model.Driver;
+import taxi.service.AuthenticationService;
+import taxi.service.DriverService;
 
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
@@ -12,7 +14,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
             injector.getInstance(DriverService.class);
 
     @Override
-    public Driver login(String login, String password) throws AuthenticationException{
+    public Driver login(String login, String password) throws AuthenticationException {
         Driver driver = driverService.findByLogin(login);
         if (driver.getPassword().equals(password)) {
             return driver;
