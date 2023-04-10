@@ -14,7 +14,6 @@ import taxi.model.Driver;
 import taxi.util.ConnectionUtil;
 
 @Dao
-@SuppressWarnings("unused")
 public class DriverDaoImpl implements DriverDao {
     @Override
     public Driver create(Driver driver) {
@@ -103,7 +102,23 @@ public class DriverDaoImpl implements DriverDao {
         }
     }
 
-    @SuppressWarnings("Duplicates")
+    @Override
+    public Optional<Driver> findByLogin(String login) {
+        String query = "SELECT * FROM drivers WHERE login = ? AND is_deleted = FALSE";
+        try (Connection connection = ConnectionUtil.getConnection();
+                PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, login);
+            ResultSet resultSet = statement.executeQuery();
+            Driver driver = null;
+            if (resultSet.next()) {
+                driver = parseDriverFromResultSet(resultSet);
+            }
+            return Optional.ofNullable(driver);
+        } catch (SQLException e) {
+            throw new DataProcessingException("Can't get driver by login " + login, e);
+        }
+    }
+
     private Driver parseDriverFromResultSet(ResultSet resultSet) throws SQLException {
         Long id = resultSet.getObject("id", Long.class);
         String name = resultSet.getString("name");

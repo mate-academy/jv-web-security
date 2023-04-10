@@ -16,7 +16,6 @@ import taxi.model.Manufacturer;
 import taxi.util.ConnectionUtil;
 
 @Dao
-@SuppressWarnings("unused")
 public class CarDaoImpl implements CarDao {
     @Override
     public Car create(Car car) {
@@ -208,7 +207,6 @@ public class CarDaoImpl implements CarDao {
         }
     }
 
-    @SuppressWarnings("Duplicates")
     private Driver parseDriverFromResultSet(ResultSet resultSet) throws SQLException {
         Long driverId = resultSet.getObject("id", Long.class);
         String name = resultSet.getString("name");

@@ -4,6 +4,7 @@
     <%@include file='/WEB-INF/views/css/table_dark.css' %>
 </style>
 <html>
+<%@include file='/WEB-INF/views/header.jsp' %>
 <head>
     <title>All drivers</title>
 </head>
