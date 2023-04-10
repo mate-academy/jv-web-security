@@ -25,14 +25,14 @@ public class AuthenticationFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
                          FilterChain filterChain) throws IOException, ServletException {
-        HttpServletRequest req = (HttpServletRequest) servletRequest;
-        HttpServletResponse resp = (HttpServletResponse) servletResponse;
-        HttpSession session = req.getSession();
+        HttpServletRequest request = (HttpServletRequest) servletRequest;
+        HttpServletResponse response = (HttpServletResponse) servletResponse;
+        HttpSession session = request.getSession();
         Long userId = (Long) session.getAttribute("user_id");
-        if (userId != null || allowedUrls.contains(req.getServletPath())) {
-            filterChain.doFilter(req, resp);
+        if (userId != null || allowedUrls.contains(request.getServletPath())) {
+            filterChain.doFilter(request, response);
             return;
         }
-        resp.sendRedirect(req.getContextPath() + "/login");
+        response.sendRedirect(request.getContextPath() + "/login");
     }
 }
