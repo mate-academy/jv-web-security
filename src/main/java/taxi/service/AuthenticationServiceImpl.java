@@ -1,6 +1,5 @@
 package taxi.service;
 
-import java.util.Optional;
 import taxi.dao.DriverDao;
 import taxi.exception.AuthenticationException;
 import taxi.lib.Inject;
