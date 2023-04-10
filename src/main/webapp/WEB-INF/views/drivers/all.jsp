@@ -18,6 +18,7 @@
         <td>ID</td>
         <td>NAME</td>
         <td>LICENSE NUMBER</td>
+        <td>LOGIN</td>
         <td>DELETE</td>
     </tr>
     </thead>
@@ -27,6 +28,7 @@
             <td><c:out value="${driver.id}"/></td>
             <td><c:out value="${driver.name}"/></td>
             <td><c:out value="${driver.licenseNumber}"/></td>
+            <td><c:out value="${driver.login}"/></td>
             <td><a href="${pageContext.request.contextPath}/drivers/delete?id=${driver.id}">delete</a></td>
         </tr>
     </c:forEach>
