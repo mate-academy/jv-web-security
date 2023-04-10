@@ -5,7 +5,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import taxi.lib.Injector;
 import taxi.model.Driver;
 import taxi.service.DriverService;
@@ -36,12 +35,5 @@ public class AddDriverController extends HttpServlet {
         }
         Driver driver = new Driver(name, licenseNumber, login, password);
         driverService.create(driver);
-        HttpSession session = req.getSession();
-        Long userId = (Long) session.getAttribute("user_id");
-        if (userId == null) {
-            resp.sendRedirect(req.getContextPath() + "/login");
-            return;
-        }
-        resp.sendRedirect(req.getContextPath() + "/index");
     }
 }
