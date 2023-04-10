@@ -21,10 +21,6 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        if (req.getSession().getAttribute("driverId") != null) {
-            resp.sendRedirect(req.getContextPath() + "/home");
-            return;
-        }
         req.getRequestDispatcher("/WEB-INF/views/login/login.jsp").forward(req, resp);
     }
 

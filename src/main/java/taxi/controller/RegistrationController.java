@@ -10,7 +10,7 @@ import taxi.lib.Injector;
 import taxi.model.Driver;
 import taxi.service.DriverService;
 
-@WebServlet(urlPatterns = "/registration")
+@WebServlet(urlPatterns = "/register")
 public class RegistrationController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
     private final DriverService driverService =

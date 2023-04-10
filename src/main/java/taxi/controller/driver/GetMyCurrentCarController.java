@@ -12,7 +12,7 @@ import taxi.model.Car;
 import taxi.service.CarService;
 import taxi.service.ManufacturerService;
 
-@WebServlet(urlPatterns = "/cars/my")
+@WebServlet(urlPatterns = "/drivers/cars")
 public class GetMyCurrentCarController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
     private final CarService carService =
@@ -26,7 +26,6 @@ public class GetMyCurrentCarController extends HttpServlet {
         Long driverId = (Long) req.getSession().getAttribute("driver_id");
         List<Car> cars = carService.getAllByDriver(driverId);
         req.setAttribute("cars", cars);
-        req.setAttribute("manufacturers", manufacturerService.getAll());
         req.getRequestDispatcher("/WEB-INF/views/cars/cars.jsp").forward(req, resp);
     }
 }

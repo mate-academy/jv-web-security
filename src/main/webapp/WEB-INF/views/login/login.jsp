@@ -11,7 +11,7 @@
         <button type="submit">Confirm</button>
     </form>
     <h1>New user?</h1>
-    <form method="get" action="${pageContext.request.contextPath}/registration">
+    <form method="get" action="${pageContext.request.contextPath}/register">
         <button type="submit">Registration</button>
     </form>
 </body>

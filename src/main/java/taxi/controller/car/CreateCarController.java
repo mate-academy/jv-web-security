@@ -15,7 +15,7 @@ import taxi.service.CarService;
 import taxi.service.ManufacturerService;
 
 @WebServlet(urlPatterns = "/cars/create")
-public class CreationCarController extends HttpServlet {
+public class CreateCarController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
     private final ManufacturerService manufacturerService =
             (ManufacturerService) injector.getInstance(ManufacturerService.class);

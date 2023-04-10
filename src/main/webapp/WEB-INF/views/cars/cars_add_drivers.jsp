@@ -6,7 +6,7 @@
 </head>
 <body>
 <%@include file="/WEB-INF/views/header.jsp"%><br>
-<form method="post" action="${pageContext.request.contextPath}/cars/add">
+<form method="post" action="${pageContext.request.contextPath}/cars/drivers/add">
   <h1>Add drivers to car form!</h1>
   Car<select name="car_id">
     <c:forEach items="${cars}" var="car">

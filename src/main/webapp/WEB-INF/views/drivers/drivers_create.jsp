@@ -5,7 +5,7 @@
 </head>
 <body>
   <h1>Drivers Registration Form!</h1>
-  <form method="post" action="${pageContext.request.contextPath}/registration">
+  <form method="post" action="${pageContext.request.contextPath}/register">
     Name <input type="text" name="name"><br>
     License Number <input type="text" name="licenseNumber"><br>
     Login <input type="text" name="login"><br>

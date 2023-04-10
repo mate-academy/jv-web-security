@@ -10,7 +10,7 @@ import taxi.lib.Injector;
 import taxi.service.ManufacturerService;
 
 @WebServlet(urlPatterns = "/manufacturers")
-public class GetAllManufacturerController extends HttpServlet {
+public class GetAllManufacturersController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
     private final ManufacturerService manufacturerService =
             (ManufacturerService) injector.getInstance(ManufacturerService.class);
@@ -19,7 +19,7 @@ public class GetAllManufacturerController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         req.setAttribute("manufacturers", manufacturerService.getAll());
-        req.getRequestDispatcher("WEB-INF/views/manufacturers/manufacturers.jsp")
+        req.getRequestDispatcher("/WEB-INF/views/manufacturers/manufacturers.jsp")
                 .forward(req, resp);
     }
 }

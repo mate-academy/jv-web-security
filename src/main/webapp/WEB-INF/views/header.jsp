@@ -16,7 +16,7 @@
     <a href="${pageContext.request.contextPath}/cars">
       <input type="button" value="Cars" />
     </a>
-    <a href="${pageContext.request.contextPath}/cars/my">
+    <a href="${pageContext.request.contextPath}/drivers/cars">
       <input type="button" value="My cars" />
     </a>
     <a href="${pageContext.request.contextPath}/logout">
