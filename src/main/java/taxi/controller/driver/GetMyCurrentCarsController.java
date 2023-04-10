@@ -14,7 +14,7 @@ import taxi.service.CarService;
 
 @WebServlet(urlPatterns = "/drivers/cars")
 public class GetMyCurrentCarsController extends HttpServlet {
-    private final Injector injector = Injector.getInstance("taxi");
+    private static final Injector injector = Injector.getInstance("taxi");
     private final CarService carService =
             (CarService) injector.getInstance(CarService.class);
 
@@ -27,5 +27,4 @@ public class GetMyCurrentCarsController extends HttpServlet {
         req.setAttribute("cars", cars);
         req.getRequestDispatcher("/WEB-INF/views/cars/all.jsp").forward(req, resp);
     }
-
 }
