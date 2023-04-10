@@ -26,6 +26,11 @@ public class RegisterController extends HttpServlet {
         String licenseNumber = req.getParameter("license_number");
         String login = req.getParameter("login");
         String password = req.getParameter("password");
+        String passwordRepeat = req.getParameter("repeatPassword");
+        if (!password.equals(passwordRepeat)) {
+            req.setAttribute("errorMsg", "Passwords do not match");
+            req.getRequestDispatcher("/WEB-INF/views/register.jsp").forward(req, resp);
+        }
         Driver driver = new Driver(name, licenseNumber, login, password);
         driverService.create(driver);
         resp.sendRedirect("/login");
