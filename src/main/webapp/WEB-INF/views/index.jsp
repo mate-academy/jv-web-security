@@ -7,12 +7,14 @@
     <title>My team</title>
 </head>
 <body>
+<%@include file="/WEB-INF/views/header.jsp" %>
 <form method="post" id="redirect"></form>
-<h1 class="table_dark">Hello, mates</h1>
+<h1 class="table_dark">Hello, driver</h1>
 <table class="table_dark">
     <tr>
         <th>Redirect to</th>
     </tr>
+    <tr><td><a href="${pageContext.request.contextPath}/drivers/cars">Display my Cars</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/drivers">Display All Drivers</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/cars">Display All Cars</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/manufacturers">Display All Manufacturers</a></td></tr>
