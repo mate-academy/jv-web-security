@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import taxi.lib.Injector;
-import taxi.model.Driver;
 import taxi.model.Manufacturer;
 import taxi.service.ManufacturerService;
 
@@ -20,7 +19,8 @@ public class EditManufacturerController extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        Manufacturer manufacturer = manufacturerService.get(Long.parseLong(req.getParameter("id")));
+        Manufacturer manufacturer =
+                manufacturerService.get(Long.parseLong(req.getParameter("id")));
         req.setAttribute("id", manufacturer.getId());
         req.setAttribute("name", manufacturer.getName());
         req.setAttribute("country", manufacturer.getCountry());
