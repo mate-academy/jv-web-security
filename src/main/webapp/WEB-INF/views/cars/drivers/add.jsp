@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:include page="/WEB-INF/views/index.jsp"/>
 <style>
-    <%@include file='/WEB-INF/views/css/add.css' %>
+    <%@include file='/WEB-INF/views/css/all.css' %>
 </style>
 <html>
 <head>
@@ -44,7 +44,6 @@
     </tbody>
 </table>
 <form action="${pageContext.request.contextPath}/cars/drivers/add" method="POST">
-    <input type="text" id="car_id" name="car_id">
     <input type="hidden" name="car_id" value="${id}"/>
     <label for="id">Input driver id</label>
     <input type="text" id="id" name="id">
