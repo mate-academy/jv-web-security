@@ -3,6 +3,7 @@ package taxi.service;
 import java.util.List;
 import java.util.NoSuchElementException;
 import taxi.dao.DriverDao;
+import taxi.exception.AuthenticationException;
 import taxi.lib.Inject;
 import taxi.lib.Service;
 import taxi.model.Driver;
@@ -21,6 +22,13 @@ public class DriverServiceImpl implements DriverService {
     public Driver get(Long id) {
         return driverDao.get(id).orElseThrow(() ->
             new NoSuchElementException("Can't get driver by id: " + id)
+        );
+    }
+
+    @Override
+    public Driver findByLogin(String login) throws AuthenticationException {
+        return driverDao.findByLogin(login).orElseThrow(() ->
+            new AuthenticationException("Login or password was incorrect!")
         );
     }
 
