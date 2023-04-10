@@ -124,6 +124,42 @@
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>logoutDriver</servlet-name>
+        <servlet-class>taxi.controller.authentication.LogoutController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logoutDriver</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ucp</servlet-name>
+        <servlet-class>taxi.controller.ucp.UcpController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ucp</servlet-name>
+        <url-pattern>/ucp</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ucpRemoveCar</servlet-name>
+        <servlet-class>taxi.controller.ucp.RemoveCarController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ucpRemoveCar</servlet-name>
+        <url-pattern>/ucp/remove</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ucpAddCar</servlet-name>
+        <servlet-class>taxi.controller.ucp.AddCarController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ucpAddCar</servlet-name>
+        <url-pattern>/ucp/add</url-pattern>
+    </servlet-mapping>r
+
     <filter>
         <filter-name>authenticationFilter</filter-name>
         <filter-class>taxi.web.filter.AuthenticationFilter</filter-class>

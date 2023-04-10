@@ -8,6 +8,34 @@
     <title>All cars</title>
 </head>
 <body>
+<%@ include file="/WEB-INF/views/commons/header.jsp"%><br>
+<form method="post" id="car" action="${pageContext.request.contextPath}/cars/add"></form>
+<h1 class="table_dark">Add car:</h1>
+<table border="1" class="table_dark">
+    <tr>
+        <th>Model</th>
+        <th>Manufacturer</th>
+        <th>Add</th>
+    </tr>
+    <tr>
+        <td>
+            <input type="text" name="model" form="car" required>
+        </td>
+        <td>
+            <select name="manufacturer_id" form="car" required>
+                <c:forEach items="${manufacturers}" var="manufacturer">
+                    <option value="${manufacturer.id}">
+                        <c:out value="${manufacturer.name}" />
+                    </option>
+                </c:forEach>
+            </select><br>
+        </td>
+        <td>
+            <input type="submit" name="add" form="car">
+        </td>
+    </tr>
+</table>
+<br><br>
 <h1 class="table_dark">All cars:</h1>
 <table border="1" class="table_dark">
     <tr>

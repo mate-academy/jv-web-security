@@ -10,9 +10,24 @@
 <h1 class="table_dark">Login</h1>
 <h4 style="color:red">${errorMsg}</h4>
 <form method="post" id="login" action="${pageContext.request.contextPath}/login"></form>
-<input type="text" name="username" form="login" required>
-<input type="text" name="password" form="login" required><br>
-<input type="submit" name="login" form="login" required><br>
+<table border="1" class="table_dark">
+    <tr>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Login</th>
+    </tr>
+    <tr>
+        <td>
+            <input type="text" name="username" form="login" required>
+        </td>
+        <td>
+            <input type="password" name="password" form="login" required>
+        </td>
+        <td>
+            <input type="submit" name="login" form="login">
+        </td>
+    </tr>
+</table>
 <a href="/register">Register</a>
 </body>
 </html>
