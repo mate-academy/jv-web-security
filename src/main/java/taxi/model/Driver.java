@@ -7,7 +7,6 @@ public class Driver {
     private String name;
     private String licenseNumber;
     private String login;
-
     private String password;
 
     public Driver() {
