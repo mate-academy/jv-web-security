@@ -58,7 +58,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>allCarsByLoggedInDriver</servlet-name>
-        <url-pattern>/my/cars</url-pattern>
+        <url-pattern>/drivers/cars</url-pattern>
     </servlet-mapping>
 
     <servlet>
