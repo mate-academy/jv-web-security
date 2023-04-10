@@ -28,6 +28,6 @@
         </td>
     </tr>
 </table>
-<a href="/register">Register</a>
+<a href="/drivers/add">Register</a>
 </body>
 </html>

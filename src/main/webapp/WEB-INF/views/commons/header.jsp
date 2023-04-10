@@ -4,7 +4,7 @@
     <title>Title</title>
 </head>
 <body>
-<a href="/">
+<a href="${pageContext.request.contextPath}/">
     <input type="button" value="home"/>
 </a>
 <a href="${pageContext.request.contextPath}/drivers">

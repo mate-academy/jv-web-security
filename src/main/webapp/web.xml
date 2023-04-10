@@ -42,6 +42,10 @@
         <servlet-name>addDriver</servlet-name>
         <url-pattern>/drivers/add</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addDriver</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
 
     <servlet>
         <servlet-name>allCars</servlet-name>
@@ -104,15 +108,6 @@
     <servlet-mapping>
         <servlet-name>deleteManufacturer</servlet-name>
         <url-pattern>/manufacturers/delete</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>registerDriver</servlet-name>
-        <servlet-class>taxi.controller.authentication.RegistrationController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>registerDriver</servlet-name>
-        <url-pattern>/register</url-pattern>
     </servlet-mapping>
 
     <servlet>
