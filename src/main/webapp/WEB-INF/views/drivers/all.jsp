@@ -8,11 +8,17 @@
     <title>All drivers</title>
 </head>
 <body>
-<h1 class="table_dark">All drivers:</h1>
+<%@ include file="/WEB-INF/views/navigationBar.jsp"%>
+<div style="font-family: arial,serif;
+float: left; display: inline-block;
+background: url('https://i2.paste.pics/N2F82.png')
+no-repeat; width: 1466px; height: 674px">
+<h1 class="table_dark">Drivers:</h1>
 <table border="1" class="table_dark">
     <tr>
         <th>ID</th>
         <th>Name</th>
+        <th>Login</th>
         <th>License number</th>
         <th>Delete</th>
     </tr>
@@ -25,6 +31,9 @@
                 <c:out value="${driver.name}"/>
             </td>
             <td>
+                <c:out value="${driver.login}"/>
+            </td>
+            <td>
                 <c:out value="${driver.licenseNumber}"/>
             </td>
             <td>
@@ -33,5 +42,7 @@
         </tr>
     </c:forEach>
 </table>
+    <%@include file='/WEB-INF/views/footer.jsp' %>
+</div>
 </body>
 </html>
