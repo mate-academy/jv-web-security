@@ -1,0 +1,13 @@
+.body_center {
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+    color: #00001a;
+    background-color: #f2f2f2;
+}
+.id_px {
+    width: 30px;
+}
+.value_px {
+    width: 125px;
+}

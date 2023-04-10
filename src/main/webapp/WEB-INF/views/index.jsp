@@ -1,25 +1,27 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <style>
-    <%@include file='/WEB-INF/views/css/table_dark.css' %>
+    <%@include file='/WEB-INF/views/css/body_center.css' %>
 </style>
 <html>
 <head>
-    <title>My team</title>
+    <title>ATMS-Home</title>
 </head>
-<body>
-<form method="post" id="redirect"></form>
-<h1 class="table_dark">Hello, mates</h1>
-<table class="table_dark">
-    <tr>
-        <th>Redirect to</th>
-    </tr>
-    <tr><td><a href="${pageContext.request.contextPath}/drivers">Display All Drivers</a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/cars">Display All Cars</a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/manufacturers">Display All Manufacturers</a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/drivers/add">Create new Driver</a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/cars/add">Create new Car</a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/manufacturers/add">Create new Manufacturer</a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/cars/drivers/add">Add Driver to Car</a></td></tr>
-</table>
+<body class="body_center">
+<h2>Welcome to ATMS<br>Anonymous Taxi Management System</h2>
+<a href="${pageContext.request.contextPath}/manufacturers">
+    <input type="button" value="Manage manufacturers" />
+</a><br><br>
+<a href="${pageContext.request.contextPath}/drivers">
+    <input type="button" value="Manage drivers" />
+</a><br><br>
+<a href="${pageContext.request.contextPath}/cars">
+    <input type="button" value="Manage cars" />
+</a><br><br>
+<a href="${pageContext.request.contextPath}/cabinet">
+    <input type="button" value="Manage me" />
+</a><br><br>
+<a href="${pageContext.request.contextPath}/logout">
+    <input type="button" value="Logout" />
+</a><br>
 </body>
 </html>

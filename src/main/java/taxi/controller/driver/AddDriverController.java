@@ -15,17 +15,21 @@ public class AddDriverController extends HttpServlet {
             .getInstance(DriverService.class);
 
     @Override
-    public void doGet(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/views/drivers/add.jsp").forward(req, resp);
-    }
-
-    @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        String name = req.getParameter("name");
+    public void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws IOException, ServletException {
+        Driver driver = new Driver();
+        driver.setLogin(req.getParameter("login"));
+        driver.setPassword(req.getParameter("password"));
+        driver.setName(req.getParameter("name"));
         String licenseNumber = req.getParameter("license_number");
-        Driver driver = new Driver(name, licenseNumber);
+        driver.setLicenseNumber(
+                licenseNumber != null ? licenseNumber : "CHANGE" + req.getParameter("login"));
         driverService.create(driver);
-        resp.sendRedirect(req.getContextPath() + "/drivers/add");
+        if (licenseNumber == null) {
+            req.setAttribute("successMsg", "Added successfully! Use login form");
+            req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
+        } else {
+            resp.sendRedirect(req.getContextPath() + "/drivers");
+        }
     }
 }
