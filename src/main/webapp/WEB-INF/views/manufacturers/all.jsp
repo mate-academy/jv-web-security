@@ -6,15 +6,17 @@
 <html>
 <head>
     <title>All manufacturers</title>
+    <%@include file="/WEB-INF/views/header.jsp" %>
+    <br>
+    <%@include file="/WEB-INF/views/MainPage.jsp" %>
 </head>
 <body>
-<%@include file="/WEB-INF/views/header.jsp"%>
 <h1 class="table_dark">All manufacturers:</h1>
 <table border="1" class="table_dark">
     <tr>
         <th>ID</th>
         <th>Name</th>
-        <th>License number</th>
+        <th>Country</th>
         <th>Delete</th>
     </tr>
     <jsp:useBean id="manufacturers" scope="request" type="java.util.List"/>

@@ -6,10 +6,13 @@
 <html>
 <head>
     <title>Manufacturers</title>
+    <%@include file="/WEB-INF/views/header.jsp" %>
+    <br>
+    <%@include file="/WEB-INF/views/MainPage.jsp" %>
 </head>
 <body>
-<%@include file="/WEB-INF/views/header.jsp"%>
-<form method="post" id="manufacturer" action="${pageContext.request.contextPath}/manufacturers/add"></form>
+<form method="post" id="manufacturer"
+      action="${pageContext.request.contextPath}/manufacturers/add"></form>
 <h1 class="table_dark">Add manufacturer:</h1>
 <table border="1" class="table_dark">
     <tr>

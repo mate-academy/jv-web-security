@@ -5,8 +5,8 @@
 </head>
 <body>
 <h1>Login Page</h1>
-<h4 style="collor: red">${errorMsg}</h4>
 <form method="post" action="${pageContext.request.contextPath}/login">
+    <h4 style="color: red">${errorMsg}</h4>
     Please enter your login: <label>
     <input type="text" name="login" required>
 </label>
