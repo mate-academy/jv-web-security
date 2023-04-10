@@ -1,6 +1,7 @@
 package taxi.service;
 
 import taxi.exception.RegistrationException;
+import taxi.lib.Inject;
 import taxi.lib.Injector;
 import taxi.lib.Service;
 import taxi.model.Driver;
@@ -8,11 +9,11 @@ import taxi.model.Driver;
 @Service
 public class RegistrationServiceImpl implements RegistrationService {
     private static final Injector injector = Injector.getInstance("taxi");
-    private final DriverService driverService = (DriverService) injector
-            .getInstance(DriverService.class);
+    @Inject
+    private DriverService driverService;
 
     @Override
-    public Driver registration(String login, String password,
+    public Driver register(String login, String password,
                                String passwordRepeat, String name, String licenseNumber)
             throws RegistrationException {
         if (!password.equals(passwordRepeat)) {

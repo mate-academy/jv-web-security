@@ -21,6 +21,7 @@
             <th>ID</th>
             <th>NAME</th>
             <th>DRIVER LICENSE</th>
+            <th>LOGIN</th>
             <th></th>
         </tr>
         </thead>

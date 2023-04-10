@@ -1,6 +1,7 @@
 package taxi.service;
 
 import taxi.exception.AuthenticationException;
+import taxi.lib.Inject;
 import taxi.lib.Injector;
 import taxi.lib.Service;
 import taxi.model.Driver;
@@ -9,8 +10,8 @@ import taxi.model.Driver;
 public class AuthenticationServiceImpl implements AuthenticationService {
 
     private static final Injector injector = Injector.getInstance("taxi");
-    private final DriverService driverService = (DriverService) injector
-            .getInstance(DriverService.class);
+    @Inject
+    private DriverService driverService;
 
     @Override
     public Driver login(String login, String password) throws AuthenticationException {

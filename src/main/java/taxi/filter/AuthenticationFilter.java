@@ -30,7 +30,7 @@ public class AuthenticationFilter extends HttpFilter {
         HttpSession session = request.getSession();
         Long userId = (Long) session.getAttribute("user_id");
         if (userId == null && !allowedUrls.contains(request.getServletPath())) {
-            response.sendRedirect("/login");
+            response.sendRedirect(request.getContextPath() + "/login");
             return;
         }
         chain.doFilter(request, response);

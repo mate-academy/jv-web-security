@@ -33,10 +33,10 @@ public class AddDriverController extends HttpServlet {
         String repeatPassword = req.getParameter("password_repeat");
         try {
             Driver user = registrationService
-                    .registration(login,password,repeatPassword,name,licenseNumber);
+                    .register(login,password,repeatPassword,name,licenseNumber);
             HttpSession session = req.getSession();
             session.setAttribute("user_id", user.getId());
-            resp.sendRedirect("/index");
+            resp.sendRedirect(req.getContextPath() + "/index");
         } catch (RegistrationException e) {
             req.setAttribute("errorMsg", e.getMessage());
             req.getRequestDispatcher("/WEB-INF/views/drivers/add.jsp").forward(req, resp);
