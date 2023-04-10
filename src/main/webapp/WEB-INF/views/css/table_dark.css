@@ -12,6 +12,11 @@ body {
     background: #252525;
     margin: auto;
 }
+h4 {
+    text-align: center;
+    margin-top: 15px;
+}
+
 .table_dark h1 {
     color: #1E88E5;
     padding: 20px 0;

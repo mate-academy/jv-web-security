@@ -17,23 +17,23 @@ public class AuthenticationFilter implements Filter {
     private final Set<String> allowedUrls = new HashSet<>();
 
     @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
+    public void init(FilterConfig filterConfig) {
         allowedUrls.add("/login");
-        allowedUrls.add("/register");
+        allowedUrls.add("/drivers/add");
     }
 
     @Override
     public void doFilter(ServletRequest servletRequest,
                          ServletResponse servletResponse, FilterChain filterChain)
             throws IOException, ServletException {
-        HttpServletRequest req = (HttpServletRequest) servletRequest;
-        HttpServletResponse resp = (HttpServletResponse) servletResponse;
-        HttpSession session = req.getSession();
+        HttpServletRequest request = (HttpServletRequest) servletRequest;
+        HttpServletResponse response = (HttpServletResponse) servletResponse;
+        HttpSession session = request.getSession();
         Long driverId = (Long) session.getAttribute("user_id");
-        if (driverId != null || allowedUrls.contains(req.getServletPath())) {
-            filterChain.doFilter(req, resp);
+        if (driverId != null || allowedUrls.contains(request.getServletPath())) {
+            filterChain.doFilter(request, response);
             return;
         }
-        resp.sendRedirect(req.getContextPath() + "/login");
+        response.sendRedirect(request.getContextPath() + "/login");
     }
 }

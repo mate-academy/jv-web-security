@@ -14,7 +14,7 @@
   <input type="text" name="login" placeholder="Username" required>
   <input type="password" name="password" placeholder="Password" required>
   <button type="submit">Enter</button>
-  <h4><a href="${pageContext.request.contextPath}/register">Register</a></h4>
+  <h4><a href="${pageContext.request.contextPath}/drivers/add">Register</a></h4>
 </form>
 </body>
 </html>

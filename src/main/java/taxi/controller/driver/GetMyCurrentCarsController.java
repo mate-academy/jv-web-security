@@ -26,6 +26,6 @@ public class GetMyCurrentCarsController extends HttpServlet {
         req.setAttribute("name", name);
         req.setAttribute("cars",
                 carService.getAllByDriver(userId));
-        req.getRequestDispatcher("/WEB-INF/views/drivers/cars.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/views/cars/all.jsp").forward(req, resp);
     }
 }
