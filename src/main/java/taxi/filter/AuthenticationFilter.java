@@ -1,7 +1,7 @@
 package taxi.filter;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.Set;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -13,7 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class AuthenticationFilter implements Filter {
-    private static final List<String> allowedPages = List.of("/login","/drivers/add");
+    private static final Set<String> allowedPages
+            = Set.of("/login","/drivers/add");
 
     @Override
     public void doFilter(ServletRequest servletRequest,
@@ -32,6 +33,7 @@ public class AuthenticationFilter implements Filter {
     }
 
     @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
+    public void init(FilterConfig filterConfig)
+            throws ServletException {
     }
 }
