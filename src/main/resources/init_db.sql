@@ -15,6 +15,7 @@ CREATE TABLE `drivers`  (
                             `login` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
                             `password` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL
                             PRIMARY KEY (`id`) USING BTREE
+                            UNIQUE KEY `unique_login` (`login`)
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
