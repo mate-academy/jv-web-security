@@ -11,7 +11,7 @@ import taxi.model.Driver;
 import taxi.service.CarService;
 import taxi.service.DriverService;
 
-public class AddDriverToCarController extends HttpServlet {
+public class DeleteDriverFromCarController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
     private final CarService carService = (CarService) injector.getInstance(CarService.class);
     private final DriverService driverService =
@@ -20,20 +20,12 @@ public class AddDriverToCarController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        String carId = req.getParameter("id");
-        req.setAttribute("car", carService.get(Long.parseLong(carId)));
-        req.setAttribute("drivers", driverService.getAll());
-        req.getRequestDispatcher("/WEB-INF/views/cars/manage.jsp?id=" + carId).forward(req, resp);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
         String driverId = req.getParameter("driver_id");
-        String carId = req.getParameter("id");
+        String carId = req.getParameter("car_id");
         Driver driver = driverService.get(Long.parseLong(driverId));
         Car car = carService.get(Long.parseLong(carId));
-        carService.addDriverToCar(driver, car);
+        carService.removeDriverFromCar(driver, car);
         resp.sendRedirect(req.getContextPath() + "/cars/manage?id=" + carId);
+
     }
 }
