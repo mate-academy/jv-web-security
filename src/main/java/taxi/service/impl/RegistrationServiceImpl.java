@@ -12,6 +12,7 @@ public class RegistrationServiceImpl implements RegistrationService {
     private static final Injector injector = Injector.getInstance("taxi");
     private final DriverService driverService
             = (DriverService) injector.getInstance(DriverService.class);
+
     @Override
     public Driver registration(String name,
                                String licenseNumber,
@@ -19,7 +20,7 @@ public class RegistrationServiceImpl implements RegistrationService {
                                String password,
                                String repeatPassword) throws AuthenticationException {
 
-        if (password.isBlank() || repeatPassword.isBlank() || !password.equals(repeatPassword)){
+        if (password.isBlank() || repeatPassword.isBlank() || !password.equals(repeatPassword)) {
             throw new AuthenticationException("Password doesn't match");
         }
         return driverService.create(

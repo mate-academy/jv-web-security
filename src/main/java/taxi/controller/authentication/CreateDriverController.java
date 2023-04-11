@@ -1,17 +1,15 @@
 package taxi.controller.authentication;
 
-import taxi.exception.AuthenticationException;
-import taxi.lib.Injector;
-import taxi.model.Driver;
-import taxi.service.DriverService;
-import taxi.service.RegistrationService;
 import java.io.IOException;
-import java.util.Optional;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import taxi.exception.AuthenticationException;
+import taxi.lib.Injector;
+import taxi.model.Driver;
+import taxi.service.RegistrationService;
 
 public class CreateDriverController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
@@ -33,7 +31,18 @@ public class CreateDriverController extends HttpServlet {
         String password = req.getParameter("password");
         String repeatPassword = req.getParameter("repeat_password");
         try {
-            registrationService.registration(name, licenseNumber, login, password, repeatPassword);
+            Driver driver
+                    = registrationService.registration(
+                            name,
+                            licenseNumber,
+                            login,
+                            password,
+                            repeatPassword
+            );
+            HttpSession session = req.getSession();
+            session.setAttribute("user_id", driver.getId());
+            session.setAttribute("login", driver.getLogin());
+            resp.sendRedirect("/index");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMsg", e.getMessage());
             req.getRequestDispatcher("/WEB-INF/views/register.jsp").forward(req, resp);
