@@ -1,32 +1,29 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<style>
-    <%@include file='/WEB-INF/views/css/table_dark.css' %>
-</style>
 <html>
 <head>
     <title>Add car</title>
+    <style>
+        <%@include file="/WEB-INF/css/inputForm.css" %>
+        <%@include file="/WEB-INF/css/header.css" %>
+    </style>
+    <%@include file="/WEB-INF/views/header.jsp" %>
 </head>
 <body>
-<form method="post" id="car" action="${pageContext.request.contextPath}/cars/add"></form>
-<h1 class="table_dark">Add car:</h1>
-<table border="1" class="table_dark">
-    <tr>
-        <th>Model</th>
-        <th>Manufacturer ID</th>
-        <th>Add</th>
-    </tr>
-    <tr>
-        <td>
-            <input type="text" name="model" form="car" required>
-        </td>
-        <td>
-            <input type="number" name="manufacturer_id" form="car" required>
-        </td>
-        <td>
-            <input type="submit" name="add" form="car">
-        </td>
-    </tr>
-</table>
+<h1>Add car</h1>
+<form action="/cars/add" method="post">
+    <label for="madeBy">Manufacturer:</label>
+    <select name="madeBy" id="madeBy">
+        <option value="">-- Select --</option>
+        <c:forEach items="${manufacturers}" var="manufacturer">
+            <option value="${manufacturer.id}">${manufacturer.name}</option>
+        </c:forEach>
+    </select>
+    <br>
+    <label for="model">Model:</label>
+    <input type="text" name="model" id="model">
+    <br>
+    <input type="submit" value="Create">
+</form>
 </body>
 </html>
