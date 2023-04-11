@@ -145,7 +145,8 @@ public class CarDaoImpl implements CarDao {
                 cars.add(parseCarFromResultSet(resultSet));
             }
         } catch (SQLException e) {
-            throw new DataProcessingException("Can't get all cars", e);
+            throw new DataProcessingException("Can't get all cars for driver with id: "
+                    + driverId, e);
         }
         cars.forEach(car -> car.setDrivers(getAllDriversByCarId(car.getId())));
         return cars;
@@ -184,7 +185,7 @@ public class CarDaoImpl implements CarDao {
         }
     }
 
-    private List<Driver> getAllDriversByCarId(Long carId) {
+    public List<Driver> getAllDriversByCarId(Long carId) {
         String query = "SELECT id, name, user_name, password, permission, license_number "
                 + "FROM cars_drivers cd JOIN drivers d on cd.driver_id = d.id "
                 + "WHERE car_id = ? AND is_deleted = FALSE;";

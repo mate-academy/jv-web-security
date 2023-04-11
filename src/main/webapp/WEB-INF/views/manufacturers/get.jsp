@@ -17,7 +17,7 @@
     <c:forEach items="${manufacturers}" var="manufacturer">
         <tr>
             <td>
-                <c:if test="${driver.permission == 'admin'}">
+                <c:if test="${permission == 'admin'}">
                 <input type="submit"
                        value="delete"
                        onclick="window.location.href =
@@ -30,7 +30,7 @@
         </tr>
     </c:forEach>
 </table>
-<c:if test="${driver.permission == 'admin'}">
+<c:if test="${permission == 'admin'}">
     <%@include file="create.jsp"%>
 </c:if>
 </body>

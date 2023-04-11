@@ -15,20 +15,20 @@
         <th>USER NAME   </th>
         <th>LICENSE NUMBER</th>
     </tr>
-    <c:forEach items="${drivers}" var="current_driver">
+    <c:forEach items="${drivers}" var="driver">
         <tr>
             <td>
-                <c:if test="${driver.permission == 'admin'}">
+                <c:if test="${permission == 'admin'}">
                     <input type="submit"
                            value="delete"
                            onclick="window.location.href =
-                                   '${pageContext.request.contextPath}/drivers/delete?id=${current_driver.id}'">
+                                   '${pageContext.request.contextPath}/drivers/delete?id=${driver.id}'">
                 </c:if>
             </td>
-            <td><c:out value="${current_driver.id}" /> </td>
-            <td><c:out value="${current_driver.name}" /> </td>
-            <td><c:out value="${current_driver.userName}" /> </td>
-            <td><c:out value="${current_driver.licenseNumber}" /> </td>
+            <td><c:out value="${driver.id}" /> </td>
+            <td><c:out value="${driver.name}" /> </td>
+            <td><c:out value="${driver.userName}" /> </td>
+            <td><c:out value="${driver.licenseNumber}" /> </td>
         </tr>
     </c:forEach>
 </table>

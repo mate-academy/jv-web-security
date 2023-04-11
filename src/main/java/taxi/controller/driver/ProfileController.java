@@ -20,18 +20,19 @@ public class ProfileController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        String userName = (String) req.getSession().getAttribute("user_name");
-        long userId = driverService.findByLogin(userName).get().getId();
-        req.setAttribute("users_cars", carService.getAllByDriver(userId));
+        Long driveId = (Long) req.getSession().getAttribute("driver_id");
+        req.setAttribute("driver", driverService.get(driveId));
+        req.setAttribute("users_cars", carService.getAllByDriver(driveId));
         req.setAttribute("all_cars", carService.getAll());
-        req.getRequestDispatcher("WEB-INF/views/profile.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/views/profile.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         String carId = req.getParameter("car_id");
-        Driver driver = (Driver) req.getSession().getAttribute("driver");
+        Long driverId = (Long) req.getSession().getAttribute("driver_id");
+        Driver driver = driverService.get(driverId);
         Car car = carService.get(Long.parseLong(carId));
         carService.addDriverToCar(driver, car);
         resp.sendRedirect(req.getContextPath() + "/profile");

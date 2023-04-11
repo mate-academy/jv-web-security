@@ -19,7 +19,7 @@
     <c:forEach items="${cars}" var="car">
         <tr>
             <td>
-                <c:if test="${driver.permission == 'admin'}">
+                <c:if test="${permission == 'admin'}">
                     <input type="submit"
                        value="delete"
                        onclick="window.location.href =
@@ -32,7 +32,7 @@
             <td><c:out value="${car.manufacturer}" /> </td>
             <td><c:out value="${car.drivers}" /></td>
             <td>
-                <c:if test="${driver.permission == 'admin'}">
+                <c:if test="${permission == 'admin'}">
                     <input type="submit"
                                value="manage drivers"
                                onclick="window.location.href =
@@ -43,7 +43,7 @@
         </tr>
     </c:forEach>
 </table>
-<c:if test="${driver.permission == 'admin'}">
+<c:if test="${permission == 'admin'}">
     <%@include file="create.jsp"%>
 </c:if>
 </body>

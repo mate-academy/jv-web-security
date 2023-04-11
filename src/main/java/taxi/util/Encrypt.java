@@ -10,7 +10,7 @@ import javax.crypto.spec.PBEKeySpec;
 public class Encrypt {
     private static final String SALT = "ENyeheAGgPK+Ifj95S7dNQ==";
 
-    public static String getEncrypt(String pass) {
+    public static String getEncryptedString(String pass) {
         byte[] saltBytes = SALT.getBytes();
         KeySpec spec = new PBEKeySpec(pass.toCharArray(), saltBytes, 65536, 128);
         SecretKeyFactory f = null;

@@ -16,6 +16,7 @@ import taxi.util.ConnectionUtil;
 
 @Dao
 public class DriverDaoImpl implements DriverDao {
+    private static final String USER = "user";
     @Override
     public Driver create(Driver driver) {
         String query = "INSERT INTO drivers (name, user_name, password, permission, license_number)"
@@ -26,8 +27,7 @@ public class DriverDaoImpl implements DriverDao {
             statement.setString(1, driver.getName());
             statement.setString(2, driver.getUserName());
             statement.setString(3, driver.getPassword());
-            statement.setString(4, driver.getPermission() == null
-                    ? "user" : driver.getPermission());
+            statement.setString(4, USER);
             statement.setString(5, driver.getLicenseNumber());
             statement.executeUpdate();
             ResultSet resultSet = statement.getGeneratedKeys();
@@ -78,16 +78,17 @@ public class DriverDaoImpl implements DriverDao {
     @Override
     public Driver update(Driver driver) {
         String query = "UPDATE drivers "
-                + "SET name = ?, password = ?, premission = ?, license_number = ? "
+                + "SET name = ?, user_name = ?, password = ?, premission = ?, license_number = ? "
                 + "WHERE id = ? AND is_deleted = FALSE;";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement
                         = connection.prepareStatement(query)) {
             statement.setString(1, driver.getName());
-            statement.setString(2, driver.getPassword());
-            statement.setString(3, driver.getPermission());
-            statement.setString(4, driver.getLicenseNumber());
-            statement.setLong(5, driver.getId());
+            statement.setString(2, driver.getUserName());
+            statement.setString(3, driver.getPassword());
+            statement.setString(4, driver.getPermission());
+            statement.setString(5, driver.getLicenseNumber());
+            statement.setLong(6, driver.getId());
             statement.executeUpdate();
             return driver;
         } catch (SQLException e) {

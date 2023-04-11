@@ -23,7 +23,7 @@ public class AddDriverToCarController extends HttpServlet {
         String carId = req.getParameter("id");
         req.setAttribute("car", carService.get(Long.parseLong(carId)));
         req.setAttribute("drivers", driverService.getAll());
-        req.getRequestDispatcher("/WEB-INF/views/cars/manage.jsp?id=" + carId).forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/views/cars/manage.jsp").forward(req, resp);
     }
 
     @Override

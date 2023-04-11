@@ -18,11 +18,7 @@ public class LoginController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        if (req.getSession().getAttribute("driver") != null) {
-            resp.sendRedirect(req.getContextPath() + "/");
-            return;
-        }
-        req.getRequestDispatcher("WEB-INF/views/login.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
     }
 
     @Override
@@ -32,12 +28,13 @@ public class LoginController extends HttpServlet {
         String password = req.getParameter("password");
         try {
             Driver driver = authService.login(userName, password);
-            req.getSession().setAttribute("user_name", driver.getUserName());
-            req.getSession().setAttribute("driver", driver);
+            req.getSession().setAttribute("driver_id", driver.getId());
+            req.getSession().setAttribute("permission", driver.getPermission());
+            req.getSession().setAttribute("user_name", driver.getName());
+            resp.sendRedirect(req.getContextPath() + "/");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMsg", e.getMessage());
-            req.getRequestDispatcher("WEB-INF/views/login.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
         }
-        resp.sendRedirect(req.getContextPath() + "/");
     }
 }

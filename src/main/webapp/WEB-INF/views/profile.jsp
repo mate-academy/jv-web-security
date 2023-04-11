@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>${driver.name}</title>
+    <title>${user_name}</title>
 </head>
 <body>
 <%@include file="/WEB-INF/views/header/menu.jsp"%>

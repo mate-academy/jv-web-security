@@ -19,10 +19,9 @@ public class Driver {
     }
 
     public Driver(String userName, String permission, String name, String licenseNumber) {
-        this.userName = userName;
+        this(name, licenseNumber);
         this.permission = permission;
         this.name = name;
-        this.licenseNumber = licenseNumber;
     }
 
     public Long getId() {
@@ -97,6 +96,14 @@ public class Driver {
 
     @Override
     public String toString() {
-        return "Driver(" + userName + ' ' + name + ':' + licenseNumber + ')';
+        return "Driver{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", permission='" + permission + '\'' +
+                ", name='" + name + '\'' +
+                ", licenseNumber='" + licenseNumber + '\'' +
+                '}';
+        //return "Driver(" + userName + ' ' + name + ':' + licenseNumber + ')';
     }
 }

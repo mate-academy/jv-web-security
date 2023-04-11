@@ -2,6 +2,7 @@ package taxi.web.filter;
 
 import java.io.IOException;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -12,6 +13,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import taxi.model.Driver;
 
 public class AuthenticationFilter implements Filter {
     private final Set<String> allowedUrls = new HashSet<>();
@@ -27,9 +29,8 @@ public class AuthenticationFilter implements Filter {
             throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
-        HttpSession session = httpRequest.getSession();
-        String userName = (String) session.getAttribute("user_name");
-        if (userName == null && !allowedUrls.contains(httpRequest.getServletPath())) {
+        Long driverId = (Long) httpRequest.getSession().getAttribute("driver_id");
+        if (driverId == null && !allowedUrls.contains(httpRequest.getServletPath())) {
             httpResponse.sendRedirect(httpRequest.getContextPath() + "/login");
             return;
         }
