@@ -14,6 +14,7 @@
             <th>model</th>
             <th>manufacturer name</th>
             <th>manufacturer country</th>
+            <th>delete</th>
           </tr>
         </thead>
         <tbody>

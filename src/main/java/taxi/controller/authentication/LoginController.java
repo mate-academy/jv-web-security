@@ -12,7 +12,7 @@ import taxi.model.Driver;
 import taxi.service.AuthenticationService;
 
 public class LoginController extends HttpServlet {
-    private final Injector injector = Injector.getInstance("taxi");
+    private static final Injector injector = Injector.getInstance("taxi");
     private final AuthenticationService authenticationService
             = (AuthenticationService) injector.getInstance(AuthenticationService.class);
 
@@ -32,7 +32,7 @@ public class LoginController extends HttpServlet {
             HttpSession session = req.getSession();
             session.setAttribute("user_id", driver.getId());
             session.setAttribute("login", driver.getLogin());
-            resp.sendRedirect("/index");
+            resp.sendRedirect(req.getContextPath() + "/index");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMsg", e.getMessage());
             req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);

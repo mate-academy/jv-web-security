@@ -21,6 +21,7 @@ public class AuthenticationFilter implements Filter {
             throws ServletException {
         allowedUrls.add("/login");
         allowedUrls.add("/register");
+        allowedUrls.add("/drivers/add");
     }
 
     @Override
@@ -41,7 +42,6 @@ public class AuthenticationFilter implements Filter {
             resp.sendRedirect("/login");
             return;
         }
-
         filterChain.doFilter(req, resp);
     }
 }

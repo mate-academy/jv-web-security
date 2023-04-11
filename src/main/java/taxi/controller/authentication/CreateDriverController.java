@@ -42,7 +42,7 @@ public class CreateDriverController extends HttpServlet {
             HttpSession session = req.getSession();
             session.setAttribute("user_id", driver.getId());
             session.setAttribute("login", driver.getLogin());
-            resp.sendRedirect("/index");
+            resp.sendRedirect(req.getContextPath() + "/index");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMsg", e.getMessage());
             req.getRequestDispatcher("/WEB-INF/views/register.jsp").forward(req, resp);
