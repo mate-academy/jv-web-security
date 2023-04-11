@@ -1,4 +1,4 @@
-package taxi.controller.car;
+package taxi.controller.driver;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -11,7 +11,7 @@ import taxi.model.Driver;
 import taxi.service.CarService;
 import taxi.service.DriverService;
 
-public class AddDriverToCarController extends HttpServlet {
+public class ProfileController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
     private final CarService carService = (CarService) injector.getInstance(CarService.class);
     private final DriverService driverService =
@@ -20,20 +20,21 @@ public class AddDriverToCarController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        String carId = req.getParameter("id");
-        req.setAttribute("car", carService.get(Long.parseLong(carId)));
-        req.setAttribute("drivers", driverService.getAll());
-        req.getRequestDispatcher("/WEB-INF/views/cars/manage.jsp").forward(req, resp);
+        Long driveId = (Long) req.getSession().getAttribute("driver_id");
+        req.setAttribute("driver", driverService.get(driveId));
+        req.setAttribute("users_cars", carService.getAllByDriver(driveId));
+        req.setAttribute("all_cars", carService.getAll());
+        req.getRequestDispatcher("/WEB-INF/views/profile.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        String driverId = req.getParameter("driver_id");
-        String carId = req.getParameter("id");
-        Driver driver = driverService.get(Long.parseLong(driverId));
+        String carId = req.getParameter("car_id");
+        Long driverId = (Long) req.getSession().getAttribute("driver_id");
+        Driver driver = driverService.get(driverId);
         Car car = carService.get(Long.parseLong(carId));
         carService.addDriverToCar(driver, car);
-        resp.sendRedirect(req.getContextPath() + "/cars/manage?id=" + carId);
+        resp.sendRedirect(req.getContextPath() + "/profile");
     }
 }

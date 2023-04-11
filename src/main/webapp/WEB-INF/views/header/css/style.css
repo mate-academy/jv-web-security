@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    height: 100vh;
+    padding: 100px 20%;
+    background: linear-gradient(to bottom, rgb(250, 250, 250), rgb(100, 100, 100)) fixed;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 8%;
+    box-shadow: 0 5px 10px #000;
+}
+
+header .logo {
+    font-size: 20px;
+    font-weight: 900;
+    color: #000;
+    transition: 0.5s;
+}
+
+header .logo:hover {
+    transform: scale(1.2);
+}
+
+header nav ul li {
+    position: relative;
+    float: left;
+}
+
+header nav ul li a {
+    padding: 15px;
+    color: black;
+    font-size: 16px;
+    display: block;
+}
+
+header nav ul li a:hover {
+    background: black;
+    color: white;
+    transition: background 0.5s, color 0.5s;
+}
+
+input {
+    display: inline-block;
+    font-size: 1rem;
+    color: black;
+    background: #c4c4c4;
+    border: 1px solid grey;
+    cursor: pointer;
+    padding: 0.5rem 0.75rem;
+    transition: background 0.3s, color 0.3s;
+}
+
+input:hover {
+    color: #ffffff;
+    background: #5D26C1;
+}
+
+select {
+    display: inline-block;
+    font-size: 1rem;
+    color: black;
+    background: #c4c4c4;
+    border: 1px solid grey;
+    cursor: pointer;
+    padding: 0.5rem 0.75rem;
+    transition: background 0.3s, color 0.3s;
+}
+
+select:hover {
+    color: #ffffff;
+    background: #5D26C1;
+}
+
+h1 {
+    margin: 30px;
+}
+
+td {
+    padding: 5px 10px;
+}
+
+th {
+    padding-left: 10px;
+}

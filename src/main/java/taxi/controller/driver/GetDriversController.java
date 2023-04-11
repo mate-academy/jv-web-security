@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import taxi.lib.Injector;
 import taxi.service.DriverService;
 
-public class DeleteDriverController extends HttpServlet {
+public class GetDriversController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
     private final DriverService driverService =
             (DriverService) injector.getInstance(DriverService.class);
@@ -16,7 +16,7 @@ public class DeleteDriverController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        driverService.delete(Long.parseLong(req.getParameter("id")));
-        resp.sendRedirect(req.getContextPath() + "/drivers");
+        req.setAttribute("drivers", driverService.getAll());
+        req.getRequestDispatcher("/WEB-INF/views/drivers/get.jsp").forward(req, resp);
     }
 }

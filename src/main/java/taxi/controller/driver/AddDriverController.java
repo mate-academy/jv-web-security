@@ -8,24 +8,29 @@ import javax.servlet.http.HttpServletResponse;
 import taxi.lib.Injector;
 import taxi.model.Driver;
 import taxi.service.DriverService;
+import taxi.util.Encrypt;
 
 public class AddDriverController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
-    private final DriverService driverService = (DriverService) injector
-            .getInstance(DriverService.class);
+    private final DriverService driverService =
+            (DriverService) injector.getInstance(DriverService.class);
 
     @Override
-    public void doGet(HttpServletRequest req, HttpServletResponse resp)
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/views/drivers/add.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/views/drivers/create.jsp").forward(req, resp);
     }
 
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        String name = req.getParameter("name");
-        String licenseNumber = req.getParameter("license_number");
-        Driver driver = new Driver(name, licenseNumber);
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        Driver driver = new Driver();
+        driver.setName(req.getParameter("name"));
+        driver.setUserName(req.getParameter("user_name"));
+        driver.setPassword(Encrypt.getEncryptedString(req.getParameter("password")));
+        driver.setPermission(req.getParameter("permission"));
+        driver.setLicenseNumber(req.getParameter("license_number"));
         driverService.create(driver);
-        resp.sendRedirect(req.getContextPath() + "/drivers/add");
+        resp.sendRedirect(req.getContextPath() + "/");
     }
 }
