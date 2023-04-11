@@ -127,23 +127,23 @@
         <servlet-name>logoutDriver</servlet-name>
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
-    
+
     <servlet>
-        <servlet-name>ucp</servlet-name>
+        <servlet-name>cabinet</servlet-name>
         <servlet-class>taxi.controller.cabinet.GetMyCurrentCarsController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ucp</servlet-name>
-        <url-pattern>/ucp</url-pattern>
+        <servlet-name>cabinet</servlet-name>
+        <url-pattern>/cabinet</url-pattern>
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>ucpRemoveCar</servlet-name>
+        <servlet-name>removeDriverFromCar</servlet-name>
         <servlet-class>taxi.controller.car.RemoveDriverFromCarController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ucpRemoveCar</servlet-name>
-        <url-pattern>/ucp/remove</url-pattern>
+        <servlet-name>removeDriverFromCar</servlet-name>
+        <url-pattern>/cars/remove</url-pattern>
     </servlet-mapping>
 
     <filter>

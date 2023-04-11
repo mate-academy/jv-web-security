@@ -16,7 +16,7 @@
     <tr><td><a href="${pageContext.request.contextPath}/drivers">Manage Drivers</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/cars">Manage Cars</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/manufacturers">Manage Manufacturers</a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/ucp">Cabinet</a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/cabinet">Cabinet</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/logout">Logout</a></td></tr>
 </table>
 </body>

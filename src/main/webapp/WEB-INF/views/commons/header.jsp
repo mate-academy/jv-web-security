@@ -16,6 +16,9 @@
 <a href="${pageContext.request.contextPath}/manufacturers">
     <input type="button" value="manufacturers"/>
 </a>
+<a href="${pageContext.request.contextPath}/cabinet">
+    <input type="button" value="Cabinet"/>
+</a>
 <a href="${pageContext.request.contextPath}/logout">
     <input type="button" value="logout"/>
 </a>

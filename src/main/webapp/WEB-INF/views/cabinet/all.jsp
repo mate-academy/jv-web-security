@@ -60,7 +60,7 @@
         </c:forEach>
       </td>
       <td>
-        <a href="${pageContext.request.contextPath}/ucp/remove?id=${car.id}">DELETE</a>
+        <a href="${pageContext.request.contextPath}/cars/remove?id=${car.id}">DELETE</a>
       </td>
     </tr>
   </c:forEach>
