@@ -21,6 +21,9 @@ public class AuthenticationFilter implements Filter {
         allowedUrls.add("/login");
         allowedUrls.add("/register");
         allowedUrls.add("/drivers/add");
+        allowedUrls.add("/web-resources/css/login_register.css");
+        allowedUrls.add("/web-resources/taxi.svg");
+        allowedUrls.add("/web-resources/steering-wheel.svg");
     }
 
     @Override

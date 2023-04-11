@@ -16,23 +16,28 @@ public class LoginController extends HttpServlet {
             (AuthenticationService) injector.getInstance(AuthenticationService.class);
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+    public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+        if (getServletContext().getAttribute("loginMsg") != null) {
+            req.setAttribute("infoMsg", getServletContext().getAttribute("loginMsg"));
+            getServletContext().removeAttribute("loginMsg");
+        }
         req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+    public void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         try {
             Driver driver = authService.login(login, password);
             req.getSession().setAttribute("driver_id", driver.getId());
+            req.getSession().setAttribute("driver_name", driver.getName());
         } catch (AuthenticationException e) {
             req.setAttribute("errorMsg", e.getMessage());
             req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
         }
-        resp.sendRedirect(req.getContextPath() + "/index");
+        resp.sendRedirect(req.getContextPath() + "/home");
     }
 }

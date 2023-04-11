@@ -9,11 +9,8 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>index</servlet-name>
-        <url-pattern>/index</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>index</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>/home</url-pattern>
+        <url-pattern/>
     </servlet-mapping>
 
     <servlet>
@@ -35,12 +32,11 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>addDriver</servlet-name>
-        <servlet-class>taxi.controller.driver.AddDriverController</servlet-class>
+        <servlet-name>register</servlet-name>
+        <servlet-class>taxi.controller.RegistrationController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>addDriver</servlet-name>
-        <url-pattern>/drivers/add</url-pattern>
+        <servlet-name>register</servlet-name>
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
 
@@ -51,6 +47,15 @@
     <servlet-mapping>
         <servlet-name>allCars</servlet-name>
         <url-pattern>/cars</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>myCurrentCars</servlet-name>
+        <servlet-class>taxi.controller.car.GetMyCurrentCarsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>myCurrentCars</servlet-name>
+        <url-pattern>/cars/my</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -123,15 +128,6 @@
     <servlet-mapping>
         <servlet-name>logout</servlet-name>
         <url-pattern>/logout</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>myCurrentCars</servlet-name>
-        <servlet-class>taxi.controller.car.GetMyCurrentCarsController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>myCurrentCars</servlet-name>
-        <url-pattern>/cars/my</url-pattern>
     </servlet-mapping>
 
     <filter>
