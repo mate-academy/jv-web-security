@@ -20,7 +20,6 @@ public class AddDriverController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         req.getRequestDispatcher("/WEB-INF/views/drivers/add.jsp").forward(req, resp);
-        super.doGet(req, resp);
     }
 
     @Override
