@@ -15,9 +15,9 @@ public class LogoutController extends HttpServlet {
     private AuthService authService;
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+    public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        req.getSession().setAttribute("driverId", null);
+        req.getSession().invalidate();
         req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req, resp);
     }
 }

@@ -22,7 +22,7 @@ public class AddCarController extends HttpServlet {
             = (ManufacturerService) injector.getInstance(ManufacturerService.class);
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+    public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         List<Manufacturer> manufacturers = manufacturerService.getAll();
         req.setAttribute("manufacturers", manufacturers);
@@ -30,14 +30,11 @@ public class AddCarController extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+    public void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws IOException {
-        final String manufacturerId = req.getParameter("madeBy");
-        final Manufacturer manufacturer = manufacturerService.get(Long.valueOf(manufacturerId));
-        final String model = req.getParameter("model");
         final Car car = new Car();
-        car.setManufacturer(manufacturer);
-        car.setModel(model);
+        car.setManufacturer(manufacturerService.get(Long.valueOf(req.getParameter("madeBy"))));
+        car.setModel(req.getParameter("model"));
         carService.create(car);
         resp.sendRedirect(req.getContextPath() + "/");
     }
