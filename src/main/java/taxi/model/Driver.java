@@ -67,22 +67,12 @@ public class Driver {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-
         Driver driver = (Driver) o;
-
-        if (!Objects.equals(id, driver.id)) {
-            return false;
-        }
-        if (!Objects.equals(name, driver.name)) {
-            return false;
-        }
-        if (!Objects.equals(licenseNumber, driver.licenseNumber)) {
-            return false;
-        }
-        if (!Objects.equals(username, driver.username)) {
-            return false;
-        }
-        return Objects.equals(password, driver.password);
+        return Objects.equals(id, driver.id)
+                && Objects.equals(name, driver.name)
+                && Objects.equals(licenseNumber, driver.licenseNumber)
+                && Objects.equals(username, driver.username)
+                && Objects.equals(password, driver.password);
     }
 
     @Override

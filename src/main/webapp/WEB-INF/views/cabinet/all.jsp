@@ -5,7 +5,7 @@
 </style>
 <html>
 <head>
-  <title>UCP</title>
+  <title>Cabinet</title>
 </head>
 <body>
 <%@ include file="/WEB-INF/views/commons/header.jsp"%><br>
