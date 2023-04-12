@@ -40,7 +40,7 @@ public class CreateDriverController extends HttpServlet {
                             repeatPassword
             );
             HttpSession session = req.getSession();
-            session.setAttribute("user_id", driver.getId());
+            session.setAttribute("driver_id", driver.getId());
             session.setAttribute("login", driver.getLogin());
             resp.sendRedirect(req.getContextPath() + "/index");
         } catch (AuthenticationException e) {

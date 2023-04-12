@@ -21,7 +21,6 @@ public class AuthenticationFilter implements Filter {
             throws ServletException {
         allowedUrls.add("/login");
         allowedUrls.add("/register");
-        allowedUrls.add("/drivers/add");
     }
 
     @Override
@@ -32,7 +31,7 @@ public class AuthenticationFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         HttpSession session = req.getSession();
-        Long userId = (Long) session.getAttribute("user_id");
+        Long userId = (Long) session.getAttribute("driver_id");
 
         if (userId == null && allowedUrls.contains(req.getServletPath())) {
             filterChain.doFilter(req, resp);
