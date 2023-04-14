@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import taxi.lib.Injector;
 import taxi.service.CarService;
 
-@WebServlet(urlPatterns = "/cars/my")
+@WebServlet(urlPatterns = "/drivers/cars/my") // <= /cars/my
 public class GetMyCurrentCarsController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
     private final CarService carService = (CarService) injector.getInstance(CarService.class);

@@ -24,7 +24,7 @@
       </li>
       <li><a href="${pageContext.request.contextPath}/drivers">Display drivers</a></li>
       <c:if test="${driver_id != null}">
-        <li><a href="${pageContext.request.contextPath}/cars/my">${user_name}</a></li>
+        <li><a href="${pageContext.request.contextPath}/drivers/cars/my">${user_name}</a></li>
         <li><a href="${pageContext.request.contextPath}/logout">EXIT</a></li>
       </c:if>
     </ul>

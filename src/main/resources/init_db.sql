@@ -12,7 +12,6 @@ CREATE TABLE `drivers`  (
                             `name` VARCHAR(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
                             `user_name` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
                             `password` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                            `permission` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'user',
                             `license_number` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
                             `is_deleted` BIT(1) NOT NULL DEFAULT b'0',
                             PRIMARY KEY (`id`) USING BTREE,

@@ -16,20 +16,17 @@ import taxi.util.ConnectionUtil;
 
 @Dao
 public class DriverDaoImpl implements DriverDao {
-    private static final String USER = "user";
-
     @Override
     public Driver create(Driver driver) {
-        String query = "INSERT INTO drivers (name, user_name, password, permission, license_number)"
-                + " VALUES (?, ?, ?, ?, ?);";
+        String query = "INSERT INTO drivers (name, user_name, password, license_number)"
+                + " VALUES (?, ?, ?, ?);";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement = connection.prepareStatement(query,
                         Statement.RETURN_GENERATED_KEYS)) {
             statement.setString(1, driver.getName());
             statement.setString(2, driver.getLogin());
             statement.setString(3, driver.getPassword());
-            statement.setString(4, USER);
-            statement.setString(5, driver.getLicenseNumber());
+            statement.setString(4, driver.getLicenseNumber());
             statement.executeUpdate();
             ResultSet resultSet = statement.getGeneratedKeys();
             if (resultSet.next()) {
@@ -77,7 +74,7 @@ public class DriverDaoImpl implements DriverDao {
     @Override
     public Driver update(Driver driver) {
         String query = "UPDATE drivers "
-                + "SET name = ?, user_name = ?, password = ?, premission = ?, license_number = ? "
+                + "SET name = ?, user_name = ?, password = ?, license_number = ? "
                 + "WHERE id = ? AND is_deleted = FALSE;";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement
@@ -85,9 +82,8 @@ public class DriverDaoImpl implements DriverDao {
             statement.setString(1, driver.getName());
             statement.setString(2, driver.getLogin());
             statement.setString(3, driver.getPassword());
-            statement.setString(4, USER);
-            statement.setString(5, driver.getLicenseNumber());
-            statement.setLong(6, driver.getId());
+            statement.setString(4, driver.getLicenseNumber());
+            statement.setLong(5, driver.getId());
             statement.executeUpdate();
             return driver;
         } catch (SQLException e) {

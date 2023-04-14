@@ -1,7 +1,6 @@
 package taxi.model;
 
 import java.util.Objects;
-import taxi.util.Encrypt;
 
 public class Driver {
     private Long id;
@@ -17,7 +16,7 @@ public class Driver {
         this.name = name;
         this.licenseNumber = licenseNumber;
         this.login = login;
-        this.password = Encrypt.getEncryptedString(password);
+        this.password = password;
     }
 
     public Long getId() {
