@@ -122,6 +122,14 @@
         <servlet-name>Logout</servlet-name>
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>GetMyCars</servlet-name>
+        <servlet-class>taxi.controller.car.GetMyCurrentCarsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetMyCars</servlet-name>
+        <url-pattern>/drivers/cars/all</url-pattern>
+    </servlet-mapping>
     
     <filter>
         <filter-name>AuthenticationFilter</filter-name>
