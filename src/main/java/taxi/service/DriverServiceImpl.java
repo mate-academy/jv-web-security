@@ -3,6 +3,7 @@ package taxi.service;
 import java.util.List;
 import java.util.NoSuchElementException;
 import taxi.dao.DriverDao;
+import taxi.exception.AuthenticationException;
 import taxi.lib.Inject;
 import taxi.lib.Service;
 import taxi.model.Driver;
@@ -40,9 +41,9 @@ public class DriverServiceImpl implements DriverService {
     }
 
     @Override
-    public Driver findByLogin(String login) {
+    public Driver findByLogin(String login) throws AuthenticationException {
         return driverDao.findByLogin(login).orElseThrow(() ->
-                new NoSuchElementException("Can't get driver by login: " + login)
+                new AuthenticationException("Can't get driver by login: " + login)
         );
     }
 }
