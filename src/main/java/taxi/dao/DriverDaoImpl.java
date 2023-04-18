@@ -116,7 +116,7 @@ public class DriverDaoImpl implements DriverDao {
             }
             return Optional.ofNullable(driver);
         } catch (SQLException e) {
-            throw new DataProcessingException("Can't find driver with login + login", e);
+            throw new DataProcessingException("Can't find driver with login" + login, e);
         }
     }
 
