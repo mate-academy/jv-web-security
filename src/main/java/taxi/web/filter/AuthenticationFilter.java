@@ -35,7 +35,7 @@ public class AuthenticationFilter implements Filter {
             chain.doFilter(req, resp);
             return;
         }
-        if (driverId != null) {
+        if (driverId == null) {
             resp.sendRedirect(req.getContextPath() + "/login");
             return;
         }
