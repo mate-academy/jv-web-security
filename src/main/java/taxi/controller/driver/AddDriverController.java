@@ -27,7 +27,7 @@ public class AddDriverController extends HttpServlet {
         String name = req.getParameter("name");
         String password = req.getParameter("password");
         String licenseNumber = req.getParameter("license_number");
-        Driver driver = new Driver(login, name, licenseNumber, password);
+        Driver driver = new Driver(name, licenseNumber, login, password);
         driverService.create(driver);
         resp.sendRedirect(req.getContextPath() + "/drivers/add");
     }
