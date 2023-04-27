@@ -9,7 +9,7 @@ import taxi.model.Car;
 import taxi.model.Driver;
 
 @Service
-public class CarServiceImpl implements CarService {
+public class    CarServiceImpl implements CarService {
     @Inject
     private CarDao carDao;
 
