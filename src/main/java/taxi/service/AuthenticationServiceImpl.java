@@ -22,6 +22,5 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         } else {
             throw new AuthenticationException("login or password incorrect ");
         }
-
     }
 }
