@@ -38,6 +38,7 @@
     <tr>
 
     </tr>
+    <tr><td><a href="${pageContext.request.contextPath}/logout">Logout</a></td></tr>
 
 
 </table>
