@@ -13,8 +13,6 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import taxi.lib.Injector;
-import taxi.service.DriverService;
 
 @WebFilter(urlPatterns = "/*")
 public class AuthenticationFilter implements Filter {
