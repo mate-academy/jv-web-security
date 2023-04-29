@@ -11,10 +11,7 @@
         <servlet-name>index</servlet-name>
         <url-pattern>/index</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>index</servlet-name>
-        <url-pattern>/</url-pattern>
-    </servlet-mapping>
+
 
     <servlet>
         <servlet-name>allDrivers</servlet-name>
@@ -105,4 +102,27 @@
         <servlet-name>deleteManufacturer</servlet-name>
         <url-pattern>/manufacturers/delete</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>loginController</servlet-name>
+        <servlet-class>taxi.controller.authentication.LoginController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>loginController</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>loginController</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>authenticationFilter</filter-name>
+        <filter-class>taxi.web.filter.AuthenticationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>authenticationFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
 </web-app>
