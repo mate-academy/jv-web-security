@@ -3,6 +3,10 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <session-config>
+        <session-timeout>2</session-timeout>
+    </session-config>
+
     <servlet>
         <servlet-name>index</servlet-name>
         <servlet-class>taxi.controller.IndexController</servlet-class>
@@ -11,7 +15,6 @@
         <servlet-name>index</servlet-name>
         <url-pattern>/index</url-pattern>
     </servlet-mapping>
-
 
     <servlet>
         <servlet-name>allDrivers</servlet-name>
@@ -114,6 +117,15 @@
     <servlet-mapping>
         <servlet-name>loginController</servlet-name>
         <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>logoutController</servlet-name>
+        <servlet-class>taxi.controller.authentication.LogoutController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logoutController</servlet-name>
+        <url-pattern>/logout</url-pattern>
     </servlet-mapping>
 
     <filter>
