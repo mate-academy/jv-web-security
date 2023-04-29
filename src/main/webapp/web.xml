@@ -128,6 +128,15 @@
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>createDriverController</servlet-name>
+        <servlet-class>taxi.controller.authentication.CreateDriverController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>createDriverController</servlet-name>
+        <url-pattern>/registration</url-pattern>
+    </servlet-mapping>
+
     <filter>
         <filter-name>authenticationFilter</filter-name>
         <filter-class>taxi.web.filter.AuthenticationFilter</filter-class>
