@@ -42,6 +42,10 @@
         <servlet-name>addDriver</servlet-name>
         <url-pattern>/drivers/add</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addDriver</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
 
     <servlet>
         <servlet-name>allCars</servlet-name>
@@ -105,4 +109,49 @@
         <servlet-name>deleteManufacturer</servlet-name>
         <url-pattern>/manufacturers/delete</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>loginDriver</servlet-name>
+        <servlet-class>taxi.controller.authentication.LoginController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>loginDriver</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>logoutDriver</servlet-name>
+        <servlet-class>taxi.controller.authentication.LogoutController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logoutDriver</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>cabinet</servlet-name>
+        <servlet-class>taxi.controller.cabinet.GetMyCurrentCarsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>cabinet</servlet-name>
+        <url-pattern>/cabinet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>removeDriverFromCar</servlet-name>
+        <servlet-class>taxi.controller.car.RemoveDriverFromCarController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>removeDriverFromCar</servlet-name>
+        <url-pattern>/cars/remove</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>authenticationFilter</filter-name>
+        <filter-class>taxi.web.filter.AuthenticationFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>authenticationFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>
