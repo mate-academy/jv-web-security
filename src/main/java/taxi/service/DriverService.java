@@ -5,5 +5,5 @@ import taxi.exception.AuthenticationException;
 import taxi.model.Driver;
 
 public interface DriverService extends GenericService<Driver> {
-    Optional<Driver> findByLogin(String login) throws AuthenticationException;
+    Optional<Driver> findByLogin(String login);
 }
