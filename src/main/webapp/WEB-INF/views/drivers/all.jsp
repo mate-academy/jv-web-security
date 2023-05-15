@@ -8,13 +8,15 @@
     <title>All drivers</title>
 </head>
 <body>
-<h1 class="table_dark">All drivers:</h1>
-<table border="1" class="table_dark">
+<%@include file="../header.jsp"%>
+<h1 class="table_dark">All drivers:</h1><br />
+<table class="table_dark">
     <tr>
         <th>ID</th>
         <th>Name</th>
         <th>License number</th>
-        <th>Delete</th>
+        <th>Login</th>
+        <th></th>
     </tr>
     <c:forEach var="driver" items="${drivers}">
         <tr>
@@ -28,7 +30,12 @@
                 <c:out value="${driver.licenseNumber}"/>
             </td>
             <td>
-                <a href="${pageContext.request.contextPath}/drivers/delete?id=${driver.id}">DELETE</a>
+                <c:out value="${driver.login}"/>
+            </td>
+            <td>
+                <a href="${pageContext.request.contextPath}/drivers/delete?id=${driver.id}">
+                    <input type="button" value="DELETE">
+                </a>
             </td>
         </tr>
     </c:forEach>

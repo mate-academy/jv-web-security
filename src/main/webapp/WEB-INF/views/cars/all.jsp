@@ -8,15 +8,16 @@
     <title>All cars</title>
 </head>
 <body>
-<h1 class="table_dark">All cars:</h1>
-<table border="1" class="table_dark">
+<%@include file="../header.jsp"%>
+<h1 class="table_dark">All cars:</h1><br />
+<table class="table_dark">
     <tr>
         <th>ID</th>
         <th>Model</th>
         <th>Manufacturer name</th>
         <th>Manufacturer country</th>
         <th>Drivers</th>
-        <th>Delete</th>
+        <th></th>
     </tr>
     <c:forEach var="car" items="${cars}">
         <tr>
@@ -34,14 +35,26 @@
             </td>
             <td>
                 <c:forEach var="driver" items="${car.drivers}">
-                    ${driver.id} ${driver.name} ${driver.licenseNumber} <br>
+                    ${driver.id} ${driver.name} ${driver.licenseNumber} ${driver.login}<br>
                 </c:forEach>
             </td>
             <td>
-                <a href="${pageContext.request.contextPath}/cars/delete?id=${car.id}">DELETE</a>
+                <c:if test="${all_cars != null}">
+                    <a href="${pageContext.request.contextPath}/cars/drivers/delete?id=${car.id}">
+                        <input type="button" value="DELETE">
+                    </a>
+                </c:if>
+                <c:if test="${all_cars == null}">
+                    <a href="${pageContext.request.contextPath}/cars/delete?id=${car.id}">
+                        <input type="button" value="DELETE">
+                    </a>
+                </c:if>
             </td>
         </tr>
     </c:forEach>
+    <c:if test="${all_cars != null}">
+        <%@include file="addCarFromDriver.jsp"%>
+    </c:if>
 </table>
 </body>
 </html>

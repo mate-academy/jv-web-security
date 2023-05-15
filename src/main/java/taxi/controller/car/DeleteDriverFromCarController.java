@@ -12,27 +12,21 @@ import taxi.model.Driver;
 import taxi.service.CarService;
 import taxi.service.DriverService;
 
-@WebServlet(urlPatterns = "/drivers/car/add")
-public class AddDriverToCarController extends HttpServlet {
+@WebServlet(urlPatterns = "/cars/drivers/delete")
+public class DeleteDriverFromCarController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
     private final CarService carService = (CarService) injector.getInstance(CarService.class);
     private final DriverService driverService = (DriverService) injector
             .getInstance(DriverService.class);
 
     @Override
-    public void doGet(HttpServletRequest req, HttpServletResponse resp)
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        req.getRequestDispatcher("/WEB-INF/views/cars/drivers/addCarFromDriver.jsp")
-                .forward(req, resp);
-    }
-
-    @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         Long driverId = (Long) req.getSession().getAttribute("driver_id");
-        long carId = Long.parseLong(req.getParameter("car_id"));
+        long carId = Long.parseLong(req.getParameter("id"));
         Driver driver = driverService.get(driverId);
         Car car = carService.get(carId);
-        carService.addDriverToCar(driver, car);
+        carService.removeDriverFromCar(driver, car);
         resp.sendRedirect(req.getContextPath() + "/drivers/cars/my");
     }
 }

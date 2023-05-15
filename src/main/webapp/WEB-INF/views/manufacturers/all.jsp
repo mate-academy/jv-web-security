@@ -8,13 +8,14 @@
     <title>All manufacturers</title>
 </head>
 <body>
-<h1 class="table_dark">All manufacturers:</h1>
-<table border="1" class="table_dark">
+<%@include file="../header.jsp"%>
+<h1 class="table_dark">All manufacturers:</h1><br />
+<table class="table_dark">
     <tr>
         <th>ID</th>
         <th>Name</th>
         <th>License number</th>
-        <th>Delete</th>
+        <th></th>
     </tr>
     <c:forEach var="manufacturer" items="${manufacturers}">
         <tr>
@@ -28,7 +29,9 @@
                 <c:out value="${manufacturer.country}"/>
             </td>
             <td>
-                <a href="${pageContext.request.contextPath}/manufacturers/delete?id=${manufacturer.id}">DELETE</a>
+                <a href="${pageContext.request.contextPath}/manufacturers/delete?id=${manufacturer.id}">
+                    <input type="button" value="DELETE">
+                </a>
             </td>
         </tr>
     </c:forEach>
