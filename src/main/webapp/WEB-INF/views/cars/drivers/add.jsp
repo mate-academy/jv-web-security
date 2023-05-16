@@ -5,6 +5,7 @@
 </style>
 <html>
 <head>
+    <%@ include file="/WEB-INF/views/buttons.jsp" %>
     <title>Add driver to car</title>
 </head>
 <body>
@@ -27,6 +28,58 @@
             <input type="submit" name="add" form="car">
         </td>
     </tr>
+</table>
+<h3>List of Cars</h3>
+<table border="1" class="table_dark">
+    <tr>
+        <th>ID</th>
+        <th>Model</th>
+        <th>Manufacturer name</th>
+        <th>Manufacturer country</th>
+        <th>Drivers</th>
+    </tr>
+    <c:forEach var="car" items="${cars}">
+        <tr>
+            <td>
+                <c:out value="${car.id}"/>
+            </td>
+            <td>
+                <c:out value="${car.model}"/>
+            </td>
+            <td>
+                <c:out value="${car.manufacturer.name}"/>
+            </td>
+            <td>
+                <c:out value="${car.manufacturer.country}"/>
+            </td>
+            <td>
+                <c:forEach var="driver" items="${car.drivers}">
+                    ${driver.id} ${driver.name} ${driver.licenseNumber} <br>
+                </c:forEach>
+            </td>
+        </tr>
+    </c:forEach>
+</table>
+<h3>List of drivers</h3>
+<table border="1" class="table_dark">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>License number</th>
+    </tr>
+    <c:forEach var="manufacturer" items="${manufacturers}">
+        <tr>
+            <td>
+                <c:out value="${manufacturer.id}"/>
+            </td>
+            <td>
+                <c:out value="${manufacturer.name}"/>
+            </td>
+            <td>
+                <c:out value="${manufacturer.country}"/>
+            </td>
+        </tr>
+    </c:forEach>
 </table>
 </body>
 </html>

@@ -5,6 +5,7 @@
 </style>
 <html>
 <head>
+    <%@ include file="/WEB-INF/views/buttons.jsp" %>
     <title>All cars</title>
 </head>
 <body>
@@ -38,7 +39,7 @@
                 </c:forEach>
             </td>
             <td>
-                <a href="${pageContext.request.contextPath}/cars/delete?id=${car.id}">DELETE</a>
+                <a class="btn btn-primary" type="button" href="${pageContext.request.contextPath}/cars/delete?id=${car.id}">DELETE</a>
             </td>
         </tr>
     </c:forEach>

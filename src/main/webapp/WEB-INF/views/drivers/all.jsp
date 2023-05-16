@@ -5,6 +5,7 @@
 </style>
 <html>
 <head>
+    <%@ include file="/WEB-INF/views/buttons.jsp" %>
     <title>All drivers</title>
 </head>
 <body>
@@ -28,7 +29,7 @@
                 <c:out value="${driver.licenseNumber}"/>
             </td>
             <td>
-                <a href="${pageContext.request.contextPath}/drivers/delete?id=${driver.id}">DELETE</a>
+                <a class="btn btn-primary" type="button" href="${pageContext.request.contextPath}/drivers/delete?id=${driver.id}">DELETE</a>
             </td>
         </tr>
     </c:forEach>

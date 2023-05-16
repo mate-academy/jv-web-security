@@ -5,6 +5,7 @@
 </style>
 <html>
 <head>
+    <%@ include file="/WEB-INF/views/buttons.jsp" %>
     <title>Manufacturers</title>
 </head>
 <body>
@@ -24,7 +25,7 @@
             <input type="text" name="country" form="manufacturer" required>
         </td>
         <td>
-            <input type="submit" name="add" form="manufacturer" required>
+            <input class="btn btn-primary" type="submit" name="add" form="manufacturer" required>
         </td>
     </tr>
 </table>
