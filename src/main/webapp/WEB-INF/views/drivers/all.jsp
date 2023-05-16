@@ -4,6 +4,7 @@
     <%@include file='/WEB-INF/views/css/table_dark.css' %>
 </style>
 <html>
+<%@include file="/WEB-INF/views/header.jsp"%>
 <head>
     <title>All drivers</title>
 </head>
@@ -14,6 +15,7 @@
         <th>ID</th>
         <th>Name</th>
         <th>License number</th>
+        <th>Username</th>
         <th>Delete</th>
     </tr>
     <c:forEach var="driver" items="${drivers}">
@@ -26,6 +28,9 @@
             </td>
             <td>
                 <c:out value="${driver.licenseNumber}"/>
+            </td>
+            <td>
+                <c:out value="${driver.username}"/>
             </td>
             <td>
                 <a href="${pageContext.request.contextPath}/drivers/delete?id=${driver.id}">DELETE</a>
