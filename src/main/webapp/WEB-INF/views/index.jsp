@@ -7,6 +7,9 @@
     <title>My team</title>
 </head>
 <body>
+<div><button style=" display: block;
+  margin-left: auto;
+  margin-right: 0;"><a href = "${pageContext.request.contextPath}/logout">Logout</a></button></div>
 <form method="post" id="redirect"></form>
 <h1 class="table_dark">Hello, mates</h1>
 <table class="table_dark">
@@ -20,6 +23,8 @@
     <tr><td><a href="${pageContext.request.contextPath}/cars/add">Create new Car</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/manufacturers/add">Create new Manufacturer</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/cars/drivers/add">Add Driver to Car</a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/drivers/cars">Get My Current Cars</a></td></tr>
+
 </table>
 </body>
 </html>
