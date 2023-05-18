@@ -4,6 +4,7 @@
     <title>Login Form</title>
 </head>
 <body>
+<%@include file="logout.jsp"%>
 <h3> Login here </h3>
 <form method="post">
     <table style="width: 20%">
