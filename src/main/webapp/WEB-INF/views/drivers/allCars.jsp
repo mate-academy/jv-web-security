@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <style>
@@ -36,9 +37,6 @@
                 <c:forEach var="driver" items="${car.drivers}">
                     ${driver.id} ${driver.name} ${driver.licenseNumber} ${driver.login} <br>
                 </c:forEach>
-            </td>
-            <td>
-                <a href="${pageContext.request.contextPath}/cars/delete?id=${car.id}">DELETE</a>
             </td>
         </tr>
     </c:forEach>
