@@ -8,8 +8,9 @@
     <title>Manufacturers</title>
 </head>
 <body>
-<form method="post" id="manufacturer" action="${pageContext.request.contextPath}/manufacturers/add"></form>
+<%@include file='/WEB-INF/views/header.jsp' %>
 <h1 class="table_dark">Add manufacturer:</h1>
+<form method="post" id="manufacturer" action="${pageContext.request.contextPath}/manufacturers/add">
 <table border="1" class="table_dark">
     <tr>
         <th>Name</th>
@@ -28,5 +29,6 @@
         </td>
     </tr>
 </table>
+</form>
 </body>
 </html>
