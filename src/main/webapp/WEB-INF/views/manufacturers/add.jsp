@@ -10,6 +10,7 @@
 <body>
 <form method="post" id="manufacturer" action="${pageContext.request.contextPath}/manufacturers/add"></form>
 <h1 class="table_dark">Add manufacturer:</h1>
+<%@include file="header.jsp"%>
 <table border="1" class="table_dark">
     <tr>
         <th>Name</th>
