@@ -30,3 +30,8 @@
 .table_dark tr:hover td {
     text-decoration: underline;
 }
+.table_dark_error {
+    color: #ff0000;
+    font-size: 20px;
+    text-align: center;
+}
