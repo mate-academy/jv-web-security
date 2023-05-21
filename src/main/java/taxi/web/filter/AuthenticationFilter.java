@@ -40,7 +40,9 @@ public class AuthenticationFilter implements Filter {
             resp.sendRedirect(req.getContextPath() + "/login");
             return;
         }
-        // Not sure whether this was requested in README
+        // Checks whether this driver's id still exists in the db. 
+        // Otherwise there is a possibility that a driver, 
+        // which has already been deleted, might be able to access the pages.
         if (id != null) {
             try {
                 driverService.get(id);
@@ -50,7 +52,8 @@ public class AuthenticationFilter implements Filter {
                 return;
             }
         }
-        // This was not a part of the task, so this 'if' doesn't count.
+        // This was not a part of the task. Prohibits the driver from accessing 
+        // login page, when they are already logged in.
         if (id != null && req.getServletPath().equals("/login")) {
             resp.sendRedirect(req.getContextPath() + "/index");
             return;

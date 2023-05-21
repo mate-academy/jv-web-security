@@ -17,7 +17,8 @@ public class AddDriverController extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        // This was not a part of the task. It's required for JS to work correctly.
+        // This was not a part of the task. It's required for the button in the header 
+        // to change depending on whether the driver is already logged in.
         if (req.getSession().getAttribute("driver_id") != null) {
             req.setAttribute("is_logged_in", true);
         }  
