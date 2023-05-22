@@ -33,5 +33,6 @@
         </tr>
     </c:forEach>
 </table>
+<%@include file="../logout.jsp"%>
 </body>
 </html>
