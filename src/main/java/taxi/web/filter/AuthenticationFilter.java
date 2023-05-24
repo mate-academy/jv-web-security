@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class AuthenticationFilter implements Filter {
-    private Set<String> allovedUrl = new HashSet<>();
+    private final Set<String> allovedUrl = new HashSet<>();
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
