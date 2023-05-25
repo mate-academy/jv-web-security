@@ -1,11 +1,11 @@
 package taxi.controller.driver;
 
-import java.io.IOException;
-import java.util.List;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.List;
 import taxi.lib.Injector;
 import taxi.model.Driver;
 import taxi.service.DriverService;
