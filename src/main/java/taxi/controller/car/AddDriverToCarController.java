@@ -14,12 +14,14 @@ import taxi.service.DriverService;
 public class AddDriverToCarController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
     private final CarService carService = (CarService) injector.getInstance(CarService.class);
-    private final DriverService driverService = (DriverService) injector
-            .getInstance(DriverService.class);
+    private final DriverService driverService =
+            (DriverService) injector.getInstance(DriverService.class);
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+        req.setAttribute("cars", carService.getAll());
+        req.setAttribute("drivers", driverService.getAll());
         req.getRequestDispatcher("/WEB-INF/views/cars/drivers/add.jsp").forward(req, resp);
     }
 
@@ -30,6 +32,6 @@ public class AddDriverToCarController extends HttpServlet {
         Driver driver = driverService.get(driverId);
         Car car = carService.get(carId);
         carService.addDriverToCar(driver, car);
-        resp.sendRedirect(req.getContextPath() + "/cars/drivers/add");
+        resp.sendRedirect(req.getContextPath() + "/cars");
     }
 }
