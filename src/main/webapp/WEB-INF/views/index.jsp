@@ -8,6 +8,7 @@
 </head>
 <body>
 <form method="post" id="redirect"></form>
+<%@include file="header.jsp"%>
 <h1 class="table_dark">Hello, mates</h1>
 <table class="table_dark">
     <tr>
