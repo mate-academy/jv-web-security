@@ -3,6 +3,7 @@
     <%@include file='/WEB-INF/views/css/table_dark.css' %>
 </style>
 <html>
+<%@include file="header.jsp"%>
 <head>
     <title>My team</title>
 </head>
