@@ -25,6 +25,13 @@ public class DriverServiceImpl implements DriverService {
     }
 
     @Override
+    public Driver findByLogin(String login) {
+        return driverDao.findByLogin(login).orElseThrow(() ->
+                new NoSuchElementException("Login or password was incorrect")
+        );
+    }
+
+    @Override
     public List<Driver> getAll() {
         return driverDao.getAll();
     }
