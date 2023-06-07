@@ -1,37 +1,32 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<style>
-    <%@include file='/WEB-INF/views/css/table_dark.css' %>
-</style>
 <html>
 <head>
-    <title>All drivers</title>
+  <title>Drivers</title>
 </head>
 <body>
-<h1 class="table_dark">All drivers:</h1>
-<table border="1" class="table_dark">
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>License number</th>
-        <th>Delete</th>
-    </tr>
-    <c:forEach var="driver" items="${drivers}">
+  <jsp:include page="../header.jsp"/>
+  <div class="content">
+    <table class="__table">
+      <thead>
+      <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>license number</th>
+      </tr>
+      </thead>
+      <tbody>
+      <jsp:useBean id="drivers" scope="request" type="java.util.List"/>
+      <c:forEach var="car" items="${drivers}">
         <tr>
-            <td>
-                <c:out value="${driver.id}"/>
-            </td>
-            <td>
-                <c:out value="${driver.name}"/>
-            </td>
-            <td>
-                <c:out value="${driver.licenseNumber}"/>
-            </td>
-            <td>
-                <a href="${pageContext.request.contextPath}/drivers/delete?id=${driver.id}">DELETE</a>
-            </td>
+          <td>${car.getId()}</td>
+          <td>${car.getName()}</td>
+          <td>${car.getLicenseNumber()}</td>
         </tr>
-    </c:forEach>
-</table>
+      </c:forEach>
+      </tbody>
+    </table>
+    <a href="drivers/add">add driver</a>
+  </div>
 </body>
 </html>
