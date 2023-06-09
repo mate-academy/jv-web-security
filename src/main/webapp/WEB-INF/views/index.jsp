@@ -5,6 +5,7 @@
 <html>
 <head>
     <title>My team</title>
+    <%@include file='/WEB-INF/views/common/header.jsp' %>
 </head>
 <body>
 <form method="post" id="redirect"></form>
@@ -23,7 +24,4 @@
     <tr><td><a href="${pageContext.request.contextPath}/drivers/allCars">My cars</a></td></tr>
 </table>
 </body>
-<footer>
-    <%@include file='/WEB-INF/views/common/footer.jsp' %>
-</footer>
 </html>

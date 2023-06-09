@@ -6,6 +6,7 @@
 <html>
 <head>
     <title>Manufacturers</title>
+    <%@include file='/WEB-INF/views/common/header.jsp' %>
 </head>
 <body>
 <form method="post" id="manufacturer" action="${pageContext.request.contextPath}/manufacturers/add"></form>
@@ -28,8 +29,5 @@
         </td>
     </tr>
 </table>
-<footer>
-    <%@include file='/WEB-INF/views/common/footer.jsp' %>
-</footer>
 </body>
 </html>

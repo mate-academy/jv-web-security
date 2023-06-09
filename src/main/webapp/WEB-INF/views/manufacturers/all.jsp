@@ -6,6 +6,7 @@
 <html>
 <head>
     <title>All manufacturers</title>
+    <%@include file='/WEB-INF/views/common/header.jsp' %>
 </head>
 <body>
 <h1 class="table_dark">All manufacturers:</h1>
@@ -33,8 +34,5 @@
         </tr>
     </c:forEach>
 </table>
-<footer>
-    <%@include file='/WEB-INF/views/common/footer.jsp' %>
-</footer>
 </body>
 </html>
