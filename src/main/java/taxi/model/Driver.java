@@ -4,9 +4,7 @@ import java.util.Objects;
 
 public class Driver {
     private Long id;
-
     private String login;
-
     private String password;
     private String name;
     private String licenseNumber;
@@ -23,6 +21,11 @@ public class Driver {
         this(name, licenseNumber);
         this.login = login;
         this.password = password;
+    }
+
+    public Driver(Long id, String login, String password, String name, String licenseNumber) {
+        this(name, licenseNumber, login, password);
+        this.id = id;
     }
 
     public Long getId() {
