@@ -1,32 +1,20 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<style>
-    <%@include file='/WEB-INF/views/css/table_dark.css' %>
-</style>
 <html>
 <head>
-    <title>Manufacturers</title>
-</head>
+    <title>Add manufacturer</title>
+    <style>
+        <%@include file="/WEB-INF/css/inputForm.css" %>
+        <%@include file="/WEB-INF/css/header.css" %>
+    </style>
+    <%@include file="/WEB-INF/views/header.jsp" %></head>
 <body>
-<form method="post" id="manufacturer" action="${pageContext.request.contextPath}/manufacturers/add"></form>
-<h1 class="table_dark">Add manufacturer:</h1>
-<table border="1" class="table_dark">
-    <tr>
-        <th>Name</th>
-        <th>Country</th>
-        <th>Add</th>
-    </tr>
-    <tr>
-        <td>
-            <input type="text" name="name" form="manufacturer" required>
-        </td>
-        <td>
-            <input type="text" name="country" form="manufacturer" required>
-        </td>
-        <td>
-            <input type="submit" name="add" form="manufacturer" required>
-        </td>
-    </tr>
-</table>
+<h1>Add manufacturer</h1>
+<form method="post" action="${pageContext.request.contextPath}/manufacturers/add">
+    <label for="name">Name:</label>
+        <input type="text" name="name" id="name"><br>
+    <label for="country">Country:</label>
+        <input type="text" name="country" id="country"><br>
+        <input type="submit" value="Create">
+</form>
 </body>
 </html>
