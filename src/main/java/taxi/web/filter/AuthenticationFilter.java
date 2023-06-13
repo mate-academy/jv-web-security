@@ -19,25 +19,20 @@ public class AuthenticationFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) {
         allowedUrls.add("/login");
-        allowedUrls.add("/register");
+        allowedUrls.add("/drivers/add");
     }
 
     @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
-                         FilterChain filterChain)
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
-        HttpServletRequest req = (HttpServletRequest) servletRequest;
-        HttpServletResponse resp = (HttpServletResponse) servletResponse;
+        HttpServletRequest req = (HttpServletRequest) request;
+        HttpServletResponse resp = (HttpServletResponse) response;
         HttpSession session = req.getSession();
         Long driverId = (Long) session.getAttribute("driver_id");
-        if (driverId == null && allowedUrls.contains(req.getServletPath())) {
-            filterChain.doFilter(req, resp);
-            return;
-        }
-        if (driverId == null) {
+        if (driverId == null && !allowedUrls.contains(req.getServletPath())) {
             resp.sendRedirect(req.getContextPath() + "/login");
             return;
         }
-        filterChain.doFilter(req, resp);
+        chain.doFilter(req, resp);
     }
 }
