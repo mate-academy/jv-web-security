@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ include file="/WEB-INF/views/header.jsp" %>
 <style>
     <%@include file='/WEB-INF/views/css/table_dark.css' %>
 </style>
@@ -8,7 +9,7 @@
     <title>Manufacturers</title>
 </head>
 <body>
-<form method="post" id="manufacturer" action="${pageContext.request.contextPath}/manufacturers/add"></form>
+<form method="post" id="manufacturer" action="${pageContext.request.contextPath}/manufacturers/add">
 <h1 class="table_dark">Add manufacturer:</h1>
 <table border="1" class="table_dark">
     <tr>
@@ -28,5 +29,6 @@
         </td>
     </tr>
 </table>
+</form>
 </body>
 </html>
