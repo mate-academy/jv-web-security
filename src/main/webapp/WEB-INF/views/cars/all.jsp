@@ -1,5 +1,6 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ include file="/WEB-INF/views/header.jsp" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <style>
     <%@include file='/WEB-INF/views/css/table_dark.css' %>
 </style>
@@ -8,7 +9,16 @@
     <title>All cars</title>
 </head>
 <body>
-<h1 class="table_dark">All cars:</h1>
+<h1 class="table_dark">
+    <c:choose>
+        <c:when test="${requestScope['javax.servlet.forward.request_uri'] == '/cars/drivers'}">
+            My current cars:
+        </c:when>
+        <c:otherwise>
+            All cars:
+        </c:otherwise>
+    </c:choose>
+</h1>
 <table border="1" class="table_dark">
     <tr>
         <th>ID</th>
