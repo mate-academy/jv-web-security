@@ -12,7 +12,7 @@ import taxi.lib.Injector;
 import taxi.model.Driver;
 import taxi.service.AuthenticationService;
 
-@WebServlet(urlPatterns = "/drivers/login")
+@WebServlet(urlPatterns = "/login")
 public class LoginController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
     private AuthenticationService authenticationService =
