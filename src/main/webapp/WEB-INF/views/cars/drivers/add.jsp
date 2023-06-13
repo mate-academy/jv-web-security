@@ -5,7 +5,8 @@
 </style>
 <html>
 <head>
-    <title>Add driver to car</title>
+    <title>Add driver to car</title
+    <%@include file='/WEB-INF/views/drivers/header.jsp'%>
 </head>
 <body>
 <form method="post" id="car" action="${pageContext.request.contextPath}/cars/drivers/add"></form>
