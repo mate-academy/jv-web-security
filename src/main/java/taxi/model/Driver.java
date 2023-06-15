@@ -69,6 +69,15 @@ public class Driver {
     }
 
     @Override
+    public String toString() {
+        return "Driver{"
+                + "id=" + id
+                + ", login='" + login + '\''
+                + ", name='" + name + '\''
+                + ", licenseNumber='" + licenseNumber + '\'' + '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
