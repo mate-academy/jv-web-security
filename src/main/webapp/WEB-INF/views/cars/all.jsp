@@ -8,6 +8,10 @@
     <title>All cars</title>
 </head>
 <body>
+<%@include file="/WEB-INF/views/header.jsp"%>
+<a href="${pageContext.request.contextPath}/index">
+    <input type="button" value="Homepage" />
+</a>
 <h1 class="table_dark">All cars:</h1>
 <table border="1" class="table_dark">
     <tr>
