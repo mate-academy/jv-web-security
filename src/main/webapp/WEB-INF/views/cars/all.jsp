@@ -9,6 +9,7 @@
 </head>
 <body>
 <h1 class="table_dark">All cars:</h1>
+<%@include file="/WEB-INF/views/header.jsp"%>
 <table border="1" class="table_dark">
     <tr>
         <th>ID</th>
@@ -34,7 +35,7 @@
             </td>
             <td>
                 <c:forEach var="driver" items="${car.drivers}">
-                    ${driver.id} ${driver.name} ${driver.licenseNumber} <br>
+                    ${driver.id} ${driver.name} ${driver.licenseNumber} ${driver.login} ${driver.password} <br>
                 </c:forEach>
             </td>
             <td>
@@ -43,5 +44,10 @@
         </tr>
     </c:forEach>
 </table>
+<c:if test="${not empty param.successMessage}">
+    <div class="alert alert-success">
+        <c:out value="${param.successMessage}"/>
+    </div>
+</c:if>
 </body>
 </html>

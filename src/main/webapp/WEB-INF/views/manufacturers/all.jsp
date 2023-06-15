@@ -9,6 +9,7 @@
 </head>
 <body>
 <h1 class="table_dark">All manufacturers:</h1>
+<%@include file="/WEB-INF/views/header.jsp"%>
 <table border="1" class="table_dark">
     <tr>
         <th>ID</th>
@@ -33,5 +34,10 @@
         </tr>
     </c:forEach>
 </table>
+<c:if test="${not empty param.successMessage}">
+    <div class="alert alert-success">
+        <c:out value="${param.successMessage}"/>
+    </div>
+</c:if>
 </body>
 </html>
