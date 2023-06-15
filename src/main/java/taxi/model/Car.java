@@ -10,13 +10,15 @@ public class Car {
     private Manufacturer manufacturer;
     private List<Driver> drivers;
 
-    public Car() {
-    }
-
     public Car(String model, Manufacturer manufacturer) {
         this.model = model;
         this.manufacturer = manufacturer;
         drivers = new ArrayList<>();
+    }
+
+    public Car(Long id, Manufacturer manufacturer, String model) {
+        this(model, manufacturer);
+        this.id = id;
     }
 
     public Long getId() {
