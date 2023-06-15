@@ -10,11 +10,14 @@
 <body>
 <form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/add"></form>
 <h1 class="table_dark">Add driver:</h1>
+<%@include file="/WEB-INF/views/header.jsp"%>
 <table border="1" class="table_dark">
     <tr>
         <th>Name</th>
         <th>License number</th>
         <th>Add</th>
+        <th>Login</th>
+        <th>Password</th>
     </tr>
     <tr>
         <td>
@@ -25,6 +28,12 @@
         </td>
         <td>
             <input type="submit" name="add" form="driver">
+        </td>
+        <td>
+            <input type="text" name="login" form="driver" required>
+        </td>
+        <td>
+            <input type="password" name="password" form="driver" required>
         </td>
     </tr>
 </table>
