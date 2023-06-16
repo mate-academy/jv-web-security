@@ -18,7 +18,7 @@ public class DriverDaoImpl implements DriverDao {
     @Override
     public Driver create(Driver driver) {
         String query = "INSERT INTO drivers (name, license_number,login,password) "
-                + "VALUES (?, ?,?,?)";
+                + "VALUES (?, ?, ?, ?)";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement = connection.prepareStatement(query,
                         Statement.RETURN_GENERATED_KEYS)) {
@@ -109,13 +109,7 @@ public class DriverDaoImpl implements DriverDao {
         String licenseNumber = resultSet.getString("license_number");
         String login = resultSet.getString("login");
         String password = resultSet.getString("password");
-        Driver driver = new Driver();
-        driver.setId(id);
-        driver.setName(name);
-        driver.setLicenseNumber(licenseNumber);
-        driver.setLogin(login);
-        driver.setPassword(password);
-        return driver;
+        return new Driver(id, name, licenseNumber, login, password);
     }
 
     @Override
