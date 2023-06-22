@@ -5,10 +5,11 @@
 </style>
 <html>
 <head>
-    <title>All drivers</title>
+    <title>All manufacturers</title>
 </head>
 <body>
-<h1 class="table_dark">All drivers:</h1>
+<%@include file="/WEB-INF/views/header.jsp"%>
+<h1 class="table_dark">All manufacturers:</h1>
 <table border="1" class="table_dark">
     <tr>
         <th>ID</th>
@@ -16,19 +17,19 @@
         <th>License number</th>
         <th>Delete</th>
     </tr>
-    <c:forEach var="driver" items="${drivers}">
+    <c:forEach var="manufacturer" items="${manufacturers}">
         <tr>
             <td>
-                <c:out value="${driver.id}"/>
+                <c:out value="${manufacturer.id}"/>
             </td>
             <td>
-                <c:out value="${driver.name}"/>
+                <c:out value="${manufacturer.name}"/>
             </td>
             <td>
-                <c:out value="${driver.licenseNumber}"/>
+                <c:out value="${manufacturer.country}"/>
             </td>
             <td>
-                <a href="${pageContext.request.contextPath}/drivers/delete?id=${driver.id}">DELETE</a>
+                <a href="${pageContext.request.contextPath}/manufacturers/delete?id=${manufacturer.id}">DELETE</a>
             </td>
         </tr>
     </c:forEach>
