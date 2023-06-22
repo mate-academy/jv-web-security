@@ -28,10 +28,14 @@
                 <c:out value="${driver.licenseNumber}"/>
             </td>
             <td>
+                <c:out value="${driver.logon}"/>
+            </td>
+            <td>
                 <a href="${pageContext.request.contextPath}/drivers/delete?id=${driver.id}">DELETE</a>
             </td>
         </tr>
     </c:forEach>
 </table>
+<%@include file="header.jsp"%>
 </body>
 </html>
