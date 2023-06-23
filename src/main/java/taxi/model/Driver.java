@@ -20,7 +20,6 @@ public class Driver {
 
     public Driver(String name, String licenseNumber, String login, String password) {
         this(name, licenseNumber, login);
-        this.login = login;
         this.password = password;
     }
 
