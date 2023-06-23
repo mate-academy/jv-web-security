@@ -12,14 +12,14 @@ public class Driver {
     public Driver() {
     }
 
-    public Driver(String name, String licenseNumber) {
+    public Driver(String name, String licenseNumber, String login) {
         this.name = name;
         this.licenseNumber = licenseNumber;
+        this.login = login;
     }
 
     public Driver(String name, String licenseNumber, String login, String password) {
-        this.name = name;
-        this.licenseNumber = licenseNumber;
+        this(name, licenseNumber, login);
         this.login = login;
         this.password = password;
     }
