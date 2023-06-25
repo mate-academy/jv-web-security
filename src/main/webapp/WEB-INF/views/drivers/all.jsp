@@ -8,6 +8,7 @@
     <title>All drivers</title>
 </head>
 <body>
+<%@include file='/WEB-INF/views/header.jsp' %>
 <h1 class="table_dark">All drivers:</h1>
 <table border="1" class="table_dark">
     <tr>
@@ -33,5 +34,12 @@
         </tr>
     </c:forEach>
 </table>
+
+<div style="display: flex; justify-content: center;">
+    <button onclick="location.href='${pageContext.request.contextPath}/index'" style="width: 200px;">
+        Return to menu
+    </button>
+</div>
+
 </body>
 </html>

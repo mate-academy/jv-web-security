@@ -8,6 +8,7 @@
     <title>Add driver to car</title>
 </head>
 <body>
+<%@include file='/WEB-INF/views/header.jsp' %>
 <form method="post" id="car" action="${pageContext.request.contextPath}/cars/drivers/add"></form>
 <h1 class="table_dark">Add driver to car:</h1>
 <table border="1" class="table_dark">
@@ -28,5 +29,12 @@
         </td>
     </tr>
 </table>
+
+<div style="display: flex; justify-content: center;">
+    <button onclick="location.href='${pageContext.request.contextPath}/index'" style="width: 200px;">
+        Return to menu
+    </button>
+</div>
+
 </body>
 </html>
