@@ -13,6 +13,14 @@ public class DriverServiceImpl implements DriverService {
     private DriverDao driverDao;
 
     @Override
+    public Driver findByLogin(String login) {
+        return driverDao.findByLogin(login).orElseThrow(() ->
+                new NoSuchElementException("The user with login "
+                        + login + " doesn't exist!")
+        );
+    }
+
+    @Override
     public Driver create(Driver driver) {
         return driverDao.create(driver);
     }
