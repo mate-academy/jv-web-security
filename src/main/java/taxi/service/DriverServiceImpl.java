@@ -38,4 +38,11 @@ public class DriverServiceImpl implements DriverService {
     public boolean delete(Long id) {
         return driverDao.delete(id);
     }
+
+    @Override
+    public Driver findByLogin(String username) {
+        return driverDao.findByLogin(username).orElseThrow(() ->
+                new NoSuchElementException("Can't get driver by login: " + username)
+        );
+    }
 }
