@@ -8,7 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 
 public class LogoutController extends HttpServlet {
 
-    @Override protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         req.getSession().invalidate();
         resp.sendRedirect(req.getContextPath() + "/login");
