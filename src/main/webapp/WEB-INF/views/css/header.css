@@ -5,14 +5,16 @@
     font-size: x-large;
     background-color: black;
 }
+
 .header th {
     margin-top: auto;
     width: auto;
 }
 
 a:visited {
-       color: inherit;
-    }
+    color: inherit;
+}
+
 a:link {
     color: inherit;
 }

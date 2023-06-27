@@ -16,13 +16,15 @@ import javax.servlet.http.HttpSession;
 public class AuthenticationFilter implements Filter {
     private final Set<String> allowedUrls = new HashSet<>();
 
-    @Override public void init(FilterConfig filterConfig) throws ServletException {
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
         allowedUrls.add("/login");
         allowedUrls.add("/drivers/add");
     }
 
-    @Override public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
-                                   FilterChain filterChain) throws IOException, ServletException {
+    @Override
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
+                         FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         HttpSession session = request.getSession();
