@@ -1,4 +1,4 @@
-package taxi.controller.filter;
+package taxi.filter;
 
 import java.io.IOException;
 import java.util.HashSet;
@@ -31,11 +31,7 @@ public class AuthenticationFilter implements Filter {
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         HttpSession session = req.getSession();
         Long driverId = (Long) session.getAttribute("driver_id");
-        if (driverId == null && allowedUrls.contains(req.getServletPath())) {
-            filterChain.doFilter(req, resp);
-            return;
-        }
-        if (driverId == null) {
+        if (driverId == null && !allowedUrls.contains(req.getServletPath())) {
             resp.sendRedirect(req.getContextPath() + "/login");
             return;
         }
