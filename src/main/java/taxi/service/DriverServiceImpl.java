@@ -2,6 +2,7 @@ package taxi.service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 import taxi.dao.DriverDao;
 import taxi.lib.Inject;
 import taxi.lib.Service;
@@ -9,6 +10,7 @@ import taxi.model.Driver;
 
 @Service
 public class DriverServiceImpl implements DriverService {
+
     @Inject
     private DriverDao driverDao;
 
@@ -32,6 +34,11 @@ public class DriverServiceImpl implements DriverService {
     @Override
     public Driver update(Driver driver) {
         return driverDao.update(driver);
+    }
+
+    @Override
+    public Optional<Driver> findByLogin(String login) {
+        return driverDao.findByLogin(login);
     }
 
     @Override

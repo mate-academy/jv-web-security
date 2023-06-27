@@ -15,6 +15,7 @@ import taxi.util.ConnectionUtil;
 
 @Dao
 public class ManufacturerDaoImpl implements ManufacturerDao {
+
     @Override
     public Manufacturer create(Manufacturer manufacturer) {
         String query = "INSERT INTO manufacturers (name, country) VALUES (?,?)";
@@ -82,6 +83,11 @@ public class ManufacturerDaoImpl implements ManufacturerDao {
     }
 
     @Override
+    public Optional<Manufacturer> findByLogin(String login) {
+        return Optional.empty();
+    }
+
+    @Override
     public boolean delete(Long id) {
         String query = "UPDATE manufacturers SET is_deleted = TRUE WHERE id = ?";
         try (Connection connection = ConnectionUtil.getConnection();
@@ -105,7 +111,7 @@ public class ManufacturerDaoImpl implements ManufacturerDao {
     }
 
     private PreparedStatement setUpdate(PreparedStatement statement,
-                                        Manufacturer manufacturer) throws SQLException {
+            Manufacturer manufacturer) throws SQLException {
         statement.setString(1, manufacturer.getName());
         statement.setString(2, manufacturer.getCountry());
         return statement;

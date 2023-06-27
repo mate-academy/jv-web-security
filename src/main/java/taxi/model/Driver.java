@@ -3,14 +3,21 @@ package taxi.model;
 import java.util.Objects;
 
 public class Driver {
+
     private Long id;
     private String name;
     private String licenseNumber;
     private String login;
     private String password;
 
-
     public Driver() {
+    }
+
+    public Driver(String name, String licenseNumber, String login, String password) {
+        this.name = name;
+        this.licenseNumber = licenseNumber;
+        this.login = login;
+        this.password = password;
     }
 
     public Driver(String name, String licenseNumber) {
@@ -68,12 +75,14 @@ public class Driver {
         }
         Driver driver = (Driver) o;
         return Objects.equals(id, driver.id)
-                && Objects.equals(name, driver.name)
-                && Objects.equals(licenseNumber, driver.licenseNumber);
+            && Objects.equals(name, driver.name)
+            && Objects.equals(licenseNumber, driver.licenseNumber)
+            && Objects.equals(login, driver.login)
+            && Objects.equals(password, driver.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, licenseNumber);
+        return Objects.hash(id, name, licenseNumber, login, password);
     }
 }

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface GenericDao<T> {
+
     T create(T element);
 
     Optional<T> get(Long id);
@@ -11,6 +12,8 @@ public interface GenericDao<T> {
     List<T> getAll();
 
     T update(T element);
+
+    Optional<T> findByLogin(String login);
 
     boolean delete(Long id);
 }

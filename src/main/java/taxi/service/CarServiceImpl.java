@@ -2,6 +2,7 @@ package taxi.service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 import taxi.dao.CarDao;
 import taxi.lib.Inject;
 import taxi.lib.Service;
@@ -10,6 +11,7 @@ import taxi.model.Driver;
 
 @Service
 public class CarServiceImpl implements CarService {
+
     @Inject
     private CarDao carDao;
 
@@ -50,6 +52,11 @@ public class CarServiceImpl implements CarService {
     @Override
     public Car update(Car car) {
         return carDao.update(car);
+    }
+
+    @Override
+    public Optional<Car> findByLogin(String login) {
+        return Optional.empty();
     }
 
     @Override

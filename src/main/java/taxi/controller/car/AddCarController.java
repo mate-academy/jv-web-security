@@ -12,6 +12,7 @@ import taxi.service.CarService;
 import taxi.service.ManufacturerService;
 
 public class AddCarController extends HttpServlet {
+
     private static final Injector injector = Injector.getInstance("taxi");
     private final CarService carService = (CarService) injector.getInstance(CarService.class);
     private final ManufacturerService manufacturerService = (ManufacturerService) injector
