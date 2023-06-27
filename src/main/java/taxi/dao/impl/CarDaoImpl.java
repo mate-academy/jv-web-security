@@ -1,4 +1,4 @@
-package taxi.dao;
+package taxi.dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import taxi.dao.CarDao;
 import taxi.exception.DataProcessingException;
 import taxi.lib.Dao;
 import taxi.model.Car;
@@ -24,7 +25,7 @@ public class CarDaoImpl implements CarDao {
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement =
                         connection.prepareStatement(
-                             query, Statement.RETURN_GENERATED_KEYS)) {
+                                query, Statement.RETURN_GENERATED_KEYS)) {
             statement.setString(1, car.getModel());
             statement.setLong(2, car.getManufacturer().getId());
             statement.executeUpdate();
@@ -116,8 +117,8 @@ public class CarDaoImpl implements CarDao {
         String query = "UPDATE cars SET is_deleted = TRUE WHERE id = ?"
                 + " AND is_deleted = FALSE";
         try (Connection connection = ConnectionUtil.getConnection();
-                 PreparedStatement statement =
-                         connection.prepareStatement(query)) {
+                PreparedStatement statement =
+                        connection.prepareStatement(query)) {
             statement.setLong(1, id);
             return statement.executeUpdate() > 0;
         } catch (SQLException e) {
@@ -149,7 +150,7 @@ public class CarDaoImpl implements CarDao {
             }
         } catch (SQLException e) {
             throw new DataProcessingException("Can't get all cars for driver with id: "
-                + driverId, e);
+                    + driverId, e);
         }
         cars.forEach(car -> car.setDrivers(getAllDriversByCarId(car.getId())));
         return cars;
@@ -183,7 +184,7 @@ public class CarDaoImpl implements CarDao {
             statement.executeUpdate();
         } catch (SQLException e) {
             throw new DataProcessingException("Can't delete drivers " + car.getDrivers()
-                + " of car with id: " + car.getId(), e);
+                    + " of car with id: " + car.getId(), e);
         }
     }
 

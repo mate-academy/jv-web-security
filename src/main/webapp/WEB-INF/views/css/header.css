@@ -1,0 +1,20 @@
+.header {
+    width: 100%;
+    font-family: "Arial Black";
+    color: chocolate;
+    font-size: x-large;
+    background-color: black;
+}
+
+.header th {
+    margin-top: auto;
+    width: auto;
+}
+
+a:visited {
+    color: inherit;
+}
+
+a:link {
+    color: inherit;
+}

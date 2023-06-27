@@ -12,8 +12,8 @@ import taxi.service.DriverService;
 
 public class GetAllDriversController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
-    private final DriverService driverService = (DriverService) injector
-            .getInstance(DriverService.class);
+    private final DriverService driverService =
+            (DriverService) injector.getInstance(DriverService.class);
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
