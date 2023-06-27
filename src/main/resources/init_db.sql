@@ -7,13 +7,15 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- Table structure for drivers
 -- ----------------------------
 DROP TABLE IF EXISTS `drivers`;
-CREATE TABLE `drivers`  (
-                            `id` BIGINT(0) UNSIGNED NOT NULL AUTO_INCREMENT,
-                            `name` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                            `license_number` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-                            `is_deleted` BIT(1) NOT NULL DEFAULT b'0',
-                            PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+CREATE TABLE `drivers` (
+                           `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+                           `name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+                           `license_number` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+                           `is_deleted` bit(1) NOT NULL DEFAULT b'0',
+                           `login` varchar(255) NOT NULL,
+                           `password` varchar(255) NOT NULL,
+                           PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Table structure for manufacturers
