@@ -4,10 +4,10 @@ import java.util.Objects;
 
 public class Driver {
     private Long id;
-    private String login;
-    private String password;
     private String name;
     private String licenseNumber;
+    private String login;
+    private String password;
 
     public Driver() {
     }
@@ -17,19 +17,15 @@ public class Driver {
         this.licenseNumber = licenseNumber;
     }
 
-    public Driver(String login, String password, String name, String licenseNumber) {
+    public Driver(String name, String licenseNumber, String login, String password) {
+        this(name, licenseNumber);
         this.login = login;
         this.password = password;
-        this.name = name;
-        this.licenseNumber = licenseNumber;
     }
 
     public Driver(Long id, String login, String password, String name, String licenseNumber) {
+        this(name, licenseNumber, login, password);
         this.id = id;
-        this.login = login;
-        this.password = password;
-        this.name = name;
-        this.licenseNumber = licenseNumber;
     }
 
     public String getLogin() {

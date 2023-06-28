@@ -4,7 +4,6 @@
   <title>Login</title>
 </head>
 <body>
-<%@include file="/WEB-INF/views/header/header.jsp"%>
 <h1>Login Page</h1>
 <h4 style="color: red">${errorMsg}</h4>
 <form method="post" action="${pageContext.request.contextPath}/login">
