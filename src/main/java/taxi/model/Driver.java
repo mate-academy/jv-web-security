@@ -87,7 +87,6 @@ public class Driver {
         return "Driver{"
                 + "id=" + id
                 + ", login='" + login + '\''
-                + ", password='" + password + '\''
                 + ", name='" + name + '\''
                 + ", licenseNumber='" + licenseNumber + '\''
                 + '}';
