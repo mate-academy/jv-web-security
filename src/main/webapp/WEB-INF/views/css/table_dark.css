@@ -1,25 +1,31 @@
+header p, h1 {
+    text-align: center;
+    padding: 20px;
+}
 .table_dark {
     font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    width: 70%;
+    width: 50%;
     color: #7C5FAB;
+    color: blue;
     font-size: 40px;
     text-align: center;
     border-collapse: collapse;
     background: #FEF4AB;
+    padding: 50px;
     margin: auto;
 }
 .table_dark th {
     color: #7C5FAB;
     border-bottom: 1px solid #98E2CA;
     padding: 12px 17px;
-    font-size: 14px;
+    font-size: 24px;
 }
 .table_dark td {
     color: #7C5FAB;
     border-bottom: 1px solid #98E2CA;
     border-right: 1px solid #98E2CA;
     padding: 7px 17px;
-    font-size: 14px;
+    font-size: 18px;
 }
 .table_dark tr:last-child td {
     border-bottom: none;
@@ -29,4 +35,20 @@
 }
 .table_dark tr:hover td {
     text-decoration: underline;
+}
+header {
+    width: 50%;
+    background: lightblue;
+    text-align: right;
+    font-size: 22px;
+    color: darkblue;
+    margin: 0 auto;
+}
+footer {
+    width: 50%;
+    background: steelblue;
+    text-align: center;
+    font-size: 22px;
+    color: darkblue;
+    margin: 0 auto;
 }
