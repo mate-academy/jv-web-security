@@ -38,4 +38,10 @@ public class DriverServiceImpl implements DriverService {
     public boolean delete(Long id) {
         return driverDao.delete(id);
     }
+
+    public Driver getByLogin(String login) {
+        return driverDao.getByLogin(login).orElseThrow(() ->
+                new NoSuchElementException("Can't get driver by login: " + login)
+        );
+    }
 }
