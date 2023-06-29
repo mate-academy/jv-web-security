@@ -9,7 +9,8 @@
 </head>
 <body>
 <%@include file="../include/header.jsp"%>
-<form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/add"></form>
+<%--<form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/add"></form>--%>
+<form method="post" id="driver" action="${pageContext.request.contextPath}/registration"></form>
 <h1 class="table_dark">Add driver:</h1>
 <table border="1" class="table_dark">
     <tr>
