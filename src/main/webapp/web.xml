@@ -124,6 +124,24 @@
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>getCarsByDriverController</servlet-name>
+        <servlet-class>taxi.controller.driver.GetMyCurrentCarsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>getCarsByDriverController</servlet-name>
+        <url-pattern>/cars/drivers/current</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>removeDriverFromCarController</servlet-name>
+        <servlet-class>taxi.controller.driver.RemoveCurrentCarController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>removeDriverFromCarController</servlet-name>
+        <url-pattern>/cars/drivers/remove</url-pattern>
+    </servlet-mapping>
+
     <filter>
         <filter-name>authenticationFilter</filter-name>
         <filter-class>taxi.web.filter.AuthenticationFilter</filter-class>

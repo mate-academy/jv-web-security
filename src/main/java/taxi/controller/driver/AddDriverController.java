@@ -10,6 +10,8 @@ import taxi.model.Driver;
 import taxi.service.DriverService;
 
 public class AddDriverController extends HttpServlet {
+    //    If we consider that our Driver like User
+    //    I decided to consider it appropriate to use this controller to add (create) a driver
     private static final Injector injector = Injector.getInstance("taxi");
     private final DriverService driverService = (DriverService) injector
             .getInstance(DriverService.class);
