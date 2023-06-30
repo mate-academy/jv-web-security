@@ -27,6 +27,9 @@
             <input type="submit" name="add" form="car">
         </td>
     </tr>
+    <tr>
+        <td><%@include file ="/WEB-INF/views/access/header.jsp" %></td>
+    </tr>
 </table>
 </body>
 </html>
