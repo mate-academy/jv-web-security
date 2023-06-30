@@ -7,6 +7,10 @@
     <title>My team</title>
 </head>
 <body>
+<%@include file="header.jsp" %>
+<form action="${pageContext.request.contextPath}/login">
+    <input type="submit" value="Login" />
+</form>
 <form method="post" id="redirect"></form>
 <h1 class="table_dark">Hello, mates</h1>
 <table class="table_dark">
