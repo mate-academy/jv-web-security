@@ -5,15 +5,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-public class IndexController extends HttpServlet {
+public class LogOutController extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        HttpSession session = req.getSession();
-        Long userId = (Long) session.getAttribute("user_id");
-        req.setAttribute("user_id", userId);
-        req.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(req, resp);
+        req.getSession().invalidate();
+        resp.sendRedirect(req.getContextPath() + "/index");
     }
 }

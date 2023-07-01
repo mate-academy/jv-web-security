@@ -5,10 +5,17 @@
 </style>
 <html>
 <head>
+    <%@include file="/WEB-INF/views/header.jsp" %>
     <title>All cars</title>
 </head>
 <body>
-<h1 class="table_dark">All cars:</h1>
+<c:if test="${driver_cars != null}">
+    <h1 class="table_dark">My cars:</h1>
+</c:if>
+
+<c:if test="${driver_cars == null}">
+    <h1 class="table_dark">All cars:</h1>
+</c:if>
 <table border="1" class="table_dark">
     <tr>
         <th>ID</th>
@@ -18,30 +25,60 @@
         <th>Drivers</th>
         <th>Delete</th>
     </tr>
-    <c:forEach var="car" items="${cars}">
-        <tr>
-            <td>
-                <c:out value="${car.id}"/>
-            </td>
-            <td>
-                <c:out value="${car.model}"/>
-            </td>
-            <td>
-                <c:out value="${car.manufacturer.name}"/>
-            </td>
-            <td>
-                <c:out value="${car.manufacturer.country}"/>
-            </td>
-            <td>
-                <c:forEach var="driver" items="${car.drivers}">
-                    ${driver.id} ${driver.name} ${driver.licenseNumber} <br>
-                </c:forEach>
-            </td>
-            <td>
-                <a href="${pageContext.request.contextPath}/cars/delete?id=${car.id}">DELETE</a>
-            </td>
-        </tr>
-    </c:forEach>
+
+    <c:if test="${driver_cars != null}">
+        <c:forEach var="car" items="${driver_cars}">
+            <tr>
+                <td>
+                    <c:out value="${car.id}"/>
+                </td>
+                <td>
+                    <c:out value="${car.model}"/>
+                </td>
+                <td>
+                    <c:out value="${car.manufacturer.name}"/>
+                </td>
+                <td>
+                    <c:out value="${car.manufacturer.country}"/>
+                </td>
+                <td>
+                    <c:forEach var="driver" items="${car.drivers}">
+                        ${driver.id} ${driver.name} ${driver.licenseNumber} <br>
+                    </c:forEach>
+                </td>
+                <td>
+                    <a href="${pageContext.request.contextPath}/cars/delete?id=${car.id}">DELETE</a>
+                </td>
+            </tr>
+        </c:forEach>
+    </c:if>
+
+    <c:if test="${driver_cars == null}">
+        <c:forEach var="car" items="${cars}">
+            <tr>
+                <td>
+                    <c:out value="${car.id}"/>
+                </td>
+                <td>
+                    <c:out value="${car.model}"/>
+                </td>
+                <td>
+                    <c:out value="${car.manufacturer.name}"/>
+                </td>
+                <td>
+                    <c:out value="${car.manufacturer.country}"/>
+                </td>
+                <td>
+                    <c:forEach var="driver" items="${car.drivers}">
+                        ${driver.id} ${driver.name} ${driver.licenseNumber} <br>
+                    </c:forEach>
+                </td>
+                <td>
+                    <a href="${pageContext.request.contextPath}/cars/delete?id=${car.id}">DELETE</a>
+                </td>
+            </tr>
+        </c:forEach>
+    </c:if>
 </table>
 </body>
 </html>
