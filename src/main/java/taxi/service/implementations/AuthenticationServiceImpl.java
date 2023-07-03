@@ -1,4 +1,4 @@
-package taxi.service;
+package taxi.service.implementations;
 
 import java.util.Optional;
 import taxi.dao.DriverDao;
@@ -6,6 +6,7 @@ import taxi.exception.AuthenticationException;
 import taxi.lib.Inject;
 import taxi.lib.Service;
 import taxi.model.Driver;
+import taxi.service.AuthenticationService;
 
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
@@ -16,7 +17,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     public Driver login(String login, String password) throws AuthenticationException {
         Optional<Driver> driver = driverDao.findByLogin(login);
         if (driver.isEmpty()) {
-            throw new AuthenticationException("Login or password was incorrect");
+            throw new AuthenticationException("Login is incorrect");
         }
         if (driver.get().getPassword().equals(password)) {
             return driver.get();
