@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import taxi.exception.DataProcessingException;
 import taxi.lib.Dao;
 import taxi.model.Car;
@@ -17,6 +18,9 @@ import taxi.util.ConnectionUtil;
 
 @Dao
 public class CarDaoImpl implements CarDao {
+    public static final int ZERO_FOR_QUERY = 0;
+    public static final int SHIFT = 2;
+
     @Override
     public Car create(Car car) {
         String query = "INSERT INTO cars (model, manufacturer_id)"
@@ -106,7 +110,7 @@ public class CarDaoImpl implements CarDao {
         } catch (SQLException e) {
             throw new DataProcessingException("Can't update car " + car, e);
         }
-        deleteAllDrivers(car);
+        deleteAllDriversExceptList(car);
         insertAllDrivers(car);
         return car;
     }
@@ -156,34 +160,46 @@ public class CarDaoImpl implements CarDao {
     }
 
     private void insertAllDrivers(Car car) {
+        Long carId = car.getId();
         List<Driver> drivers = car.getDrivers();
         if (drivers.size() == 0) {
             return;
         }
-        String query = "INSERT INTO cars_drivers (car_id, driver_id) VALUES (?, ?)";
+        String query = "INSERT INTO cars_drivers (car_id, driver_id) VALUES "
+                + drivers.stream().map(driver -> "(?, ?)").collect(Collectors.joining(", "))
+                + " ON DUPLICATE KEY UPDATE car_id = car_id";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement =
                         connection.prepareStatement(query)) {
-            statement.setLong(1, car.getId());
-            for (Driver driver : drivers) {
-                statement.setLong(2, driver.getId());
-                statement.executeUpdate();
+            for (int i = 0; i < drivers.size(); i++) {
+                Driver driver = drivers.get(i);
+                statement.setLong((i << SHIFT) + 1, carId);
+                statement.setLong((i << SHIFT) + 2, driver.getId());
             }
+            statement.executeUpdate();
         } catch (SQLException e) {
             throw new DataProcessingException("Can't insert drivers " + drivers, e);
         }
     }
 
-    private void deleteAllDrivers(Car car) {
-        String query = "DELETE FROM cars_drivers WHERE car_id = ?";
+    private void deleteAllDriversExceptList(Car car) {
+        Long carId = car.getId();
+        List<Driver> exceptList = car.getDrivers();
+        String query = "DELETE FROM cars_drivers WHERE car_id = ? "
+                + "AND NOT driver_id IN ("
+                + ZERO_FOR_QUERY + ", ?".repeat(exceptList.size())
+                + ");";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement =
                         connection.prepareStatement(query)) {
-            statement.setLong(1, car.getId());
+            statement.setLong(1, carId);
+            for (int i = 0; i < exceptList.size(); i++) {
+                Driver driver = exceptList.get(i);
+                statement.setLong((i) + SHIFT, driver.getId());
+            }
             statement.executeUpdate();
         } catch (SQLException e) {
-            throw new DataProcessingException("Can't delete drivers " + car.getDrivers()
-                + " of car with id: " + car.getId(), e);
+            throw new DataProcessingException("Can't delete drivers " + exceptList, e);
         }
     }
 
@@ -211,10 +227,14 @@ public class CarDaoImpl implements CarDao {
         Long driverId = resultSet.getObject("id", Long.class);
         String name = resultSet.getString("name");
         String licenseNumber = resultSet.getString("license_number");
+        String login = resultSet.getString("login");
+        String password = resultSet.getString("password");
         Driver driver = new Driver();
         driver.setId(driverId);
         driver.setName(name);
         driver.setLicenseNumber(licenseNumber);
+        driver.setLogin(login);
+        driver.setPassword(password);
         return driver;
     }
 
