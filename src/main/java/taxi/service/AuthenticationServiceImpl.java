@@ -17,12 +17,10 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     @Override
     public Driver login(String login, String password) throws AuthenticationException {
         Optional<Driver> driver = driverDao.findByLogin(login);
-        if (driver.isEmpty()) {
+        if (driver.isEmpty() || !driver.get().getPassword().equals(password)) {
             throw new AuthenticationException("Wrong login or password!");
-        }
-        if (driver.get().getPassword().equals(password)) {
+        } else {
             return driver.get();
         }
-        throw new AuthenticationException("Wrong login or password!");
     }
 }
