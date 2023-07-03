@@ -1,6 +1,7 @@
 package taxi.controller.car;
 
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,6 +21,8 @@ public class AddCarController extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+        List<Manufacturer> manufacturers = manufacturerService.getAll();
+        req.setAttribute("manufacturers", manufacturers);
         req.getRequestDispatcher("/WEB-INF/views/cars/add.jsp").forward(req, resp);
     }
 
