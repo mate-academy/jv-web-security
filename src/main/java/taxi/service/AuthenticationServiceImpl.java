@@ -14,12 +14,10 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     @Override
     public Driver login(String login, String password) throws AuthenticationException {
         Optional<Driver> driver = driverService.findByLogin(login);
-        if (driver.isEmpty()) {
-            throw new AuthenticationException("Username or password is incorrect");
-        }
         if (driver.get().getPassword().equals(password)) {
             return driver.get();
+        } else {
+            throw new AuthenticationException("Username or password is incorrect");
         }
-        throw new AuthenticationException("Username or password is incorrect");
     }
 }
