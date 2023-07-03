@@ -55,6 +55,23 @@ public class DriverDaoImpl implements DriverDao {
     }
 
     @Override
+    public Optional<Driver> findByLogin(String login) {
+        String query = "SELECT * FROM drivers WHERE login = ? AND is_deleted = FALSE";
+        try (Connection connection = ConnectionUtil.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, login);
+            ResultSet resultSet = statement.executeQuery();
+            Driver driver = null;
+            if (resultSet.next()) {
+                driver = parseDriverFromResultSet(resultSet);
+            }
+            return Optional.ofNullable(driver);
+        } catch (SQLException e) {
+            throw new DataProcessingException("Can't find driver by login " + login, e);
+        }
+    }
+
+    @Override
     public List<Driver> getAll() {
         String query = "SELECT * FROM drivers WHERE is_deleted = FALSE";
         List<Driver> drivers = new ArrayList<>();
@@ -100,23 +117,6 @@ public class DriverDaoImpl implements DriverDao {
             return statement.executeUpdate() > 0;
         } catch (SQLException e) {
             throw new DataProcessingException("Can't delete driver with id " + id, e);
-        }
-    }
-
-    @Override
-    public Optional<Driver> findByLogin(String login) {
-        String query = "SELECT * FROM drivers WHERE login = ? AND is_deleted = FALSE";
-        try (Connection connection = ConnectionUtil.getConnection();
-             PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setString(1, login);
-            ResultSet resultSet = statement.executeQuery();
-            Driver driver = null;
-            if (resultSet.next()) {
-                driver = parseDriverFromResultSet(resultSet);
-            }
-            return Optional.ofNullable(driver);
-        } catch (SQLException e) {
-            throw new DataProcessingException("Can't get driver by login " + login, e);
         }
     }
 
