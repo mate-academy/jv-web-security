@@ -8,15 +8,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import taxi.dao.CarDao;
 import taxi.lib.Injector;
 import taxi.model.Car;
-import taxi.service.CarService;
 
 public class GetMyCurrentCarsController extends HttpServlet {
 
     private static final Injector injector = Injector.getInstance("taxi");
-    private final CarService carService =
-            (CarService) injector.getInstance(CarService.class);
+
+    private final CarDao carDao =
+            (CarDao) injector.getInstance(CarDao.class);
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -27,7 +28,7 @@ public class GetMyCurrentCarsController extends HttpServlet {
 
         List<Car> carsId = new ArrayList<>();
 
-        for (Car car : carService.getAll()) {
+        for (Car car : carDao.getAll()) {
             if (driverId.equals(car.getDrivers().stream().findFirst().get().getId())) {
                 carsId.add(car);
             }
