@@ -6,6 +6,7 @@
 <html>
 <head>
     <title>All drivers</title>
+    ${driver.id} ${driver.name} ${driver.licenseNumber} ${driver.login}<br>
 </head>
 <body>
 <form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/add"></form>
@@ -14,11 +15,19 @@
     <tr>
         <th>Name</th>
         <th>License number</th>
+        <th>Login</th>
+        <th>Password</th>
         <th>Add</th>
     </tr>
     <tr>
         <td>
             <input type="text" name="name" form="driver" required>
+        </td>
+        <td>
+            <input type="text" name="login" form="driver" required>
+        </td>
+        <td>
+            <input type="password" name="password" form="driver" required>
         </td>
         <td>
             <input type="text" name="license_number" form="driver" required>
