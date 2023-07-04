@@ -6,7 +6,7 @@
 <html>
 <head>
     <title>All drivers</title>
-    <%@include file='/WEB-INF/views/common/header.jsp' %>
+    <%@include file="/WEB-INF/views/components/header.jsp" %>
 </head>
 <body>
 <h1 class="table_dark">All drivers:</h1>

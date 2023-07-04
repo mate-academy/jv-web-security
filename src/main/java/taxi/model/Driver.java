@@ -12,15 +12,15 @@ public class Driver {
     public Driver() {
     }
 
+    public Driver(String name, String licenseNumber) {
+        this.name = name;
+        this.licenseNumber = licenseNumber;
+    }
+
     public Driver(String name, String licenseNumber, String login, String password) {
         this(name, licenseNumber);
         this.login = login;
         this.password = password;
-    }
-
-    public Driver(String name, String licenseNumber) {
-        this.name = name;
-        this.licenseNumber = licenseNumber;
     }
 
     public Long getId() {
@@ -72,8 +72,7 @@ public class Driver {
             return false;
         }
         Driver driver = (Driver) o;
-        return Objects.equals(id, driver.id)
-                && Objects.equals(name, driver.name)
+        return Objects.equals(id, driver.id) && Objects.equals(name, driver.name)
                 && Objects.equals(licenseNumber, driver.licenseNumber)
                 && Objects.equals(login, driver.login)
                 && Objects.equals(password, driver.password);
@@ -90,7 +89,7 @@ public class Driver {
                 + "id=" + id
                 + ", name='" + name + '\''
                 + ", licenseNumber='" + licenseNumber + '\''
-                + ", login='" + login + '\''
-                + '}';
+                + ", login='" + login
+                + '\'' + '}';
     }
 }

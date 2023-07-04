@@ -9,27 +9,30 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+@WebFilter(urlPatterns = "/*")
 public class AuthenticationFilter implements Filter {
-    private Set<String> allowedUrls = new HashSet<>();
+    private Set<String> allowedUrl = new HashSet<>();
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        allowedUrls.add("/login");
-        allowedUrls.add("/register");
+        allowedUrl.add("/login");
+        allowedUrl.add("/drivers/add");
     }
 
     @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
-                         FilterChain filterChain) throws IOException, ServletException {
+    public void doFilter(ServletRequest servletRequest,
+                         ServletResponse servletResponse, FilterChain filterChain)
+            throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         HttpSession session = request.getSession();
         Long driverId = (Long) session.getAttribute("driver_id");
-        if (driverId == null && !allowedUrls.contains(request.getServletPath())) {
+        if (driverId == null && !allowedUrl.contains(request.getServletPath())) {
             response.sendRedirect(request.getContextPath() + "/login");
             return;
         }

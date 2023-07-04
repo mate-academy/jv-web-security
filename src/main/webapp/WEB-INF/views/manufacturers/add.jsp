@@ -6,7 +6,7 @@
 <html>
 <head>
     <title>Manufacturers</title>
-    <%@include file='/WEB-INF/views/common/header.jsp' %>
+    <%@include file="/WEB-INF/views/components/header.jsp" %>
 </head>
 <body>
 <form method="post" id="manufacturer" action="${pageContext.request.contextPath}/manufacturers/add"></form>
