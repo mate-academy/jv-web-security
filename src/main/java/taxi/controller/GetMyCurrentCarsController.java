@@ -11,15 +11,12 @@ import javax.servlet.http.HttpSession;
 import taxi.lib.Injector;
 import taxi.model.Car;
 import taxi.service.CarService;
-import taxi.service.DriverService;
 
 public class GetMyCurrentCarsController extends HttpServlet {
 
     private static final Injector injector = Injector.getInstance("taxi");
     private final CarService carService =
             (CarService) injector.getInstance(CarService.class);
-    private final DriverService driverService =
-            (DriverService) injector.getInstance(DriverService.class);
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -31,7 +28,7 @@ public class GetMyCurrentCarsController extends HttpServlet {
         List<Car> carsId = new ArrayList<>();
 
         for (Car car : carService.getAll()) {
-            if (car.getDrivers().contains(driverService.get(driverId))) {
+            if (driverId.equals(car.getDrivers().stream().findFirst().get().getId())) {
                 carsId.add(car);
             }
         }
@@ -40,5 +37,4 @@ public class GetMyCurrentCarsController extends HttpServlet {
         req.getRequestDispatcher("/WEB-INF/views/cars/all.jsp").forward(req, resp);
     }
 }
-
 
