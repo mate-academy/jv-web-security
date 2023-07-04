@@ -1,37 +1,32 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<style>
-    <%@include file='/WEB-INF/views/css/table_dark.css' %>
-</style>
 <html>
 <head>
-    <title>All manufacturers</title>
+    <title>Manufacturers</title>
 </head>
+<%@include file="../headers/mainHeader.jsp" %>
 <body>
-<h1 class="table_dark">All manufacturers:</h1>
-<table border="1" class="table_dark">
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>License number</th>
-        <th>Delete</th>
-    </tr>
-    <c:forEach var="manufacturer" items="${manufacturers}">
+<div class="container mt-4 text-center">
+    <h1 class="display-5">Manufacturers</h1>
+    <table class="table table-striped-columns text-center">
         <tr>
-            <td>
-                <c:out value="${manufacturer.id}"/>
-            </td>
-            <td>
-                <c:out value="${manufacturer.name}"/>
-            </td>
-            <td>
-                <c:out value="${manufacturer.country}"/>
-            </td>
-            <td>
-                <a href="${pageContext.request.contextPath}/manufacturers/delete?id=${manufacturer.id}">DELETE</a>
-            </td>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Country</th>
+            <th>Deletion</th>
         </tr>
-    </c:forEach>
-</table>
+        <c:forEach items="${manufacturers}" var="manufacturer">
+            <tr>
+                <td><c:out value="${manufacturer.id}"/></td>
+                <td><c:out value="${manufacturer.name}"/></td>
+                <td><c:out value="${manufacturer.country}"/></td>
+                <td>
+                    <a href="${pageContext.request.contextPath}/manufacturers/delete?id=${manufacturer.id}">
+                        DELETE</a>
+                </td>
+            </tr>
+        </c:forEach>
+    </table>
+</div>
 </body>
 </html>
