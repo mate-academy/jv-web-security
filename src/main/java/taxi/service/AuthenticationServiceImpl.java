@@ -4,12 +4,15 @@ import java.util.Optional;
 import taxi.dao.DriverDao;
 import taxi.dao.DriverDaoImpl;
 import taxi.exception.AuthenticationException;
+import taxi.lib.Inject;
 import taxi.lib.Injector;
 import taxi.lib.Service;
 import taxi.model.Driver;
 
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
+    @Inject
+    private DriverService driverService;
     private static final Injector injector = Injector.getInstance("mate");
     private final DriverDao driverDao =
             (DriverDao) injector.getInstance(DriverDaoImpl.class);
