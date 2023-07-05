@@ -2,7 +2,6 @@ package taxi.service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 import taxi.dao.ManufacturerDao;
 import taxi.lib.Inject;
 import taxi.lib.Service;
@@ -10,7 +9,6 @@ import taxi.model.Manufacturer;
 
 @Service
 public class ManufacturerServiceImpl implements ManufacturerService {
-
     @Inject
     private ManufacturerDao manufacturerDao;
 
@@ -34,11 +32,6 @@ public class ManufacturerServiceImpl implements ManufacturerService {
     @Override
     public Manufacturer update(Manufacturer manufacturer) {
         return manufacturerDao.update(manufacturer);
-    }
-
-    @Override
-    public Optional<Manufacturer> findByLogin(String login) {
-        return Optional.empty();
     }
 
     @Override

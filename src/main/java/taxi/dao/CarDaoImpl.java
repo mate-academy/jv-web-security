@@ -113,11 +113,6 @@ public class CarDaoImpl implements CarDao {
     }
 
     @Override
-    public Optional<Car> findByLogin(String login) {
-        return Optional.empty();
-    }
-
-    @Override
     public boolean delete(Long id) {
         String query = "UPDATE cars SET is_deleted = TRUE WHERE id = ?"
                 + " AND is_deleted = FALSE";

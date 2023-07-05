@@ -13,7 +13,5 @@ public interface GenericDao<T> {
 
     T update(T element);
 
-    Optional<T> findByLogin(String login);
-
     boolean delete(Long id);
 }

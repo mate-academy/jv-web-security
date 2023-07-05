@@ -1,23 +1,21 @@
 package taxi.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import taxi.dao.CarDao;
 import taxi.lib.Injector;
 import taxi.model.Car;
+import taxi.service.CarService;
 
 public class GetMyCurrentCarsController extends HttpServlet {
-
     private static final Injector injector = Injector.getInstance("taxi");
 
-    private final CarDao carDao =
-            (CarDao) injector.getInstance(CarDao.class);
+    private final CarService carService =
+            (CarService) injector.getInstance(CarService.class);
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -26,16 +24,9 @@ public class GetMyCurrentCarsController extends HttpServlet {
         HttpSession session = req.getSession();
         Long driverId = (Long) session.getAttribute("driver_id");
 
-        List<Car> carsId = new ArrayList<>();
-
-        for (Car car : carDao.getAll()) {
-            if (driverId.equals(car.getDrivers().stream().findFirst().get().getId())) {
-                carsId.add(car);
-            }
-        }
+        List<Car> carsId = carService.getAllByDriver(driverId);
 
         req.setAttribute("cars", carsId);
         req.getRequestDispatcher("/WEB-INF/views/cars/all.jsp").forward(req, resp);
     }
 }
-

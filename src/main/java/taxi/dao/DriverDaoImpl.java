@@ -15,7 +15,6 @@ import taxi.util.ConnectionUtil;
 
 @Dao
 public class DriverDaoImpl implements DriverDao {
-
     @Override
     public Driver create(Driver driver) {
         String query = "INSERT INTO drivers (name, license_number, login, password) "
@@ -84,28 +83,10 @@ public class DriverDaoImpl implements DriverDao {
             statement.setString(3, driver.getLogin());
             statement.setString(4, driver.getPassword());
             statement.setLong(5, driver.getId());
-
             statement.executeUpdate();
             return driver;
         } catch (SQLException e) {
             throw new DataProcessingException("Can't update driver" + driver, e);
-        }
-    }
-
-    @Override
-    public Optional<Driver> findByLogin(String login) {
-        String query = "SELECT * FROM drivers WHERE login = ? AND is_deleted = FALSE";
-        try (Connection connection = ConnectionUtil.getConnection();
-                PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setString(1, login);
-            ResultSet resultSet = statement.executeQuery();
-            Driver driver = null;
-            if (resultSet.next()) {
-                driver = parseDriverFromResultSet(resultSet);
-            }
-            return Optional.ofNullable(driver);
-        } catch (SQLException e) {
-            throw new DataProcessingException("Can't get driver by login " + login, e);
         }
     }
 
