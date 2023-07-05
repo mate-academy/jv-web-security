@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Injector {
+
     private static final Map<String, Injector> injectors = new HashMap<>();
     private final Map<Class<?>, Object> instanceOfClasses = new HashMap<>();
     private final List<Class<?>> classes = new ArrayList<>();
@@ -110,9 +111,10 @@ public class Injector {
             throw new RuntimeException("Can't set value to field ", e);
         }
     }
+
     /**
-     * Scans all classes accessible from the context class loader which
-     * belong to the given package and subpackages.
+     * Scans all classes accessible from the context class loader which belong to the given package
+     * and subpackages.
      *
      * @param packageName The base package
      * @return The classes
@@ -139,6 +141,7 @@ public class Injector {
         }
         return classes;
     }
+
     /**
      * Recursive method used to find all classes in a given directory and subdirs.
      *

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Car {
+
     private Long id;
     private String model;
     private Manufacturer manufacturer;
@@ -54,11 +55,11 @@ public class Car {
     @Override
     public String toString() {
         return "Car{"
-                + "id=" + id
-                + ", model='" + model + '\''
-                + ", manufacturer=" + manufacturer
-                + ", drivers=" + drivers
-                + '}';
+            + "id=" + id
+            + ", model='" + model + '\''
+            + ", manufacturer=" + manufacturer
+            + ", drivers=" + drivers
+            + '}';
     }
 
     @Override
@@ -71,8 +72,8 @@ public class Car {
         }
         Car car = (Car) o;
         return Objects.equals(id, car.id) && Objects.equals(model, car.model)
-                && Objects.equals(manufacturer, car.manufacturer)
-                && Objects.equals(drivers, car.drivers);
+            && Objects.equals(manufacturer, car.manufacturer)
+            && Objects.equals(drivers, car.drivers);
     }
 
     @Override

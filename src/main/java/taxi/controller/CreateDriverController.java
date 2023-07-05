@@ -1,4 +1,4 @@
-package taxi.controller.driver;
+package taxi.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -9,11 +9,10 @@ import taxi.lib.Injector;
 import taxi.model.Driver;
 import taxi.service.DriverService;
 
-public class AddDriverController extends HttpServlet {
-
+public class CreateDriverController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
-    private final DriverService driverService = (DriverService) injector
-            .getInstance(DriverService.class);
+    private final DriverService driverService =
+            (DriverService) injector.getInstance(DriverService.class);
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -29,6 +28,6 @@ public class AddDriverController extends HttpServlet {
         String password = req.getParameter("password");
         Driver driver = new Driver(name, licenseNumber, login, password);
         driverService.create(driver);
-        resp.sendRedirect(req.getContextPath() + "/drivers/add");
+        resp.sendRedirect(req.getContextPath() + "/drivers");
     }
 }
