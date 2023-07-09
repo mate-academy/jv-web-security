@@ -188,7 +188,7 @@ public class CarDaoImpl implements CarDao {
     }
 
     private List<Driver> getAllDriversByCarId(Long carId) {
-        String query = "SELECT id, name, license_number "
+        String query = "SELECT id, name, license_number, login, password "
                 + "FROM cars_drivers cd "
                 + "JOIN drivers d ON cd.driver_id = d.id "
                 + "WHERE car_id = ? AND is_deleted = false";
@@ -211,27 +211,19 @@ public class CarDaoImpl implements CarDao {
         Long driverId = resultSet.getObject("id", Long.class);
         String name = resultSet.getString("name");
         String licenseNumber = resultSet.getString("license_number");
-        Driver driver = new Driver();
-        driver.setId(driverId);
-        driver.setName(name);
-        driver.setLicenseNumber(licenseNumber);
-        return driver;
+        String login = resultSet.getString("login");
+        String password = resultSet.getString("password");
+        return new Driver(driverId, name, licenseNumber, login, password);
     }
 
     private Car parseCarFromResultSet(ResultSet resultSet) throws SQLException {
         Long manufacturerId = resultSet.getObject("manufacturer_id", Long.class);
         String manufacturerName = resultSet.getString("manufacturer_name");
         String manufacturerCountry = resultSet.getString("manufacturer_country");
-        Manufacturer manufacturer = new Manufacturer();
-        manufacturer.setId(manufacturerId);
-        manufacturer.setName(manufacturerName);
-        manufacturer.setCountry(manufacturerCountry);
+        Manufacturer manufacturer =
+                new Manufacturer(manufacturerId, manufacturerName, manufacturerCountry);
         Long carId = resultSet.getObject("id", Long.class);
         String model = resultSet.getString("model");
-        Car car = new Car();
-        car.setId(carId);
-        car.setModel(model);
-        car.setManufacturer(manufacturer);
-        return car;
+        return new Car(carId, model, manufacturer);
     }
 }

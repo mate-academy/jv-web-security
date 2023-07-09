@@ -8,25 +8,16 @@
     <title>Add driver to car</title>
 </head>
 <body>
-<form method="post" id="car" action="${pageContext.request.contextPath}/cars/drivers/add"></form>
-<h1 class="table_dark">Add driver to car:</h1>
-<table border="1" class="table_dark">
-    <tr>
-        <th>Car ID</th>
-        <th>Driver ID</th>
-        <th>Add</th>
-    </tr>
-    <tr>
-        <td>
-            <input type="number" name="car_id" form="car" required>
-        </td>
-        <td>
-            <input type="number" name="driver_id" form="car" required>
-        </td>
-        <td>
-            <input type="submit" name="add" form="car">
-        </td>
-    </tr>
-</table>
+<%@include file="/WEB-INF/views/header.jsp"%>
+<div class="display-div">
+    <div>
+        <h2>Add driver to car</h2>
+        <form method="post" action="${pageContext.request.contextPath}/cars/drivers/add">
+            Car ID <input class="text-field_input" type="text" name="car_id"><br>
+            Driver ID <input class="text-field_input" type="text" name="driver_id"><br>
+            <button class="button-confirm" type="submit">Confirm</button>
+        </form>
+    </div>
+</div>
 </body>
 </html>
