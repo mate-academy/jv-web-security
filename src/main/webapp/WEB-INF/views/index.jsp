@@ -5,6 +5,8 @@
 <html>
 <head>
     <title>My team</title>
+
+    <%@include file="header.jsp"%>
 </head>
 <body>
 <form method="post" id="redirect"></form>
