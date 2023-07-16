@@ -36,7 +36,7 @@ public class LoginController extends HttpServlet {
             session.setAttribute("driver_id", driver.getId());
             resp.sendRedirect(req.getContextPath() + "/index");
         } catch (AuthenticationException e) {
-            req.setAttribute("errorMsg",e.getMessage());
+            req.setAttribute("errorMsg", e.getMessage());
             req.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(req,resp);
         }
     }
