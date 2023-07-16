@@ -30,3 +30,25 @@
 .table_dark tr:hover td {
     text-decoration: underline;
 }
+
+.invalid-login {
+    color: red;
+}
+
+.logout-wrapper {
+    width: 70%;
+    display: flex;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.logout-btn {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    text-decoration: none;
+    border: 1px solid hotpink;
+    border-radius: 7px;
+    padding: 5px 7px;
+    background-color: pink;
+    color: darkred;
+    margin-left: auto;
+}
