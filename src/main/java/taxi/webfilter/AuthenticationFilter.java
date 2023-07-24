@@ -34,11 +34,7 @@ public class AuthenticationFilter implements Filter {
 
         Long userId = (Long) session.getAttribute("driver_id");
         if (userId == null && alowedUrls.contains(httpServletRequest.getServletPath())) {
-            chain.doFilter(httpServletRequest, httpServletResponse);
-            return;
-        }
-        if (userId == null) {
-            httpServletResponse.sendRedirect("/login");
+            httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/login");
             return;
         }
         chain.doFilter(httpServletRequest, httpServletResponse);
