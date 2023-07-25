@@ -14,15 +14,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class AuthenticationFilter implements Filter {
-    private final Set<String> alowedUrls = new HashSet<>();
+    private final Set<String> allowedUrls = new HashSet<>();
 
     @Override
     public void init(FilterConfig filterConfig) {
-        alowedUrls.add("/login");
-        alowedUrls.add("/registration");
-        alowedUrls.add("/help");
-        alowedUrls.add("/contacts");
-        alowedUrls.add("/drivers/add");
+        allowedUrls.add("/login");
+        allowedUrls.add("/registration");
+        allowedUrls.add("/help");
+        allowedUrls.add("/contacts");
+        allowedUrls.add("/drivers/add");
     }
 
     @Override
@@ -33,7 +33,7 @@ public class AuthenticationFilter implements Filter {
         HttpSession session = httpServletRequest.getSession();
 
         Long userId = (Long) session.getAttribute("driver_id");
-        if (userId == null && alowedUrls.contains(httpServletRequest.getServletPath())) {
+        if (userId == null && !allowedUrls.contains(httpServletRequest.getServletPath())) {
             httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/login");
             return;
         }
