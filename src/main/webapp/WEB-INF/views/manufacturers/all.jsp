@@ -8,6 +8,7 @@
     <title>All manufacturers</title>
 </head>
 <body>
+<%@include file="/WEB-INF/views/header.jsp"%>
 <h1 class="table_dark">All manufacturers:</h1>
 <table border="1" class="table_dark">
     <tr>
@@ -32,6 +33,11 @@
             </td>
         </tr>
     </c:forEach>
+    <tr>
+        <td>
+            <a href="${pageContext.request.contextPath}/index">Back to main page</a>
+        </td>
+    </tr>
 </table>
 </body>
 </html>

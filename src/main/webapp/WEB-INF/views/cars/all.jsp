@@ -8,6 +8,7 @@
     <title>All cars</title>
 </head>
 <body>
+<%@include file="/WEB-INF/views/header.jsp"%>
 <h1 class="table_dark">All cars:</h1>
 <table border="1" class="table_dark">
     <tr>
@@ -33,8 +34,8 @@
                 <c:out value="${car.manufacturer.country}"/>
             </td>
             <td>
-                <c:forEach var="driver" items="${car.drivers}">
-                    ${driver.id} ${driver.name} ${driver.licenseNumber} <br>
+                <c:forEach var="driver_id" items="${car.drivers}">
+                    ${driver_id.id} ${driver_id.name} ${driver_id.licenseNumber} <br>
                 </c:forEach>
             </td>
             <td>
@@ -42,6 +43,11 @@
             </td>
         </tr>
     </c:forEach>
+    <tr>
+        <td>
+            <a href="${pageContext.request.contextPath}/index">Back to main page</a>
+        </td>
+    </tr>
 </table>
 </body>
 </html>
