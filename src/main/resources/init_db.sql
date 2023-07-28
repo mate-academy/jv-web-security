@@ -56,3 +56,7 @@ CREATE TABLE `cars_drivers`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 SET FOREIGN_KEY_CHECKS = 1;
+
+ALTER TABLE drivers
+    ADD login VARCHAR(255) NOT NULL,
+    ADD password VARCHAR(255) NOT NULL;
