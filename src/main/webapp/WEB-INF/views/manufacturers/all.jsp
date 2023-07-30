@@ -8,6 +8,7 @@
     <title>All manufacturers</title>
 </head>
 <body>
+<%@include file="/WEB-INF/views/logout.jsp" %><br>
 <h1 class="table_dark">All manufacturers:</h1>
 <table border="1" class="table_dark">
     <tr>
