@@ -128,8 +128,8 @@ public class DriverDaoImpl implements DriverDao {
         driver.setId(id);
         driver.setName(name);
         driver.setLicenseNumber(licenseNumber);
-        driver.setLogin(login);
         driver.setPassword(password);
+        driver.setLogin(login);
         return driver;
     }
 }
