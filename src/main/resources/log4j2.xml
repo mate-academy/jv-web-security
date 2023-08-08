@@ -5,7 +5,7 @@
             <PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level %logger{36} - %msg%n"/>
         </Console>
 
-        <File name="LogToFile" fileName="logs/app.log">
+        <File name="LogToFile" fileName="/Users/mihailokuryk/Documents/Mate-HomeWork/web-secure-hw/logs/app.log" append="true">
             <PatternLayout>
                 <Pattern>%d %p %c:%L %m%n</Pattern>
             </PatternLayout>

@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import taxi.exception.AuthenticationException;
 import taxi.lib.Injector;
 import taxi.model.Driver;
@@ -13,6 +15,8 @@ import taxi.service.AuthenticationService;
 
 public class LoginController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
+    private static final Logger logger =
+            LogManager.getLogger(LoginController.class);
     private final AuthenticationService authenticationService =
             (AuthenticationService) injector.getInstance(AuthenticationService.class);
 
@@ -32,6 +36,7 @@ public class LoginController extends HttpServlet {
             Driver driver = authenticationService.login(username, password);
             HttpSession session = req.getSession();
             session.setAttribute("driver_id", driver.getId());
+            logger.debug("Authorized driver: Name: {}", driver.getName());
             resp.sendRedirect(req.getContextPath() + "/index");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMsg", e.getMessage());
