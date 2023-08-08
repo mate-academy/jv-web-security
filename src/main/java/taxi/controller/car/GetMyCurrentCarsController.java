@@ -12,18 +12,19 @@ import taxi.lib.Injector;
 import taxi.model.Car;
 import taxi.service.CarService;
 
-public class GetAllCarsController extends HttpServlet {
+public class GetMyCurrentCarsController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
     private static final Logger logger =
-            LogManager.getLogger(GetAllCarsController.class);
+            LogManager.getLogger(GetMyCurrentCarsController.class);
     private final CarService carService = (CarService) injector.getInstance(CarService.class);
 
     @Override
-    public void doGet(HttpServletRequest req, HttpServletResponse resp)
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        List<Car> cars = carService.getAll();
-        req.setAttribute("cars", cars);
-        logger.debug("Successfully fetched carsList from DB");
+        Long driverId = (Long) req.getSession().getAttribute("driver_id");
+        List<Car> carList = carService.getAllByDriver(driverId);
+        req.setAttribute("cars", carList);
+        logger.debug("Successfully fetched data for driver's cars");
         req.getRequestDispatcher("/WEB-INF/views/cars/all.jsp").forward(req, resp);
     }
 }
