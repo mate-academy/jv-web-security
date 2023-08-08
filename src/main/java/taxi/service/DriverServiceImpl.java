@@ -43,6 +43,5 @@ public class DriverServiceImpl implements DriverService {
 
     public Optional<Driver> findByLogin(String login) throws AuthenticationException {
         return driverDao.findByLogin(login);
-
     }
 }
