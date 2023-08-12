@@ -5,6 +5,7 @@
 </style>
 <html>
 <head>
+    <%@include file='/WEB-INF/views/header.jsp' %>
     <title>Add car</title>
 </head>
 <body>
@@ -28,5 +29,6 @@
         </td>
     </tr>
 </table>
+<%@include file='/WEB-INF/views/footer.jsp' %>
 </body>
 </html>

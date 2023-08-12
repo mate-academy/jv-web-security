@@ -5,12 +5,16 @@
 </style>
 <html>
 <head>
+    <%@include file='/WEB-INF/views/header.jsp' %>
     <title>Add driver to car</title>
 </head>
 <body>
 <form method="post" id="car" action="${pageContext.request.contextPath}/cars/drivers/add"></form>
 <h1 class="table_dark">Add driver to car:</h1>
 <table border="1" class="table_dark">
+    <tr>
+        <th colspan="3" style="color: red">${errorMsg}</th>
+    </tr>
     <tr>
         <th>Car ID</th>
         <th>Driver ID</th>
@@ -28,5 +32,6 @@
         </td>
     </tr>
 </table>
+<%@include file='/WEB-INF/views/footer.jsp' %>
 </body>
 </html>
