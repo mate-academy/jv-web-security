@@ -1,10 +1,12 @@
 package taxi.controller.car;
 
 import java.io.IOException;
+import java.util.NoSuchElementException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import taxi.exception.DataProcessingException;
 import taxi.lib.Injector;
 import taxi.model.Car;
 import taxi.model.Driver;
@@ -24,12 +26,19 @@ public class AddDriverToCarController extends HttpServlet {
     }
 
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    public void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws IOException, ServletException {
         long driverId = Long.parseLong(req.getParameter("driver_id"));
         long carId = Long.parseLong(req.getParameter("car_id"));
-        Driver driver = driverService.get(driverId);
-        Car car = carService.get(carId);
-        carService.addDriverToCar(driver, car);
-        resp.sendRedirect(req.getContextPath() + "/cars/drivers/add");
+        try {
+            Driver driver = driverService.get(driverId);
+            Car car = carService.get(carId);
+            carService.addDriverToCar(driver, car);
+            resp.sendRedirect(req.getContextPath() + "/cars/drivers/add");
+        } catch (NoSuchElementException | DataProcessingException e) {
+            req.setAttribute("errorMsg", "Can't not add driver ID=" + driverId
+                    + " to car ID=" + carId);
+            req.getRequestDispatcher("/WEB-INF/views/cars/drivers/add.jsp").forward(req, resp);
+        }
     }
 }

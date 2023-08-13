@@ -5,6 +5,7 @@
 </style>
 <html>
 <head>
+    <%@include file='/WEB-INF/views/header.jsp' %>
     <title>Manufacturers</title>
 </head>
 <body>
@@ -24,9 +25,10 @@
             <input type="text" name="country" form="manufacturer" required>
         </td>
         <td>
-            <input type="submit" name="add" form="manufacturer" required>
+            <input type="submit" value="Add" name="add" form="manufacturer" required>
         </td>
     </tr>
 </table>
+<%@include file='/WEB-INF/views/footer.jsp' %>
 </body>
 </html>
