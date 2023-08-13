@@ -25,7 +25,7 @@
             <input type="text" name="country" form="manufacturer" required>
         </td>
         <td>
-            <input type="submit" name="add" form="manufacturer" required>
+            <input type="submit" value="Add" name="add" form="manufacturer" required>
         </td>
     </tr>
 </table>

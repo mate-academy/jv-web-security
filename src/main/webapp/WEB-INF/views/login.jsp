@@ -9,7 +9,7 @@
 </head>
 <body>
 <form method="post" id="login" action="${pageContext.request.contextPath}/login">
-<h1 class="table_dark">Add driver:</h1>
+<h1 class="table_dark">Login:</h1>
 <table border="1" class="table_dark">
     <tr>
         <th colspan="3" style="color: red">${errorMsg}</th>

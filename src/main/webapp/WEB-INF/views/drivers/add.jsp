@@ -33,7 +33,7 @@
             <input type="password" name="password" form="driver" required>
         </td>
         <td>
-            <input type="submit" name="add" form="driver">
+            <input type="submit" value="Add" name="add" form="driver">
         </td>
     </tr>
 </table>

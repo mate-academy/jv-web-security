@@ -25,7 +25,7 @@
             <input type="number" name="manufacturer_id" form="car" required>
         </td>
         <td>
-            <input type="submit" name="add" form="car">
+            <input type="submit" value="Add" name="add" form="car">
         </td>
     </tr>
 </table>
