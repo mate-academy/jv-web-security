@@ -12,8 +12,10 @@
 <table border="1" class="table_dark">
     <tr>
         <th>ID</th>
+        <th>Username</th>
         <th>Name</th>
         <th>License number</th>
+        <th>Password</th>
         <th>Delete</th>
     </tr>
     <c:forEach var="driver" items="${drivers}">
@@ -22,10 +24,16 @@
                 <c:out value="${driver.id}"/>
             </td>
             <td>
+                <c:out value="${driver.login}"/>
+            </td>
+            <td>
                 <c:out value="${driver.name}"/>
             </td>
             <td>
                 <c:out value="${driver.licenseNumber}"/>
+            </td>
+            <td>
+                <c:out value="${driver.password}"/>
             </td>
             <td>
                 <a href="${pageContext.request.contextPath}/drivers/delete?id=${driver.id}">DELETE</a>
@@ -33,5 +41,6 @@
         </tr>
     </c:forEach>
 </table>
+<%@include file="/WEB-INF/views/logout.jsp" %>
 </body>
 </html>

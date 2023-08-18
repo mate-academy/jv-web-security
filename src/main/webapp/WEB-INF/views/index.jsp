@@ -20,6 +20,10 @@
     <tr><td><a href="${pageContext.request.contextPath}/cars/add">Create new Car</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/manufacturers/add">Create new Manufacturer</a></td></tr>
     <tr><td><a href="${pageContext.request.contextPath}/cars/drivers/add">Add Driver to Car</a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/login">Authentication</a></td></tr>
+    <tr><td><a href="${pageContext.request.contextPath}/drivers/get">Get current cars</a></td></tr>
+
 </table>
+<%@include file="/WEB-INF/views/logout.jsp" %>
 </body>
 </html>
