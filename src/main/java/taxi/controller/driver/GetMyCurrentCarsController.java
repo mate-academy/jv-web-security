@@ -25,7 +25,7 @@ public class GetMyCurrentCarsController extends HttpServlet {
             req.setAttribute("cars", cars);
             req.getRequestDispatcher("/WEB-INF/views/cars/all.jsp").forward(req, resp);
         } else {
-            resp.sendRedirect("/login");
+            resp.sendRedirect(req.getContextPath() + "/login");
         }
     }
 }
