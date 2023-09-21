@@ -1,7 +1,6 @@
 package taxi.service;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 import taxi.dao.ManufacturerDao;
 import taxi.lib.Inject;
 import taxi.lib.Service;
@@ -19,9 +18,7 @@ public class ManufacturerServiceImpl implements ManufacturerService {
 
     @Override
     public Manufacturer get(Long id) {
-        return manufacturerDao.get(id).orElseThrow(() ->
-            new NoSuchElementException("Can't get manufacturer by id: " + id)
-        );
+        return manufacturerDao.get(id).get();
     }
 
     @Override
