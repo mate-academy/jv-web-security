@@ -1,11 +1,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <style>
     <%@include file='/WEB-INF/views/css/table_dark.css' %>
 </style>
 <html>
 <head>
     <title>All cars</title>
+    <%@include file="/WEB-INF/views/header.jsp" %>
+    <br>
+    <%@include file="/WEB-INF/views/MainPage.jsp" %>
 </head>
 <body>
 <h1 class="table_dark">All cars:</h1>
@@ -18,6 +21,7 @@
         <th>Drivers</th>
         <th>Delete</th>
     </tr>
+    <jsp:useBean id="cars" scope="request" type="java.util.List"/>
     <c:forEach var="car" items="${cars}">
         <tr>
             <td>
@@ -34,7 +38,7 @@
             </td>
             <td>
                 <c:forEach var="driver" items="${car.drivers}">
-                    ${driver.id} ${driver.name} ${driver.licenseNumber} <br>
+                    ${driver.id} ${driver.name} ${driver.licenseNumber} ${driver.login} <br>
                 </c:forEach>
             </td>
             <td>
