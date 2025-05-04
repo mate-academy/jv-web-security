@@ -27,6 +27,7 @@
             <input type="submit" name="add" form="manufacturer" required>
         </td>
     </tr>
+    <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 </table>
 </body>
 </html>
