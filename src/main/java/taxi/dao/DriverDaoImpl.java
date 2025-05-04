@@ -17,13 +17,15 @@ import taxi.util.ConnectionUtil;
 public class DriverDaoImpl implements DriverDao {
     @Override
     public Driver create(Driver driver) {
-        String query = "INSERT INTO drivers (name, license_number) "
-                + "VALUES (?, ?)";
+        String query = "INSERT INTO drivers (name, license_number, username, password) "
+                + "VALUES (?, ?, ?, ?)";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement = connection.prepareStatement(query,
                         Statement.RETURN_GENERATED_KEYS)) {
             statement.setString(1, driver.getName());
             statement.setString(2, driver.getLicenseNumber());
+            statement.setString(3, driver.getLogin());
+            statement.setString(4, driver.getPassword());
             statement.executeUpdate();
             ResultSet resultSet = statement.getGeneratedKeys();
             if (resultSet.next()) {
@@ -98,14 +100,35 @@ public class DriverDaoImpl implements DriverDao {
         }
     }
 
+    @Override
+    public Optional<Driver> findByLogin(String username) {
+        String query = "SELECT * FROM drivers WHERE username = ? AND is_deleted = FALSE";
+        try (Connection connection = ConnectionUtil.getConnection();
+                PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, username);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                Long id = resultSet.getObject("id", Long.class);
+                return get(id);
+            }
+        } catch (SQLException e) {
+            return Optional.empty();
+        }
+        return Optional.empty();
+    }
+
     private Driver parseDriverFromResultSet(ResultSet resultSet) throws SQLException {
         Long id = resultSet.getObject("id", Long.class);
         String name = resultSet.getString("name");
         String licenseNumber = resultSet.getString("license_number");
+        String username = resultSet.getString("username");
+        String password = resultSet.getString("password");
         Driver driver = new Driver();
         driver.setId(id);
         driver.setName(name);
         driver.setLicenseNumber(licenseNumber);
+        driver.setLogin(username);
+        driver.setPassword(password);
         return driver;
     }
 }
