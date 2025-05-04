@@ -30,3 +30,11 @@
 .table_dark tr:hover td {
     text-decoration: underline;
 }
+.table_dark_header {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    color: #000000;
+    font-size: 14px;
+    text-align: center;
+    border-collapse: collapse;
+    margin: 20px;
+}

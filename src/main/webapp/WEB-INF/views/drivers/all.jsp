@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <style>
     <%@include file='/WEB-INF/views/css/table_dark.css' %>
@@ -33,5 +33,6 @@
         </tr>
     </c:forEach>
 </table>
+<div class="table_dark_header"><%@include file="/WEB-INF/views/footer.jsp"%></div>
 </body>
 </html>
