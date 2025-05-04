@@ -5,11 +5,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import taxi.exception.RegistrationException;
 import taxi.lib.Injector;
 import taxi.model.Driver;
 import taxi.service.DriverService;
 
 public class AddDriverController extends HttpServlet {
+    private static final Logger LOGGER = LogManager.getLogger(AddDriverController.class);
     private static final Injector injector = Injector.getInstance("taxi");
     private final DriverService driverService = (DriverService) injector
             .getInstance(DriverService.class);
@@ -21,11 +25,20 @@ public class AddDriverController extends HttpServlet {
     }
 
     @Override
-    public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    public void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws IOException, ServletException {
+        String login = req.getParameter("login");
+        String password = req.getParameter("password");
         String name = req.getParameter("name");
         String licenseNumber = req.getParameter("license_number");
-        Driver driver = new Driver(name, licenseNumber);
-        driverService.create(driver);
-        resp.sendRedirect(req.getContextPath() + "/drivers/add");
+        Driver driver = new Driver(name, licenseNumber, login, password);
+        try {
+            driverService.create(driver);
+        } catch (RegistrationException e) {
+            LOGGER.error("Can't register", e);
+            req.setAttribute("errorMsg", e.getMessage());
+            req.getRequestDispatcher("/WEB-INF/views/drivers/add.jsp").forward(req, resp);
+        }
+        resp.sendRedirect(req.getContextPath() + "/");
     }
 }
