@@ -9,15 +9,27 @@
     <title>Taxi service</title>
 </head>
 <body>
+<h1 class="steelBlueCols">
+    <br>
+    Main info
+    <br>
+    <br>
+    ID: ${driver.id}
+    <br>
+    Name: ${driver.name}
+    <br>
+    License number: ${driver.licenseNumber}
+    <br>
+    <br>
+</h1>
 <table class="steelBlueCols">
-    <h1 class="steelBlueCols">All cars</h1>
+    <h1 class="steelBlueCols">All my cars</h1>
     <thead>
     <tr>
         <th>ID</th>
         <th>Model</th>
         <th>Manufacturer name</th>
         <th>Manufacturer country</th>
-        <th>Drivers</th>
         <th>Delete</th>
     </tr>
     </thead>
@@ -37,12 +49,7 @@
                 <c:out value="${car.manufacturer.country}"/>
             </td>
             <td>
-                <c:forEach var="driver" items="${car.drivers}">
-                    ${driver.id} ${driver.name} ${driver.licenseNumber} ${driver.login} <br>
-                </c:forEach>
-            </td>
-            <td>
-                <a href="${pageContext.request.contextPath}/cars/delete?id=${car.id}">DELETE</a>
+                <a href="${pageContext.request.contextPath}/cars/delete?id=${car.id}&back=true" id="main">DELETE</a>
             </td>
         </tr>
     </c:forEach>
