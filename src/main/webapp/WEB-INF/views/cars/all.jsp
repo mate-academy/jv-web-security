@@ -7,6 +7,7 @@
 <head>
     <title>All cars</title>
 </head>
+<%@include file="/WEB-INF/views/headers/header.jsp"%>
 <body>
 <h1 class="table_dark">All cars:</h1>
 <table border="1" class="table_dark">
