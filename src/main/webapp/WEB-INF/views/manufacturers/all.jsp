@@ -8,6 +8,7 @@
     <title>All manufacturers</title>
 </head>
 <body>
+<a style="text-align: left" href="${pageContext.request.contextPath}/logout">logout</a>
 <h1 class="table_dark">All manufacturers:</h1>
 <table border="1" class="table_dark">
     <tr>

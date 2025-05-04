@@ -8,6 +8,7 @@
     <title>Manufacturers</title>
 </head>
 <body>
+<a style="text-align: left" href="${pageContext.request.contextPath}/logout">logout</a>
 <form method="post" id="manufacturer" action="${pageContext.request.contextPath}/manufacturers/add"></form>
 <h1 class="table_dark">Add manufacturer:</h1>
 <table border="1" class="table_dark">
