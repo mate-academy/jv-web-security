@@ -8,6 +8,7 @@
     <title>All manufacturers</title>
 </head>
 <body>
+<%@include file="../logout.jsp" %>
 <h1 class="table_dark">All manufacturers:</h1>
 <table border="1" class="table_dark">
     <tr>
@@ -33,5 +34,7 @@
         </tr>
     </c:forEach>
 </table>
+<a href="${pageContext.request.contextPath}/manufacturers/add">Add new manufacturer</a>
+<a href="${pageContext.request.contextPath}/index">Home page</a>
 </body>
 </html>

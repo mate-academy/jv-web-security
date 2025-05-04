@@ -8,12 +8,15 @@
     <title>All drivers</title>
 </head>
 <body>
+<%@include file="../logout.jsp" %>
 <form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/add"></form>
 <h1 class="table_dark">Add driver:</h1>
 <table border="1" class="table_dark">
     <tr>
         <th>Name</th>
         <th>License number</th>
+        <td>Login</td>
+        <td>Password</td>
         <th>Add</th>
     </tr>
     <tr>
@@ -24,9 +27,16 @@
             <input type="text" name="license_number" form="driver" required>
         </td>
         <td>
+            <input type="text" name="login" form="driver" required>
+        </td>
+        <td>
+            <input type="password" name="password" form="driver" required>
+        </td>
+        <td>
             <input type="submit" name="add" form="driver">
         </td>
     </tr>
 </table>
+<a href="${pageContext.request.contextPath}/index">Home page</a>
 </body>
 </html>
