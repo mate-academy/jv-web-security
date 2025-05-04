@@ -8,6 +8,7 @@
     <title>All drivers</title>
 </head>
 <body>
+<%@include file="/WEB-INF/views/header.jsp"%>
 <h1 class="table_dark">All drivers:</h1>
 <table border="1" class="table_dark">
     <tr>
@@ -16,22 +17,27 @@
         <th>License number</th>
         <th>Delete</th>
     </tr>
-    <c:forEach var="driver" items="${drivers}">
+    <c:forEach var="driver_id" items="${drivers}">
         <tr>
             <td>
-                <c:out value="${driver.id}"/>
+                <c:out value="${driver_id.id}"/>
             </td>
             <td>
-                <c:out value="${driver.name}"/>
+                <c:out value="${driver_id.name}"/>
             </td>
             <td>
-                <c:out value="${driver.licenseNumber}"/>
+                <c:out value="${driver_id.licenseNumber}"/>
             </td>
             <td>
-                <a href="${pageContext.request.contextPath}/drivers/delete?id=${driver.id}">DELETE</a>
+                <a href="${pageContext.request.contextPath}/drivers/delete?id=${driver_id.id}">DELETE</a>
             </td>
         </tr>
     </c:forEach>
+    <tr>
+        <td>
+            <a href="${pageContext.request.contextPath}/index">Back to main page</a>
+        </td>
+    </tr>
 </table>
 </body>
 </html>
