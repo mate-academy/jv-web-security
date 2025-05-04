@@ -6,8 +6,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import taxi.lib.Injector;
-import taxi.model.Car;
-import taxi.model.Driver;
 import taxi.service.CarService;
 import taxi.service.DriverService;
 
@@ -20,16 +18,15 @@ public class AddDriverToCarController extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+        req.setAttribute("drivers", driverService.getAll());
+        req.setAttribute("cars", carService.getAll());
         req.getRequestDispatcher("/WEB-INF/views/cars/drivers/add.jsp").forward(req, resp);
     }
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        long driverId = Long.parseLong(req.getParameter("driver_id"));
-        long carId = Long.parseLong(req.getParameter("car_id"));
-        Driver driver = driverService.get(driverId);
-        Car car = carService.get(carId);
-        carService.addDriverToCar(driver, car);
-        resp.sendRedirect(req.getContextPath() + "/cars/drivers/add");
+        carService.addDriverToCar(driverService.get(Long.parseLong(req.getParameter("driver_id"))),
+                carService.get(Long.parseLong(req.getParameter("car_id"))));
+        resp.sendRedirect(req.getContextPath() + "/cars");
     }
 }
