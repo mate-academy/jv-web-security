@@ -28,5 +28,11 @@
         </td>
     </tr>
 </table>
+<form method="get"
+      action="${pageContext.request.contextPath}/index">
+    <button type="submit">
+        back to service
+    </button>
+</form>
 </body>
 </html>
