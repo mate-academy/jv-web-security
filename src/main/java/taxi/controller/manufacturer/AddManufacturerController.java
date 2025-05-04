@@ -11,8 +11,8 @@ import taxi.service.ManufacturerService;
 
 public class AddManufacturerController extends HttpServlet {
     private static final Injector injector = Injector.getInstance("taxi");
-    private final ManufacturerService manufacturerService = (ManufacturerService) injector
-            .getInstance(ManufacturerService.class);
+    private final ManufacturerService manufacturerService =
+            (ManufacturerService) injector.getInstance(ManufacturerService.class);
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -26,6 +26,6 @@ public class AddManufacturerController extends HttpServlet {
         String country = req.getParameter("country");
         Manufacturer manufacturer = new Manufacturer(name, country);
         manufacturerService.create(manufacturer);
-        resp.sendRedirect(req.getContextPath() + "/manufacturers/add");
+        resp.sendRedirect(req.getContextPath() + "/manufacturers");
     }
 }
