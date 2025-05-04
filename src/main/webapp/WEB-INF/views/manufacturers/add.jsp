@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <style>
     <%@include file='/WEB-INF/views/css/table_dark.css' %>
@@ -8,6 +7,7 @@
     <title>Manufacturers</title>
 </head>
 <body>
+<h1 style="background-color: #FEF4AB; text-align: right;"><%@include file="/WEB-INF/views/header.jsp"%></h1>
 <form method="post" id="manufacturer" action="${pageContext.request.contextPath}/manufacturers/add"></form>
 <h1 class="table_dark">Add manufacturer:</h1>
 <table border="1" class="table_dark">
