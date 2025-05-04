@@ -6,6 +6,7 @@
 <html>
 <head>
     <title>All manufacturers</title>
+    <%@ include file ="../header.jsp" %>
 </head>
 <body>
 <h1 class="table_dark">All manufacturers:</h1>
