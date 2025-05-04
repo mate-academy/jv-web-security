@@ -9,6 +9,7 @@
 </head>
 <body>
 <h1 class="table_dark">All manufacturers:</h1>
+<%@include file="header.jsp"%>
 <table border="1" class="table_dark">
     <tr>
         <th>ID</th>
