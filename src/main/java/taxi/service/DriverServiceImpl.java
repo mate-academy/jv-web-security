@@ -2,10 +2,12 @@ package taxi.service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 import taxi.dao.DriverDao;
 import taxi.lib.Inject;
 import taxi.lib.Service;
 import taxi.model.Driver;
+import taxi.util.PasswordUtil;
 
 @Service
 public class DriverServiceImpl implements DriverService {
@@ -14,7 +16,10 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public Driver create(Driver driver) {
-        return driverDao.create(driver);
+        String hashedPassword = PasswordUtil.hashPassword(driver.getPassword());
+        Driver hashedDriver = new Driver(driver.getName(), driver.getLicenseNumber(),
+                driver.getLogin(), hashedPassword);
+        return driverDao.create(hashedDriver);
     }
 
     @Override
@@ -37,5 +42,10 @@ public class DriverServiceImpl implements DriverService {
     @Override
     public boolean delete(Long id) {
         return driverDao.delete(id);
+    }
+
+    @Override
+    public Optional<Driver> findByLogin(String login) {
+        return driverDao.findByLogin(login);
     }
 }

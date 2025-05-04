@@ -1,25 +1,36 @@
+body {
+    background-color: #808080;
+}
+
 .table_dark {
-    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    width: 70%;
-    color: #7C5FAB;
-    font-size: 40px;
+    font-family: "Roboto", "Arial", sans-serif;
+    width: 80%;
+    color: #F1F1F1;
+    font-size: 16px;
     text-align: center;
     border-collapse: collapse;
-    background: #FEF4AB;
+    background: #252525;
     margin: auto;
 }
+h4 {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.table_dark h1 {
+    color: #1E88E5;
+    padding: 20px 0;
+}
 .table_dark th {
-    color: #7C5FAB;
-    border-bottom: 1px solid #98E2CA;
+    color: #1E88E5;
+    border-bottom: 2px solid #1E88E5;
     padding: 12px 17px;
-    font-size: 14px;
 }
 .table_dark td {
-    color: #7C5FAB;
-    border-bottom: 1px solid #98E2CA;
-    border-right: 1px solid #98E2CA;
+    color: #F1F1F1;
+    border-bottom: 1px solid #444444;
+    border-right: 1px solid #444444;
     padding: 7px 17px;
-    font-size: 14px;
 }
 .table_dark tr:last-child td {
     border-bottom: none;
@@ -28,5 +39,32 @@
     border-right: none;
 }
 .table_dark tr:hover td {
+    background-color: #363636;
+}
+.table_dark input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    background-color: #363636;
+    border: 1px solid #444444;
+    color: #F1F1F1;
+}
+.table_dark input[type="submit"] {
+    background-color: #1E88E5;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.table_dark input[type="submit"]:hover {
+    background-color: #0D47A1;
+}
+.table_dark a {
+    color: #1E88E5;
+    text-decoration: none;
+}
+.table_dark a:hover {
     text-decoration: underline;
 }
