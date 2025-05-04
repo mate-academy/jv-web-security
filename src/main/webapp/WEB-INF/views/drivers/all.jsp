@@ -8,11 +8,16 @@
     <title>All drivers</title>
 </head>
 <body>
+<%@include file="/WEB-INF/views/header.jsp"%>
+<a href="${pageContext.request.contextPath}/index">
+    <input type="button" value="Homepage" />
+</a>
 <h1 class="table_dark">All drivers:</h1>
 <table border="1" class="table_dark">
     <tr>
         <th>ID</th>
         <th>Name</th>
+        <th>Username</th>
         <th>License number</th>
         <th>Delete</th>
     </tr>
@@ -23,6 +28,9 @@
             </td>
             <td>
                 <c:out value="${driver.name}"/>
+            </td>
+            <td>
+                <c:out value="${driver.username}"/>
             </td>
             <td>
                 <c:out value="${driver.licenseNumber}"/>
