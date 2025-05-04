@@ -6,6 +6,7 @@
 <head>
     <title>My team</title>
 </head>
+<%@include file="/WEB-INF/views/header.jsp"%>
 <body>
 <form method="post" id="redirect"></form>
 <h1 class="table_dark">Hello, mates</h1>
