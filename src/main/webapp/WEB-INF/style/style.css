@@ -1,0 +1,126 @@
+@import url('https://fonts.cdnfonts.com/css/montserrat');
+
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    user-select: none;
+    outline: none;
+    color: inherit;
+    font-family: Montserrat, sans-serif;
+}
+
+:root {
+    --background-color: #f6f6da;
+    --header-color: #93BFB7;
+    --navigation-buttons-color: #2D3E40;
+    --navigation-text-color: #2D3E40;
+    --horizontal-line-color: black;
+    --navigation-hover-text-color: #E4F2E7;
+    --header-height: 4rem;
+}
+
+body {
+    background-color: var(--background-color);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    height: var(--header-height);
+    background-color: var(--header-color);
+}
+a:hover {
+    color: #E4F2E7;
+}
+.user__block {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.user__block a:not(:first-child) {
+    margin-right: 30px;
+}
+
+.user__block a:first-child {
+    margin-right: 20px;
+}
+.header__wrapper {
+    display: block;
+}
+.header__wrapper hr{
+    border-color: var(--horizontal-line-color);
+}
+
+.header__wrapper {
+    display: block;
+}
+
+.header__navigation {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    color: var(--navigation-text-color);
+}
+
+.header__navigation a{
+    padding: 0 15px 0 15px;
+}
+
+.__table{
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+}
+.__table thead th {
+    background-color: var(--header-color);
+    color: var(--navigation-text-color);
+    text-align: left;
+    font-weight: bold;
+}
+
+.__table th,td{
+    padding: 12px 15px;
+}
+
+.__table tbody tr {
+    border-bottom: 1px solid var(--navigation-buttons-color);
+}
+.__table tbody tr:nth-of-type(even) {
+    background-color: #7ca39a;
+}
+.content {
+    position: absolute;
+    top: calc(var(--header-height) * 3);
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.content a {
+    padding-right: 10px;
+}
+.input__form {
+    margin-top: 5px;
+}
+.login__wrapper, .register__wrapper {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login input[type="submit"], .register input[type="submit"]{
+    width: auto;
+    height: auto;
+    padding: 2px;
+    background-color: #2D3E40;
+    border-radius: 5px;
+    color: #E4F2E7;
+}
+.inner__form_separator {
+    display: flex;
+    flex-direction: column;
+}
