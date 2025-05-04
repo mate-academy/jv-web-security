@@ -5,6 +5,7 @@
 </style>
 <html>
 <head>
+    <%@ include file="/WEB-INF/views/buttons.jsp" %>
     <title>Add car</title>
 </head>
 <body>
@@ -24,9 +25,31 @@
             <input type="number" name="manufacturer_id" form="car" required>
         </td>
         <td>
-            <input type="submit" name="add" form="car">
+            <input class="btn btn-primary" type="submit" name="add" form="car">
         </td>
     </tr>
+</table>
+<h3>List of manufacturers</h3>
+<table border="1" class="table_dark">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>License number</th>
+        <th>Delete</th>
+    </tr>
+    <c:forEach var="manufacturer" items="${manufacturers}">
+        <tr>
+            <td>
+                <c:out value="${manufacturer.id}"/>
+            </td>
+            <td>
+                <c:out value="${manufacturer.name}"/>
+            </td>
+            <td>
+                <c:out value="${manufacturer.country}"/>
+            </td>
+        </tr>
+    </c:forEach>
 </table>
 </body>
 </html>
