@@ -1,0 +1,24 @@
+.table_header {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    width: 70%;
+    background: #7C5FAB;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.logo {
+    font-size: xx-large;
+    color: aliceblue;
+    vertical-align: center;
+}
+a.main_menu:link, a.main_menu:visited, a.main_menu:active {
+    color: #FEF4AB;
+    text-decoration: none;
+}
+a.main_menu:hover {
+    text-decoration: underline;
+}
+.menu_container {
+    color: #FEF4AB;
+    text-align: right;
+}
