@@ -32,6 +32,9 @@
             </td>
         </tr>
     </c:forEach>
+    <tr>
+        <td><%@include file ="/WEB-INF/views/access/header.jsp" %></td>
+    </tr>
 </table>
 </body>
 </html>
