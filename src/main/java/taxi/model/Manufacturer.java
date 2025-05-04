@@ -3,6 +3,7 @@ package taxi.model;
 import java.util.Objects;
 
 public class Manufacturer {
+
     private Long id;
     private String name;
     private String country;
@@ -49,8 +50,8 @@ public class Manufacturer {
         }
         Manufacturer that = (Manufacturer) o;
         return Objects.equals(id, that.id)
-                && Objects.equals(name, that.name)
-                && Objects.equals(country, that.country);
+            && Objects.equals(name, that.name)
+            && Objects.equals(country, that.country);
     }
 
     @Override
