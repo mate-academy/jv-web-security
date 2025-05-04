@@ -22,10 +22,12 @@ public class AddDriverController extends HttpServlet {
 
     @Override
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        String login = req.getParameter("username");
         String name = req.getParameter("name");
         String licenseNumber = req.getParameter("license_number");
-        Driver driver = new Driver(name, licenseNumber);
+        String password = req.getParameter("password");
+        Driver driver = new Driver(login, name, licenseNumber, password);
         driverService.create(driver);
-        resp.sendRedirect(req.getContextPath() + "/drivers/add");
+        resp.sendRedirect(req.getContextPath() + "/drivers/all");
     }
 }
