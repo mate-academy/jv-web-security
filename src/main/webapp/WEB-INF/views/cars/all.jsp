@@ -1,15 +1,22 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<style>
-    <%@include file='/WEB-INF/views/css/table_dark.css' %>
-</style>
 <html>
 <head>
     <title>All cars</title>
+<style>
+    html * {
+        font-size: 16px;
+        line-height: 1.625;
+        color: #000000;
+        font-family: Nunito, sans-serif;
+    }
+</style>
 </head>
-<body>
-<h1 class="table_dark">All cars:</h1>
-<table border="1" class="table_dark">
+<body bgcolor="#ffd700">
+<div align="center ">
+<%@include file="/WEB-INF/views/header.jsp"%>
+<h1>ALL CARS</h1>
+<table align="center" border="1">
     <tr>
         <th>ID</th>
         <th>Model</th>
@@ -34,7 +41,7 @@
             </td>
             <td>
                 <c:forEach var="driver" items="${car.drivers}">
-                    ${driver.id} ${driver.name} ${driver.licenseNumber} <br>
+                    ${driver.id} ${driver.name} ${driver.licenseNumber} ${driver.login} <br>
                 </c:forEach>
             </td>
             <td>
@@ -43,5 +50,6 @@
         </tr>
     </c:forEach>
 </table>
+</div>
 </body>
 </html>

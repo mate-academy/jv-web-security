@@ -1,16 +1,23 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<style>
-    <%@include file='/WEB-INF/views/css/table_dark.css' %>
-</style>
 <html>
 <head>
     <title>Add car</title>
+<style>
+    html * {
+        font-size: 16px;
+        line-height: 1.625;
+        color: #000000;
+        font-family: Nunito, sans-serif;
+    }
+</style>
 </head>
-<body>
+<body bgcolor="#ffd700">
+<div align="center ">
+<%@include file="/WEB-INF/views/header.jsp"%>
 <form method="post" id="car" action="${pageContext.request.contextPath}/cars/add"></form>
-<h1 class="table_dark">Add car:</h1>
-<table border="1" class="table_dark">
+<h1>ADD CAR</h1>
+<table align="center" border="1">
     <tr>
         <th>Model</th>
         <th>Manufacturer ID</th>
@@ -28,5 +35,6 @@
         </td>
     </tr>
 </table>
+</div>
 </body>
 </html>
