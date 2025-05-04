@@ -6,6 +6,7 @@
 <html>
 <head>
     <title>All drivers</title>
+    <%@include file='/WEB-INF/views/siteComponents/header.jsp' %>
 </head>
 <body>
 <form method="post" id="driver" action="${pageContext.request.contextPath}/drivers/add"></form>
@@ -23,8 +24,19 @@
         <td>
             <input type="text" name="license_number" form="driver" required>
         </td>
-        <td>
+        <td rowspan="3">
             <input type="submit" name="add" form="driver">
+        </td>
+    </tr>
+    <tr>
+        <th>Login</th>
+        <th>Password</th>
+    </tr>
+        <td>
+            <input type="email" name="login" form="driver" required>
+        </td>
+        <td>
+            <input type="password" name="password" form="driver" required>
         </td>
     </tr>
 </table>
