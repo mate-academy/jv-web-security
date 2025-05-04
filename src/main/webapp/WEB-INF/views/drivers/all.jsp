@@ -6,6 +6,9 @@
 <html>
 <head>
     <title>All drivers</title>
+    <%@include file="/WEB-INF/views/header.jsp" %>
+    <br>
+    <%@include file="/WEB-INF/views/MainPage.jsp" %>
 </head>
 <body>
 <h1 class="table_dark">All drivers:</h1>
