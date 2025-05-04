@@ -121,7 +121,7 @@ public class CarDaoImpl implements CarDao {
             statement.setLong(1, id);
             return statement.executeUpdate() > 0;
         } catch (SQLException e) {
-            throw new DataProcessingException("Can't delete car by id " + id, e);
+            throw new DataProcessingException("Can't delete car by id: " + id, e);
         }
     }
 
@@ -203,7 +203,7 @@ public class CarDaoImpl implements CarDao {
             }
             return drivers;
         } catch (SQLException e) {
-            throw new DataProcessingException("Can't get all drivers by car id" + carId, e);
+            throw new DataProcessingException("Can't get all drivers by car id: " + carId, e);
         }
     }
 
