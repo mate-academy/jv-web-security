@@ -1,5 +1,6 @@
 package taxi.dao;
 
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,18 +13,30 @@ import taxi.exception.DataProcessingException;
 import taxi.lib.Dao;
 import taxi.model.Driver;
 import taxi.util.ConnectionUtil;
+import taxi.util.PasswordHashing;
 
 @Dao
 public class DriverDaoImpl implements DriverDao {
     @Override
     public Driver create(Driver driver) {
-        String query = "INSERT INTO drivers (name, license_number) "
-                + "VALUES (?, ?)";
+        String query = "INSERT INTO drivers (name, license_number, login, hash_password, "
+                + "salt_password) VALUES (?, ?, ?, ?, ?)";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement = connection.prepareStatement(query,
                         Statement.RETURN_GENERATED_KEYS)) {
             statement.setString(1, driver.getName());
             statement.setString(2, driver.getLicenseNumber());
+            statement.setString(3, driver.getLogin());
+            byte[] salt = PasswordHashing.generateSalt();
+            byte[] hash = null;
+            try {
+                hash = PasswordHashing.hashPassword(driver.getPassword(), salt);
+            } catch (NoSuchAlgorithmException e) {
+                throw new DataProcessingException("Can't create hash to password "
+                        + driver.getPassword(), e);
+            }
+            statement.setBytes(4, hash);
+            statement.setBytes(5, salt);
             statement.executeUpdate();
             ResultSet resultSet = statement.getGeneratedKeys();
             if (resultSet.next()) {
@@ -71,14 +84,17 @@ public class DriverDaoImpl implements DriverDao {
     @Override
     public Driver update(Driver driver) {
         String query = "UPDATE drivers "
-                + "SET name = ?, license_number = ? "
-                + "WHERE id = ? AND is_deleted = FALSE";
+                + "SET name = ?, license_number = ?, login = ?, hash_password = ?, "
+                + "salt_password = ? WHERE id = ? AND is_deleted = FALSE";
         try (Connection connection = ConnectionUtil.getConnection();
                 PreparedStatement statement
                         = connection.prepareStatement(query)) {
             statement.setString(1, driver.getName());
             statement.setString(2, driver.getLicenseNumber());
-            statement.setLong(3, driver.getId());
+            statement.setString(3, driver.getLogin());
+            statement.setBytes(4, driver.getHashPassword());
+            statement.setBytes(5, driver.getSaltPassword());
+            statement.setLong(6, driver.getId());
             statement.executeUpdate();
             return driver;
         } catch (SQLException e) {
@@ -98,14 +114,31 @@ public class DriverDaoImpl implements DriverDao {
         }
     }
 
+    @Override
+    public Optional<Driver> findByLogin(String login) {
+        String query = "SELECT * FROM drivers WHERE login = ? AND is_deleted = FALSE";
+        try (Connection connection = ConnectionUtil.getConnection();
+                PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setString(1, login);
+            ResultSet resultSet = statement.executeQuery();
+            Driver driver = null;
+            if (resultSet.next()) {
+                driver = parseDriverFromResultSet(resultSet);
+            }
+            return Optional.ofNullable(driver);
+        } catch (SQLException e) {
+            throw new DataProcessingException("Can't find driver with login " + login, e);
+        }
+    }
+
     private Driver parseDriverFromResultSet(ResultSet resultSet) throws SQLException {
         Long id = resultSet.getObject("id", Long.class);
         String name = resultSet.getString("name");
         String licenseNumber = resultSet.getString("license_number");
-        Driver driver = new Driver();
-        driver.setId(id);
-        driver.setName(name);
-        driver.setLicenseNumber(licenseNumber);
+        String login = resultSet.getString("login");
+        byte[] hashPassword = resultSet.getBytes("hash_password");
+        byte[] saltPassword = resultSet.getBytes("salt_password");
+        Driver driver = new Driver(id, name, licenseNumber, login, hashPassword, saltPassword);
         return driver;
     }
 }

@@ -1,25 +1,22 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<style>
-    <%@include file='/WEB-INF/views/css/table_dark.css' %>
-</style>
 <html>
 <head>
-    <title>My team</title>
+    <title>Main page taxi</title>
+    <style>
+        <%@include file='/WEB-INF/views/css/bootstrap.min.css' %>
+        <%@include file='/WEB-INF/views/css/style.css' %>
+    </style>
 </head>
 <body>
-<form method="post" id="redirect"></form>
-<h1 class="table_dark">Hello, mates</h1>
-<table class="table_dark">
-    <tr>
-        <th>Redirect to</th>
-    </tr>
-    <tr><td><a href="${pageContext.request.contextPath}/drivers">Display All Drivers</a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/cars">Display All Cars</a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/manufacturers">Display All Manufacturers</a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/drivers/add">Create new Driver</a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/cars/add">Create new Car</a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/manufacturers/add">Create new Manufacturer</a></td></tr>
-    <tr><td><a href="${pageContext.request.contextPath}/cars/drivers/add">Add Driver to Car</a></td></tr>
-</table>
+    <nav class="navbar navbar-light" style="background-color: lightgray;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="${pageContext.request.contextPath}/manufacturers">Manufacturers</a>
+            <a class="navbar-brand" href="${pageContext.request.contextPath}/drivers">Drivers</a>
+            <a class="navbar-brand" href="${pageContext.request.contextPath}/cars">All cars</a>
+            <a class="navbar-brand" href="${pageContext.request.contextPath}/drivers/cars">Cars of current user</a>
+            <a class="navbar-brand" href="${pageContext.request.contextPath}/logout">Logout</a>
+        </div>
+    </nav>
+    <br>
 </body>
 </html>
