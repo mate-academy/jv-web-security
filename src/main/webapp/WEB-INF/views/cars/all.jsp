@@ -1,47 +1,52 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<style>
-    <%@include file='/WEB-INF/views/css/table_dark.css' %>
-</style>
 <html>
 <head>
-    <title>All cars</title>
-</head>
+    <title>Display all drivers</title>
+    <style>
+        <%@include file="/WEB-INF/css/table.css" %>
+        <%@include file="/WEB-INF/css/header.css" %>
+    </style>
+    <%@include file="/WEB-INF/views/header.jsp" %></head>
 <body>
-<h1 class="table_dark">All cars:</h1>
-<table border="1" class="table_dark">
+
+<table class="tg">
+    <thead>
     <tr>
-        <th>ID</th>
-        <th>Model</th>
-        <th>Manufacturer name</th>
-        <th>Manufacturer country</th>
-        <th>Drivers</th>
-        <th>Delete</th>
+        <th class="tg-4n5g">ID</th>
+        <th class="tg-4n5g">Model</th>
+        <th class="tg-4n5g">Manufacturer name</th>
+        <th class="tg-4n5g">Manufacturer country</th>
+        <th class="tg-4n5g">Drivers</th>
+        <th class="tg-4n5g">Delete</th>
     </tr>
+    </thead>
+    <tbody>
     <c:forEach var="car" items="${cars}">
         <tr>
-            <td>
+            <td class="tg-0lax">
                 <c:out value="${car.id}"/>
             </td>
-            <td>
+            <td class="tg-0lax">
                 <c:out value="${car.model}"/>
             </td>
-            <td>
+            <td class="tg-0lax">
                 <c:out value="${car.manufacturer.name}"/>
             </td>
-            <td>
+            <td class="tg-0lax">
                 <c:out value="${car.manufacturer.country}"/>
             </td>
-            <td>
+            <td class="tg-0lax">
                 <c:forEach var="driver" items="${car.drivers}">
                     ${driver.id} ${driver.name} ${driver.licenseNumber} <br>
                 </c:forEach>
             </td>
-            <td>
+            <td class="tg-0lax">
                 <a href="${pageContext.request.contextPath}/cars/delete?id=${car.id}">DELETE</a>
             </td>
         </tr>
     </c:forEach>
+    </tbody>
 </table>
 </body>
 </html>
