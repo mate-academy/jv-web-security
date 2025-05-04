@@ -30,3 +30,7 @@
 .table_dark tr:hover td {
     text-decoration: underline;
 }
+.alert-msg {
+    color: red;
+    margin: 0;
+}
