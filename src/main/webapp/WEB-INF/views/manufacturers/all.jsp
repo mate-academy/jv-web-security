@@ -5,9 +5,10 @@
 </style>
 <html>
 <head>
-    <title>All manufacturers</title>
+    <title>Taxi service</title>
 </head>
 <body>
+<%@include file="../header.jsp"%>
 <h1 class="table_dark">All manufacturers:</h1>
 <table border="1" class="table_dark">
     <tr>
